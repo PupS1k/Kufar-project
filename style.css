@@ -1,0 +1,148 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: solid 1px #e7ebee;
+}
+button, a{
+    cursor: pointer;
+}
+.leftHeader, .rightHeader, .searchField{
+    display: flex;
+    align-items: center;
+}
+.leftHeader{
+    justify-content: space-between;
+    width: 60%;
+}
+.leftHeader > img{
+    width: 141px;
+    height: 45px;
+    margin: 8px 8px;
+}
+.searchField{
+    width: 500px;
+    height: 38px;
+    border: solid 1px #b6babd;
+    border-radius: 4px;
+    box-shadow: 0 0 3px  #b6babd;
+    outline: none;
+}
+label > img{
+    width: 32px;
+    height: 32px;
+}
+#searchInput{
+    width:100%;
+    height: 35px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+/*#searchInput.focus and.searchField:focus {*/
+/*    border: 1px solid #2abf69;*/
+/*}*/
+#searchInput::placeholder{
+    /*background: url(./images/search.png) no-repeat center left;*/
+    color: #7f8386;
+    font-size: 16px;
+}
+.map{
+    outline: none;
+    border: none;
+    font-size: 16px;
+    color: #29ad5b;
+    background: none;
+}
+.ad, .logIn{
+    margin-right: 25px;
+    font-size: 16px;
+    height: 40px;
+    width: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 3px 10px 3px 10px;
+}
+.ad{
+    color: white;
+    background: #29ad5b;
+    border: none;
+}
+.ad:hover{
+    background: #238543;
+}
+.ad > span{
+    font-size: 20px;
+}
+.logIn{
+    color: #29ad5b;
+    background: none;
+    border: solid 1px #29ad5b;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: solid 1px #e7ebee;
+    color: #5a5f61;
+    font-size: 18px;
+}
+.navigation > a:first-child{
+    margin-left: 20px;
+}
+.navigation > a:last-child{
+    margin-right: 20px;
+}
+.navigation > a:hover, .navigationFilters > a:hover{
+    color: #29ad5b;
+}
+
+.infoContainer{
+    display: flex;
+    margin: 0 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+.ads > p:first-child{
+    font-size: 22px;
+    font-weight: bold;
+    color: #3a3f41;
+}
+.ads > p:last-child{
+    font-size: 15px;
+    color:#7f8386;
+}
+
+.navigationFilters{
+    display: flex;
+    color: #383d3f;
+    margin: 0 15px;
+    width: 300px;
+    border-top: solid 1px #e7ebee;
+    border-bottom: solid 1px #e7ebee;
+    flex-direction: column;
+    font-size: 16px;
+}
+.navigationFilters > a:first-child{
+    margin: 8px 0;
+    font-size: 18px;
+}
+
+.listAds{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.ad1{
+    display: flex;
+    align-items: center;
+}
+.ad1 > img{
+    width: 200px;
+    height: 155px;
+}
+.ad1 > .info, .ad1 > .price{
+    flex-direction: column;
+    justify-content: space-between;
+}
