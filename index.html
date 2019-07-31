@@ -1,249 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Куфар в Беларуси</title>
-        <link href="style.css" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <div class="leftHeader">
-                <img
-                        class="logo"
-                        src="https://theme.zdassets.com/theme_assets/817244/007cc213862bef6b0dc63b6e40c58556d882ff99.JPG"
-                        alt="Logo Kufar"
-                />
-                <div class="searchField">
-                    <label for="searchInput">
-                        <img src="images/search.png" alt="Search">
-                    </label>
-                    <input id="searchInput" type="text" placeholder="Товар, услуга">
-                </div>
-                <button class="map">
-                    <img src="images/locationHeader.png" alt="Location"/>
-                    Вся Беларусь
-                </button>
-            </div>
-            <div class="rightHeader">
-                <button class="ad">
-                    <img src="images/plus.png" alt="Plus"/>
-                    Подать объявление
-                </button>
-                <button class="logIn">
-                    Вход
-                </button>
-            </div>
-        </header>
-        <nav class="navigation">
-            <button>
-                <img src="images/lines.png" alt="Lines"/>
-                Категории
-            </button>
-            <a>
-<!--                img-->
-                Модное лето</a>
-            <a>Техника с доставкой</a>
-            <a>Телефоны</a>
+<head>
+    <meta charset="UTF-8">
+    <title>Куфар в Беларуси</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="leftHeader">
+        <img
+                class="logo"
+                src="https://theme.zdassets.com/theme_assets/817244/007cc213862bef6b0dc63b6e40c58556d882ff99.JPG"
+                alt="Logo Kufar"
+        />
+        <div class="searchField">
+            <label for="searchInput" tabindex="0">
+                <img src="images/search.png" alt="Search">
+            </label>
+            <input id="searchInput" type="text" placeholder="Товар, услуга">
+        </div>
+        <button class="map">
+            <img src="images/locationHeader.png" alt="Location"/>
+            Вся Беларусь
+        </button>
+    </div>
+    <div class="rightHeader">
+        <button class="ad">
+            <img src="images/plus.png" alt="Plus"/>
+            Подать объявление
+        </button>
+        <button class="logIn">
+            Вход
+        </button>
+    </div>
+</header>
+<nav class="navigation">
+    <button>
+        <img src="images/lines.png" alt="Lines"/>
+        Категории
+    </button>
+    <div class="scrollPanel">
+        <a>
+            <img src="images/shirt.png" alt="Shirt"/>
+            Модное лето</a>
+        <a>Техника с доставкой</a>
+        <a>Телефоны</a>
+        <a>Недвижимость</a>
+        <a>Легковые авто</a>
+        <a>Велосипеды</a>
+        <a>Работа</a>
+        <!--        <a>Платья</a>-->
+        <!--        <a>Строительный инструмент</a>-->
+        <!--        <a>Садовая техника</a>-->
+        <!--        <a>Запчасти,расходники</a>-->
+        <!--        <a>Коляски</a>-->
+        <!--        <a>Диваны</a>-->
+        <!--        <a>Холодильники</a>-->
+    </div>
+</nav>
+<div class="infoContainer">
+    <div class="headline">
+        <p>Kufar - площадка объявлений в Беларуси</p>
+        <p>Объявлений: 2071428</p>
+    </div>
+    <div class="sortingsContainer">
+        <select>
+            <option>По дате</option>
+            <option>По цене ↑</option>
+            <option>По цене ↓</option>
+        </select>
+        <button>
+            <img src="images/square4.png" alt="Square">
+        </button>
+    </div>
+
+    <!--            img switch-->
+</div>
+<div class="mainPage">
+    <div class="filtersContainer">
+        <nav class="navigationFilters">
+            <a>Все категории</a>
+            <a>Модное лето</a>
             <a>Недвижимость</a>
-            <a>Легковые авто</a>
-            <a>Велосипеды</a>
-            <a>Работа</a>
-            <!--        other categories-->
+            <a>Авто и транспорт</a>
+            <a>Техника</a>
+            <a>Мода и стиль</a>
+            <a>Все для детей и мам</a>
+            <a>Все для дома</a>
+            <a>Ремонт и стройка</a>
+            <a>Сад и огород</a>
+            <a>Хобби, спорт и туризм</a>
+            <a>Свадьба и праздники</a>
+            <a>Животные</a>
+            <a>Работа, бизнес, учеба</a>
+            <a>Услуги</a>
+            <a>Прочее</a>
         </nav>
-        <div class="infoContainer">
-            <div class="headline">
-                <p>Kufar - площадка объявлений в Беларуси</p>
-                <p>Объявлений: 2071428</p>
-            </div>
-            <select>
-                <option>
-                    По дате
-                </option>
-                <option>
-                  По цене <!--  arrow up-->
-                </option>
-                <option>
-                    По цене <!--  arrow down-->
-                </option>
+        <div class="locationFilters">
+            <label for="regionFilters">ВСЯ БЕЛАРУСЬ</label>
+            <select id="regionFilters">
+                <option>Область</option>
+                <option>Минск</option>
+                <option>Брестская</option>
+                <option>Могилевская</option>
+                <option>Гомельская</option>
+                <option>Витебская</option>
+                <option>Гродненская</option>
+                <option>Минск</option>
             </select>
-            <!--            img switch-->
-        </div>
-        <div class="mainPage">
-            <div class="filtersContainer">
-                <nav class="navigationFilters">
-                    <a>Все категории</a>
-                    <a>Модное лето</a>
-                    <a>Недвижимость</a>
-                    <a>Авто и транспорт</a>
-                    <a>Техника</a>
-                    <a>Мода и стиль</a>
-                    <a>Все для детей и мам</a>
-                    <a>Все для дома</a>
-                    <a>Ремонт и стройка</a>
-                    <a>Сад и огород</a>
-                    <a>Хобби, спорт и туризм</a>
-                    <a>Свадьба и праздники</a>
-                    <a>Животные</a>
-                    <a>Работа, бизнес, учеба</a>
-                    <a>Услуги</a>
-                    <a>Прочее</a>
-                </nav>
-                <div class="locationFilters">
-                    <label for="regionFilters">ВСЯ БЕЛАРУСЬ</label>
-                    <select id="regionFilters">
-                        <option>Область</option>
-                        <option>Минск</option>
-                        <option>Брестская</option>
-                        <option>Могилевская</option>
-                        <option>Гомельская</option>
-                        <option>Витебская</option>
-                        <option>Гродненская</option>
-                        <option>Минск</option>
-                    </select>
-                    <label for="cityFilters">ГОРОД / РАЙОН</label>
-                    <select id="cityFilters" disabled>
-                        <option>Любой</option>
-<!--                        <option>Минск</option>-->
-<!--                        <option>Брестская</option>-->
-<!--                        <option>Могилевская</option>-->
-<!--                        <option>Гомельская</option>-->
-<!--                        <option>Витебская</option>-->
-<!--                        <option>Гродненская</option>-->
-<!--                        <option>Минск</option>-->
-                    </select>
-                    <label for="priceFiltersFrom">ЦЕНА</label>
-                    <div class="priceFilters">
-                        <input id="priceFiltersFrom" placeholder="От" type="number" min="0" step="0.01">
-                        <input placeholder="До" type="number" min="0" step="0.01">
-                    </div>
-                    <label>СОСТОЯНИЕ</label>
-                    <div class="stateFilters">
-                        <label><input type="radio"  checked name="state">Любой</label>
-                        <label><input type="radio" name="state">Новое</label>
-                        <label><input type="radio" name="state">Б/у</label>
-                    </div>
-                    <label>ПРОДАВЕЦ</label>
-                    <div class="sellerFilters">
-                        <label><input type="radio" checked name="seller">Любой</label>
-                        <label><input type="radio" name="seller">Частное лицо</label>
-                        <label><input type="radio" name="seller">Компания</label>
-                    </div>
-                </div>
-                <div class="mode">
-                    <label><input type="checkbox" value="fSummer">Модное лето</label>
-                    <label><input type="checkbox" value="halva">В рассрочку по халве</label>
-                    <label><input type="checkbox" value="withPhoto">Только с фото</label>
-                    <label><input type="checkbox" value="exchange">Возможен обмен</label>
-                </div>
-                <button class="showResult">Показать результаты(62893)</button>
-                <button class="resetFilters">Сбросить фильтры</button>
-                <button class="saveSearch">Сохранить поиск</button>
+            <label for="cityFilters">ГОРОД / РАЙОН</label>
+            <select id="cityFilters" disabled>
+                <option>Любой</option>
+                <!--                        <option>Минск</option>-->
+                <!--                        <option>Брестская</option>-->
+                <!--                        <option>Могилевская</option>-->
+                <!--                        <option>Гомельская</option>-->
+                <!--                        <option>Витебская</option>-->
+                <!--                        <option>Гродненская</option>-->
+                <!--                        <option>Минск</option>-->
+            </select>
+            <label for="priceFiltersFrom">ЦЕНА</label>
+            <div class="priceFilters">
+                <input id="priceFiltersFrom" placeholder="От" type="number" min="0" step="0.01">
+                <input placeholder="До" type="number" min="0" step="0.01">
             </div>
+            <label>СОСТОЯНИЕ</label>
+            <div class="stateFilters">
+                <label><input type="radio" checked name="state">
+                    <div class="iconRadio"></div>
+                    Любой</label>
+                <label><input type="radio" name="state">
+                    <div class="iconRadio"></div>
+                    Новое</label>
+                <label><input type="radio" name="state">
+                    <div class="iconRadio"></div>
+                    Б/у</label>
+            </div>
+            <label>ПРОДАВЕЦ</label>
+            <div class="sellerFilters">
+                <label><input type="radio" checked name="seller">
+                    <div class="iconRadio"></div>
+                    Любой</label>
+                <label><input type="radio" name="seller">
+                    <div class="iconRadio"></div>
+                    Частное лицо</label>
+                <label><input type="radio" name="seller">
+                    <div class="iconRadio"></div>
+                    Компания</label>
+            </div>
+        </div>
+        <div class="mode">
+            <label><input type="checkbox" value="fSummer">
+                <div class="icon"></div>
+                Модное лето</label>
+            <label><input type="checkbox" value="halva">
+                <div class="icon"></div>
+                В рассрочку по халве</label>
+            <label><input type="checkbox" value="withPhoto">
+                <div class="icon"></div>
+                Только с фото</label>
+            <label><input type="checkbox" value="exchange">
+                <div class="icon"></div>
+                Возможен обмен</label>
+        </div>
+        <button class="showResult">Показать результаты(62893)</button>
+        <button class="resetFilters">Сбросить фильтры</button>
+        <button class="saveSearch">Сохранить поиск</button>
+    </div>
 
-            <div class="listAds">
-                <div class="ads">
-                    <div class="imageContainer" style="background-image: url(images/item.jpg)"></div>
-                    <div class="info">
-                        <div class="nameItem">
-                            <div>
-                                <p>Кастрюля</p>
-                                <p>Кухонные приборы, Redmand, Б/у</p>
-                            </div>
-                            <p><img src="images/locationItem.png" alt="Location"/>Гомель</p>
-                        </div>
-                        <div class="price">
-                            <p>100 р.</p>
-                            <p>Сегодня, 09:40</p>
-                        </div>
+    <div class="listAds">
+        <div class="ads">
+            <div class="imageContainer" style="background-image: url(images/item.jpg)"></div>
+            <div class="info">
+                <div class="nameItem">
+                    <div>
+                        <p>Кастрюля</p>
+                        <p>Кухонные приборы, Redmand, Б/у</p>
                     </div>
+                    <p><img src="images/locationItem.png" alt="Location"/>Гомель</p>
                 </div>
-                <div class="ads">
-                    <div class="imageContainer" style="background-image: url(images/item2.jpg)"></div>
-                    <div class="info">
-                        <div class="nameItem">
-                            <div>
-                                <p>Наклейки Ледниковый период</p>
-                                <p>Коллекции</p>
-                            </div>
-                            <p><img src="images/locationItem.png" alt="Location"/>Минск, Октябрьский</p>
-                        </div>
-                        <div class="price">
-                            <p>1 р.</p>
-                            <p>12 июля, 10:23</p>
-                        </div>
+                <div class="price">
+                    <p>100 р.</p>
+                    <p>Сегодня, 09:40</p>
+                </div>
+            </div>
+        </div>
+        <div class="ads">
+            <div class="imageContainer" style="background-image: url(images/item2.jpg)"></div>
+            <div class="info">
+                <div class="nameItem">
+                    <div>
+                        <p>Наклейки Ледниковый период</p>
+                        <p>Коллекции</p>
                     </div>
+                    <p><img src="images/locationItem.png" alt="Location"/>Минск, Октябрьский</p>
                 </div>
-                <div class="ads">
-                    <div class="imageContainer" style="background-image: url(images/item3.jpg)"></div>
-                    <div class="info">
-                        <div class="nameItem">
-                            <div>
-                                <p>Куртка</p>
-                                <p>Женская одежда, Верхняя одежда, 52(XXL), Деми, Новое</p>
-                            </div>
-                            <p><img src="images/locationItem.png" alt="Location"/>Минская, Вилейка</p>
-                        </div>
-                        <div class="price">
-                            <p>10 р.</p>
-                            <p>23 июня, 19:30</p>
-                        </div>
+                <div class="price">
+                    <p>1 р.</p>
+                    <p>12 июля, 10:23</p>
+                </div>
+            </div>
+        </div>
+        <div class="ads">
+            <div class="imageContainer" style="background-image: url(images/item3.jpg)"></div>
+            <div class="info">
+                <div class="nameItem">
+                    <div>
+                        <p>Куртка</p>
+                        <p>Женская одежда, Верхняя одежда, 52(XXL), Деми, Новое</p>
                     </div>
+                    <p><img src="images/locationItem.png" alt="Location"/>Минская, Вилейка</p>
                 </div>
-                <div class="ads">
-                    <div class="imageContainer" style="background-image: url(images/item4.jpg)"></div>
-                    <div class="info">
-                        <div class="nameItem">
-                            <div>
-                                <p>Красавица поночка</p>
-                                <p>Домашние питомцы, Собаки</p>
-                            </div>
-                            <p><img src="images/locationItem.png" alt="Location"/>Минск, Октябрьский</p>
-                        </div>
-                        <div class="price">
-                            <p>Бесплатно</p>
-                            <p>12 июля, 10:40</p>
-                        </div>
+                <div class="price">
+                    <p>10 р.</p>
+                    <p>23 июня, 19:30</p>
+                </div>
+            </div>
+        </div>
+        <div class="ads">
+            <div class="imageContainer" style="background-image: url(images/item4.jpg)"></div>
+            <div class="info">
+                <div class="nameItem">
+                    <div>
+                        <p>Красавица поночка</p>
+                        <p>Домашние питомцы, Собаки</p>
                     </div>
+                    <p><img src="images/locationItem.png" alt="Location"/>Минск, Октябрьский</p>
                 </div>
+                <div class="price">
+                    <p>Бесплатно</p>
+                    <p>12 июля, 10:40</p>
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+        <!--            ....-->
+    </div>
+</div>
+<div class="pagination">
+    <button class="previous" disabled></button>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div class="dis">...</div>
+    <div>62893</div>
+    <button class="next"></button>
+</div>
+
+<footer>
+    <div class="infoFooter">
+        <div class="otherLinks">
+            <a><img src="images/gistogram.png" alt="Gistogram">Реклама</a>
+            <a>Рассрочка</a>
+            <a>Доставка</a>
+            <a>Правила</a>
+            <a>Помощь</a>
+            <a>Выбрать регион</a>
+        </div>
+        <p class="priceInfo">*Оплата производится в белорусских рублях по курсу НБ РБ.</p>
+        <p class="aboutKufar">© Kufar — крупнейшая площадка объявлений Беларуси по данным gemiusAudience,
+            апрель 2019. Использование ресурса Kufar означает согласие с Пользовательским соглашением и
+            Политикой конфиденциальности. ООО «Адевинта», УНП 191767445, 220030, г. Минск, ул. Немига, 5,
+            помещение 77. Режим работы: 10.00 - 18.00, Пн-Пт.</p>
+        <div class="linkApp">
+            <a>
                 <div>
-                    <!--            pagination-->
+                    <img src="images/apple.png" alt="Apple">
+                    <div>Приложение Kufar в App Store</div>
                 </div>
-                <!--            ....-->
-            </div>
+            </a>
+            <a>
+                <div>
+                    <img src="images/googlePlay.png" alt="Google Play">
+                    <div>Приложение Kufar в Google Play</div>
+                </div>
+            </a>
         </div>
-
-
-        <footer>
-            <div class="infoFooter">
-                <div class="otherLinks">
-                    <a>Реклама</a>
-                    <a>Рассрочка</a>
-                    <a>Доставка</a>
-                    <a>Правила</a>
-                    <a>Помощь</a>
-                    <a>Выбрать регион</a>
-                </div>
-                <p class="priceInfo">*Оплата производится в белорусских рублях по курсу НБ РБ.</p>
-                <p class="aboutKufar">© Kufar — крупнейшая площадка объявлений Беларуси по данным gemiusAudience,
-                    апрель 2019. Использование ресурса Kufar означает согласие с Пользовательским соглашением и
-                    Политикой конфиденциальности. ООО «Адевинта», УНП 191767445, 220030, г. Минск, ул. Немига, 5,
-                    помещение 77. Режим работы: 10.00 - 18.00, Пн-Пт.</p>
-                <div class="linkApp">
-                    <a><div>Приложение Kufar в App Store</div></a>
-                    <a><div>Приложение Kufar в Google Play</div></a>
-                </div>
-            </div>
-            <div class="linksFooter">
-                <button>Беларуская</button>
-                <div class="links">
-                    <a>tel</a>
-                    <a>vk</a>
-                    <a>face</a>
-                    <a>inst</a>
-                    <a>ytu</a>
-                    <a>odn</a>
-                </div>
-            </div>
-        </footer>
-    </body>
+    </div>
+    <div class="linksFooter">
+        <button><img src="images/earth.png" alt="Earth">Беларуская</button>
+        <div class="links">
+            <a><img src="images/telegram.png" alt="Telegram"></a>
+            <a><img src="images/vk.png" alt="Vk"></a>
+            <a><img src="images/facebook.png" alt="Facebook"></a>
+            <a><img src="images/instagram.png" alt="Instagram"></a>
+            <a><img src="images/youtube.png" alt="Youtube"></a>
+            <a><img src="images/odnoklassniki.png" alt="Odnoklassniki"></a>
+        </div>
+    </div>
+</footer>
+</body>
 </html>
