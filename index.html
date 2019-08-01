@@ -24,9 +24,10 @@
                 </button>
             </div>
             <div class="rightHeader">
-                <button class="ad">
+                <button class="addAd">
                     <img src="images/plus.png" alt="Plus"/>
-                    Подать объявление
+                    <div class="ad">Подать объявление</div>
+                    <div class="ad">Объявление</div>
                 </button>
                 <button class="logIn">
                     Вход
@@ -72,12 +73,11 @@
                     <option>По цене ↑</option>
                     <option>По цене ↓</option>
                 </select>
-                <button>
-                    <img src="images/square4.png" alt="Square">
-                </button>
+                <div class="switches">
+                    <button class="showFilters"><img src="images/switch.png" alt="Switch"/>Фильтры</button>
+                    <button><img src="images/square4.png" alt="Square"></button>
+                </div>
             </div>
-
-            <!--            img switch-->
         </div>
         <div class="mainPage">
             <div class="filtersContainer">
@@ -177,15 +177,15 @@
                 <div class="ads">
                     <div class="imageContainer" style="background-image: url(images/item.jpg)"></div>
                     <div class="info">
-                        <div class="nameItem">
-                            <div>
+                        <div class="infoItem">
+                            <div class="nameItem">
                                 <p>Кастрюля</p>
                                 <p>Кухонные приборы, Redmand, Б/у</p>
                             </div>
-                            <p><img src="images/locationItem.png" alt="Location"/>Гомель</p>
-                        </div>
-                        <div class="price">
                             <p>100 р.</p>
+                        </div>
+                        <div class="extra">
+                            <p class="locationItem"><img src="images/locationItem.png" alt="Location"/>Гомель</p>
                             <p>Сегодня, 09:40</p>
                         </div>
                     </div>
@@ -193,15 +193,15 @@
                 <div class="ads">
                     <div class="imageContainer" style="background-image: url(images/item2.jpg)"></div>
                     <div class="info">
-                        <div class="nameItem">
+                        <div class="infoItem">
                             <div>
                                 <p>Наклейки Ледниковый период</p>
                                 <p>Коллекции</p>
                             </div>
-                            <p><img src="images/locationItem.png" alt="Location"/>Минск, Октябрьский</p>
-                        </div>
-                        <div class="price">
                             <p>1 р.</p>
+                        </div>
+                        <div class="extra">
+                            <p class="locationItem"><img src="images/locationItem.png" alt="Location"/>Минск, Октябрьский</p>
                             <p>12 июля, 10:23</p>
                         </div>
                     </div>
@@ -209,15 +209,15 @@
                 <div class="ads">
                     <div class="imageContainer" style="background-image: url(images/item3.jpg)"></div>
                     <div class="info">
-                        <div class="nameItem">
+                        <div class="infoItem">
                             <div>
                                 <p>Куртка</p>
                                 <p>Женская одежда, Верхняя одежда, 52(XXL), Деми, Новое</p>
                             </div>
-                            <p><img src="images/locationItem.png" alt="Location"/>Минская, Вилейка</p>
-                        </div>
-                        <div class="price">
                             <p>10 р.</p>
+                        </div>
+                        <div class="extra">
+                            <p class="locationItem"><img src="images/locationItem.png" alt="Location"/>Минская, Вилейка</p>
                             <p>23 июня, 19:30</p>
                         </div>
                     </div>
@@ -225,22 +225,19 @@
                 <div class="ads">
                     <div class="imageContainer" style="background-image: url(images/item4.jpg)"></div>
                     <div class="info">
-                        <div class="nameItem">
+                        <div class="infoItem">
                             <div>
                                 <p>Красавица поночка</p>
                                 <p>Домашние питомцы, Собаки</p>
                             </div>
-                            <p><img src="images/locationItem.png" alt="Location"/>Минск, Октябрьский</p>
-                        </div>
-                        <div class="price">
                             <p>Бесплатно</p>
+                        </div>
+                        <div class="extra">
+                            <p class="locationItem"><img src="images/locationItem.png" alt="Location"/>Минск, Октябрьский</p>
                             <p>12 июля, 10:40</p>
                         </div>
                     </div>
                 </div>
-                <div>
-                </div>
-                <!--            ....-->
             </div>
         </div>
         <div class="pagination">
@@ -268,31 +265,33 @@
                     апрель 2019. Использование ресурса Kufar означает согласие с Пользовательским соглашением и
                     Политикой конфиденциальности. ООО «Адевинта», УНП 191767445, 220030, г. Минск, ул. Немига, 5,
                     помещение 77. Режим работы: 10.00 - 18.00, Пн-Пт.</p>
-                <div class="linkApp">
-                    <a>
-                        <div>
-                            <img src="images/apple.png" alt="Apple">
-                            <div>Приложение Kufar в App Store</div>
-                        </div>
-                    </a>
-                    <a>
-                        <div>
-                            <img src="images/googlePlay.png" alt="Google Play">
-                            <div>Приложение Kufar в Google Play</div>
-                        </div>
-                    </a>
+                <div class="linksFooter">
+                    <div class="linksApp">
+                        <a>
+                            <div>
+                                <img src="images/apple.png" alt="Apple">
+                                <div>Приложение Kufar в App Store</div>
+                            </div>
+                        </a>
+                        <a>
+                            <div>
+                                <img src="images/googlePlay.png" alt="Google Play">
+                                <div>Приложение Kufar в Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="links">
+                        <a><img src="images/telegram.png" alt="Telegram"></a>
+                        <a><img src="images/vk.png" alt="Vk"></a>
+                        <a><img src="images/facebook.png" alt="Facebook"></a>
+                        <a><img src="images/instagram.png" alt="Instagram"></a>
+                        <a><img src="images/youtube.png" alt="Youtube"></a>
+                        <a><img src="images/odnoklassniki.png" alt="Odnoklassniki"></a>
+                    </div>
                 </div>
             </div>
-            <div class="linksFooter">
+            <div class="languageButton">
                 <button><img src="images/earth.png" alt="Earth">Беларуская</button>
-                <div class="links">
-                    <a><img src="images/telegram.png" alt="Telegram"></a>
-                    <a><img src="images/vk.png" alt="Vk"></a>
-                    <a><img src="images/facebook.png" alt="Facebook"></a>
-                    <a><img src="images/instagram.png" alt="Instagram"></a>
-                    <a><img src="images/youtube.png" alt="Youtube"></a>
-                    <a><img src="images/odnoklassniki.png" alt="Odnoklassniki"></a>
-                </div>
             </div>
         </footer>
     </body>
