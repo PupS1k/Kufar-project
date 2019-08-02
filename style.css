@@ -1,10 +1,13 @@
 body{
     overflow-x: visible;
 }
+p{
+    margin: 0;
+}
 *{
     outline: none;
 }
-.page{
+.page-container{
     font: 400 16px Arial;
     height: 100%;
     max-width: 1366px;
@@ -29,12 +32,12 @@ header{
     max-width: 1366px;
     position: fixed;
 }
-button, a, .icon, .iconRadio{
+button, a, .icon-checkbox, .icon-radio-btn{
     cursor: pointer;
 }
 
 
-.leftHeader, .rightHeader, .searchField, .logo{
+.left-part-of-cup, .right-part-of-cup, .search-field-container, .logo-container{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -42,36 +45,31 @@ button, a, .icon, .iconRadio{
     display: -o-flex;
     align-items: center;
 }
-.rightHeader{
+.right-part-of-cup{
     max-width: 30%;
     margin-right: 20px;
     justify-content: flex-end;
     -webkit-flex: 1 1 30%;
     flex: 1 1 30%;
 }
-.leftHeader{
+.left-part-of-cup{
     width: 65%;
     justify-content: space-between;
     -webkit-flex: 1 4 65%;
     flex: 1 4 65%;
 }
-.leftHeader > img{
-    width: 141px;
-    height: 45px;
-    margin: 8px 8px;
-}
-.logo{
+.logo-container{
     cursor: pointer;
     margin: 0 10px 0 20px;
 }
-.logo img{
+.logo-img{
     height: 40px;
 }
-.logo img:last-child{
+.logo-text{
     height: 35px;
     width: 100px;
 }
-.searchField{
+.search-field-container{
     max-width: 500px;
     height: 38px;
     border: solid 1px #b6babd;
@@ -83,11 +81,11 @@ button, a, .icon, .iconRadio{
     flex: 1 6 500px;
     z-index: 40;
 }
-.searchField img{
+.img--loupe{
     width: 32px;
     height: 32px;
 }
-#searchInput{
+#search-field{
     width: calc(98% - 32px);
     height: 35px;
     font-size: 16px;
@@ -96,14 +94,14 @@ button, a, .icon, .iconRadio{
     outline: none;
     z-index: 30;
 }
-.searchField:focus-within{
+.search-field-container:focus-within{
     border: 1px solid #2abf69;
 }
-#searchInput::placeholder{
+#search-field::placeholder{
     color: #7f8386;
     font-size: 16px;
 }
-.map{
+.btn--location{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -118,11 +116,11 @@ button, a, .icon, .iconRadio{
     white-space: nowrap;
     background: none;
 }
-.map > img{
+.img--marker{
     width: 23px;
     height: 23px;
 }
-.addAd, .logIn{
+.btn--add-ad, .btn--log-In{
     margin: 0 10px;
     font-size: 16px;
     height: 40px;
@@ -133,25 +131,25 @@ button, a, .icon, .iconRadio{
     outline: none;
     padding: 3px 10px 3px 10px;
 }
-.addAd{
+.btn--add-ad{
     display: flex;
     align-items: center;
     color: white;
     background: #29ad5b;
     border: none;
 }
-.addAd > div:last-child{
+.btn--add-ad__text-reduction{
     display: none;
 }
-.addAd:hover{
+.btn--add-ad:hover{
     background: #238543;
 }
-.addAd > img{
+.img--plus{
     width: 15px;
     height: 15px;
     margin-right: 8px;
 }
-.logIn{
+.btn--log-In{
     color: #29ad5b;
     background: none;
     border: solid 1px #29ad5b;
@@ -165,12 +163,15 @@ button, a, .icon, .iconRadio{
     display: -ms-flex;
     display: -o-flex;
     align-items: center;
-    padding: 80px 0 10px 0;
+    padding: 75px 0 5px 0;
     border-bottom: solid 1px #d3d7da;
     color: #5a5f61;
     font-size: 16px;
 }
-.scrollPanel{
+.navigation p{
+    margin: 0;
+}
+.scroll-panel-nav{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -183,25 +184,22 @@ button, a, .icon, .iconRadio{
     overflow-x: hidden;
     /*overflow-y: hidden;*/
 }
-.navigation > button > img{
+.btn--all-categories__img{
     width: 30px;
     height: 20px;
 }
-.navigation > button:hover{
+.btn--all-categories:hover{
     color: #424de2;
 }
-.navigation  a img{
+.nav-img--skirt{
     margin-right: 3px;
     width: 21px;
     height: 18px;
 }
-.navigation  a:last-child{
-    margin-right: 20px;
-}
-.navigation  a:hover, .navigationFilters > a:hover{
+.nav--category:hover, .list-nav-filters > a:hover{
     color: #29ad5b;
 }
-.navigation > button{
+.btn--all-categories{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -216,7 +214,7 @@ button, a, .icon, .iconRadio{
     border: none;
     outline: none;
 }
-.scrollPanel  a{
+.nav--category{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -228,7 +226,7 @@ button, a, .icon, .iconRadio{
     white-space: nowrap;
     z-index: 1;
 }
-.scrollButton{
+.scroll-panel-btn{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -241,7 +239,7 @@ button, a, .icon, .iconRadio{
     background: -moz-linear-gradient(to right, transparent, white, white, white, white, white);
     background: linear-gradient(to right, transparent, white, white, white, white, white);
 }
-.scrollButton button{
+.scroll-btn{
     z-index: 50;
     width: 32px;
     height: 32px;
@@ -249,7 +247,7 @@ button, a, .icon, .iconRadio{
     background: url(images/arrow.png) no-repeat center;
     outline:none;
 }
-.scrollButton button:first-child{
+.scroll-panel-btn--left{
     opacity: 0.3;
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
@@ -257,7 +255,7 @@ button, a, .icon, .iconRadio{
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-.scrollButton button:last-child{
+.scroll-panel-btn--righ{
     -webkit-transform: rotate(270deg);
     -o-transform: rotate(270deg);
     -moz-transform: rotate(270deg);
@@ -267,7 +265,7 @@ button, a, .icon, .iconRadio{
 
 
 
-.infoContainer{
+.cup-of-mainpage{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -277,7 +275,7 @@ button, a, .icon, .iconRadio{
     align-items: center;
     justify-content: space-between;
 }
-.sortingsContainer select{
+.list-sortings{
     width: 160px;
     border-radius: 4px;
     border: solid 1px #bbbfc2;
@@ -292,7 +290,7 @@ button, a, .icon, .iconRadio{
     background-size: 40px 30px, auto;
     padding-left: 50px;
 }
-.sortingsContainer{
+.sortings-container{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -300,7 +298,7 @@ button, a, .icon, .iconRadio{
     display: -o-flex;
     align-items: center;
 }
-.showFilters{
+.btn--show-filters{
     display: none;
     width: 120px;
     height: 40px;
@@ -312,29 +310,35 @@ button, a, .icon, .iconRadio{
     align-items: center;
     justify-content: center;
 }
-.showFilters img{
+.btn--show-filters--txt{
+    margin: 0;
+}
+.btn--show-filters--img{
     margin-right: 6px;
 }
-.switches button:last-child{
+.btn--switch-display{
     background: none;
     border: none;
     outline: none;
     margin-left: 15px;
 }
-.switches{
+.switches-display{
     display: flex;
     align-items: center;
 }
-.switches button > img{
+.switch-display--img{
     width: 25px;
-    height: 25px;;
+    height: 25px;
 }
-.headline > p:first-child{
+.cup-of-mainpage--txt{
+    margin: 10px 0;
+}
+.headline{
     font-size: 24px;
     font-weight: bold;
     color: #3a3f41;
 }
-.headline > p:last-child{
+.count-ad{
     font-size: 13px;
     color:#7f8386;
 }
@@ -342,7 +346,7 @@ button, a, .icon, .iconRadio{
 
 
 
-.filtersContainer, .boundaries{
+.filters-container, .other-filters-container{
     display: flex;
     color: #383d3f;
     flex-direction: column;
@@ -350,8 +354,7 @@ button, a, .icon, .iconRadio{
     margin-right: 15px;
     align-items: center;
 }
-
-.navigationFilters, .locationFilters, .mode{
+.list-nav-filters, .location-filters, .additional-modes{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -363,26 +366,26 @@ button, a, .icon, .iconRadio{
     flex-direction: column;
     font-size: 16px;
 }
-.locationFilters{
+.location-filters{
     padding: 0  0 15px 0;
     border-bottom: solid 1px #d3d7da;
 }
-.locationFilters > label{
+.location-filters--lbl{
     margin-top: 15px;
     color: black;
 }
-.navigationFilters{
+.list-nav-filters{
     border-top: solid 1px #d3d7da;
     border-bottom: solid 1px #d3d7da;
 }
-.navigationFilters > a{
+.nav-filters{
     padding: 3px 0;
 }
-.navigationFilters > a:first-child{
+.nav-filters__all-categories{
     margin: 8px 0;
     font-size: 18px;
 }
-#regionFilters, #cityFilters, .priceFilters > input{
+#list-region-filters, #list-city-filters, .price-filters--input{
     margin-top: 8px;
     height: 40px;
     border-radius: 5px;
@@ -401,20 +404,16 @@ button, a, .icon, .iconRadio{
 input[type="radio"], input[type="checkbox"]{
     display: none;
 }
-.stateFilters label, .sellerFilters label, .mode label{
+.icon-label{
     display: flex;
     align-items: baseline;
     position: relative;
     margin: 2px 0;
 }
-.mode label{
-    align-items: center;
-    margin: 3px 0;
-}
-.iconRadio, .icon{
+.icon-radio-btn, .icon-checkbox{
     margin-right: 20px;
 }
-.icon:before, .iconRadio:before{
+.icon-checkbox:before, .icon-radio-btn:before{
     content: '';
     display: block;
     width: 18px;
@@ -423,24 +422,24 @@ input[type="radio"], input[type="checkbox"]{
     position: absolute;
     z-index: 0;
 }
-.icon:after, .iconRadio:after{
+.icon-checkbox:after, .icon-radio-btn:after{
     content: '';
     display: block;
     border: #00ad64 solid 1px;
     opacity: 0;
     z-index: 1;
 }
-.icon:before{
+.icon-checkbox:before{
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
 }
-.iconRadio:before{
+.icon-radio-btn:before{
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
 }
-.icon:after{
+.icon-checkbox:after{
     width: 18px;
     height: 18px;
     border-radius: 3px;
@@ -449,7 +448,7 @@ input[type="radio"], input[type="checkbox"]{
     background: #00ad64 url(images/checkbox.png) no-repeat center;
     background-size: 15px 15px;
 }
-.iconRadio:after{
+.icon-radio-btn:after{
     margin: 4px 0 0 4px;
     width: 10px;
     height: 10px;
@@ -458,23 +457,15 @@ input[type="radio"], input[type="checkbox"]{
     -moz-border-radius: 50%;
     background-color: #00ad64;
 }
-input[type="radio"]:checked + .iconRadio:before{
+input[type="radio"]:checked + .icon-radio-btn:before,
+input[type="checkbox"]:checked + .icon-checkbox:before{
     border: #00ad64 solid 1px;
 }
-input[type="checkbox"]:checked + .icon:before{
-    border: #00ad64 solid 1px;
-}
-input[type="radio"]:checked + .iconRadio:after{
+input[type="radio"]:checked + .icon-radio-btn:after,
+input[type="checkbox"]:checked + .icon-checkbox:after{
     opacity: 1;
 }
-input[type="checkbox"]:checked + .icon:after{
-    opacity: 1;
-}
-.icon + div, .icon + div{
-    margin-left: 17px;
-    width: 200px;
-}
-.priceFilters{
+.price-filters{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -484,24 +475,24 @@ input[type="checkbox"]:checked + .icon:after{
     flex-direction: row;
     width: 300px;
 }
-.priceFilters > input{
+.price-filters--input{
     margin-top: 0;
     width: 132px;
     background: #f7fbfe;
 }
-.priceFilters > input:first-child{
+#price-filters-from{
     border-radius: 5px 0 0 5px;
 }
-.priceFilters > input:last-child{
+#price-filters-to{
     border-radius: 0 5px 5px 0;
     -webkit-border-radius: 0 5px 5px 0;
     -moz-border-radius: 0 5px 5px 0;
     border-left: none;
 }
-.priceFilters > input:focus{
+.price-filters--input:focus{
     border: solid 1px #2abf69;
 }
-.stateFilters, .sellerFilters{
+.state-filters, .seller-filters{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -510,15 +501,14 @@ input[type="checkbox"]:checked + .icon:after{
     margin-top: 6px;
     flex-direction: column;
 }
-.stateFilters > label > input, .sellerFilters > label > input,
-.mode > label> input{
+.icon-input{
    margin: 0 0 8px 6px;
 }
-.mode{
+.additional-modes{
     border-bottom: solid 1px #d3d7da;
 }
 
-.showResult, .resetFilters, .saveSearch{
+.btn--show-result, .btn--reset-filters, .btn--save-search{
     margin: 5px 0 5px 0;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -532,7 +522,7 @@ input[type="checkbox"]:checked + .icon:after{
     border: solid 1px #007aff;
     font-size: 16px;
 }
-.showResult{
+.btn--show-result{
     margin-top: 10px;
     position: sticky;
     position: -webkit-sticky;
@@ -541,17 +531,17 @@ input[type="checkbox"]:checked + .icon:after{
     bottom: 10px;
     top: 0;
 }
-.resetFilters, .saveSearch{
+.btn--reset-filters, .btn--save-search{
     background: none;
     color: #5a5f61;
     margin-right: 23px;
     border: none;
 }
-.resetFilters{
+.btn--reset-filters{
     background: url(images/plusReset.png) no-repeat 80% center ;
     background-size: 15px 15px;
 }
-.saveSearch{
+.btn--save-search{
     color: #29ad5b;
     background: url(images/like.png) no-repeat 79% center ;
     background-size: 35px 32px;
@@ -560,18 +550,18 @@ input[type="checkbox"]:checked + .icon:after{
 
 
 
-.mainPage{
+.mainpage{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
     display: -ms-flex;
     display: -o-flex;
 }
-.listAds{
+.list-advertisements{
     flex-direction: column;
     flex: 1;
 }
-.ads{
+.ad-container{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -584,7 +574,7 @@ input[type="checkbox"]:checked + .icon:after{
     max-height: 130px;
     margin: 10px 0;
 }
-.imageContainer{
+.ad-container--img{
     width: 200px;
     height: 125px;
     border-radius: 3px;
@@ -593,7 +583,7 @@ input[type="checkbox"]:checked + .icon:after{
     background: no-repeat center;
     background-size: cover;
 }
-.info{
+.info-about-ad{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -607,7 +597,7 @@ input[type="checkbox"]:checked + .icon:after{
     flex: 1;
     border-bottom: solid 1px #d3d7da;
 }
-.infoItem, .extra{
+.top-part-of-ad-container, .additional-info{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -621,7 +611,7 @@ input[type="checkbox"]:checked + .icon:after{
     white-space: nowrap;
 }
 
-.infoItem > p{
+.top-part-of-ad-container--txt{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -629,18 +619,31 @@ input[type="checkbox"]:checked + .icon:after{
     display: -o-flex;
     align-items: center;
 }
-.locationItem > img{
+.info-ad{
+    margin-top: 10px;
+}
+.location-ad{
+    display: flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 0;
+}
+.location-ad--img{
     width: 14px;
     height: 14px;
 }
-.nameItem > p:first-child, .infoItem > p:last-child{
+.name-ad, .price-ad{
     margin-top: 3px;
     font-weight: bold;
     font-size: 16px;
     color: #393a39;
 }
-.extra{
-    white-space: nowrap;
+.additional-info{
+    margin-bottom: 10px;
 }
 
 
@@ -655,29 +658,22 @@ footer{
     font-size: 14px;
     color: #4f5557;
     padding: 32px 0 64px 0;
-}
-.infoFooter{
-    display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     flex-direction: column;
     flex: 1;
 }
-.linksContainer{
+.top-part-of-foot{
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
     align-items: baseline;
     margin: auto 5px;
 }
-.languageButton{
+.btn-language{
     height: 50px;
     margin: 0 auto;
     right: 20px;
 }
-.otherLinks{
+.additional-links{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -688,7 +684,7 @@ footer{
     margin-bottom: 20px;
     flex: 1;
 }
-.otherLinks > a:first-child{
+.additional-links > a:first-child{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -696,27 +692,27 @@ footer{
     display: -o-flex;
     align-items: center;
 }
-.otherLinks img{
+.additional-links img{
     width: 30px;
     height: 20px;
     margin-right: 7px;
 }
-.otherLinks > a{
+.additional-links > a{
     margin: 20px 10px;
     white-space: nowrap;
 }
-.otherLinks > a:hover{
+.additional-links > a:hover{
     color: #29ad5b;
 }
 .infoFooter > p{
     font-size: 12px;
 }
-.aboutKufar{
+.info-about-site{
     color: #929b9d;
     max-width: 90%;
     text-align: justify;
 }
-.linksFooter, .linksApp{
+.bot-part-of-foot, .links-app{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -725,15 +721,15 @@ footer{
     flex-wrap: wrap;
     align-items: center;
 }
-.linksFooter{
+.bot-part-of-foot{
     justify-content: space-between;
 }
-.linksFooter img{
+.bot-part-of-foot img{
     width: 24px;
     height: 27px;
     margin: 0 10px;
 }
-.linksFooter a > div{
+.links-app a{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -752,10 +748,10 @@ footer{
     height: 40px;
     margin: 10px 10px;
 }
-.linksFooter div > div{
-    width: 140px;
+.links-app p{
+    width: 120px;
 }
-.languageButton > button{
+.btn-language{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -771,24 +767,24 @@ footer{
     height: 40px;
     border: solid 1px #b0b9bb;
 }
-.languageButton > button img{
+.btn-language >  img{
     width: 20px;
     height: 20px;
     margin: 0 12px 0 4px;
 }
-.links{
+.links-social-network{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
     display: -ms-flex;
     display: -o-flex;
 }
-.links a{
+.links-social-network a{
     width: 32px;
     padding: 0;
     margin: 0 5px;
 }
-.links img{
+.links-social-network img{
     width: 32px;
     height: 32px;
 }
@@ -807,7 +803,7 @@ footer{
     font-size: 16px;
     margin: 40px 0;
 }
-.pagination div{
+.pagination p{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -824,10 +820,10 @@ footer{
     margin: 0 8px;
     outline:none;
 }
-.pagination div:hover{
+.pagination p:hover{
      background-color: #d6dfe1;
  }
-.pagination div:nth-child(2){
+.pagination p:nth-child(2){
     background-color: #4d5456;
     color: white;
 }
@@ -848,7 +844,7 @@ footer{
     background-color: #bfbcb7;
 }
 
-.previous{
+.btn--previous{
     opacity: 0.5;
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
@@ -856,7 +852,7 @@ footer{
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-.next{
+.btn--next{
     transform: rotate(270deg);
     -webkit-transform: rotate(270deg);
     -o-transform: rotate(270deg);
@@ -868,60 +864,60 @@ footer{
 
 
 @media only screen and (max-width: 1024px){
-    .showFilters, .addAd> div:last-child{
+    .btn--show-filters, .btn--add-ad> p:last-child{
         display: flex;
         display: -moz-flex;
         display: -webkit-flex;
         display: -ms-flex;
         display: -o-flex;
     }
-    .sortingsContainer{
+    .sortings-container{
         justify-content: space-between;
         width: 100%;
     }
-    .logo img:last-child,  .filtersContainer,  .addAd> div,
-    .scrollButton{
+    .logo-container img:last-child,  .filters-container,  .btn--add-ad > p,
+    .scroll-panel-btn{
         display: none;
     }
-    .infoContainer{
+    .cup-of-mainpage{
         flex-direction: column;
         align-items: flex-start;
     }
 
 }
 @media only screen and (max-width: 768px) {
-    .linksFooter div > div,.addAd, .nameItem >p:last-child, .locationItem img{
+    .links-app p,.btn--add-ad, .nameItem >p:last-child, .location-ad img{
         display: none;
     }
-    .leftHeader{
+    .left-part-of-cup{
         width: 90%;
     }
-    .rightHeader{
+    .right-part-of-cup{
         justify-content: space-between;
         max-width: 80px;
         margin-right: 10px;
     }
-    .imageContainer{
+    .ad-container--img{
         width: 140px;
         height: 116px;
     }
-    .locationItem{
+    .location-ad{
         order: 1;
         font-size: 12px;
     }
-    .extra{
+    .additional-info{
         flex-direction: column;
         height: 40%;
         justify-content: center;
     }
-    .extra > p:last-child{
+    .additional-info > p:last-child{
         margin: 0;
         order: 2;
     }
-    .info p{
+    .info-about-ad p{
         margin: 0;
     }
-    .infoItem{
+    .top-part-of-ad-container{
         flex-direction: column;
         height: 60%;
     }
@@ -929,7 +925,7 @@ footer{
         font-size: 14px;
         order: 1;
     }
-    .info{
+    .info-about-ad{
         height: 116px;
         flex-direction: column;
         justify-content: flex-start;
@@ -946,16 +942,16 @@ footer{
     .headline > p:last-child{
         font-size: 14px;
     }
-    .map, .switches button:last-child{
+    .btn--location, .switches-display button:last-child{
         display: none;
     }
     header{
         height: 42px;
     }
-    .logIn{
+    .btn--log-In{
         border: none;
     }
-    .searchField{
+    .search-field-container{
         margin-right: 5px;
     }
 }

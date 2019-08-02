@@ -6,104 +6,108 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
-    <div class="page">
+    <div class="page-container">
         <header>
-            <div class="leftHeader">
-               <div class="logo">
-                   <img src="images/logo.png" alt="Logo"/>
-                   <img src="images/kufar.png" alt="Logo">
+            <div class="left-part-of-cup">
+               <div class="logo-container">
+                   <img class="logo-img logo-icon" src="images/logo.png" alt="Logo"/>
+                   <img class="logo-img logo-text" src="images/kufar.png" alt="Logo">
                </div>
-                <div class="searchField">
-                    <label for="searchInput" tabindex="0">
-                        <img src="images/search.png" alt="Search">
+                <div class="search-field-container">
+                    <label for="search-field" tabindex="0">
+                        <img class="img--loupe" src="images/search.png" alt="Search">
                     </label>
-                    <input id="searchInput" type="text" placeholder="Товар, услуга">
+                    <input id="search-field" type="text" placeholder="Товар, услуга">
                 </div>
-                <button class="map">
-                    <img src="images/locationHeader.png" alt="Location"/>
-                    Вся Беларусь
+                <button class="btn--location">
+                    <img class="img--marker" src="images/locationHeader.png" alt="Location"/>
+                    <p>Вся Беларусь</p>
                 </button>
             </div>
-            <div class="rightHeader">
-                <button class="addAd">
-                    <img src="images/plus.png" alt="Plus"/>
-                    <div class="ad">Подать объявление</div>
-                    <div class="ad">Объявление</div>
+            <div class="right-part-of-cup">
+                <button class="btn--add-ad">
+                    <img class="img--plus" src="images/plus.png" alt="Plus"/>
+                    <p class="btn--add-ad__text">Подать объявление</p>
+                    <p class="btn--add-ad__text-reduction">Объявление</p>
                 </button>
-                <button class="logIn">
-                    Вход
-                </button>
+                <button class="btn--log-In">Вход</button>
             </div>
         </header>
         <nav class="navigation">
-            <button>
-                <img src="images/lines.png" alt="Lines"/>
-                Категории
+            <button class="btn--all-categories">
+                <img class="btn--all-categories__img" src="images/lines.png" alt="Lines"/>
+                <p class="btn--all-categories__text">Категории</p>
             </button>
-            <div class="scrollPanel">
-                <a>
-                    <img src="images/shirt.png" alt="Shirt"/>
-                    Модное лето</a>
-                <a>Техника с доставкой</a>
-                <a>Телефоны</a>
-                <a>Недвижимость</a>
-                <a>Легковые авто</a>
-                <a>Велосипеды</a>
-                <a>Работа</a>
-                <a>Платья</a>
-                <a>Строительный инструмент</a>
-                <a>Садовая техника</a>
-                <a>Запчасти,расходники</a>
-                <a>Коляски</a>
-                <a>Диваны</a>
-                <a>Холодильники</a>
+            <div class="scroll-panel-nav">
+                <a class="nav--category">
+                    <img class="nav-img--skirt" src="images/shirt.png" alt="Shirt"/>
+                    <p>Модное лето</p>
+                </a>
+                <a class="nav--category">Техника с доставкой</a>
+                <a class="nav--category">Телефоны</a>
+                <a class="nav--category">Недвижимость</a>
+                <a class="nav--category">Легковые авто</a>
+                <a class="nav--category">Велосипеды</a>
+                <a class="nav--category">Работа</a>
+                <a class="nav--category">Платья</a>
+                <a class="nav--category">Строительный инструмент</a>
+                <a class="nav--category">Садовая техника</a>
+                <a class="nav--category">Запчасти,расходники</a>
+                <a class="nav--category">Коляски</a>
+                <a class="nav--category">Диваны</a>
+                <a class="nav--category">Холодильники</a>
             </div>
-            <div class="scrollButton">
-                <button></button>
-                <button></button>
+            <div class="scroll-panel-btn">
+                <button class="scroll-btn scroll-panel-btn--left"></button>
+                <button class="scroll-btn scroll-panel-btn--right"></button>
             </div>
         </nav>
-        <div class="infoContainer">
-            <div class="headline">
-                <p>Kufar - площадка объявлений в Беларуси</p>
-                <p>Объявлений: 2071428</p>
+        <div class="cup-of-mainpage">
+            <div class="cup-of-mainpage__text">
+                <p class="cup-of-mainpage--txt headline">Kufar - площадка объявлений в Беларуси</p>
+                <p class="cup-of-mainpage--txt count-ad">Объявлений: 2071428</p>
             </div>
-            <div class="sortingsContainer">
-                <select>
+            <div class="sortings-container">
+                <select class="list-sortings">
                     <option>По дате</option>
                     <option>По цене ↑</option>
                     <option>По цене ↓</option>
                 </select>
-                <div class="switches">
-                    <button class="showFilters"><img src="images/switch.png" alt="Switch"/>Фильтры</button>
-                    <button><img src="images/square4.png" alt="Square"></button>
+                <div class="switches-display">
+                    <button class="btn--show-filters">
+                        <img class="btn--show-filters--img switch-display--img" src="images/switch.png" alt="Switch"/>
+                        <p class="btn--show-filters--txt">Фильтры</p>
+                    </button>
+                    <button class="btn--switch-display">
+                        <img class="switch-display--img" src="images/square4.png" alt="Square">
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="mainPage">
-            <div class="filtersContainer">
-                <nav class="navigationFilters">
-                    <a>Все категории</a>
-                    <a>Модное лето</a>
-                    <a>Недвижимость</a>
-                    <a>Авто и транспорт</a>
-                    <a>Техника</a>
-                    <a>Мода и стиль</a>
-                    <a>Все для детей и мам</a>
-                    <a>Все для дома</a>
-                    <a>Ремонт и стройка</a>
-                    <a>Сад и огород</a>
-                    <a>Хобби, спорт и туризм</a>
-                    <a>Свадьба и праздники</a>
-                    <a>Животные</a>
-                    <a>Работа, бизнес, учеба</a>
-                    <a>Услуги</a>
-                    <a>Прочее</a>
+        <div class="mainpage">
+            <div class="filters-container">
+                <nav class="list-nav-filters">
+                    <a class="nav-filters nav-filters__all-categories">Все категории</a>
+                    <a class="nav-filters">Модное лето</a>
+                    <a class="nav-filters">Недвижимость</a>
+                    <a class="nav-filters">Авто и транспорт</a>
+                    <a class="nav-filters">Техника</a>
+                    <a class="nav-filters">Мода и стиль</a>
+                    <a class="nav-filters">Все для детей и мам</a>
+                    <a class="nav-filters">Все для дома</a>
+                    <a class="nav-filters">Ремонт и стройка</a>
+                    <a class="nav-filters">Сад и огород</a>
+                    <a class="nav-filters">Хобби, спорт и туризм</a>
+                    <a class="nav-filters">Свадьба и праздники</a>
+                    <a class="nav-filters">Животные</a>
+                    <a class="nav-filters">Работа, бизнес, учеба</a>
+                    <a class="nav-filters">Услуги</a>
+                    <a class="nav-filters">Прочее</a>
                 </nav>
-                <div class="boundaries">
-                    <div class="locationFilters">
-                        <label for="regionFilters">ВСЯ БЕЛАРУСЬ</label>
-                        <select id="regionFilters">
+                <div class="other-filters-container">
+                    <div class="location-filters">
+                        <label class="location-filters--lbl" for="list-region-filters">ВСЯ БЕЛАРУСЬ</label>
+                        <select id="list-region-filters">
                             <option>Область</option>
                             <option>Минск</option>
                             <option>Брестская</option>
@@ -113,8 +117,8 @@
                             <option>Гродненская</option>
                             <option>Минск</option>
                         </select>
-                        <label for="cityFilters">ГОРОД / РАЙОН</label>
-                        <select id="cityFilters" disabled>
+                        <label class="location-filters--lbl" for="list-city-filters">ГОРОД / РАЙОН</label>
+                        <select id="list-city-filters" disabled>
                             <option>Любой</option>
                             <!--                        <option>Минск</option>-->
                             <!--                        <option>Брестская</option>-->
@@ -124,117 +128,139 @@
                             <!--                        <option>Гродненская</option>-->
                             <!--                        <option>Минск</option>-->
                         </select>
-                        <label for="priceFiltersFrom">ЦЕНА</label>
-                        <div class="priceFilters">
-                            <input id="priceFiltersFrom" placeholder="От" type="number" min="0" step="0.01">
-                            <input placeholder="До" type="number" min="0" step="0.01">
+                        <label class="location-filters--lbl" for="price-filters-from">ЦЕНА</label>
+                        <div class="price-filters">
+                            <input class="price-filters--input" id="price-filters-from" placeholder="От" type="number" min="0" step="0.01">
+                            <input class="price-filters--input" id="price-filters-to" placeholder="До" type="number" min="0" step="0.01">
                         </div>
-                        <label>СОСТОЯНИЕ</label>
-                        <div class="stateFilters">
-                            <label><input type="radio" checked name="state">
-                                <div class="iconRadio"></div>
-                                Любой</label>
-                            <label><input type="radio" name="state">
-                                <div class="iconRadio"></div>
-                                Новое</label>
-                            <label><input type="radio" name="state">
-                                <div class="iconRadio"></div>
-                                Б/у</label>
+                        <label class="location-filters--lbl">СОСТОЯНИЕ</label>
+                        <div class="state-filters">
+                            <label class="icon-label"><input class="icon-input" type="radio" checked name="state">
+                                <div class="icon-radio-btn"></div>
+                                <p>Любой</p>
+                            </label>
+                            <label class="icon-label"><input class="icon-input" type="radio" name="state">
+                                <div class="icon-radio-btn"></div>
+                                <p>Новое</p>
+                            </label>
+                            <label class="icon-label"><input class="icon-input" type="radio" name="state">
+                                <div class="icon-radio-btn"></div>
+                                <p>Б/у</p>
+                            </label>
                         </div>
-                        <label>ПРОДАВЕЦ</label>
-                        <div class="sellerFilters">
-                            <label><input type="radio" checked name="seller">
-                                <div class="iconRadio"></div>
-                                Любой</label>
-                            <label><input type="radio" name="seller">
-                                <div class="iconRadio"></div>
-                                Частное лицо</label>
-                            <label><input type="radio" name="seller">
-                                <div class="iconRadio"></div>
-                                Компания</label>
+                        <label class="location-filters--lbl">ПРОДАВЕЦ</label>
+                        <div class="seller-filters">
+                            <label class="icon-label"><input class="icon-input" type="radio" checked name="seller">
+                                <div class="icon-radio-btn"></div>
+                                <p>Любой</p>
+                            </label>
+                            <label class="icon-label"><input class="icon-input" type="radio" name="seller">
+                                <div class="icon-radio-btn"></div>
+                                <p>Частное лицо</p>
+                            </label>
+                            <label class="icon-label"><input class="icon-input" type="radio" name="seller">
+                                <div class="icon-radio-btn"></div>
+                                <p>Компания</p>
+                            </label>
                         </div>
                     </div>
-                    <div class="mode">
-                        <label><input type="checkbox" value="fSummer">
-                            <div class="icon"></div>
-                            Модное лето</label>
-                        <label><input type="checkbox" value="halva">
-                            <div class="icon"></div>
-                            В рассрочку по халве</label>
-                        <label><input type="checkbox" value="withPhoto">
-                            <div class="icon"></div>
-                            Только с фото</label>
-                        <label><input type="checkbox" value="exchange">
-                            <div class="icon"></div>
-                            Возможен обмен</label>
+                    <div class="additional-modes">
+                        <label class="icon-label"><input class="icon-input" type="checkbox" value="fSummer">
+                            <div class="icon-checkbox"></div>
+                            <p>Модное лето</p>
+                        </label>
+                        <label class="icon-label"><input class="icon-input" type="checkbox" value="halva">
+                            <div class="icon-checkbox"></div>
+                            <p>В рассрочку по халве</p>
+                        </label>
+                        <label class="icon-label"><input class="icon-input" type="checkbox" value="withPhoto">
+                            <div class="icon-checkbox"></div>
+                            <p>Только с фото</p>
+                        </label>
+                        <label class="icon-label"><input class="icon-input" type="checkbox" value="exchange">
+                            <div class="icon-checkbox"></div>
+                            <p>Возможен обмен</p>
+                        </label>
                     </div>
-                    <button class="showResult">Показать результаты(62893)</button>
-                    <button class="resetFilters">Сбросить фильтры</button>
-                    <button class="saveSearch">Сохранить поиск</button>
+                    <button class="btn--show-result">Показать результаты(62893)</button>
+                    <button class="btn--reset-filters">Сбросить фильтры</button>
+                    <button class="btn--save-search">Сохранить поиск</button>
                 </div>
             </div>
 
-            <div class="listAds">
-                <div class="ads">
-                    <div class="imageContainer" style="background-image: url(images/item.jpg)"></div>
-                    <div class="info">
-                        <div class="infoItem">
-                            <div class="nameItem">
-                                <p>Кастрюля</p>
-                                <p>Кухонные приборы, Redmand, Б/у</p>
+            <div class="list-advertisements">
+                <div class="ad-container">
+                    <div class="ad-container--img" style="background-image: url(images/item.jpg)"></div>
+                    <div class="info-about-ad">
+                        <div class="top-part-of-ad-container">
+                            <div class="name-ad-container">
+                                <p class="top-part-of-ad-container--txt name-ad">Кастрюля</p>
+                                <p class="top-part-of-ad-container--txt info-ad">Кухонные приборы, Redmand, Б/у</p>
                             </div>
-                            <p>100 р.</p>
+                            <p class="top-part-of-ad-container--txt price-ad">100 р.</p>
                         </div>
-                        <div class="extra">
-                            <p class="locationItem"><img src="images/locationItem.png" alt="Location"/>Гомель</p>
+                        <div class="additional-info">
+                            <div class="location-ad">
+                                <img class="location-ad--img" src="images/locationItem.png" alt="Location"/>
+                                <p>Гомель</p>
+                            </div>
                             <p>Сегодня, 09:40</p>
                         </div>
                     </div>
                 </div>
-                <div class="ads">
-                    <div class="imageContainer" style="background-image: url(images/item2.jpg)"></div>
-                    <div class="info">
-                        <div class="infoItem">
-                            <div>
-                                <p>Наклейки Ледниковый период</p>
-                                <p>Коллекции</p>
+                <div class="ad-container">
+                    <div class="ad-container--img" style="background-image: url(images/item2.jpg)"></div>
+                    <div class="info-about-ad">
+                        <div class="top-part-of-ad-container">
+                            <div class="name-ad-container">
+                                <p class="top-part-of-ad-container--txt name-ad">Наклейки Ледниковый период</p>
+                                <p class="top-part-of-ad-container--txt info-ad">Коллекции</p>
                             </div>
-                            <p>1 р.</p>
+                            <p class="top-part-of-ad-container--txt price-ad">1 р.</p>
                         </div>
-                        <div class="extra">
-                            <p class="locationItem"><img src="images/locationItem.png" alt="Location"/>Минск, Октябрьский</p>
+                        <div class="additional-info">
+                            <div class="location-ad">
+                                <img class="location-ad--img" src="images/locationItem.png" alt="Location"/>
+                                <p>Минск, Октябрьский</p>
+                            </div>
                             <p>12 июля, 10:23</p>
                         </div>
                     </div>
                 </div>
-                <div class="ads">
-                    <div class="imageContainer" style="background-image: url(images/item3.jpg)"></div>
-                    <div class="info">
-                        <div class="infoItem">
-                            <div>
-                                <p>Куртка</p>
-                                <p>Женская одежда, Верхняя одежда, 52(XXL), Деми, Новое</p>
+                <div class="ad-container">
+                    <div class="ad-container--img" style="background-image: url(images/item3.jpg)"></div>
+                    <div class="info-about-ad">
+                        <div class="top-part-of-ad-container">
+                            <div class="name-ad-container">
+                                <p class="top-part-of-ad-container--txt name-ad">Куртка</p>
+                                <p class="top-part-of-ad-container--txt info-ad">Женская одежда, Верхняя одежда, 52(XXL), Деми, Новое</p>
                             </div>
-                            <p>10 р.</p>
+                            <p class="top-part-of-ad-container--txt price-ad">10 р.</p>
                         </div>
-                        <div class="extra">
-                            <p class="locationItem"><img src="images/locationItem.png" alt="Location"/>Минская, Вилейка</p>
+                        <div class="additional-info">
+                            <div class="location-ad">
+                                <img class="location-ad--img" src="images/locationItem.png" alt="Location"/>
+                                <p>Минская, Вилейка</p>
+                            </div>
                             <p>23 июня, 19:30</p>
                         </div>
                     </div>
                 </div>
-                <div class="ads">
-                    <div class="imageContainer" style="background-image: url(images/item4.jpg)"></div>
-                    <div class="info">
-                        <div class="infoItem">
-                            <div>
-                                <p>Красавица поночка</p>
-                                <p>Домашние питомцы, Собаки</p>
+                <div class="ad-container">
+                    <div class="ad-container--img" style="background-image: url(images/item4.jpg)"></div>
+                    <div class="info-about-ad">
+                        <div class="top-part-of-ad-container">
+                            <div class="name-ad-container">
+                                <p class="top-part-of-ad-container--txt name-ad">Красавица поночка</p>
+                                <p class="top-part-of-ad-container--txt info-ad">Домашние питомцы, Собаки</p>
                             </div>
-                            <p>Бесплатно</p>
+                            <p class="top-part-of-ad-container--txt price-ad">Бесплатно</p>
                         </div>
-                        <div class="extra">
-                            <p class="locationItem"><img src="images/locationItem.png" alt="Location"/>Минск, Октябрьский</p>
+                        <div class="bot-part-of-ad-container">
+                            <div class="location-ad">
+                                <img class="location-ad--img" src="images/locationItem.png" alt="Location"/>
+                                <p>Минск, Октябрьский</p>
+                            </div>
                             <p>12 июля, 10:40</p>
                         </div>
                     </div>
@@ -242,51 +268,49 @@
             </div>
         </div>
         <div class="pagination">
-            <button class="previous" disabled></button>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div class="points">...</div>
-            <div>62893</div>
-            <button class="next"></button>
+            <button class="btn--previous" disabled></button>
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p class="points">...</p>
+            <p>62893</p>
+            <button class="btn--next"></button>
         </div>
-
         <footer>
-            <div class="infoFooter">
-                <div class="linksContainer">
-                <div class="otherLinks">
-                    <a><img src="images/gistogram.png" alt="Gistogram">Реклама</a>
-                    <a>Рассрочка</a>
-                    <a>Доставка</a>
-                    <a>Правила</a>
-                    <a>Помощь</a>
-                    <a>Выбрать регион</a>
+                <div class="top-part-of-foot">
+                    <div class="additional-links">
+                        <a>
+                            <img src="images/gistogram.png" alt="Gistogram">
+                            <p>Реклама</p>
+                        </a>
+                        <a>Рассрочка</a>
+                        <a>Доставка</a>
+                        <a>Правила</a>
+                        <a>Помощь</a>
+                        <a>Выбрать регион</a>
+                    </div>
+                    <button class="btn-language">
+                        <img src="images/earth.png" alt="Earth">
+                        <p>Беларуская</p>
+                    </button>
                 </div>
-                <div class="languageButton">
-                    <button><img src="images/earth.png" alt="Earth">Беларуская</button>
-                </div>
-                </div>
-                <p class="priceInfo">*Оплата производится в белорусских рублях по курсу НБ РБ.</p>
-                <p class="aboutKufar">© Kufar — крупнейшая площадка объявлений Беларуси по данным gemiusAudience,
+                <p class="price-info">*Оплата производится в белорусских рублях по курсу НБ РБ.</p>
+                <p class="info-about-site">© Kufar — крупнейшая площадка объявлений Беларуси по данным gemiusAudience,
                     апрель 2019. Использование ресурса Kufar означает согласие с Пользовательским соглашением и
                     Политикой конфиденциальности. ООО «Адевинта», УНП 191767445, 220030, г. Минск, ул. Немига, 5,
                     помещение 77. Режим работы: 10.00 - 18.00, Пн-Пт.</p>
-                <div class="linksFooter">
-                    <div class="linksApp">
+                <div class="bot-part-of-foot">
+                    <div class="links-app">
                         <a>
-                            <div>
-                                <img src="images/apple.png" alt="Apple">
-                                <div>Приложение Kufar в App Store</div>
-                            </div>
+                            <img src="images/apple.png" alt="Apple">
+                            <p>Приложение Kufar в App Store</p>
                         </a>
                         <a>
-                            <div>
-                                <img src="images/googlePlay.png" alt="Google Play">
-                                <div>Приложение Kufar в Google Play</div>
-                            </div>
+                            <img src="images/googlePlay.png" alt="Google Play">
+                            <p>Приложение Kufar в Google Play</p>
                         </a>
                     </div>
-                    <div class="links">
+                    <div class="links-social-network">
                         <a><img src="images/telegram.png" alt="Telegram"></a>
                         <a><img src="images/vk.png" alt="Vk"></a>
                         <a><img src="images/facebook.png" alt="Facebook"></a>
@@ -295,7 +319,6 @@
                         <a><img src="images/odnoklassniki.png" alt="Odnoklassniki"></a>
                     </div>
                 </div>
-            </div>
         </footer>
     </div>
     </body>
