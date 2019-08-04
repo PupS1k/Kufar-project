@@ -255,7 +255,7 @@ button, a, .icon-checkbox, .icon-radio-btn{
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-.scroll-panel-btn--righ{
+.scroll-panel-btn--right{
     -webkit-transform: rotate(270deg);
     -o-transform: rotate(270deg);
     -moz-transform: rotate(270deg);
@@ -597,7 +597,7 @@ input[type="checkbox"]:checked + .icon-checkbox:after{
     flex: 1;
     border-bottom: solid 1px #d3d7da;
 }
-.top-part-of-ad-container, .additional-info{
+.top-part-of-ad-container, .bot-part-of-ad-container{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -611,7 +611,7 @@ input[type="checkbox"]:checked + .icon-checkbox:after{
     white-space: nowrap;
 }
 
-.top-part-of-ad-container--txt{
+.top-part-of-ad--txt{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -622,7 +622,7 @@ input[type="checkbox"]:checked + .icon-checkbox:after{
 .info-ad{
     margin-top: 10px;
 }
-.location-ad{
+.location-advertisement{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -642,7 +642,7 @@ input[type="checkbox"]:checked + .icon-checkbox:after{
     font-size: 16px;
     color: #393a39;
 }
-.additional-info{
+.bot-part-of-ad-container{
     margin-bottom: 10px;
 }
 
@@ -668,12 +668,12 @@ footer{
     align-items: baseline;
     margin: auto 5px;
 }
-.btn-language{
+.btn-change-language{
     height: 50px;
     margin: 0 auto;
     right: 20px;
 }
-.additional-links{
+.list-additional-links{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -684,7 +684,7 @@ footer{
     margin-bottom: 20px;
     flex: 1;
 }
-.additional-links > a:first-child{
+.link-advertising{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -692,27 +692,28 @@ footer{
     display: -o-flex;
     align-items: center;
 }
-.additional-links img{
+.img--gistogram{
     width: 30px;
     height: 20px;
     margin-right: 7px;
 }
-.additional-links > a{
+.additional-link{
     margin: 20px 10px;
     white-space: nowrap;
 }
-.additional-links > a:hover{
+.additional-link:hover{
     color: #29ad5b;
 }
-.infoFooter > p{
+.price-info, .info-about-site{
     font-size: 12px;
+    margin: 3px 0 3px 10px;
 }
 .info-about-site{
     color: #929b9d;
     max-width: 90%;
     text-align: justify;
 }
-.bot-part-of-foot, .links-app{
+.bot-part-of-foot, .links-app-container{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -724,12 +725,12 @@ footer{
 .bot-part-of-foot{
     justify-content: space-between;
 }
-.bot-part-of-foot img{
+.link-app--img{
     width: 24px;
     height: 27px;
     margin: 0 10px;
 }
-.links-app a{
+.link-app{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -748,10 +749,10 @@ footer{
     height: 40px;
     margin: 10px 10px;
 }
-.links-app p{
+.link-app--text{
     width: 120px;
 }
-.btn-language{
+.btn-change-language{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -767,7 +768,7 @@ footer{
     height: 40px;
     border: solid 1px #b0b9bb;
 }
-.btn-language >  img{
+.btn-change-language--img{
     width: 20px;
     height: 20px;
     margin: 0 12px 0 4px;
@@ -779,12 +780,12 @@ footer{
     display: -ms-flex;
     display: -o-flex;
 }
-.links-social-network a{
+.link-social-network{
     width: 32px;
     padding: 0;
     margin: 0 5px;
 }
-.links-social-network img{
+.link-social-network--img{
     width: 32px;
     height: 32px;
 }
@@ -803,7 +804,7 @@ footer{
     font-size: 16px;
     margin: 40px 0;
 }
-.pagination p{
+.pagination--page{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -820,17 +821,17 @@ footer{
     margin: 0 8px;
     outline:none;
 }
-.pagination p:hover{
+.pagination--page:hover:not(.active-pagination--page){
      background-color: #d6dfe1;
  }
-.pagination p:nth-child(2){
+.active-pagination--page{
     background-color: #4d5456;
     color: white;
 }
 .pagination .points:hover{
     background-color: transparent;
 }
-.pagination button{
+.pagination--btn{
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -840,11 +841,11 @@ footer{
     background: url(images/arrow.png) no-repeat center;
     outline:none;
 }
-.pagination button:hover:not([disabled]){
+.pagination--btn:hover:not([disabled]){
     background-color: #bfbcb7;
 }
 
-.btn--previous{
+.pagination--btn-previous{
     opacity: 0.5;
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
@@ -852,7 +853,7 @@ footer{
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-.btn--next{
+.pagination--btn-next{
     transform: rotate(270deg);
     -webkit-transform: rotate(270deg);
     -o-transform: rotate(270deg);
@@ -864,7 +865,7 @@ footer{
 
 
 @media only screen and (max-width: 1024px){
-    .btn--show-filters, .btn--add-ad> p:last-child{
+    .btn--show-filters, .btn--add-ad__text-reduction{
         display: flex;
         display: -moz-flex;
         display: -webkit-flex;
@@ -875,8 +876,7 @@ footer{
         justify-content: space-between;
         width: 100%;
     }
-    .logo-container img:last-child,  .filters-container,  .btn--add-ad > p,
-    .scroll-panel-btn{
+    .logo-text,  .filters-container,  .btn--add-ad__text-full, .scroll-panel-btn{
         display: none;
     }
     .cup-of-mainpage{
@@ -886,7 +886,7 @@ footer{
 
 }
 @media only screen and (max-width: 768px) {
-    .links-app p,.btn--add-ad, .nameItem >p:last-child, .location-ad img{
+    .link-app--text,.btn--add-ad, .info-ad, .location-ad--img{
         display: none;
     }
     .left-part-of-cup{
@@ -901,29 +901,31 @@ footer{
         width: 140px;
         height: 116px;
     }
-    .location-ad{
+    .location-advertisement{
         order: 1;
         font-size: 12px;
     }
-    .additional-info{
+    .bot-part-of-ad-container{
         flex-direction: column;
         height: 40%;
         justify-content: center;
     }
-    .additional-info > p:last-child{
+    .announced-ad{
         margin: 0;
         order: 2;
-    }
-    .info-about-ad p{
-        margin: 0;
     }
     .top-part-of-ad-container{
         flex-direction: column;
         height: 60%;
     }
-    .nameItem p{
+    .name-ad{
         font-size: 14px;
+        color: #4A4A4A;
         order: 1;
+    }
+    .bot-part-of-ad--text{
+        font-size: 12px;
+        margin: 2px 0;
     }
     .info-about-ad{
         height: 116px;
@@ -936,13 +938,13 @@ footer{
     .navigation{
         padding: 60px 0 10px 0;
     }
-    .headline > p:first-child{
+    .headline{
         font-size: 20px;
     }
-    .headline > p:last-child{
+    .count-ad{
         font-size: 14px;
     }
-    .btn--location, .switches-display button:last-child{
+    .btn--location, .btn--switch-display{
         display: none;
     }
     header{
