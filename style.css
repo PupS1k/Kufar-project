@@ -640,6 +640,7 @@ input[type="checkbox"]:checked + .icon-checkbox:after{
     margin-top: 3px;
     font-weight: bold;
     font-size: 16px;
+    white-space: normal;
     color: #393a39;
 }
 .bot-part-of-ad-container{
@@ -710,7 +711,7 @@ footer{
 }
 .info-about-site{
     color: #929b9d;
-    max-width: 90%;
+    max-width: 70%;
     text-align: justify;
 }
 .bot-part-of-foot, .links-app-container{
@@ -864,7 +865,7 @@ footer{
 
 
 
-@media only screen and (max-width: 1024px){
+@media screen and (max-width: 1024px){
     .btn--show-filters, .btn--add-ad__text-reduction{
         display: flex;
         display: -moz-flex;
@@ -885,7 +886,7 @@ footer{
     }
 
 }
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .link-app--text,.btn--add-ad, .info-ad, .location-ad--img{
         display: none;
     }
@@ -934,7 +935,7 @@ footer{
     }
 }
 
-@media only screen and (max-width: 425px) {
+@media screen and (max-width: 425px) {
     .navigation{
         padding: 60px 0 10px 0;
     }
