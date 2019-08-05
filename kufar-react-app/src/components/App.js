@@ -3,7 +3,6 @@ import logo from '../images/logo.png';
 import kufar from '../images/kufar.png';
 import search from '../images/search.png';
 import locationHeader from '../images/locationHeader.png';
-import plus from '../images/plus.png';
 import lines from '../images/lines.png';
 import shirt from '../images/shirt.png';
 import switches from '../images/switch.png';
@@ -21,6 +20,7 @@ import youtube from '../images/youtube.png';
 import odnoklassniki from '../images/odnoklassniki.png';
 import item from '../images/item.jpg';
 import './App.css';
+import Button from "./Button";
 
 class App extends Component {
   render() {
@@ -43,14 +43,7 @@ class App extends Component {
                 <p>Вся Беларусь</p>
               </button>
             </div>
-            <div className="right-part-of-cup">
-              <button className="btn--add-ad">
-                <img className="img--plus" src={plus} alt="Plus"/>
-                <p className="btn--add-ad__text btn--add-ad__text-full">Подать объявление</p>
-                <p className="btn--add-ad__text btn--add-ad__text-reduction">Объявление</p>
-              </button>
-              <button className="btn--log-In">Вход</button>
-            </div>
+            <Button/>
           </header>
           <nav className="navigation">
             <button className="btn--all-categories">
