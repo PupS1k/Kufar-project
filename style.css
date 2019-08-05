@@ -244,7 +244,7 @@ button, a, .icon-checkbox, .icon-radio-btn{
     width: 32px;
     height: 32px;
     border: none;
-    background: url(images/arrow.png) no-repeat center;
+    background: url(kufar-react-app/src/images/arrow.png) no-repeat center;
     outline:none;
 }
 .scroll-panel-btn--left{
@@ -285,8 +285,8 @@ button, a, .icon-checkbox, .icon-radio-btn{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: url(images/linesSelect.png) no-repeat 6% center,
-    url(images/arrow.png) no-repeat 90% center;
+    background: url(kufar-react-app/src/images/linesSelect.png) no-repeat 6% center,
+    url(kufar-react-app/src/images/arrow.png) no-repeat 90% center;
     background-size: 40px 30px, auto;
     padding-left: 50px;
 }
@@ -399,7 +399,7 @@ button, a, .icon-checkbox, .icon-radio-btn{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: url(images/arrow.png) no-repeat 95% center;
+    background: url(kufar-react-app/src/images/arrow.png) no-repeat 95% center;
 }
 input[type="radio"], input[type="checkbox"]{
     display: none;
@@ -445,7 +445,7 @@ input[type="radio"], input[type="checkbox"]{
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    background: #00ad64 url(images/checkbox.png) no-repeat center;
+    background: #00ad64 url(kufar-react-app/src/images/checkbox.png) no-repeat center;
     background-size: 15px 15px;
 }
 .icon-radio-btn:after{
@@ -538,12 +538,12 @@ input[type="checkbox"]:checked + .icon-checkbox:after{
     border: none;
 }
 .btn--reset-filters{
-    background: url(images/plusReset.png) no-repeat 80% center ;
+    background: url(kufar-react-app/src/images/plusReset.png) no-repeat 80% center ;
     background-size: 15px 15px;
 }
 .btn--save-search{
     color: #29ad5b;
-    background: url(images/like.png) no-repeat 79% center ;
+    background: url(kufar-react-app/src/images/like.png) no-repeat 79% center ;
     background-size: 35px 32px;
 }
 
@@ -646,6 +646,7 @@ input[type="checkbox"]:checked + .icon-checkbox:after{
 .bot-part-of-ad-container{
     margin-bottom: 10px;
 }
+
 
 
 footer{
@@ -839,7 +840,7 @@ footer{
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border: 1px solid #4d5456;
-    background: url(images/arrow.png) no-repeat center;
+    background: url(kufar-react-app/src/images/arrow.png) no-repeat center;
     outline:none;
 }
 .pagination--btn:hover:not([disabled]){
@@ -897,10 +898,6 @@ footer{
         justify-content: space-between;
         max-width: 80px;
         margin-right: 10px;
-    }
-    .ad-container--img{
-        width: 140px;
-        height: 116px;
     }
     .location-advertisement{
         order: 1;
