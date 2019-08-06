@@ -1,106 +1,106 @@
 [
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Кастрюля",
-    "categoriesProduct": "Все для дома, Кухонные приборы, Redmand, Б/у",
-    "priceProduct": 100,
-    "locationProduct": "Гомельская, Гомель",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Кастрюля",
+    "categories": "Все для дома, Кухонные приборы, Redmand, Б/у",
+    "price": 100,
+    "location": "Гомельская, Гомель",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Босоножки",
-    "categoriesProduct": "Мода и стиль, Обувь, Б/у",
-    "priceProduct": 56,
-    "locationProduct": "Могилевская, Могилев",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Босоножки",
+    "categories": "Мода и стиль, Обувь, Б/у",
+    "price": 56,
+    "location": "Могилевская, Могилев",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Двери стальные любых размеров",
-    "categoriesProduct": "Ремонт и стройка, Новое",
-    "priceProduct": 400,
-    "locationProduct": "Могилевская, Бобруйск",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Двери стальные любых размеров",
+    "categories": "Ремонт и стройка, Новое",
+    "price": 400,
+    "location": "Могилевская, Бобруйск",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "2-х комн.квартира, улица Советская",
-    "categoriesProduct": "Недвижимость",
-    "priceProduct": 100,
-    "locationProduct": "Витебская, Орша",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "2-х комн.квартира, улица Советская",
+    "categories": "Недвижимость",
+    "price": 100,
+    "location": "Витебская, Орша",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Детская кроватка",
-    "categoriesProduct": "Все для дома, Б/у",
-    "priceProduct": "Договорная",
-    "locationProduct": "Гомельская, Гомель",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Детская кроватка",
+    "categories": "Все для дома, Б/у",
+    "price": "Договорная",
+    "location": "Гомельская, Гомель",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Цемент, 25кг.",
-    "categoriesProduct": "Ремонт и стройка",
-    "priceProduct": 5,
-    "locationProduct": "Витебская, Глубокое",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Цемент, 25кг.",
+    "categories": "Ремонт и стройка",
+    "price": 5,
+    "location": "Витебская, Глубокое",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Кастрюля",
-    "categoriesProduct": "Кухонные приборы, Redmand, Б/у",
-    "priceProduct": 100,
-    "locationProduct": "Минская, Слуцк",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Кастрюля",
+    "categories": "Кухонные приборы, Redmand, Б/у",
+    "price": 100,
+    "location": "Минская, Слуцк",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Ламинат Кроспан",
-    "categoriesProduct": "Ремонт и стройка, Новое",
-    "priceProduct": 12,
-    "locationProduct": "Минск",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Ламинат Кроспан",
+    "categories": "Ремонт и стройка, Новое",
+    "price": 12,
+    "location": "Минск",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Автоэлектрик",
-    "categoriesProduct": "Услуги",
-    "priceProduct": 100,
-    "locationProduct": "Витебская, Орша",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Автоэлектрик",
+    "categories": "Услуги",
+    "price": 100,
+    "location": "Витебская, Орша",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Обувь, мужская, 40р.",
-    "categoriesProduct": "Мода и стиль, Б/у",
-    "priceProduct": 20,
-    "locationProduct": "Гомельская, Жлобин",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Обувь, мужская, 40р.",
+    "categories": "Мода и стиль, Б/у",
+    "price": 20,
+    "location": "Гомельская, Жлобин",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Набор свадебных аксессуаров",
-    "categoriesProduct": "Свадьба и праздники, Новое",
-    "priceProduct": 100,
-    "locationProduct": "Минск",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Набор свадебных аксессуаров",
+    "categories": "Свадьба и праздники, Новое",
+    "price": 100,
+    "location": "Минск",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Прогулочная коляска",
-    "categoriesProduct": "Все для детей и мам",
-    "priceProduct": 65,
-    "locationProduct": "Минск",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Прогулочная коляска",
+    "categories": "Все для детей и мам",
+    "price": 65,
+    "location": "Минск",
+    "announced": "Сегодня, 09:40"
   },
   {
     "image": "url(../../images/item.jpg)",
-    "nameProduct": "Товарный бетон",
-    "categoriesProduct": "Ремонт и стройка",
-    "priceProduct": "Договорная",
-    "locationProduct": "Бресткая, Лунинец",
-    "announcedProduct": "Сегодня, 09:40"
+    "name": "Товарный бетон",
+    "categories": "Ремонт и стройка",
+    "price": "Договорная",
+    "location": "Бресткая, Лунинец",
+    "announced": "Сегодня, 09:40"
   }
 ]
