@@ -361,7 +361,7 @@ button, a, .icon-checkbox-btn, .icon-radio-btn{
     align-items: flex-start;
 }
 .filter-panel{
-    margin: auto 10px;
+    margin: 0 10px;
 }
 .categories-filter, .location-filter, .additional-modes{
     display: flex;
@@ -389,9 +389,12 @@ button, a, .icon-checkbox-btn, .icon-radio-btn{
 .nav-filter{
     padding: 3px 0;
 }
-.nav-filter__all-categories{
+.nav-filter:first-child{
     margin: 8px 0;
     font-size: 18px;
+}
+.active-category{
+    font-weight: bold;
 }
 #list-region-filter, #list-city-filter, .price-filter--input{
     margin-top: 8px;
@@ -593,8 +596,16 @@ input[type="checkbox"]:checked + .icon-checkbox-btn:after{
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    background: no-repeat center;
+    background: url(../../images/noPhoto.png) no-repeat center;
     background-size: cover;
+}
+.noProducts{
+    display: flex;
+    justify-content: center;
+}
+.noProducts > p{
+    font-size: 40px;
+    color: #ff5569;
 }
 .info-about-product{
     display: flex;

@@ -1,24 +1,35 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const CategoriesFilter = () => (
-    <nav className="categories-filter">
-      <a className="nav-filter nav-filter__all-categories">Все категории</a>
-      <a className="nav-filter">Модное лето</a>
-      <a className="nav-filter">Недвижимость</a>
-      <a className="nav-filter">Авто и транспорт</a>
-      <a className="nav-filter">Техника</a>
-      <a className="nav-filter">Мода и стиль</a>
-      <a className="nav-filter">Все для детей и мам</a>
-      <a className="nav-filter">Все для дома</a>
-      <a className="nav-filter">Ремонт и стройка</a>
-      <a className="nav-filter">Сад и огород</a>
-      <a className="nav-filter">Хобби, спорт и туризм</a>
-      <a className="nav-filter">Свадьба и праздники</a>
-      <a className="nav-filter">Животные</a>
-      <a className="nav-filter">Работа, бизнес, учеба</a>
-      <a className="nav-filter">Услуги</a>
-      <a className="nav-filter">Прочее</a>
-    </nav>
-);
+const categories = ['Все категории', 'Модное лето', 'Недвижимость', 'Авто и транспорт', 'Техника',
+  'Мода и стиль', 'Все для детей и мам', 'Все для дома', 'Ремонт и стройка', 'Сад и огород',
+  'Хобби, спорт и туризм', 'Свадьба и праздники', 'Животные', 'Работа, бизнес, учеба', 'Услуги', 'Прочее'];
+
+class CategoriesFilter extends Component {
+  state = {
+    activeCategory: ''
+  };
+
+  handleCategory = (event) => {
+    const activeCategory = event.currentTarget.innerHTML;
+    this.props.handleCategoriesFilter(activeCategory);
+    this.setState({activeCategory: activeCategory});
+  };
+
+  render() {
+    return (
+        <div className="categories-filter">
+          {categories.map(category => (
+              <a
+                  key={category}
+                  className={'nav-filter' + (category === this.state.activeCategory ? ' active-category' : '')}
+                  onClick={this.handleCategory}
+              >
+                {category}
+              </a>
+          ))}
+        </div>
+    )
+  }
+}
 
 export default CategoriesFilter;
