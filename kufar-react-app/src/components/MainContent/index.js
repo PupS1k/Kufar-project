@@ -1,47 +1,18 @@
-import React, {Component} from 'react';
-import FilterPanel from "./FilterPanel";
-import ProductList from "./ProductList";
-import MainContentBar from "./MainContentBar";
-import Pagination from "./Pagination";
-import products from '../../products';
+import React from 'react';
+import FilterPanel from './FilterPanel';
+import ProductList from './ProductList';
+import MainContentBar from './MainContentBar';
+import Pagination from './Pagination';
 
-class MainContent extends Component {
-  state = {
-    categoriesFilter: '',
-    correctProducts: products,
-    products: products
-  };
-
-
-  handleCategoriesFilter = (value) => {
-    const correctProducts = products.filter(product =>
-        product.categories.indexOf(value) > -1 ||
-        value === 'Все категории' || value === '');
-    this.setState({correctProducts});
-    this.handleProducts(correctProducts);
-    this.setState({categoriesFilter: value});
-  };
-  handleProducts = (value) => this.setState({products: value});
-
-  render() {
-    return (
-        <div className="main-content">
-          <MainContentBar/>
-          <div className="main-content-body">
-            <FilterPanel
-                handleProducts={this.handleProducts}
-                handleCategoriesFilter={this.handleCategoriesFilter}
-                products={this.state.correctProducts}
-            />
-            <ProductList
-                categoriesFilter={this.state.categoriesFilter}
-                products={this.state.products}
-            />
-          </div>
-          <Pagination/>
-        </div>
-    );
-  }
-}
+const MainContent = () => (
+  <div className="main-content">
+    <MainContentBar />
+    <div className="main-content-body">
+      <FilterPanel />
+      <ProductList />
+    </div>
+    <Pagination />
+  </div>
+);
 
 export default MainContent;

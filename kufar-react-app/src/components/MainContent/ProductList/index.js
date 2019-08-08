@@ -1,16 +1,21 @@
-import React from 'react';
-import ProductCard from "./ProductCard";
+import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
+import ProductCard from './ProductCard';
+import {getProducts} from '../../../reducer/products';
 
-const ProductList = ({products}) => (
-    <div className="product-list">
+class ProductList extends PureComponent {
+  render() {
+    const {products} = this.props;
+    return (
+      <div className="product-list">
         {products.length === 0
-            ? (
+          ? (
             <div className="noProducts">
-            <p>No Products for this category</p>
-            </div>)
-            :
-          products.map(product => (
-          <ProductCard
+              <p>No Products for this category</p>
+            </div>
+          )
+          : products.map(product => (
+            <ProductCard
               key={product.name}
               image={product.image}
               nameProduct={product.name}
@@ -23,10 +28,15 @@ const ProductList = ({products}) => (
               priceProduct={product.price}
               locationProduct={product.location}
               announcedProduct={product.announced}
-          />
-        ))
-      }
-    </div>
-);
+            />
+          ))
+          }
+      </div>
+    );
+  }
+}
+const mapStateToProps = state => ({
+  products: getProducts(state)
+});
 
-export default ProductList;
+export default connect(mapStateToProps)(ProductList);

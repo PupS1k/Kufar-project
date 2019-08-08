@@ -1,136 +1,126 @@
 import React, {PureComponent} from 'react';
-import CategoriesFilter from "./CategoriesFilter";
-import LocationFilter from "./LocationFilter";
-import PriceFilter from "./PriceFilter";
-import SwitchFilter from "./SwitchFilter";
-import CheckboxFilter from "./CheckboxFilter";
-import {locations, stateFilter, sellerFilter, checkboxFilter, applyFilters} from "../../../constants";
-import products from "../../../products";
+import {connect} from 'react-redux';
+import CategoriesFilter from './CategoriesFilter';
+import LocationFilter from './LocationFilter';
+import PriceFilter from './PriceFilter';
+import SwitchFilter from './SwitchFilter';
+import CheckboxFilter from './CheckboxFilter';
+import {
+  locations, stateFilter, sellerFilter, checkboxFilter, applyFilters
+} from '../../../constants';
+import {
+  getCorrectProducts, getFilters, changeCorrectProducts, getRegion, changeRegion,
+  changeCity, changePriceFrom, changePriceTo, changeStateProduct, changeSeller,
+  changeIsWithPhoto, changeFashionableSummer, changeInstallmentHalva, changeIsExchange
+} from '../../../reducer/filters';
+import {
+  changeProducts, changeCategoriesFilter, getCategoriesCorrectProducts
+} from '../../../reducer/products';
 
 
 class FilterPanel extends PureComponent {
-  state = {
-    region: 'Область',
-    city: 'Любой',
-    priceFrom: '',
-    priceTo: '',
-    state: 'Любое',
-    seller: 'Любой',
-    withPhoto: false,
-    fashionableSummer: false,
-    installmentHalva: false,
-    isExchange: false,
-    correctProducts: this.props.products
-  };
-
-  componentDidUpdate(prevProps, prevState) {
-    if(prevState.correctProducts === this.state.correctProducts) {
-      const {
-        region, city, priceTo, priceFrom, state, seller, withPhoto,
-        fashionableSummer, installmentHalva, isExchange
-      } = this.state;
-      const location = region + (city !== 'Любой' && city !== '' ? `, ${city}` : '');
-      const correctProducts = this.props.products.filter(product => applyFilters(
-          location,
-          priceTo,
-          priceFrom,
-          state,
-          seller,
-          withPhoto,
-          fashionableSummer,
-          installmentHalva,
-          isExchange,
-          product
-      ));
-      this.setState({correctProducts: correctProducts})
+  componentDidUpdate(prevProps) {
+    if (prevProps.correctProducts === this.props.correctProducts) {
+      const {products} = this.props;
+      if (products) {
+        const correctProducts = products
+          .filter(product => applyFilters(this.props.filters, product));
+        this.props.changeCorrectProducts(correctProducts);
+      }
     }
   }
 
-
-  handleRegion = (value) => {
-    this.setState({region: value});
-    this.setState({city: ''});
-  };
-  handleCity = (value) => {
-    this.setState({city: value});
-  };
-  handlePriceFrom = (value) => this.setState({priceFrom: value});
-  handlePriceTo = (value) => this.setState({priceTo: value});
-  handleState = (value) => this.setState({state: value});
-  handleSeller = (value) => this.setState({seller: value});
-  handleWithPhoto = () =>
-      this.setState(({withPhoto}) => ({withPhoto: !withPhoto}));
-  handleFashionableSummer = () =>
-      this.setState(({fashionableSummer}) => ({fashionableSummer: !fashionableSummer}));
-  handleInstallmentHalva = () =>
-      this.setState(({installmentHalva}) => ({installmentHalva: !installmentHalva}));
-  handleIsExchange = () =>
-      this.setState(({isExchange}) => ({isExchange: !isExchange}));
-
-
   handleFilters = () => {
     window.scrollTo(0, 0);
-    this.props.handleProducts(this.state.correctProducts);
+    this.props.changeProducts(this.props.correctProducts);
   };
 
   render() {
-    const {correctProducts} = this.state;
-    const cities = locations.find(location => location.region === this.state.region);
+    const {correctProducts} = this.props;
+    const cities = locations.find(location => location.region === this.props.region);
     return (
-        <div className="filter-panel">
-          <CategoriesFilter handleCategoriesFilter={this.props.handleCategoriesFilter}/>
-          <div className="other-filters-container">
-            <LocationFilter
-                id="list-region-filter"
-                headline="ВСЯ БЕЛАРУСЬ"
-                firstOption="Область"
-                options={locations.map(location => location.region)}
-                handleLocation={this.handleRegion}
-            />
-            <LocationFilter
-                id={'list-city-filter'}
-                headline={'ГОРОД / РАЙОН'}
-                firstOption="Любой"
-                options={cities && cities.city}
-                disabled={this.state.region === 'Область'}
-                handleLocation={this.handleCity}
-            />
-            <PriceFilter
-                handlePriceFilterTo={this.handlePriceTo}
-                handlePriceFilterFrom={this.handlePriceFrom}
-            />
-            <SwitchFilter
-                headline="Состояние"
-                classNameFilter="state-filter"
-                typeSwitch="radio"
-                nameRadioBtn="state"
-                filters={stateFilter}
-                handleSwitchFilter={this.handleState}
-            />
-            <SwitchFilter
-                headline="ПРОДАВЕЦ"
-                classNameFilter="seller-filter"
-                typeSwitch="radio"
-                nameRadioBtn="seller"
-                filters={sellerFilter}
-                handleSwitchFilter={this.handleSeller}
-            />
-            <CheckboxFilter
-                classNameFilter="additional-modes"
-                typeSwitch="checkbox"
-                filters={checkboxFilter}
-                handlesSwitchFilter={[this.handleFashionableSummer, this.handleInstallmentHalva, this.handleWithPhoto,
-                  this.handleIsExchange]}
-            />
-            <button className="btn--show-result" onClick={this.handleFilters}>
-              Показать результаты({correctProducts.length})
-            </button>
-            <button className="btn--reset-filters">Сбросить фильтры</button>
-            <button className="btn--save-search">Сохранить поиск</button>
-          </div>
+      <div className="filter-panel">
+        <CategoriesFilter handleCategoriesFilter={this.props.changeCategoriesFilter} />
+        <div className="other-filters-container">
+          <LocationFilter
+            id="list-region-filter"
+            headline="ВСЯ БЕЛАРУСЬ"
+            firstOption="Область"
+            options={locations.map(location => location.region)}
+            handleLocation={this.props.changeRegion}
+          />
+          <LocationFilter
+            id="list-city-filter"
+            headline="ГОРОД / РАЙОН"
+            firstOption="Любой"
+            options={cities && cities.city}
+            disabled={this.props.region === 'Область'}
+            handleLocation={this.props.changeCity}
+          />
+          <PriceFilter
+            handlePriceFilterTo={this.props.changePriceTo}
+            handlePriceFilterFrom={this.props.changePriceFrom}
+          />
+          <SwitchFilter
+            headline="Состояние"
+            classNameFilter="state-filter"
+            typeSwitch="radio"
+            nameRadioBtn="state"
+            filters={stateFilter}
+            handleSwitchFilter={this.props.changeStateProduct}
+          />
+          <SwitchFilter
+            headline="ПРОДАВЕЦ"
+            classNameFilter="seller-filter"
+            typeSwitch="radio"
+            nameRadioBtn="seller"
+            filters={sellerFilter}
+            handleSwitchFilter={this.props.changeSeller}
+          />
+          <CheckboxFilter
+            classNameFilter="additional-modes"
+            typeSwitch="checkbox"
+            filters={checkboxFilter}
+            handlesSwitchFilter={[
+              this.props.changeFashionableSummer,
+              this.props.changeInstallmentHalva,
+              this.props.changeIsWithPhoto,
+              this.props.changeIsExchange
+            ]}
+          />
+          <button type="button" className="btn--show-result" onClick={this.handleFilters}>
+              Показать результаты(
+            {correctProducts.length}
+)
+          </button>
+          <button type="button" className="btn--reset-filters">Сбросить фильтры</button>
+          <button type="button" className="btn--save-search">Сохранить поиск</button>
         </div>
-    )
-  };
+      </div>
+    );
+  }
 }
 
-export default FilterPanel;
+const mapStateToProps = state => ({
+  filters: getFilters(state),
+  region: getRegion(state),
+  correctProducts: getCorrectProducts(state),
+  products: getCategoriesCorrectProducts(state)
+});
+
+
+export default connect(mapStateToProps, {
+  changeCorrectProducts,
+  changeProducts,
+  changeCategoriesFilter,
+  changeRegion,
+  changeCity,
+  changePriceFrom,
+  changePriceTo,
+  changeStateProduct,
+  changeSeller,
+  changeIsWithPhoto,
+  changeFashionableSummer,
+  changeInstallmentHalva,
+  changeIsExchange
+})(FilterPanel);

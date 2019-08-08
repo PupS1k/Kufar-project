@@ -16,29 +16,18 @@ export const sellerFilter = [{name: 'Любой', checked: true},
 export const checkboxFilter = [{name: 'Модное лето'}, {name: 'Рассорчка по халве'},
   {name: 'Только с фото'}, {name: 'Возможен обмен'}];
 
-export const applyFilters = (
-    locationFilter,
-    priceToFilter,
-    priceFromFilter,
-    stateFilter,
-    sellerFilter,
-    withPhotoFilter,
-    fashionableSummerFilter,
-    installmentHalvaFilter,
-    isExchangeFilter,
-    product
-) => {
-  const isCorrectLocationFilter = product.location.indexOf(locationFilter)>-1 || locationFilter==='Область';
-  const isCorrectPriceFilter = (priceToFilter==='' && priceFromFilter==='') ||
-      (priceToFilter==='' && priceFromFilter==='0') ||
-      (priceFromFilter <= product.price && priceToFilter >= product.price) ||
+export const applyFilters = (filters, product) => {
+  const isCorrectLocationFilter = product.location.indexOf(filters.location)>-1 || filters.location==='Область';
+  const isCorrectPriceFilter = (filters.priceTo==='' && filters.priceFrom==='') ||
+      (filters.priceTo==='' && filters.priceFrom==='0') ||
+      (filters.priceFrom <= product.price && filters.priceTo >= product.price) ||
       product.price==='Договорная' || product.price==='Бесплатно';
-  const isCorrectStateFilter = stateFilter==='Любое' || product.state === stateFilter;
-  const isCorrectSellerFilter = sellerFilter==='Любой' || product.seller === sellerFilter;
-  const isCorrectWithPhoto = withPhotoFilter ? product.image : true;
-  const isCorrectFashionableSummer = fashionableSummerFilter ? product.fashionableSummer : true;
-  const isCorrectInstallmentHalva = installmentHalvaFilter ? product.installmentHalva : true;
-  const isCorrectIsExchange = isExchangeFilter ? product.isExchange : true;
+  const isCorrectStateFilter = filters.stateProduct==='Любое' || product.state === filters.stateProduct;
+  const isCorrectSellerFilter = filters.seller==='Любой' || product.seller === filters.seller;
+  const isCorrectWithPhoto = filters.isWithPhoto ? product.image : true;
+  const isCorrectFashionableSummer = filters.fashionableSummer ? product.fashionableSummer : true;
+  const isCorrectInstallmentHalva = filters.installmentHalva ? product.installmentHalva : true;
+  const isCorrectIsExchange = filters.isExchange ? product.isExchange : true;
 
   return isCorrectLocationFilter && isCorrectPriceFilter && isCorrectStateFilter &&
       isCorrectSellerFilter && isCorrectWithPhoto && isCorrectFashionableSummer &&

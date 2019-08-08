@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
-const Button = () => (<button className="btn--log-In">Вход</button>);
+const Button = () => (<button type="button" className="btn--log-In">Вход</button>);
 
 export default Button;

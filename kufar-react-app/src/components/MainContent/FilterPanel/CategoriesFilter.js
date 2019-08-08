@@ -12,23 +12,23 @@ class CategoriesFilter extends Component {
   handleCategory = (event) => {
     const activeCategory = event.currentTarget.innerHTML;
     this.props.handleCategoriesFilter(activeCategory);
-    this.setState({activeCategory: activeCategory});
+    this.setState({activeCategory});
   };
 
   render() {
     return (
-        <div className="categories-filter">
-          {categories.map(category => (
-              <a
-                  key={category}
-                  className={'nav-filter' + (category === this.state.activeCategory ? ' active-category' : '')}
-                  onClick={this.handleCategory}
-              >
-                {category}
-              </a>
-          ))}
-        </div>
-    )
+      <div className="categories-filter">
+        {categories.map(category => (
+          <a
+            key={category}
+            className={`nav-filter${category === this.state.activeCategory ? ' active-category' : ''}`}
+            onClick={this.handleCategory}
+          >
+            {category}
+          </a>
+        ))}
+      </div>
+    );
   }
 }
 
