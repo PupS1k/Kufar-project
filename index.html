@@ -11,23 +11,23 @@
         <header>
             <div class="left-part-of-cup">
                <div class="logo-container">
-                   <img class="logo-img logo-icon" src="kufar-react-app/src/images/logo.png" alt="Logo"/>
-                   <img class="logo-img logo-text" src="kufar-react-app/src/images/kufar.png" alt="Logo">
+                   <img class="logo-img logo-icon" src="src/images/logo.png" alt="Logo"/>
+                   <img class="logo-img logo-text" src="src/images/kufar.png" alt="Logo">
                </div>
                 <div class="search-field-container">
                     <label for="search-field" tabindex="0">
-                        <img class="img--loupe" src="kufar-react-app/src/images/search.png" alt="Search">
+                        <img class="img--loupe" src="src/images/search.png" alt="Search">
                     </label>
                     <input id="search-field" type="text" placeholder="Товар, услуга">
                 </div>
                 <button class="btn--location">
-                    <img class="img--marker" src="kufar-react-app/src/images/locationHeader.png" alt="Location"/>
+                    <img class="img--marker" src="src/images/locationHeader.png" alt="Location"/>
                     <p>Вся Беларусь</p>
                 </button>
             </div>
             <div class="right-part-of-cup">
                 <button class="btn--add-ad">
-                    <img class="img--plus" src="kufar-react-app/src/images/plus.png" alt="Plus"/>
+                    <img class="img--plus" src="src/images/plus.png" alt="Plus"/>
                     <p class="btn--add-ad__text btn--add-ad__text-full">Подать объявление</p>
                     <p class="btn--add-ad__text btn--add-ad__text-reduction">Объявление</p>
                 </button>
@@ -36,12 +36,12 @@
         </header>
         <nav class="navigation">
             <button class="btn--all-categories">
-                <img class="btn--all-categories__img" src="kufar-react-app/src/images/lines.png" alt="Lines"/>
+                <img class="btn--all-categories__img" src="src/images/lines.png" alt="Lines"/>
                 <p class="btn--all-categories__text">Категории</p>
             </button>
             <div class="scroll-panel-nav">
                 <a class="nav--category">
-                    <img class="nav-img--skirt" src="kufar-react-app/src/images/shirt.png" alt="Shirt"/>
+                    <img class="nav-img--skirt" src="src/images/shirt.png" alt="Shirt"/>
                     <p>Модное лето</p>
                 </a>
                 <a class="nav--category">Техника с доставкой</a>
@@ -63,225 +63,227 @@
                 <button class="scroll-btn scroll-panel-btn--right"></button>
             </div>
         </nav>
-        <div class="cup-of-mainpage">
-            <div class="cup-of-mainpage__text">
-                <p class="cup-of-mainpage--txt headline">Kufar - площадка объявлений в Беларуси</p>
-                <p class="cup-of-mainpage--txt count-ad">Объявлений: 2071428</p>
-            </div>
-            <div class="sortings-container">
-                <select class="list-sortings">
-                    <option>По дате</option>
-                    <option>По цене ↑</option>
-                    <option>По цене ↓</option>
-                </select>
-                <div class="switches-display">
-                    <button class="btn--show-filters">
-                        <img class="btn--show-filters--img switch-display--img" src="kufar-react-app/src/images/switch.png" alt="Switch"/>
-                        <p class="btn--show-filters--txt">Фильтры</p>
-                    </button>
-                    <button class="btn--switch-display">
-                        <img class="switch-display--img" src="kufar-react-app/src/images/square4.png" alt="Square">
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="mainpage">
-            <div class="filters-container">
-                <nav class="list-nav-filters">
-                    <a class="nav-filters nav-filters__all-categories">Все категории</a>
-                    <a class="nav-filters">Модное лето</a>
-                    <a class="nav-filters">Недвижимость</a>
-                    <a class="nav-filters">Авто и транспорт</a>
-                    <a class="nav-filters">Техника</a>
-                    <a class="nav-filters">Мода и стиль</a>
-                    <a class="nav-filters">Все для детей и мам</a>
-                    <a class="nav-filters">Все для дома</a>
-                    <a class="nav-filters">Ремонт и стройка</a>
-                    <a class="nav-filters">Сад и огород</a>
-                    <a class="nav-filters">Хобби, спорт и туризм</a>
-                    <a class="nav-filters">Свадьба и праздники</a>
-                    <a class="nav-filters">Животные</a>
-                    <a class="nav-filters">Работа, бизнес, учеба</a>
-                    <a class="nav-filters">Услуги</a>
-                    <a class="nav-filters">Прочее</a>
-                </nav>
-                <div class="other-filters-container">
-                    <div class="location-filters">
-                        <label class="location-filters--lbl" for="list-region-filters">ВСЯ БЕЛАРУСЬ</label>
-                        <select id="list-region-filters">
-                            <option>Область</option>
-                            <option>Минск</option>
-                            <option>Брестская</option>
-                            <option>Могилевская</option>
-                            <option>Гомельская</option>
-                            <option>Витебская</option>
-                            <option>Гродненская</option>
-                            <option>Минск</option>
-                        </select>
-                        <label class="location-filters--lbl" for="list-city-filters">ГОРОД / РАЙОН</label>
-                        <select id="list-city-filters" disabled>
-                            <option>Любой</option>
-                            <!--                        <option>Минск</option>-->
-                            <!--                        <option>Брестская</option>-->
-                            <!--                        <option>Могилевская</option>-->
-                            <!--                        <option>Гомельская</option>-->
-                            <!--                        <option>Витебская</option>-->
-                            <!--                        <option>Гродненская</option>-->
-                            <!--                        <option>Минск</option>-->
-                        </select>
-                        <label class="location-filters--lbl" for="price-filters-from">ЦЕНА</label>
-                        <div class="price-filters">
-                            <input class="price-filters--input" id="price-filters-from" placeholder="От" type="number" min="0" step="0.01">
-                            <input class="price-filters--input" id="price-filters-to" placeholder="До" type="number" min="0" step="0.01">
-                        </div>
-                        <label class="location-filters--lbl">СОСТОЯНИЕ</label>
-                        <div class="state-filters">
-                            <label class="icon-label"><input class="icon-input" type="radio" checked name="state">
-                                <div class="icon-radio-btn"></div>
-                                <p>Любой</p>
-                            </label>
-                            <label class="icon-label"><input class="icon-input" type="radio" name="state">
-                                <div class="icon-radio-btn"></div>
-                                <p>Новое</p>
-                            </label>
-                            <label class="icon-label"><input class="icon-input" type="radio" name="state">
-                                <div class="icon-radio-btn"></div>
-                                <p>Б/у</p>
-                            </label>
-                        </div>
-                        <label class="location-filters--lbl">ПРОДАВЕЦ</label>
-                        <div class="seller-filters">
-                            <label class="icon-label"><input class="icon-input" type="radio" checked name="seller">
-                                <div class="icon-radio-btn"></div>
-                                <p>Любой</p>
-                            </label>
-                            <label class="icon-label"><input class="icon-input" type="radio" name="seller">
-                                <div class="icon-radio-btn"></div>
-                                <p>Частное лицо</p>
-                            </label>
-                            <label class="icon-label"><input class="icon-input" type="radio" name="seller">
-                                <div class="icon-radio-btn"></div>
-                                <p>Компания</p>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="additional-modes">
-                        <label class="icon-label"><input class="icon-input" type="checkbox" value="fSummer">
-                            <div class="icon-checkbox"></div>
-                            <p>Модное лето</p>
-                        </label>
-                        <label class="icon-label"><input class="icon-input" type="checkbox" value="halva">
-                            <div class="icon-checkbox"></div>
-                            <p>В рассрочку по халве</p>
-                        </label>
-                        <label class="icon-label"><input class="icon-input" type="checkbox" value="withPhoto">
-                            <div class="icon-checkbox"></div>
-                            <p>Только с фото</p>
-                        </label>
-                        <label class="icon-label"><input class="icon-input" type="checkbox" value="exchange">
-                            <div class="icon-checkbox"></div>
-                            <p>Возможен обмен</p>
-                        </label>
-                    </div>
-                    <button class="btn--show-result">Показать результаты(62893)</button>
-                    <button class="btn--reset-filters">Сбросить фильтры</button>
-                    <button class="btn--save-search">Сохранить поиск</button>
-                </div>
-            </div>
 
-            <div class="list-advertisements">
-                <div class="ad-container">
-                    <div class="ad-container--img" style="background-image: url(kufar-react-app/src/images/item.jpg)"></div>
-                    <div class="info-about-ad">
-                        <div class="top-part-of-ad-container">
-                            <div class="name-ad-container">
-                                <p class="top-part-of-ad--txt name-ad">Кастрюля</p>
-                                <p class="top-part-of-ad--txt info-ad">Кухонные приборы, Redmand, Б/у</p>
-                            </div>
-                            <p class="top-part-of-ad--txt price-ad">100 р.</p>
-                        </div>
-                        <div class="bot-part-of-ad-container">
-                            <div class="location-advertisement">
-                                <img class="location-ad--img" src="kufar-react-app/src/images/locationItem.png" alt="Location"/>
-                                <p class="bot-part-of-ad--text">Гомель</p>
-                            </div>
-                            <p class="bot-part-of-ad--text announced-ad">Сегодня, 09:40</p>
-                        </div>
+        <div class="mainpage">
+            <div class="cup-of-mainpage">
+                <div class="cup-of-mainpage__text">
+                    <p class="cup-of-mainpage--txt headline">Kufar - площадка объявлений в Беларуси</p>
+                    <p class="cup-of-mainpage--txt count-ad">Объявлений: 2071428</p>
+                </div>
+                <div class="sortings-container">
+                    <select class="list-sortings">
+                        <option>По дате</option>
+                        <option>По цене ↑</option>
+                        <option>По цене ↓</option>
+                    </select>
+                    <div class="switches-display">
+                        <button class="btn--show-filters">
+                            <img class="btn--show-filters--img switch-display--img" src="src/images/switch.png" alt="Switch"/>
+                            <p class="btn--show-filters--txt">Фильтры</p>
+                        </button>
+                        <button class="btn--switch-display">
+                            <img class="switch-display--img" src="src/images/square4.png" alt="Square">
+                        </button>
                     </div>
                 </div>
-                <div class="ad-container">
-                    <div class="ad-container--img" style="background-image: url(kufar-react-app/src/images/item2.jpg)"></div>
-                    <div class="info-about-ad">
-                        <div class="top-part-of-ad-container">
-                            <div class="name-ad-container">
-                                <p class="top-part-of-ad--txt name-ad">Наклейки Ледниковый период</p>
-                                <p class="top-part-of-ad--txt info-ad">Коллекции</p>
+            </div>
+            <div class="main-content-body">
+                <div class="filters-container">
+                    <nav class="list-nav-filters">
+                        <a class="nav-filters nav-filters__all-categories">Все категории</a>
+                        <a class="nav-filters">Модное лето</a>
+                        <a class="nav-filters">Недвижимость</a>
+                        <a class="nav-filters">Авто и транспорт</a>
+                        <a class="nav-filters">Техника</a>
+                        <a class="nav-filters">Мода и стиль</a>
+                        <a class="nav-filters">Все для детей и мам</a>
+                        <a class="nav-filters">Все для дома</a>
+                        <a class="nav-filters">Ремонт и стройка</a>
+                        <a class="nav-filters">Сад и огород</a>
+                        <a class="nav-filters">Хобби, спорт и туризм</a>
+                        <a class="nav-filters">Свадьба и праздники</a>
+                        <a class="nav-filters">Животные</a>
+                        <a class="nav-filters">Работа, бизнес, учеба</a>
+                        <a class="nav-filters">Услуги</a>
+                        <a class="nav-filters">Прочее</a>
+                    </nav>
+                    <div class="other-filters-container">
+                        <div class="location-filters">
+                            <label class="location-filters--lbl" for="list-region-filters">ВСЯ БЕЛАРУСЬ</label>
+                            <select id="list-region-filters">
+                                <option>Область</option>
+                                <option>Минск</option>
+                                <option>Брестская</option>
+                                <option>Могилевская</option>
+                                <option>Гомельская</option>
+                                <option>Витебская</option>
+                                <option>Гродненская</option>
+                                <option>Минск</option>
+                            </select>
+                            <label class="location-filters--lbl" for="list-city-filters">ГОРОД / РАЙОН</label>
+                            <select id="list-city-filters" disabled>
+                                <option>Любой</option>
+                                <!--                        <option>Минск</option>-->
+                                <!--                        <option>Брестская</option>-->
+                                <!--                        <option>Могилевская</option>-->
+                                <!--                        <option>Гомельская</option>-->
+                                <!--                        <option>Витебская</option>-->
+                                <!--                        <option>Гродненская</option>-->
+                                <!--                        <option>Минск</option>-->
+                            </select>
+                            <label class="location-filters--lbl" for="price-filters-from">ЦЕНА</label>
+                            <div class="price-filters">
+                                <input class="price-filters--input" id="price-filters-from" placeholder="От" type="number" min="0" step="0.01">
+                                <input class="price-filters--input" id="price-filters-to" placeholder="До" type="number" min="0" step="0.01">
                             </div>
-                            <p class="top-part-of-ad--txt price-ad">1 р.</p>
-                        </div>
-                        <div class="bot-part-of-ad-container">
-                            <div class="location-advertisement">
-                                <img class="location-ad--img" src="kufar-react-app/src/images/locationItem.png" alt="Location"/>
-                                <p class="bot-part-of-ad--text">Минск, Октябрьский</p>
+                            <label class="location-filters--lbl">СОСТОЯНИЕ</label>
+                            <div class="state-filters">
+                                <label class="icon-label"><input class="icon-input" type="radio" checked name="state">
+                                    <div class="icon-radio-btn"></div>
+                                    <p>Любой</p>
+                                </label>
+                                <label class="icon-label"><input class="icon-input" type="radio" name="state">
+                                    <div class="icon-radio-btn"></div>
+                                    <p>Новое</p>
+                                </label>
+                                <label class="icon-label"><input class="icon-input" type="radio" name="state">
+                                    <div class="icon-radio-btn"></div>
+                                    <p>Б/у</p>
+                                </label>
                             </div>
-                            <p class="bot-part-of-ad--text announced-ad">12 июля, 10:23</p>
+                            <label class="location-filters--lbl">ПРОДАВЕЦ</label>
+                            <div class="seller-filters">
+                                <label class="icon-label"><input class="icon-input" type="radio" checked name="seller">
+                                    <div class="icon-radio-btn"></div>
+                                    <p>Любой</p>
+                                </label>
+                                <label class="icon-label"><input class="icon-input" type="radio" name="seller">
+                                    <div class="icon-radio-btn"></div>
+                                    <p>Частное лицо</p>
+                                </label>
+                                <label class="icon-label"><input class="icon-input" type="radio" name="seller">
+                                    <div class="icon-radio-btn"></div>
+                                    <p>Компания</p>
+                                </label>
+                            </div>
                         </div>
+                        <div class="additional-modes">
+                            <label class="icon-label"><input class="icon-input" type="checkbox" value="fSummer">
+                                <div class="icon-checkbox"></div>
+                                <p>Модное лето</p>
+                            </label>
+                            <label class="icon-label"><input class="icon-input" type="checkbox" value="halva">
+                                <div class="icon-checkbox"></div>
+                                <p>В рассрочку по халве</p>
+                            </label>
+                            <label class="icon-label"><input class="icon-input" type="checkbox" value="withPhoto">
+                                <div class="icon-checkbox"></div>
+                                <p>Только с фото</p>
+                            </label>
+                            <label class="icon-label"><input class="icon-input" type="checkbox" value="exchange">
+                                <div class="icon-checkbox"></div>
+                                <p>Возможен обмен</p>
+                            </label>
+                        </div>
+                        <button class="btn--show-result">Показать результаты(62893)</button>
+                        <button class="btn--reset-filters">Сбросить фильтры</button>
+                        <button class="btn--save-search">Сохранить поиск</button>
                     </div>
                 </div>
-                <div class="ad-container">
-                    <div class="ad-container--img" style="background-image: url(kufar-react-app/src/images/item3.jpg)"></div>
-                    <div class="info-about-ad">
-                        <div class="top-part-of-ad-container">
-                            <div class="name-ad-container">
-                                <p class="top-part-of-ad--txt name-ad">Куртка</p>
-                                <p class="top-part-of-ad--txt info-ad">Женская одежда, Верхняя одежда, 52(XXL), Деми, Новое</p>
+                <div class="list-advertisements">
+                    <div class="ad-container">
+                        <div class="ad-container--img" style="background-image: url(src/images/item.jpg)"></div>
+                        <div class="info-about-ad">
+                            <div class="top-part-of-ad-container">
+                                <div class="name-ad-container">
+                                    <p class="top-part-of-ad--txt name-ad">Кастрюля</p>
+                                    <p class="top-part-of-ad--txt info-ad">Кухонные приборы, Redmand, Б/у</p>
+                                </div>
+                                <p class="top-part-of-ad--txt price-ad">100 р.</p>
                             </div>
-                            <p class="top-part-of-ad--txt price-ad">10 р.</p>
-                        </div>
-                        <div class="bot-part-of-ad-container">
-                            <div class="location-advertisement">
-                                <img class="location-ad--img" src="kufar-react-app/src/images/locationItem.png" alt="Location"/>
-                                <p class="bot-part-of-ad--text">Минская, Вилейка</p>
+                            <div class="bot-part-of-ad-container">
+                                <div class="location-advertisement">
+                                    <img class="location-ad--img" src="src/images/locationItem.png" alt="Location"/>
+                                    <p class="bot-part-of-ad--text">Гомель</p>
+                                </div>
+                                <p class="bot-part-of-ad--text announced-ad">Сегодня, 09:40</p>
                             </div>
-                            <p class="bot-part-of-ad--text announced-ad">23 июня, 19:30</p>
                         </div>
                     </div>
-                </div>
-                <div class="ad-container">
-                    <div class="ad-container--img" style="background-image: url(kufar-react-app/src/images/item4.jpg)"></div>
-                    <div class="info-about-ad">
-                        <div class="top-part-of-ad-container">
-                            <div class="name-ad-container">
-                                <p class="top-part-of-ad--txt name-ad">Красавица поночка</p>
-                                <p class="top-part-of-ad--txt info-ad">Домашние питомцы, Собаки</p>
+                    <div class="ad-container">
+                        <div class="ad-container--img" style="background-image: url(src/images/item2.jpg)"></div>
+                        <div class="info-about-ad">
+                            <div class="top-part-of-ad-container">
+                                <div class="name-ad-container">
+                                    <p class="top-part-of-ad--txt name-ad">Наклейки Ледниковый период</p>
+                                    <p class="top-part-of-ad--txt info-ad">Коллекции</p>
+                                </div>
+                                <p class="top-part-of-ad--txt price-ad">1 р.</p>
                             </div>
-                            <p class="top-part-of-ad--txt price-ad">Бесплатно</p>
+                            <div class="bot-part-of-ad-container">
+                                <div class="location-advertisement">
+                                    <img class="location-ad--img" src="src/images/locationItem.png" alt="Location"/>
+                                    <p class="bot-part-of-ad--text">Минск, Октябрьский</p>
+                                </div>
+                                <p class="bot-part-of-ad--text announced-ad">12 июля, 10:23</p>
+                            </div>
                         </div>
-                        <div class="bot-part-of-ad-container">
-                            <div class="location-advertisement">
-                                <img class="location-ad--img" src="kufar-react-app/src/images/locationItem.png" alt="Location"/>
-                                <p class="bot-part-of-ad--text">Минск, Октябрьский</p>
+                    </div>
+                    <div class="ad-container">
+                        <div class="ad-container--img" style="background-image: url(src/images/item3.jpg)"></div>
+                        <div class="info-about-ad">
+                            <div class="top-part-of-ad-container">
+                                <div class="name-ad-container">
+                                    <p class="top-part-of-ad--txt name-ad">Куртка</p>
+                                    <p class="top-part-of-ad--txt info-ad">Женская одежда, Верхняя одежда, 52(XXL), Деми, Новое</p>
+                                </div>
+                                <p class="top-part-of-ad--txt price-ad">10 р.</p>
                             </div>
-                            <p class="bot-part-of-ad--text announced-ad">12 июля, 10:40</p>
+                            <div class="bot-part-of-ad-container">
+                                <div class="location-advertisement">
+                                    <img class="location-ad--img" src="src/images/locationItem.png" alt="Location"/>
+                                    <p class="bot-part-of-ad--text">Минская, Вилейка</p>
+                                </div>
+                                <p class="bot-part-of-ad--text announced-ad">23 июня, 19:30</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ad-container">
+                        <div class="ad-container--img" style="background-image: url(src/images/item4.jpg)"></div>
+                        <div class="info-about-ad">
+                            <div class="top-part-of-ad-container">
+                                <div class="name-ad-container">
+                                    <p class="top-part-of-ad--txt name-ad">Красавица поночка</p>
+                                    <p class="top-part-of-ad--txt info-ad">Домашние питомцы, Собаки</p>
+                                </div>
+                                <p class="top-part-of-ad--txt price-ad">Бесплатно</p>
+                            </div>
+                            <div class="bot-part-of-ad-container">
+                                <div class="location-advertisement">
+                                    <img class="location-ad--img" src="src/images/locationItem.png" alt="Location"/>
+                                    <p class="bot-part-of-ad--text">Минск, Октябрьский</p>
+                                </div>
+                                <p class="bot-part-of-ad--text announced-ad">12 июля, 10:40</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="pagination">
-            <button class="pagination--btn pagination--btn-previous" disabled></button>
-            <p class="pagination--page active-pagination--page">1</p>
-            <p class="pagination--page">2</p>
-            <p class="pagination--page">3</p>
-            <p class="pagination--page points">...</p>
-            <p class="pagination--page">62893</p>
-            <button class="pagination--btn pagination--btn-next"></button>
+            <div class="pagination">
+                <button class="pagination--btn pagination--btn-previous" disabled></button>
+                <p class="pagination--page active-pagination--page">1</p>
+                <p class="pagination--page">2</p>
+                <p class="pagination--page">3</p>
+                <p class="pagination--page points">...</p>
+                <p class="pagination--page">62893</p>
+                <button class="pagination--btn pagination--btn-next"></button>
+            </div>
         </div>
         <footer>
                 <div class="top-part-of-foot">
                     <div class="list-additional-links">
                         <a class="additional-link link-advertising">
-                            <img class="img--gistogram" src="kufar-react-app/src/images/gistogram.png" alt="Gistogram">
+                            <img class="img--gistogram" src="src/images/gistogram.png" alt="Gistogram">
                             <p>Реклама</p>
                         </a>
                         <a class="additional-link">Рассрочка</a>
@@ -291,7 +293,7 @@
                         <a class="additional-link">Выбрать регион</a>
                     </div>
                     <button class="btn-change-language">
-                        <img class="btn-change-language--img" src="kufar-react-app/src/images/earth.png" alt="Earth">
+                        <img class="btn-change-language--img" src="src/images/earth.png" alt="Earth">
                         <p>Беларуская</p>
                     </button>
                 </div>
@@ -303,32 +305,32 @@
                 <div class="bot-part-of-foot">
                     <div class="links-app-container">
                         <a class="link-app">
-                            <img class="link-app--img" src="kufar-react-app/src/images/apple.png" alt="Apple">
-                            <p class="link-app--text">Приложение Kufar в App Store</p>
+                            <img class="link-app--img" src="src/images/apple.png" alt="Apple">
+                            <p class="link-app--text">Приложение Kufar в Index Store</p>
                         </a>
                         <a class="link-app">
-                            <img class="link-app--img" src="kufar-react-app/src/images/googlePlay.png" alt="Google Play">
+                            <img class="link-app--img" src="src/images/googlePlay.png" alt="Google Play">
                             <p class="link-app--text">Приложение Kufar в Google Play</p>
                         </a>
                     </div>
                     <div class="links-social-network">
                         <a class="link-social-network">
-                            <img class="link-social-network--img" src="kufar-react-app/src/images/telegram.png" alt="Telegram">
+                            <img class="link-social-network--img" src="src/images/telegram.png" alt="Telegram">
                         </a>
                         <a class="link-social-network">
-                            <img class="link-social-network--img" src="kufar-react-app/src/images/vk.png" alt="Vk">
+                            <img class="link-social-network--img" src="src/images/vk.png" alt="Vk">
                         </a>
                         <a class="link-social-network">
-                            <img class="link-social-network--img" src="kufar-react-app/src/images/facebook.png" alt="Facebook">
+                            <img class="link-social-network--img" src="src/images/facebook.png" alt="Facebook">
                         </a>
                         <a class="link-social-network">
-                            <img class="link-social-network--img" src="kufar-react-app/src/images/instagram.png" alt="Instagram">
+                            <img class="link-social-network--img" src="src/images/instagram.png" alt="Instagram">
                         </a>
                         <a class="link-social-network">
-                            <img class="link-social-network--img" src="kufar-react-app/src/images/youtube.png" alt="Youtube">
+                            <img class="link-social-network--img" src="src/images/youtube.png" alt="Youtube">
                         </a>
                         <a class="link-social-network">
-                            <img class="link-social-network--img" src="kufar-react-app/src/images/odnoklassniki.png" alt="Odnoklassniki">
+                            <img class="link-social-network--img" src="src/images/odnoklassniki.png" alt="Odnoklassniki">
                         </a>
                     </div>
                 </div>
