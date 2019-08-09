@@ -23,7 +23,7 @@ const initialState = {
   fashionableSummer: false,
   installmentHalva: false,
   isExchange: false,
-  correctProducts: productList
+  correctProducts: []
 };
 
 // Reducer
