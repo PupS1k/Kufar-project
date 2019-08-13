@@ -1,4 +1,3 @@
-import productList from '../products';
 
 const CHANGE_REGION = 'CHANGE_REGION';
 const CHANGE_CITY = 'CHANGE_CITY';

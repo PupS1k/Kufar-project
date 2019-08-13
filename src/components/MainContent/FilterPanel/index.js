@@ -10,15 +10,19 @@ import {
 } from '../../../constants';
 import {
   getCorrectProducts, getFilters, changeCorrectProducts, getRegion, changeRegion,
-  changeCity, changePriceFrom, changePriceTo, changeStateProduct, changeSeller,
+  changeCity, changeStateProduct, changeSeller,
   changeIsWithPhoto, changeFashionableSummer, changeInstallmentHalva, changeIsExchange
 } from '../../../reducer/filters';
 import {
-  changeProducts, changeCategoriesFilter, getCategoriesCorrectProducts
+  changeProducts, changeCategoriesFilter, getCategoriesCorrectProducts, addProductsAsync
 } from '../../../reducer/products';
 
 
 class FilterPanel extends PureComponent {
+  componentDidMount() {
+    this.props.addProductsAsync('kufar');
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.correctProducts === this.props.correctProducts) {
       const {products} = this.props;
@@ -112,12 +116,11 @@ export default connect(mapStateToProps, {
   changeCategoriesFilter,
   changeRegion,
   changeCity,
-  changePriceFrom,
-  changePriceTo,
   changeStateProduct,
   changeSeller,
   changeIsWithPhoto,
   changeFashionableSummer,
   changeInstallmentHalva,
-  changeIsExchange
+  changeIsExchange,
+  addProductsAsync
 })(FilterPanel);
