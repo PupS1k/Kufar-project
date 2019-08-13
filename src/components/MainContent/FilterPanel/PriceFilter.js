@@ -1,23 +1,20 @@
 import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
+import {
+  getPriceFrom, getPriceTo, changePriceTo, changePriceFrom
+} from '../../../reducer/filters';
 
 class PriceFilter extends PureComponent {
-  state = {
-    priceTo: '',
-    priceFrom: ''
-  };
-
   handlePriceTo = (event) => {
     let price = event.currentTarget.value;
     if (price < 0) price *= -1;
-    this.setState({priceTo: price});
-    this.props.handlePriceFilterTo(price);
+    this.props.changePriceTo(price);
   };
 
   handlePriceFrom = (event) => {
     let price = event.currentTarget.value;
     if (price < 0) price *= -1;
-    this.setState({priceFrom: price});
-    this.props.handlePriceFilterFrom(price);
+    this.props.changePriceFrom(price);
   };
 
   render() {
@@ -30,7 +27,7 @@ class PriceFilter extends PureComponent {
             id="price-filter-from"
             placeholder="От"
             type="number"
-            value={this.state.priceFrom}
+            value={this.props.priceFrom}
             onChange={this.handlePriceFrom}
             min="0"
             step="0.01"
@@ -41,7 +38,7 @@ class PriceFilter extends PureComponent {
             placeholder="До"
             type="number"
             onChange={this.handlePriceTo}
-            value={this.state.priceTo}
+            value={this.props.priceTo}
             min="0"
             step="0.01"
           />
@@ -51,4 +48,9 @@ class PriceFilter extends PureComponent {
   }
 }
 
-export default PriceFilter;
+const mapStateToProps = state => ({
+  priceTo: getPriceTo(state),
+  priceFrom: getPriceFrom(state)
+});
+
+export default connect(mapStateToProps, {changePriceTo, changePriceFrom})(PriceFilter);

@@ -136,6 +136,8 @@ const changeCorrectProducts = value => ({
 // Selectors
 const getRegion = state => state.filters.region;
 const getCorrectProducts = state => state.filters.correctProducts;
+const getPriceTo = state => state.filters.priceTo;
+const getPriceFrom = state => state.filters.priceFrom;
 const getFilters = state => ({
   location: state.filters.region
           + (state.filters.city !== 'Любой' && state.filters.city !== '' ? `, ${state.filters.city}` : ''),
@@ -168,5 +170,7 @@ export {
   // selectors
   getFilters,
   getCorrectProducts,
-  getRegion
+  getRegion,
+  getPriceTo,
+  getPriceFrom
 };

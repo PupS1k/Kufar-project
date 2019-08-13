@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 
 class CheckboxFilter extends PureComponent {
-  handleSwitch = handle => () => handle();
+
 
   render() {
     const {
@@ -18,7 +18,7 @@ class CheckboxFilter extends PureComponent {
                 className="icon-input"
                 type={typeSwitch}
                 value={filter.name}
-                onChange={this.handleSwitch(handlesSwitchFilter[index])}
+                onChange={handlesSwitchFilter[index]}
                 defaultChecked={filter.checked}
                 name={nameRadioBtn || filter.name}
               />

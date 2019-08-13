@@ -57,10 +57,7 @@ class FilterPanel extends PureComponent {
             disabled={this.props.region === 'Область'}
             handleLocation={this.props.changeCity}
           />
-          <PriceFilter
-            handlePriceFilterTo={this.props.changePriceTo}
-            handlePriceFilterFrom={this.props.changePriceFrom}
-          />
+          <PriceFilter />
           <SwitchFilter
             headline="Состояние"
             classNameFilter="state-filter"
@@ -91,7 +88,7 @@ class FilterPanel extends PureComponent {
           <button type="button" className="btn--show-result" onClick={this.handleFilters}>
               Показать результаты(
             {correctProducts.length}
-)
+            )
           </button>
           <button type="button" className="btn--reset-filters">Сбросить фильтры</button>
           <button type="button" className="btn--save-search">Сохранить поиск</button>
