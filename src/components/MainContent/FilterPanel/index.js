@@ -7,15 +7,14 @@ import SwitchFilter from './SwitchFilter';
 import CheckboxFilter from './CheckboxFilter';
 import {
   locations, stateFilter, sellerFilter, checkboxFilter, applyFilters
-} from '../../../constants';
+} from '../../../constants/filters';
+import {getCorrectProducts, getFilters, getRegion} from '../../../selectors/filters';
 import {
-  getCorrectProducts, getFilters, changeCorrectProducts, getRegion, changeRegion,
-  changeCity, changeStateProduct, changeSeller,
+  changeCorrectProducts, changeRegion, changeCity, changeStateProduct, changeSeller,
   changeIsWithPhoto, changeFashionableSummer, changeInstallmentHalva, changeIsExchange
-} from '../../../reducer/filters';
-import {
-  changeProducts, changeCategoriesFilter, getCategoriesCorrectProducts, getProductAsync
-} from '../../../reducer/products';
+} from '../../../actions/filters'
+import {getCategoriesCorrectProducts} from '../../../selectors/products';
+import {changeProducts, changeCategoriesFilter, getProductAsync} from '../../../actions/products';
 import './style.css';
 
 class FilterPanel extends PureComponent {

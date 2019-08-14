@@ -1,8 +1,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {
-  getPriceFrom, getPriceTo, changePriceTo, changePriceFrom
-} from '../../../reducer/filters';
+import {getPriceFrom, getPriceTo} from '../../../selectors/filters';
+import {changePriceTo, changePriceFrom} from '../../../actions/filters';
 
 class PriceFilter extends PureComponent {
   handlePriceTo = (event) => {

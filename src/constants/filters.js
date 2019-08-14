@@ -17,7 +17,7 @@ export const checkboxFilter = [{name: 'Модное лето'}, {name: 'Расс
   {name: 'Только с фото'}, {name: 'Возможен обмен'}];
 
 export const applyFilters = (filters, product) => {
-  const isCorrectLocationFilter = product.location.indexOf(filters.location)>-1 || filters.location==='Область';
+  const isCorrectLocationFilter = product.location.includes(filters.location) || filters.location==='Область';
   const isCorrectPriceFilter = (filters.priceTo==='' && filters.priceFrom==='') ||
       (filters.priceTo==='' && filters.priceFrom==='0') ||
       (filters.priceFrom <= product.price && filters.priceTo >= product.price) ||
