@@ -14,13 +14,13 @@ import {
   changeIsWithPhoto, changeFashionableSummer, changeInstallmentHalva, changeIsExchange
 } from '../../../reducer/filters';
 import {
-  changeProducts, changeCategoriesFilter, getCategoriesCorrectProducts, addProductsAsync
+  changeProducts, changeCategoriesFilter, getCategoriesCorrectProducts, getProductAsync
 } from '../../../reducer/products';
 
 
 class FilterPanel extends PureComponent {
   componentDidMount() {
-    this.props.addProductsAsync('kufar');
+    this.props.getProductAsync('kufar');
   }
 
   componentDidUpdate(prevProps) {
@@ -122,5 +122,5 @@ export default connect(mapStateToProps, {
   changeFashionableSummer,
   changeInstallmentHalva,
   changeIsExchange,
-  addProductsAsync
+  getProductAsync
 })(FilterPanel);

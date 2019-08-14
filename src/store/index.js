@@ -1,10 +1,12 @@
 import {
   createStore, combineReducers, applyMiddleware, compose
 } from 'redux';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import filters from '../reducer/filters';
-import products from '../reducer/products';
+import products, {watchAddProducts} from '../reducer/products';
 
+
+const sagaMiddleware = createSagaMiddleware();
 
 const reducer = combineReducers({
   filters,
@@ -14,9 +16,11 @@ const reducer = combineReducers({
 const store = createStore(
   reducer,
   compose(
-    applyMiddleware(thunk),
+    applyMiddleware(sagaMiddleware),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
+
+sagaMiddleware.run(watchAddProducts);
 
 export default store;
