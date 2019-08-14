@@ -1,0 +1,118 @@
+.navigation{
+    display: flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    align-items: center;
+    padding: 75px 0 5px 0;
+    border-bottom: solid 1px #d3d7da;
+    color: #5a5f61;
+    font-size: 16px;
+}
+.navigation p{
+    margin: 0;
+}
+.scroll-panel-nav{
+    display: flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    overflow-x: hidden;
+    /*overflow-y: hidden;*/
+}
+.btn--all-categories__img{
+    width: 30px;
+    height: 20px;
+}
+.btn--all-categories:hover{
+    color: #424de2;
+}
+.nav-img--skirt{
+    margin-right: 3px;
+    width: 21px;
+    height: 18px;
+}
+.nav--category:hover, .nav-filter:hover{
+    color: #29ad5b;
+}
+.btn--all-categories{
+    display: flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    font-size: 16px;
+    align-items: center;
+    margin-left: 20px;
+    color: #4c56ff;
+    font-weight: bold;
+    background: none;
+    border: none;
+    outline: none;
+}
+.nav--category{
+    display: flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    align-items: center;
+    margin: 0 20px;
+    width: auto;
+    white-space: nowrap;
+    z-index: 1;
+}
+.scroll-panel-btn{
+    display: flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    right: 0;
+    margin: 0 auto;
+    z-index: 50;
+    background: -webkit-linear-gradient(to right, transparent, white, white, white, white, white);
+    background: -moz-linear-gradient(to right, transparent, white, white, white, white, white);
+    background: linear-gradient(to right, transparent, white, white, white, white, white);
+}
+.scroll-btn{
+    z-index: 50;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: url(../../images/arrow.png) no-repeat center;
+    outline:none;
+}
+.scroll-panel-btn--left{
+    opacity: 0.3;
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.scroll-panel-btn--right{
+    -webkit-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+@media screen and (max-width: 1024px){
+    .scroll-panel-btn{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .navigation{
+        padding: 60px 0 10px 0;
+    }
+}

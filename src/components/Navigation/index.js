@@ -1,6 +1,7 @@
 import React from 'react';
 import lines from "../../images/lines.png";
 import shirt from "../../images/shirt.png";
+import './style.css';
 
 
 const Navigation = () =>(

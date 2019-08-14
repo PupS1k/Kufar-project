@@ -16,7 +16,7 @@ import {
 import {
   changeProducts, changeCategoriesFilter, getCategoriesCorrectProducts, getProductAsync
 } from '../../../reducer/products';
-
+import './style.css';
 
 class FilterPanel extends PureComponent {
   componentDidMount() {

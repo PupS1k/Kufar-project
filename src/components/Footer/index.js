@@ -9,6 +9,7 @@ import facebook from '../../images/facebook.png';
 import instagram from '../../images/instagram.png';
 import youtube from '../../images/youtube.png';
 import odnoklassniki from '../../images/odnoklassniki.png';
+import './style.css';
 
 const Footer = () => (
   <footer>

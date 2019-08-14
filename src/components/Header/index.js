@@ -5,6 +5,7 @@ import search from '../../images/search.png';
 import locationHeader from '../../images/locationHeader.png';
 import Button from './Button';
 import plus from '../../images/plus.png';
+import './style.css';
 
 const Header = () => (
   <header>

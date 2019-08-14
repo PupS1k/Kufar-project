@@ -3,6 +3,7 @@ import FilterPanel from './FilterPanel';
 import ProductList from './ProductList';
 import MainContentBar from './MainContentBar';
 import Pagination from './Pagination';
+import './style.css';
 
 const MainContent = () => (
   <div className="main-content">

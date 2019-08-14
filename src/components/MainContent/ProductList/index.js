@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import ProductCard from './ProductCard';
 import {getProducts} from '../../../reducer/products';
+import './style.css';
 
 class ProductList extends PureComponent {
   render() {
