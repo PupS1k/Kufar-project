@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../Button';
 import lines from "../../images/lines.png";
 import shirt from "../../images/shirt.png";
 import './style.css';
@@ -6,10 +7,10 @@ import './style.css';
 
 const Navigation = () =>(
     <nav className="navigation">
-      <button className="btn--all-categories">
+      <Button className="btn--all-categories">
         <img className="btn--all-categories__img" src={lines} alt="Lines"/>
         <p className="btn--all-categories__text">Категории</p>
-      </button>
+      </Button>
       <div className="scroll-panel-nav">
         <a className="nav--category">
           <img className="nav-img--skirt" src={shirt} alt="Shirt"/>
@@ -30,8 +31,8 @@ const Navigation = () =>(
         <a className="nav--category">Холодильники</a>
       </div>
       <div className="scroll-panel-btn">
-        <button className="scroll-btn scroll-panel-btn--left"/>
-        <button className="scroll-btn scroll-panel-btn--right"/>
+        <Button className="scroll-btn scroll-panel-btn--left"/>
+        <Button className="scroll-btn scroll-panel-btn--right"/>
       </div>
     </nav>
 );

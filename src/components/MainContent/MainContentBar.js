@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../Button';
 import switches from '../../images/switch.png';
 import squares from '../../images/square4.png';
 
@@ -15,13 +16,13 @@ const MainContentBar = () => (
         <option>По цене ↓</option>
       </select>
       <div className="switches-display">
-        <button type="button" className="btn--show-filters">
+        <Button className="btn--show-filters">
           <img className="btn--show-filters--img switch-display--img" src={switches} alt="Switch" />
           <p className="btn--show-filters--txt">Фильтры</p>
-        </button>
-        <button type="button" className="btn--switch-display">
+        </Button>
+        <Button className="btn--switch-display">
           <img className="switch-display--img" src={squares} alt="Square" />
-        </button>
+        </Button>
       </div>
     </div>
   </div>

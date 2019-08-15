@@ -5,6 +5,7 @@ import LocationFilter from './LocationFilter';
 import PriceFilter from './PriceFilter';
 import SwitchFilter from './SwitchFilter';
 import CheckboxFilter from './CheckboxFilter';
+import Button from '../../Button';
 import {
   locations, stateFilter, sellerFilter, checkboxFilter, applyFilters
 } from '../../../constants/filters';
@@ -84,13 +85,15 @@ class FilterPanel extends PureComponent {
               this.props.changeIsExchange
             ]}
           />
-          <button type="button" className="btn--show-result" onClick={this.handleFilters}>
+          <Button className="btn--show-result" onClick={this.handleFilters}>
+            <p>
               Показать результаты(
-            {correctProducts.length}
-            )
-          </button>
-          <button type="button" className="btn--reset-filters">Сбросить фильтры</button>
-          <button type="button" className="btn--save-search">Сохранить поиск</button>
+              {correctProducts.length}
+              )
+            </p>
+          </Button>
+          <Button className="btn--reset-filters">Сбросить фильтры</Button>
+          <Button className="btn--save-search">Сохранить поиск</Button>
         </div>
       </div>
     );

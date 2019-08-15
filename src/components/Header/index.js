@@ -4,7 +4,7 @@ import logo from '../../images/logo.png';
 import kufar from '../../images/kufar.png';
 import search from '../../images/search.png';
 import locationHeader from '../../images/locationHeader.png';
-import Button from './Button';
+import Button from '../Button';
 import plus from '../../images/plus.png';
 import Authorization from '../Authorization';
 import {toggleIsAuthorization, changeUser} from '../../actions/user';

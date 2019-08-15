@@ -10,6 +10,7 @@ import instagram from '../../images/instagram.png';
 import youtube from '../../images/youtube.png';
 import odnoklassniki from '../../images/odnoklassniki.png';
 import './style.css';
+import Button from '../Button';
 
 const Footer = () => (
   <footer>
@@ -25,10 +26,10 @@ const Footer = () => (
         <a className="additional-link">Помощь</a>
         <a className="additional-link">Выбрать регион</a>
       </div>
-      <button className="btn-change-language">
+      <Button className="btn-change-language">
         <img className="btn-change-language--img" src={earth} alt="Earth" />
         <p>Беларуская</p>
-      </button>
+      </Button>
     </div>
     <p className="payment-info">*Оплата производится в белорусских рублях по курсу НБ РБ.</p>
     <p className="info-about-site">© Kufar — крупнейшая площадка объявлений Беларуси по данным
