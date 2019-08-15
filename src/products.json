@@ -1,6 +1,6 @@
 [
   {
-    "image": "url(../../images/item.jpg)",
+    "image": "item.jpg",
     "name": "Кастрюля",
     "categories": "Все для дома, Кухонные приборы, Redmand",
     "state": "Б/у",
@@ -9,6 +9,19 @@
     "installmentHalva": true,
     "isExchange": false,
     "price": 100,
+    "location": "Гомельская, Гомель",
+    "announced": "Сегодня, 09:40"
+  },
+  {
+    "image": "item2.jpg",
+    "name": "Наклейки Ледниковый период",
+    "categories": "Все для дома",
+    "state": "Б/у",
+    "seller": "Любой",
+    "fashionableSummer": false,
+    "installmentHalva": true,
+    "isExchange": false,
+    "price": "Бесплатно",
     "location": "Гомельская, Гомель",
     "announced": "Сегодня, 09:40"
   },
@@ -26,7 +39,7 @@
     "announced": "Сегодня, 09:40"
   },
   {
-    "image": "url(../../images/item.jpg)",
+    "image": "item5.jpg",
     "name": "Двери стальные любых размеров",
     "categories": "Ремонт и стройка",
     "state": "Новое",
@@ -39,7 +52,7 @@
     "announced": "Сегодня, 09:40"
   },
   {
-    "image": "url(../../images/item.jpg)",
+    "image": "item6.jpg",
     "name": "2-х комн.квартира, улица Советская",
     "categories": "Недвижимость",
     "state": "Любое",
@@ -52,7 +65,7 @@
     "announced": "Сегодня, 09:40"
   },
   {
-    "image": "url(../../images/item.jpg)",
+    "image": "item7.jpg",
     "name": "Детская кроватка",
     "categories": "Все для дома",
     "state": "Б/у",
@@ -65,7 +78,7 @@
     "announced": "Сегодня, 09:40"
   },
   {
-    "image": "url(../../images/item.jpg)",
+    "image": "",
     "name": "Цемент, 25кг.",
     "categories": "Ремонт и стройка",
     "state": "Любое",
@@ -78,20 +91,7 @@
     "announced": "Сегодня, 09:40"
   },
   {
-    "image": "url(../../images/item.jpg)",
-    "name": "Кастрюля супер",
-    "categories": "Кухонные приборы, Redmand",
-    "state": "Б/у",
-    "seller": "Любой",
-    "fashionableSummer": false,
-    "installmentHalva": false,
-    "isExchange": true,
-    "price": 100,
-    "location": "Минская, Слуцк",
-    "announced": "Сегодня, 09:40"
-  },
-  {
-    "image": "url(../../images/item.jpg)",
+    "image": "item8.jpg",
     "name": "Ламинат Кроспан",
     "categories": "Ремонт и стройка",
     "state": "Новое",
@@ -104,7 +104,7 @@
     "announced": "Сегодня, 09:40"
   },
   {
-    "image": "url(../../images/item.jpg)",
+    "image": "",
     "name": "Автоэлектрик",
     "categories": "Услуги",
     "state": "Любое",
@@ -117,7 +117,7 @@
     "announced": "Сегодня, 09:40"
   },
   {
-    "image": "url(../../images/item.jpg)",
+    "image": "item9.jpg",
     "name": "Обувь, мужская, 40р.",
     "categories": "Мода и стиль",
     "state": "Б/у",
@@ -130,7 +130,7 @@
     "announced": "Сегодня, 09:40"
   },
   {
-    "image": "url(../../images/item.jpg)",
+    "image": "item10.jpg",
     "name": "Набор свадебных аксессуаров",
     "categories": "Свадьба и праздники",
     "state": "Новое",
@@ -143,7 +143,7 @@
     "announced": "Сегодня, 09:40"
   },
   {
-    "image": "url(../../images/item.jpg)",
+    "image": "item11.jpg)",
     "name": "Прогулочная коляска",
     "categories": "Все для детей и мам",
     "state": "Любое",
@@ -156,7 +156,7 @@
     "announced": "Сегодня, 09:40"
   },
   {
-    "image": "url(../../images/item.jpg)",
+    "image": "",
     "name": "Товарный бетон",
     "categories": "Ремонт и стройка",
     "state": "Любое",
@@ -166,6 +166,32 @@
     "isExchange": false,
     "price": "Договорная",
     "location": "Брестская, Лунинец",
+    "announced": "Сегодня, 09:40"
+  },
+  {
+    "image": "item3.jpg",
+    "name": "Куртка кожаная",
+    "categories": "Мода и стиль",
+    "state": "Б/у",
+    "seller": "Любой",
+    "fashionableSummer": true,
+    "installmentHalva": false,
+    "isExchange": true,
+    "price": "Договорная",
+    "location": "Брестская, Лунинец",
+    "announced": "Сегодня, 09:40"
+  },
+  {
+    "image": "item4.jpg",
+    "name": "Собака породистая",
+    "categories": "Животные",
+    "state": "Любое",
+    "seller": "Любой",
+    "fashionableSummer": false,
+    "installmentHalva": false,
+    "isExchange": true,
+    "price": "Договорная",
+    "location": "Минск",
     "announced": "Сегодня, 09:40"
   }
 ]

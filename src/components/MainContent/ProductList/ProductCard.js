@@ -3,7 +3,10 @@ import locationItem from '../../../images/locationItem.png';
 
 const ProductCard = props => (
   <div className="product-card">
-    <div className="product-card--img" style={{backgroundImage: props.image}} />
+    <div
+      className="product-card--img"
+      style={{backgroundImage: props.image && `url(http://localhost:3000/images/${props.image}`}}
+    />
     <div className="info-about-product">
       <div className="top-part-of-product-card">
         <div>
@@ -13,7 +16,7 @@ const ProductCard = props => (
           </p>
         </div>
         <p className="top-part-of-product-card--txt price-product">
-          {typeof props.priceProduct === 'number' ? `${props.priceProduct} р.` : props.priceProduct}
+          {Number(props.priceProduct) ? `${props.priceProduct} р.` : props.priceProduct}
         </p>
       </div>
       <div className="bot-part-of-product-card">
