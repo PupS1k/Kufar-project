@@ -3,7 +3,19 @@ import {
   CHANGE_SELLER, CHANGE_STATE_PRODUCT, CHANGE_PRICE_FROM, CHANGE_CITY,
   CHANGE_CORRECT_PRODUCTS, CHANGE_IS_WITH_PHOTO, CHANGE_PRICE_TO, CHANGE_REGION
 } from '../constants/actionTypes';
-import {initialStateFilters as initialState} from '../constants/initialState';
+const initialState = {
+  region: 'Область',
+  city: 'Любой',
+  priceFrom: '',
+  priceTo: '',
+  stateProduct: 'Любое',
+  seller: 'Любой',
+  isWithPhoto: false,
+  fashionableSummer: false,
+  installmentHalva: false,
+  isExchange: false,
+  correctProducts: []
+};
 
 const filters = (state = initialState, action) => {
   switch (action.type) {
