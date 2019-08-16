@@ -1,9 +1,5 @@
 .navigation{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     align-items: center;
     padding: 75px 0 5px 0;
     border-bottom: solid 1px #d3d7da;
@@ -12,10 +8,6 @@
 }
 .scroll-panel-nav{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     margin-left: 20px;
     align-items: center;
     justify-content: space-between;
@@ -31,15 +23,9 @@
 }
 .scroll-panel{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     right: 0;
     margin: 0 auto;
     z-index: 50;
-    background: -webkit-linear-gradient(to right, transparent, white, white, white, white, white);
-    background: -moz-linear-gradient(to right, transparent, white, white, white, white, white);
     background: linear-gradient(to right, transparent, white, white, white, white, white);
 }
 .scroll-panel__btn{
@@ -52,17 +38,9 @@
 }
 .scroll-panel__btn_left{
     opacity: 0.3;
-    -webkit-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-.scroll-panel__btn_right{
-    -webkit-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
+.scroll-panel-btn--right{
     transform: rotate(270deg);
 }
 

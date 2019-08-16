@@ -1,9 +1,5 @@
 header{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     justify-content: space-between;
     padding: 6px 0;
     background-color: white;
@@ -21,10 +17,6 @@ header{
 
 .left-part-of-header, .right-part-of-header, .search-field-container, .logo{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     align-items: center;
 }
 .right-part-of-header{
@@ -36,7 +28,6 @@ header{
 }
 .left-part-of-header{
     width: 65%;
-    -webkit-flex: 1 4 65%;
     flex: 1 4 65%;
     flex-shrink: 4;
 }
@@ -57,9 +48,6 @@ header{
     border: solid 1px #b6babd;
     border-radius: 4px;
     box-shadow: 0 0 2px  #b6babd;
-    -webkit-box-shadow: 0 0 2px  #b6babd;
-    -o-box-shadow: 0 0 2px  #b6babd;
-    -moz-box-shadow: 0 0 2px  #b6babd;
     flex: 1 6 500px;
     z-index: 40;
 }
@@ -89,7 +77,6 @@ header{
 .btn_type_secondary:hover, .btn_type_primary:hover{
     background: #238543;
 }
-
 .img--plus{
     width: 15px;
     height: 15px;

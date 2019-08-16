@@ -1,9 +1,5 @@
 .main-content-bar{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     margin: 0 15px 10px 15px;
     align-items: center;
     justify-content: space-between;
@@ -15,8 +11,6 @@
     height: 40px;
     font-size: 16px;
     outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     background: url(../../images/linesSelect.png) no-repeat 6% center,
     url(../../images/arrow.png) no-repeat 90% center;
@@ -25,10 +19,6 @@
 }
 .sortings-container{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     align-items: center;
 }
 .switch-display__btn{
@@ -52,18 +42,10 @@
 }
 .main-content-body{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
 }
 
 .main-content{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     flex-direction: column;
 }
 
@@ -71,10 +53,6 @@
 .pagination{
     cursor: pointer;
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     align-items: center;
     justify-content: center;
     font-size: 16px;
@@ -82,10 +60,6 @@
 }
 .pagination__page{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     align-items: center;
     justify-content: center;
     color: #4d5456;
@@ -113,18 +87,10 @@
 
 .pagination__btn_previous{
     opacity: 0.5;
-    -webkit-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
 .pagination__btn_next{
     transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
 }
 
 @media screen and (max-width: 1024px){
