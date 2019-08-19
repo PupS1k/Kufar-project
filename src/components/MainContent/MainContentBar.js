@@ -16,13 +16,15 @@ const MainContentBar = () => (
         <option>По цене ↓</option>
       </select>
       <div className="switches-display">
-        <Button className="btn--show-filters">
-          <img className="btn--show-filters--img switch-display--img" src={switches} alt="Switch" />
-          <p className="btn--show-filters--txt">Фильтры</p>
-        </Button>
-        <Button className="btn--switch-display">
-          <img className="switch-display--img" src={squares} alt="Square" />
-        </Button>
+        <Button
+          className="btn--show-filters"
+          text={{txt: 'Фильтры', className: 'btn--show-filters--txt'}}
+          img={{className: 'btn--show-filters--img switch-display--img', src: switches, alt: 'Switch'}}
+        />
+        <Button
+          className="btn--switch-display"
+          img={{className: 'switch-display--img', src: squares, alt: 'Square'}}
+        />
       </div>
     </div>
   </div>

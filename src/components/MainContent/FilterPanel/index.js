@@ -85,15 +85,18 @@ class FilterPanel extends PureComponent {
               this.props.changeIsExchange
             ]}
           />
-          <Button className="btn--show-result" onClick={this.handleFilters}>
-            <p>
-              Показать результаты(
-              {correctProducts.length}
-              )
-            </p>
-          </Button>
-          <Button className="btn--reset-filters">Сбросить фильтры</Button>
-          <Button className="btn--save-search">Сохранить поиск</Button>
+          <Button
+            className="btn--show-result" onClick={this.handleFilters}
+            text={{txt: `Показать результаты(${correctProducts.length})`}}
+          />
+          <Button
+            className="btn--reset-filters"
+            text={{txt: 'Сбросить фильтры'}}
+          />
+          <Button
+            className="btn--save-search"
+            text={{txt: 'Сохранить поиск'}}
+          />
         </div>
       </div>
     );

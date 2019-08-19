@@ -120,7 +120,7 @@ header{
     background: #29ad5b;
     border: none;
 }
-.btn--add-product__text-reduction{
+.btn-type-secondary{
     display: none;
 }
 .btn--add-product:hover{
@@ -154,14 +154,10 @@ header{
     font-size: 20px;
 }
 @media screen and (max-width: 1024px){
-    .btn--add-product__text-reduction{
+    .btn-type-secondary{
         display: flex;
-        display: -moz-flex;
-        display: -webkit-flex;
-        display: -ms-flex;
-        display: -o-flex;
     }
-    .logo-text, .btn--add-product__text-full{
+    .logo-text, .btn-type-primary{
         display: none;
     }
 }

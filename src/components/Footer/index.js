@@ -26,10 +26,11 @@ const Footer = () => (
         <a className="additional-link">Помощь</a>
         <a className="additional-link">Выбрать регион</a>
       </div>
-      <Button className="btn-change-language">
-        <img className="btn-change-language--img" src={earth} alt="Earth" />
-        <p>Беларуская</p>
-      </Button>
+      <Button
+        className="btn-change-language"
+        text={{txt: 'Беларуская'}}
+        img={{className: 'btn-change-language--img', src: earth, alt: 'Earth'}}
+      />
     </div>
     <p className="payment-info">*Оплата производится в белорусских рублях по курсу НБ РБ.</p>
     <p className="info-about-site">© Kufar — крупнейшая площадка объявлений Беларуси по данным
