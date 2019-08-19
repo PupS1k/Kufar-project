@@ -14,10 +14,7 @@
 }
 .category-filter, .location-filter, .additional-modes{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
+
     padding: 15px 0;
     width: 300px;
     flex-direction: column;
@@ -49,15 +46,11 @@
     margin-top: 8px;
     height: 40px;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border: solid 1px #d3d7da;
     background: #fafafa;
     padding: 0 8px;
     font-size: 16px;
     outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     background: url(../../../images/arrow.png) no-repeat 95% center;
 }
@@ -93,20 +86,14 @@ input[type="radio"], input[type="checkbox"]{
 }
 .icon-checkbox-btn:before{
     border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
 }
 .icon-radio-btn:before{
     border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
 }
 .icon-checkbox-btn:after{
     width: 18px;
     height: 18px;
     border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     background: #00ad64 url(../../../images/checkbox.png) no-repeat center;
     background-size: 15px 15px;
 }
@@ -115,8 +102,6 @@ input[type="radio"], input[type="checkbox"]{
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
     background-color: #00ad64;
 }
 input[type="radio"]:checked + .icon-radio-btn:before,
@@ -129,10 +114,6 @@ input[type="checkbox"]:checked + .icon-checkbox-btn:after{
 }
 .price-filter{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     flex-direction: column;
     width: 300px;
 }
@@ -146,8 +127,6 @@ input[type="checkbox"]:checked + .icon-checkbox-btn:after{
 }
 #price-filter-to{
     border-radius: 0 5px 5px 0;
-    -webkit-border-radius: 0 5px 5px 0;
-    -moz-border-radius: 0 5px 5px 0;
     border-left: none;
 }
 #price-filter-to:focus,
@@ -156,10 +135,6 @@ input[type="checkbox"]:checked + .icon-checkbox-btn:after{
 }
 .state-filter, .seller-filter{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     margin-top: 6px;
     flex-direction: column;
 }
