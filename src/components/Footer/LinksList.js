@@ -1,11 +1,10 @@
 import React from 'react';
 import Link from './Link';
 
-const ListLinks = ({classNameContainer, classNameChild, children, links}) => (
+const LinksList = ({classNameContainer, classNameChild, links}) => (
   <div className={classNameContainer}>
-    {children}
-    {links.map(link => (
-      <Link key={link.text || link.image} className={classNameChild}>
+    {links.map((link, index) => (
+      <Link key={index} className={classNameChild}>
         {link.image && <img className={`${classNameChild}--img`} src={link.image} alt={link.text}/>}
         {link.text && <p className={`${classNameChild}--text`}>{link.text}</p>}
       </Link>)
@@ -13,4 +12,4 @@ const ListLinks = ({classNameContainer, classNameChild, children, links}) => (
   </div>
 );
 
-export default ListLinks;
+export default LinksList;
