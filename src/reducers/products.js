@@ -1,7 +1,12 @@
 import {
   ADD_PRODUCTS, CHANGE_PRODUCTS, CHANGE_CATEGORIES_FILTER
 } from '../constants/actionTypes';
-import {initialStateProducts as initialState} from '../constants/initialState';
+const initialState = {
+  categoriesFilter: '',
+  categoriesCorrectProducts: [],
+  products: [],
+  productsBack: []
+};
 
 const products = (state = initialState, action) => {
   switch (action.type) {
