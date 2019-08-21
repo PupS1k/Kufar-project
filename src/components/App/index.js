@@ -1,17 +1,29 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
 import './style.css';
 import Header from '../Header';
 import Navigation from '../Navigation';
 import MainContent from '../MainContent';
 import Footer from '../Footer';
+import {getProductAsync} from '../../actions/products';
 
-const App = () => (
-  <div className="page-container">
-    <Header />
-    <Navigation />
-    <MainContent />
-    <Footer />
-  </div>
-);
+class App extends PureComponent{
+  componentDidMount() {
+    this.props.getProductAsync('kufar');
+  }
 
-export default App;
+  render(){
+    return(
+      <div className="page-container">
+        <Header />
+        <Navigation />
+        <MainContent />
+        <Footer />
+      </div>
+    );
+  }
+}
+
+
+
+export default connect(null, {getProductAsync})(App);

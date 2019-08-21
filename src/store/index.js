@@ -4,14 +4,17 @@ import {
 import createSagaMiddleware from 'redux-saga';
 import filters from '../reducers/filters';
 import products from '../reducers/products';
+import user from '../reducers/user';
 import {watchAddProducts} from '../sagas/products';
+import {watchLogIn, watchRegistration} from '../sagas/user';
 
 
 const sagaMiddleware = createSagaMiddleware();
 
 const reducer = combineReducers({
   filters,
-  products
+  products,
+  user
 });
 
 const store = createStore(
@@ -23,5 +26,7 @@ const store = createStore(
 );
 
 sagaMiddleware.run(watchAddProducts);
+sagaMiddleware.run(watchRegistration);
+sagaMiddleware.run(watchLogIn);
 
 export default store;

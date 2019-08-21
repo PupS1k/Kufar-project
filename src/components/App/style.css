@@ -17,6 +17,6 @@ p {
     margin: 0 auto;
 }
 
-button, a, .icon-checkbox-btn, .icon-radio-btn {
+button, a, .icon-checkbox-btn, .icon-radio-btn, label {
     cursor: pointer;
 }

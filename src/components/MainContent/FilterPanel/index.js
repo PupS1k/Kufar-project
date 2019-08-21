@@ -14,14 +14,10 @@ import {
   changeIsWithPhoto, changeFashionableSummer, changeInstallmentHalva, changeIsExchange
 } from '../../../actions/filters'
 import {getCategoriesCorrectProducts} from '../../../selectors/products';
-import {changeProducts, changeCategoriesFilter, getProductAsync} from '../../../actions/products';
+import {changeProducts, changeCategoriesFilter} from '../../../actions/products';
 import './style.css';
 
 class FilterPanel extends PureComponent {
-  componentDidMount() {
-    this.props.getProductAsync('products');
-  }
-
   componentDidUpdate(prevProps) {
     if (prevProps.correctProducts === this.props.correctProducts) {
       const {products} = this.props;
@@ -121,5 +117,4 @@ export default connect(mapStateToProps, {
   changeFashionableSummer,
   changeInstallmentHalva,
   changeIsExchange,
-  getProductAsync
 })(FilterPanel);
