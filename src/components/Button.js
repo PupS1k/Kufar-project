@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button = ({
     className, onClick, label, icon, status, labelSize, iconSize, disabled, alt, bold
@@ -17,6 +18,29 @@ const Button = ({
       <p className={classNameText}>{label}</p>
     </button>
   );
+};
+
+Button.propTypes = {
+  className: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  labelSize: PropTypes.string.isRequired,
+  iconSize: PropTypes.string,
+  status: PropTypes.string.isRequired,
+  alt: PropTypes.string,
+  bold: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  icon: PropTypes.any
+};
+
+Button.defaultProps = {
+  className: '',
+  iconSize: '',
+  alt: '',
+  bold: false,
+  disabled: false,
+  onClick: () => {},
+  icon: ''
 };
 
 export default Button;

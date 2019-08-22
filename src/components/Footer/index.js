@@ -30,6 +30,7 @@ const Footer = () => (
         />
         {additonalLink.map(text => (
           <Button
+            key={text}
             className="additional-link "
             status="default"
             labelSize="medium"

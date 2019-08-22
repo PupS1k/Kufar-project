@@ -19,7 +19,7 @@ const Navigation = () =>(
         label="Категории"
         labelSize="large"
         iconSize="primary"
-        bold="bold"
+        bold={true}
       />
       <div className="scroll-panel-nav">
         <Button
