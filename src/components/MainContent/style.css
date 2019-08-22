@@ -32,9 +32,6 @@
     align-items: center;
 }
 .btn--switch-display{
-    background: none;
-    border: none;
-    outline: none;
     margin-left: 15px;
 }
 .switches-display{
@@ -113,16 +110,6 @@
 }
 .pagination .points:hover{
     background-color: transparent;
-}
-.pagination--btn{
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border: 1px solid #4d5456;
-    background: url(../../images/arrow.png) no-repeat center;
-    outline:none;
 }
 .pagination--btn:hover:not([disabled]){
     background-color: #bfbcb7;

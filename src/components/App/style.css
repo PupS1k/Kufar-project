@@ -4,6 +4,7 @@ body {
 
 p {
     margin: 0;
+    white-space: nowrap;
 }
 
 * {
@@ -19,4 +20,97 @@ p {
 
 button, a, .icon-checkbox-btn, .icon-radio-btn, label {
     cursor: pointer;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height: 40px;
+    padding: 10px 16px;
+    font-weight: 400;
+}
+.btn_default{
+    background: none;
+    border: none;
+    color: #4f5557;
+}
+.btn_default_green{
+    background: none;
+    border: none;
+    color: #00ad64;
+}
+.btn_default_blue{
+    background: none;
+    border: none;
+    color: #424de2;
+}
+.btn_primary_green{
+    border: none;
+    background: #00ad64;
+    color: white;
+}
+.btn_primary_blue {
+    border: none;
+    background: #007aff;
+    color: white;
+}
+.btn_secondary_green{
+    background: none;
+    border: 1px solid #00ad64;
+    color: #00ad64;
+}
+.btn_secondary_gray{
+    background: none;
+    border: solid 1px #868f91;
+    color: #2f3537;
+}
+.btn__text_bold{
+    font-weight: bold;
+}
+.btn__text_small{
+    font-size: 13px;
+}
+.btn__text_medium{
+    font-size: 14px;
+}
+.btn__text_large{
+    font-size: 16px;
+}
+.btn__img{
+    margin-right: 10px;
+}
+.btn__img_small{
+    width: 17px;
+    height: 17px;
+}
+.btn__img_medium{
+    width: 23px;
+    height: 23px;
+}
+.btn__img_primary{
+    width: 28px;
+    height: 23px;
+}
+.icon-btn{
+    display: flex;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0 0;
+    margin: 0 5px;
+    border: none;
+    background: none;
+    border-radius: 100%;
+}
+.icon-btn_border{
+    border: 1px solid #3a3f41;
+}
+.icon-btn__img_primary{
+    width: 17px;
+    height: 15px;
+}
+.icon-btn__img_default{
+    width: 32px;
+    height: 32px;
 }

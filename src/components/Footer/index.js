@@ -11,25 +11,40 @@ import youtube from '../../images/youtube.png';
 import odnoklassniki from '../../images/odnoklassniki.png';
 import './style.css';
 import Button from '../Button';
+import IconButton from '../IconButton';
+
+const additonalLink = ['Рассрочка', 'Доставка', 'Правила', 'Помощь', 'Выбрать регион'];
 
 const Footer = () => (
   <footer>
     <div className="top-part-of-foot">
       <div className="list-additional-links">
-        <a className="additional-link link-advertising">
-          <img className="img--gistogram" src={gistogram} alt="Gistogram" />
-          <p>Реклама</p>
-        </a>
-        <a className="additional-link">Рассрочка</a>
-        <a className="additional-link">Доставка</a>
-        <a className="additional-link">Правила</a>
-        <a className="additional-link">Помощь</a>
-        <a className="additional-link">Выбрать регион</a>
+        <Button
+          className="additional-link "
+          status="default"
+          icon={gistogram}
+          alt="Gistogram"
+          iconSize="primary"
+          labelSize="medium"
+          label="Реклама"
+        />
+        {additonalLink.map(text => (
+          <Button
+            className="additional-link "
+            status="default"
+            labelSize="medium"
+            label={text}
+          />
+        ))}
       </div>
       <Button
-        className="btn-change-language"
-        text={{txt: 'Беларуская'}}
-        img={{className: 'btn-change-language--img', src: earth, alt: 'Earth'}}
+        status="secondary_gray"
+        className="btn-change-language "
+        label="Беларуская"
+        icon={earth}
+        alt="Earth"
+        iconSize="medium"
+        labelSize="large"
       />
     </div>
     <p className="payment-info">*Оплата производится в белорусских рублях по курсу НБ РБ.</p>
@@ -50,24 +65,36 @@ const Footer = () => (
         </a>
       </div>
       <div className="links-social-network">
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={telegram} alt="Telegram" />
-        </a>
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={vk} alt="Vk" />
-        </a>
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={facebook} alt="Facebook" />
-        </a>
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={instagram} alt="Instagram" />
-        </a>
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={youtube} alt="Youtube" />
-        </a>
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={odnoklassniki} alt="Odnoklassniki" />
-        </a>
+        <IconButton
+          iconSize="default"
+          icon={telegram}
+          alt="Telegram"
+        />
+        <IconButton
+          iconSize="default"
+          icon={vk}
+          alt="Vk"
+        />
+        <IconButton
+          iconSize="default"
+          icon={facebook}
+          alt="Facebook"
+        />
+        <IconButton
+          iconSize="default"
+          icon={instagram}
+          alt="Instagram"
+        />
+        <IconButton
+          iconSize="default"
+          icon={youtube}
+          alt="Youtube"
+        />
+        <IconButton
+          iconSize="default"
+          icon={odnoklassniki}
+          alt="Odnoklassniki"
+        />
       </div>
     </div>
   </footer>

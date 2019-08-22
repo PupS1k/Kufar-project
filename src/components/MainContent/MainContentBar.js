@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../Button';
 import switches from '../../images/switch.png';
 import squares from '../../images/square4.png';
+import IconButton from '../IconButton';
 
 const MainContentBar = () => (
   <div className="main-content-bar">
@@ -17,12 +18,19 @@ const MainContentBar = () => (
       </select>
       <div className="switches-display">
         <Button
-          className="btn--show-filters"
-          text={{txt: 'Фильтры', className: 'btn--show-filters--txt'}}
-          img={{className: 'btn--show-filters--img switch-display--img', src: switches, alt: 'Switch'}}
+          status="secondary_green"
+          className="btn--show-filters "
+          label="Фильтры"
+          labelSize="large"
+          icon={switches}
+          iconSize="medium"
+          alt="Switch"
         />
-        <Button
+        <IconButton
           className="btn--switch-display"
+          icon={squares}
+          alt="Square"
+          iconSize="default"
           img={{className: 'switch-display--img', src: squares, alt: 'Square'}}
         />
       </div>
