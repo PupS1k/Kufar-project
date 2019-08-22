@@ -6,7 +6,7 @@ import {
 const initialState = {
   region: 'Область',
   city: 'Любой',
-  priceFrom: '1',
+  priceFrom: '',
   priceTo: '',
   stateProduct: 'Любое',
   seller: 'Любой',
