@@ -31,14 +31,6 @@ footer{
     margin-bottom: 20px;
     flex: 1;
 }
-.link-advertising{
-    display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    align-items: center;
-}
 .additional-link{
     white-space: nowrap;
 }
@@ -67,7 +59,7 @@ footer{
 .bot-part-of-foot{
     justify-content: space-between;
 }
-.link-app--img{
+.link-app__img{
     width: 24px;
     height: 27px;
     margin: 0 10px;
@@ -91,7 +83,7 @@ footer{
     height: 40px;
     margin: 10px 10px;
 }
-.link-app--text{
+.link-app__text{
     width: 120px;
     white-space: normal;
 }
@@ -104,7 +96,7 @@ footer{
 }
 
 @media screen and (max-width: 768px)  {
-    .link-app--text{
+    .link-app__text{
         display: none;
     }
 }

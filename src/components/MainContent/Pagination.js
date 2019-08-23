@@ -6,20 +6,20 @@ const Pagination = () => (
   <div className="pagination">
     <IconButton
       border={true}
-      className="pagination--btn-previous"
+      className="pagination__btn pagination__btn_previous"
       iconSize="primary"
       icon={arrow}
       alt="Arrow"
       disabled
     />
-    <p className="pagination--number active-pagination--number">1</p>
-    <p className="pagination--number">2</p>
-    <p className="pagination--number">3</p>
-    <p className="pagination--number points">...</p>
-    <p className="pagination--number">62893</p>
+    <p className="pagination__page pagination_page_active">1</p>
+    <p className="pagination__page">2</p>
+    <p className="pagination__page">3</p>
+    <p className="pagination__page points">...</p>
+    <p className="pagination__page">62893</p>
     <IconButton
       border={true}
-      className="pagination--btn-next pagination--btn"
+      className="pagination__btn pagination__btn_next"
       iconSize="primary"
       icon={arrow}
       alt="Arrow"

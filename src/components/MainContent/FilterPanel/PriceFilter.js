@@ -22,7 +22,7 @@ class PriceFilter extends PureComponent {
         <label className="label-input" htmlFor="price-filters-from">ЦЕНА</label>
         <div>
           <input
-            className="price-filter--input"
+            className="input-price"
             id="price-filter-from"
             placeholder="От"
             type="number"
@@ -32,7 +32,7 @@ class PriceFilter extends PureComponent {
             step="0.01"
           />
           <input
-            className="price-filter--input"
+            className="input-price"
             id="price-filter-to"
             placeholder="До"
             type="number"

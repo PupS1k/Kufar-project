@@ -17,7 +17,7 @@ class CategoriesFilter extends Component {
 
   render() {
     return (
-      <div className="categories-filter">
+      <div className="category-filter">
         {categories.map(category => (
           <a
             key={category}

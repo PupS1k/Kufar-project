@@ -19,7 +19,7 @@ header{
 }
 
 
-.left-part-of-header, .right-part-of-header, .search-field-container, .logo-container{
+.left-part-of-header, .right-part-of-header, .search-field-container, .logo{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -40,14 +40,14 @@ header{
     -webkit-flex: 1 4 65%;
     flex: 1 4 65%;
 }
-.logo-container{
+.logo{
     cursor: pointer;
     margin: 0 10px 0 20px;
 }
-.logo-img{
+.logo__img{
     height: 40px;
 }
-.logo-text{
+.logo__text{
     height: 35px;
     width: 100px;
 }
@@ -63,7 +63,7 @@ header{
     flex: 1 6 500px;
     z-index: 40;
 }
-.img--loupe{
+.search-field__img{
     width: 32px;
     height: 32px;
 }
@@ -83,15 +83,10 @@ header{
     color: #7f8386;
     font-size: 16px;
 }
-.img--marker{
-    width: 23px;
-    height: 23px;
-}
-
-.btn-type-secondary{
+.btn_type_secondary{
     display: none;
 }
-.btn-type-secondary:hover, .btn-type-primary:hover{
+.btn_type_secondary:hover, .btn_type_primary:hover{
     background: #238543;
 }
 
@@ -124,15 +119,15 @@ header{
 }
 
 @media screen and (max-width: 1024px){
-    .btn-type-secondary{
+    .btn_type_secondary{
         display: flex;
     }
-    .logo-text, .btn-type-primary{
+    .logo__text, .btn_type_primary{
         display: none;
     }
 }
 @media screen and (max-width: 768px) {
-    .btn-type-secondary{
+    .btn_type_secondary{
         display: none;
     }
     .left-part-of-header{

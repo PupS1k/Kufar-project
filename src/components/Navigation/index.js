@@ -13,6 +13,7 @@ const navBtn = ['Техника с доставкой', 'Телефоны', 'Н�
 const Navigation = () =>(
     <nav className="navigation">
       <Button
+        className="btn_category_primary "
         status="default_blue"
         icon={lines}
         alt="Lines"
@@ -23,7 +24,7 @@ const Navigation = () =>(
       />
       <div className="scroll-panel-nav">
         <Button
-          className="nav--category "
+          className="nav-category "
           icon={shirt}
           alt="Shirt"
           label="Модное лето"
@@ -34,22 +35,22 @@ const Navigation = () =>(
         {navBtn.map(text => (
           <Button
             key={text}
-            className="nav--category "
+            className="nav-category "
             status="default"
             label={text}
             labelSize="large"
           />
         ))}
       </div>
-      <div className="scroll-panel-btn">
+      <div className="scroll-panel">
         <IconButton
-          className="scroll-panel-btn--left"
+          className="scroll-panel__btn_left"
           iconSize="primary"
           icon={arrow}
           alt="Arrow"
         />
         <IconButton
-          className="scroll-panel-btn--right"
+          className="scroll-panel__btn_right"
           iconSize="primary"
           icon={arrow}
           alt="Arrow"

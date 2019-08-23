@@ -23,37 +23,13 @@
     overflow-x: hidden;
     /*overflow-y: hidden;*/
 }
-.btn--all-categories__img{
-    width: 30px;
-    height: 20px;
+.btn_category_primary:hover{
+    color: #313aa5;
 }
-.btn--all-categories:hover{
-    color: #424de2;
-}
-.nav-img--skirt{
-    margin-right: 3px;
-    width: 21px;
-    height: 18px;
-}
-.nav--category:hover, .nav-filter:hover{
+.nav-category:hover, .nav-filter:hover{
     color: #29ad5b;
 }
-.btn--all-categories{
-    display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    font-size: 16px;
-    align-items: center;
-    margin-left: 20px;
-    color: #4c56ff;
-    font-weight: bold;
-    background: none;
-    border: none;
-    outline: none;
-}
-.scroll-panel-btn{
+.scroll-panel{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -66,7 +42,7 @@
     background: -moz-linear-gradient(to right, transparent, white, white, white, white, white);
     background: linear-gradient(to right, transparent, white, white, white, white, white);
 }
-.scroll-btn{
+.scroll-panel__btn{
     z-index: 50;
     width: 32px;
     height: 32px;
@@ -74,7 +50,7 @@
     background: url(../../images/arrow.png) no-repeat center;
     outline:none;
 }
-.scroll-panel-btn--left{
+.scroll-panel__btn_left{
     opacity: 0.3;
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
@@ -82,7 +58,7 @@
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-.scroll-panel-btn--right{
+.scroll-panel__btn_right{
     -webkit-transform: rotate(270deg);
     -o-transform: rotate(270deg);
     -moz-transform: rotate(270deg);
@@ -91,7 +67,7 @@
 }
 
 @media screen and (max-width: 1024px){
-    .scroll-panel-btn{
+    .scroll-panel{
         display: none;
     }
 }

@@ -6,7 +6,7 @@ const Button = ({
   }) => {
   const classNameBtn = 'btn btn_' + status;
   const classNameIcon = 'btn__img btn__img_' + iconSize;
-  const classNameText = 'btn__text_' + labelSize +(bold ? ' btn__text_'+ bold : '');
+  const classNameText = 'btn__text_' + labelSize +(bold ? ' btn__text_bold' : '');
   return (
     <button
       type="button"

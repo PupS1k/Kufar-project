@@ -32,26 +32,43 @@ class Header extends PureComponent {
             </label>
             <input id="search-field" type="text" placeholder="Товар, услуга" />
           </div>
-          <button type="button" className="btn--location">
-            <img className="img--marker" src={locationHeader} alt="Location" />
-            <p>Вся Беларусь</p>
-          </button>
+          <Button
+            className="btn-location "
+            icon={locationHeader}
+            alt="Location"
+            label="Вся Беларусь"
+            status="default_green"
+            labelSize="large"
+            iconSize="medium"
+          />
         </div>
         <div className="right-part-of-header">
-          <button className="btn--add-product">
-            <img className="img--plus" src={plus} alt="Plus" />
-            <p className="btn--add-ad__text btn--add-product__text-full">Подать объявление</p>
-            <p className="btn--add-ad__text btn--add-product__text-reduction">Объявление</p>
-          </button>
+          <Button
+            className="btn_type_primary "
+            icon={plus}
+            status="primary_green"
+            alt="Plus"
+            labelSize="large"
+            iconSize="small"
+            label="Подать объявление"
+          />
+          <Button
+            className="btn_type_secondary "
+            icon={plus}
+            status="primary_green"
+            alt="Plus"
+            labelSize="large"
+            iconSize="small"
+            label="Объявление"
+          />
           {mail ? <button className="profile" onClick={this.handleSignIn} />
             : (
-              <button
-                type="button"
-                onClick={toggleIsAuthorization}
-                className="btn--log-In"
-              >
-              Вход
-              </button>
+              <Button
+                className="btn-login "
+                status="secondary_green"
+                label="Вход"
+                labelSize="large"
+              />
             )
           }
         </div>

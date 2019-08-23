@@ -57,12 +57,12 @@ const Footer = () => (
     <div className="bot-part-of-foot">
       <div className="links-app-container">
         <a className="link-app">
-          <img className="link-app--img" src={apple} alt="Apple" />
-          <p className="link-app--text">Приложение Kufar в App Store</p>
+          <img className="link-app__img" src={apple} alt="Apple" />
+          <p className="link-app__text">Приложение Kufar в App Store</p>
         </a>
         <a className="link-app">
-          <img className="link-app--img" src={googlePlay} alt="Google Play" />
-          <p className="link-app--text">Приложение Kufar в Google Play</p>
+          <img className="link-app__img" src={googlePlay} alt="Google Play" />
+          <p className="link-app__text">Приложение Kufar в Google Play</p>
         </a>
       </div>
       <div className="links-social-network">

@@ -43,14 +43,14 @@ class FilterPanel extends PureComponent {
         <CategoriesFilter handleCategoriesFilter={this.props.changeCategoriesFilter} />
         <div className="other-filters-container">
           <LocationFilter
-            id="list-region-filter"
+            id="select-region"
             headline="ВСЯ БЕЛАРУСЬ"
             firstOption="Область"
             options={locations.map(location => location.region)}
             handleLocation={this.props.changeRegion}
           />
           <LocationFilter
-            id="list-city-filter"
+            id="select-city"
             headline="ГОРОД / РАЙОН"
             firstOption="Любой"
             options={cities && cities.city}
@@ -86,7 +86,7 @@ class FilterPanel extends PureComponent {
             ]}
           />
           <Button
-            className="btn--show-result "
+            className="btn_show-result "
             onClick={this.handleFilters}
             status="primary_blue"
             label={`Показать результаты(${correctProducts.length})`}
@@ -94,13 +94,13 @@ class FilterPanel extends PureComponent {
           />
           <Button
             status="default"
-            className="btn--reset-filters "
+            className="btn_reset-filters "
             label="Сбросить фильтры"
             labelSize="large"
           />
           <Button
             status="default_green"
-            className="btn--save-search "
+            className="btn_save-search "
             label="Сохранить поиск"
             labelSize="large"
           />
