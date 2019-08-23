@@ -28,17 +28,17 @@ header{
     align-items: center;
 }
 .right-part-of-header{
-    max-width: 30%;
+    width: 250px;
     margin-right: 20px;
     justify-content: space-around;
-    -webkit-flex: 1 1 30%;
-    flex: 1 1 30%;
+    flex: 1 0 200px;
+    flex-shrink: 0;
 }
 .left-part-of-header{
     width: 65%;
-    justify-content: space-between;
     -webkit-flex: 1 4 65%;
     flex: 1 4 65%;
+    flex-shrink: 4;
 }
 .logo{
     cursor: pointer;
