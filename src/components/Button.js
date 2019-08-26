@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = ({
-    className, onClick, label, icon, status, labelSize, iconSize, disabled, alt, bold
+    className, onClick, label, icon, mode, labelSize, iconSize, disabled, alt, bold
   }) => {
-  const classNameBtn = 'btn btn_' + status;
+  const classNameBtn = 'btn btn_' + mode;
   const classNameIcon = 'btn__img btn__img_' + iconSize;
   const classNameText = 'btn__text_' + labelSize +(bold ? ' btn__text_bold' : '');
   return (
@@ -25,7 +25,7 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   labelSize: PropTypes.string.isRequired,
   iconSize: PropTypes.string,
-  status: PropTypes.string.isRequired,
+  mode: PropTypes.string.isRequired,
   alt: PropTypes.string,
   bold: PropTypes.bool,
   disabled: PropTypes.bool,

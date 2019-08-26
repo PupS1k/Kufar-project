@@ -21,7 +21,7 @@ const Footer = () => (
       <div className="list-additional-links">
         <Button
           className="additional-link "
-          status="default"
+          mode="default"
           icon={gistogram}
           alt="Gistogram"
           iconSize="primary"
@@ -32,14 +32,14 @@ const Footer = () => (
           <Button
             key={text}
             className="additional-link "
-            status="default"
+            mode="default"
             labelSize="medium"
             label={text}
           />
         ))}
       </div>
       <Button
-        status="secondary_gray"
+        mode="secondary_gray"
         className="btn-change-language "
         label="Беларуская"
         icon={earth}
@@ -67,34 +67,46 @@ const Footer = () => (
       </div>
       <div className="links-social-network">
         <IconButton
-          iconSize="default"
-          icon={telegram}
-          alt="Telegram"
+          image={{
+            iconSize: "default",
+            icon: {telegram},
+            alt: "Telegram"
+          }}
         />
         <IconButton
-          iconSize="default"
-          icon={vk}
-          alt="Vk"
+          image={{
+            iconSize: "default",
+            icon: {vk},
+            alt: "Vk"
+          }}
         />
         <IconButton
-          iconSize="default"
-          icon={facebook}
-          alt="Facebook"
+          image={{
+            iconSize: "default",
+            icon: {facebook},
+            alt: "Facebook"
+          }}
         />
         <IconButton
-          iconSize="default"
-          icon={instagram}
-          alt="Instagram"
+          image={{
+            iconSize: "default",
+            icon: {instagram},
+            alt: "Instagram"
+          }}
         />
         <IconButton
-          iconSize="default"
-          icon={youtube}
-          alt="Youtube"
+          image={{
+            iconSize: "default",
+            icon: {youtube},
+            alt: "Youtube"
+          }}
         />
         <IconButton
-          iconSize="default"
-          icon={odnoklassniki}
-          alt="Odnoklassniki"
+          image={{
+            iconSize: "default",
+            icon: {odnoklassniki},
+            alt: "Odnoklassniki"
+          }}
         />
       </div>
     </div>

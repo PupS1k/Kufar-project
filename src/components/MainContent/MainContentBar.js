@@ -3,6 +3,7 @@ import Button from '../Button';
 import switches from '../../images/switch.png';
 import squares from '../../images/square4.png';
 import IconButton from '../IconButton';
+import arrow from '../../images/arrow.png';
 
 const MainContentBar = () => (
   <div className="main-content-bar">
@@ -18,7 +19,7 @@ const MainContentBar = () => (
       </select>
       <div className="switches-display">
         <Button
-          status="secondary_green"
+          mode="secondary_green"
           className="btn_show-filters "
           label="Фильтры"
           labelSize="large"
@@ -28,9 +29,11 @@ const MainContentBar = () => (
         />
         <IconButton
           className="switch-display__btn "
-          icon={squares}
-          alt="Square"
-          iconSize="default"
+          image={{
+            iconSize: "default",
+            icon: {squares},
+            alt: "Square"
+          }}
         />
       </div>
     </div>

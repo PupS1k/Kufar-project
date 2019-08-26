@@ -14,7 +14,7 @@ const Navigation = () =>(
     <nav className="navigation">
       <Button
         className="btn_category_primary "
-        status="default_blue"
+        mode="default_blue"
         icon={lines}
         alt="Lines"
         label="Категории"
@@ -30,13 +30,13 @@ const Navigation = () =>(
           label="Модное лето"
           iconSize="primary"
           labelSize="large"
-          status="default"
+          mode="default"
         />
         {navBtn.map(text => (
           <Button
             key={text}
             className="nav-category "
-            status="default"
+            mode="default"
             label={text}
             labelSize="large"
           />
@@ -45,15 +45,19 @@ const Navigation = () =>(
       <div className="scroll-panel">
         <IconButton
           className="scroll-panel__btn_left"
-          iconSize="primary"
-          icon={arrow}
-          alt="Arrow"
+          image={{
+            iconSize: "primary",
+            icon: {arrow},
+            alt: "Arrow"
+          }}
         />
         <IconButton
           className="scroll-panel__btn_right"
-          iconSize="primary"
-          icon={arrow}
-          alt="Arrow"
+          image={{
+            iconSize: "primary",
+            icon: {arrow},
+            alt: "Arrow"
+          }}
         />
       </div>
     </nav>

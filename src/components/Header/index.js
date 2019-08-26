@@ -22,16 +22,16 @@ class Header extends PureComponent {
     return (
       <header>
         <div className="left-part-of-header">
-          <div className="logo-container">
-            <img className="logo-img logo-icon" src={logo} alt="Logo" />
-            <img className="logo-img logo-text" src={kufar} alt="Logo" />
+          <div className="logo">
+            <img className="logo__img logo-icon" src={logo} alt="Logo" />
+            <img className="logo__img logo__text" src={kufar} alt="Logo" />
           </div>
-          <div className="search-field-container">
-            <label htmlFor="search-field" tabIndex="0">
-              <img className="img--loupe" src={search} alt="Search" />
-            </label>
-            <input id="search-field" type="text" placeholder="Товар, услуга" />
-          </div>
+        <div className="search-field-container">
+          <label htmlFor="search-field" tabIndex="0">
+            <img className="search-field__img" src={search} alt="Search" />
+          </label>
+          <input id="search-field" type="text" placeholder="Товар, услуга" />
+        </div>
           <Button
             className="btn-location "
             icon={locationHeader}

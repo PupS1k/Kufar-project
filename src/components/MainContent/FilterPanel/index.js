@@ -88,18 +88,18 @@ class FilterPanel extends PureComponent {
           <Button
             className="btn_show-result "
             onClick={this.handleFilters}
-            status="primary_blue"
+            mode="primary_blue"
             label={`Показать результаты(${correctProducts.length})`}
             labelSize="large"
           />
           <Button
-            status="default"
+            mode="default"
             className="btn_reset-filters "
             label="Сбросить фильтры"
             labelSize="large"
           />
           <Button
-            status="default_green"
+            mode="default_green"
             className="btn_save-search "
             label="Сохранить поиск"
             labelSize="large"
