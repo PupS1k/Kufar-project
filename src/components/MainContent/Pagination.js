@@ -1,16 +1,16 @@
 import React from 'react';
-import arrow from '../../images/arrow.png'
+import arrow from '../../images/arrow.png';
 import IconButton from '../IconButton';
 
 const Pagination = () => (
   <div className="pagination">
     <IconButton
-      border={true}
+      border
       className="pagination__btn pagination__btn_previous"
       image={{
-          iconSize: "primary",
-          icon: {arrow},
-          alt: "Arrow"
+        iconSize: 'primary',
+        icon: arrow,
+        alt: 'Arrow'
       }}
       disabled
     />
@@ -20,12 +20,12 @@ const Pagination = () => (
     <p className="pagination__page points">...</p>
     <p className="pagination__page">62893</p>
     <IconButton
-      border={true}
+      border
       className="pagination__btn pagination__btn_next"
       image={{
-          iconSize: "primary",
-          icon: {arrow},
-          alt: "Arrow"
+        iconSize: 'primary',
+        icon: arrow,
+        alt: 'Arrow'
       }}
     />
   </div>

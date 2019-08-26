@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const IconButton = ({className, onClick, border, disabled, image}) => (
+const IconButton = ({
+  className, onClick, border, disabled, image
+}) => (
   <button
     type="button"
-    className={(className ? className +' icon-btn' : ' icon-btn')+ (border ? ' icon-btn_border' : '')}
+    className={classNames('icon-btn', className, {'icon-btn_border': border})}
     onClick={onClick}
     disabled={disabled}
   >
-    <img className={'icon-btn__img_'+image.iconSize} src={image.icon} alt={image.alt}/>
+    <img className={`icon-btn__img_${image.iconSize}`} src={image.icon} alt={image.alt} />
   </button>
 );
 
@@ -17,8 +20,11 @@ IconButton.propTypes = {
   border: PropTypes.bool,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  image: PropTypes.shape({icon: PropTypes.any,
-    alt: PropTypes.string, iconSize: PropTypes.string}).isRequired
+  image: PropTypes.shape({
+    icon: PropTypes.any,
+    alt: PropTypes.string,
+    iconSize: PropTypes.string
+  }).isRequired
 };
 
 IconButton.defaultProps = {

@@ -176,8 +176,6 @@ input[type="checkbox"]:checked + .icon-checkbox-btn:after{
     margin-top: 10px;
     position: sticky;
     position: -webkit-sticky;
-    display: block;
-    overflow: auto;
     bottom: 10px;
     width: 305px;
     top: 0;

@@ -13,7 +13,7 @@ import {getCorrectProducts, getFilters, getRegion} from '../../../selectors/filt
 import {
   changeCorrectProducts, changeRegion, changeCity, changeStateProduct, changeSeller,
   changeIsWithPhoto, changeFashionableSummer, changeInstallmentHalva, changeIsExchange
-} from '../../../actions/filters'
+} from '../../../actions/filters';
 import {getCategoriesCorrectProducts} from '../../../selectors/products';
 import {changeProducts, changeCategoriesFilter} from '../../../actions/products';
 import './style.css';
@@ -86,7 +86,7 @@ class FilterPanel extends PureComponent {
             ]}
           />
           <Button
-            className="btn_show-result "
+            className="btn_show-result"
             onClick={this.handleFilters}
             mode="primary_blue"
             label={`Показать результаты(${correctProducts.length})`}
@@ -94,13 +94,13 @@ class FilterPanel extends PureComponent {
           />
           <Button
             mode="default"
-            className="btn_reset-filters "
+            className="btn_reset-filters"
             label="Сбросить фильтры"
             labelSize="large"
           />
           <Button
             mode="default_green"
-            className="btn_save-search "
+            className="btn_save-search"
             label="Сохранить поиск"
             labelSize="large"
           />

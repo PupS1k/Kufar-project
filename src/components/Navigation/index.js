@@ -1,66 +1,70 @@
 import React from 'react';
 import Button from '../Button';
-import lines from "../../images/lines.png";
-import shirt from "../../images/shirt.png";
+import lines from '../../images/lines.png';
+import shirt from '../../images/shirt.png';
 import './style.css';
 import IconButton from '../IconButton';
 import arrow from '../../images/arrow.png';
 
 const navBtn = ['Техника с доставкой', 'Телефоны', 'Недвижимость', 'Легковые авто', 'Велосипеды',
   'Работа', 'Платья', 'Строительный инструмент', 'Садовая техника', 'Запчасти,расходники',
-'Коляски', 'Диваны', 'Холодильники'];
+  'Коляски', 'Диваны', 'Холодильники'];
 
-const Navigation = () =>(
-    <nav className="navigation">
+const Navigation = () => (
+  <nav className="navigation">
+    <Button
+      className="btn_category_primary"
+      mode="default_blue"
+      label="Категории"
+      labelSize="large"
+      bold
+      image={{
+        iconSize: 'primary',
+        icon: lines,
+        alt: 'Lines'
+      }}
+    />
+    <div className="scroll-panel-nav">
       <Button
-        className="btn_category_primary "
-        mode="default_blue"
-        icon={lines}
-        alt="Lines"
-        label="Категории"
+        className="nav-category"
+        label="Модное лето"
         labelSize="large"
-        iconSize="primary"
-        bold={true}
+        mode="default"
+        image={{
+          iconSize: 'primary',
+          icon: shirt,
+          alt: 'Shirt'
+        }}
       />
-      <div className="scroll-panel-nav">
+      {navBtn.map(text => (
         <Button
-          className="nav-category "
-          icon={shirt}
-          alt="Shirt"
-          label="Модное лето"
-          iconSize="primary"
-          labelSize="large"
+          key={text}
+          className="nav-category"
           mode="default"
+          label={text}
+          labelSize="large"
         />
-        {navBtn.map(text => (
-          <Button
-            key={text}
-            className="nav-category "
-            mode="default"
-            label={text}
-            labelSize="large"
-          />
-        ))}
-      </div>
-      <div className="scroll-panel">
-        <IconButton
-          className="scroll-panel__btn_left"
-          image={{
-            iconSize: "primary",
-            icon: {arrow},
-            alt: "Arrow"
-          }}
-        />
-        <IconButton
-          className="scroll-panel__btn_right"
-          image={{
-            iconSize: "primary",
-            icon: {arrow},
-            alt: "Arrow"
-          }}
-        />
-      </div>
-    </nav>
+      ))}
+    </div>
+    <div className="scroll-panel">
+      <IconButton
+        className="scroll-panel__btn_left"
+        image={{
+          iconSize: 'primary',
+          icon: arrow,
+          alt: 'Arrow'
+        }}
+      />
+      <IconButton
+        className="scroll-panel__btn_right"
+        image={{
+          iconSize: 'primary',
+          icon: arrow,
+          alt: 'Arrow'
+        }}
+      />
+    </div>
+  </nav>
 );
 
 export default Navigation;

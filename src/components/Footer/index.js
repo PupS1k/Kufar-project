@@ -20,18 +20,20 @@ const Footer = () => (
     <div className="top-part-of-foot">
       <div className="list-additional-links">
         <Button
-          className="additional-link "
+          className="additional-link"
           mode="default"
-          icon={gistogram}
-          alt="Gistogram"
-          iconSize="primary"
           labelSize="medium"
           label="Реклама"
+          image={{
+            iconSize: 'primary',
+            icon: gistogram,
+            alt: 'Gistogram'
+          }}
         />
         {additonalLink.map(text => (
           <Button
             key={text}
-            className="additional-link "
+            className="additional-link"
             mode="default"
             labelSize="medium"
             label={text}
@@ -40,12 +42,14 @@ const Footer = () => (
       </div>
       <Button
         mode="secondary_gray"
-        className="btn-change-language "
+        className="btn-change-language"
         label="Беларуская"
-        icon={earth}
-        alt="Earth"
-        iconSize="medium"
         labelSize="large"
+        image={{
+          iconSize: 'medium',
+          icon: earth,
+          alt: 'Earth'
+        }}
       />
     </div>
     <p className="payment-info">*Оплата производится в белорусских рублях по курсу НБ РБ.</p>
@@ -68,44 +72,44 @@ const Footer = () => (
       <div className="links-social-network">
         <IconButton
           image={{
-            iconSize: "default",
-            icon: {telegram},
-            alt: "Telegram"
+            iconSize: 'default',
+            icon: telegram,
+            alt: 'Telegram'
           }}
         />
         <IconButton
           image={{
-            iconSize: "default",
-            icon: {vk},
-            alt: "Vk"
+            iconSize: 'default',
+            icon: vk,
+            alt: 'Vk'
           }}
         />
         <IconButton
           image={{
-            iconSize: "default",
-            icon: {facebook},
-            alt: "Facebook"
+            iconSize: 'default',
+            icon: facebook,
+            alt: 'Facebook'
           }}
         />
         <IconButton
           image={{
-            iconSize: "default",
-            icon: {instagram},
-            alt: "Instagram"
+            iconSize: 'default',
+            icon: instagram,
+            alt: 'Instagram'
           }}
         />
         <IconButton
           image={{
-            iconSize: "default",
-            icon: {youtube},
-            alt: "Youtube"
+            iconSize: 'default',
+            icon: youtube,
+            alt: 'Youtube'
           }}
         />
         <IconButton
           image={{
-            iconSize: "default",
-            icon: {odnoklassniki},
-            alt: "Odnoklassniki"
+            iconSize: 'default',
+            icon: odnoklassniki,
+            alt: 'Odnoklassniki'
           }}
         />
       </div>
