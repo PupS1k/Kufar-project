@@ -19,7 +19,7 @@ import './style.css';
 
 class FilterPanel extends PureComponent {
   componentDidMount() {
-    this.props.getProductAsync('kufar');
+    this.props.getProductAsync('products');
   }
 
   componentDidUpdate(prevProps) {
