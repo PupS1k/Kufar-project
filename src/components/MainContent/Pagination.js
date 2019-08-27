@@ -8,7 +8,7 @@ const Pagination = () => (
       border
       className="pagination__btn pagination__btn_previous"
       image={{
-        iconSize: 'primary',
+        iconSize: 'large',
         icon: arrow,
         alt: 'Arrow'
       }}
@@ -23,7 +23,7 @@ const Pagination = () => (
       border
       className="pagination__btn pagination__btn_next"
       image={{
-        iconSize: 'primary',
+        iconSize: 'large',
         icon: arrow,
         alt: 'Arrow'
       }}

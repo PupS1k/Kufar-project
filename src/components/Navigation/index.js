@@ -19,7 +19,7 @@ const Navigation = () => (
       labelSize="large"
       bold
       image={{
-        iconSize: 'primary',
+        iconSize: 'large',
         icon: lines,
         alt: 'Lines'
       }}
@@ -31,7 +31,7 @@ const Navigation = () => (
         labelSize="large"
         mode="default"
         image={{
-          iconSize: 'primary',
+          iconSize: 'large',
           icon: shirt,
           alt: 'Shirt'
         }}
@@ -50,7 +50,7 @@ const Navigation = () => (
       <IconButton
         className="scroll-panel__btn_left"
         image={{
-          iconSize: 'primary',
+          iconSize: 'large',
           icon: arrow,
           alt: 'Arrow'
         }}
@@ -58,7 +58,7 @@ const Navigation = () => (
       <IconButton
         className="scroll-panel__btn_right"
         image={{
-          iconSize: 'primary',
+          iconSize: 'large',
           icon: arrow,
           alt: 'Arrow'
         }}

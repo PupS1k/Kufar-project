@@ -25,7 +25,7 @@ const Footer = () => (
           labelSize="medium"
           label="Реклама"
           image={{
-            iconSize: 'primary',
+            iconSize: 'large',
             icon: gistogram,
             alt: 'Gistogram'
           }}
