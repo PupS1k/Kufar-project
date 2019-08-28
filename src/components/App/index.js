@@ -7,13 +7,13 @@ import MainContent from '../MainContent';
 import Footer from '../Footer';
 import {getProductAsync} from '../../actions/products';
 
-class App extends PureComponent{
+class App extends PureComponent {
   componentDidMount() {
-    this.props.getProductAsync('kufar');
+    this.props.getProductAsync('products');
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div className="page-container">
         <Header />
         <Navigation />
@@ -23,7 +23,6 @@ class App extends PureComponent{
     );
   }
 }
-
 
 
 export default connect(null, {getProductAsync})(App);

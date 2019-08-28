@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {registrationUserAsync} from '../../actions/user';
 import {getLogInError, getRegistrationError} from '../../selectors/user';
 
-class FormRegistration extends PureComponent{
+class FormRegistration extends PureComponent {
   state = {
     seller: '',
     mail: '',
@@ -13,27 +13,27 @@ class FormRegistration extends PureComponent{
     emailValid: false,
     passwordValid: false,
     verificationPasswordValid: false,
-    formValid: false
+    formValid: false,
+    submitting: false
   };
 
-  handleInput = event => {
-    const value = event.currentTarget.value;
-    const name = event.currentTarget.name;
+  handleInput = (event) => {
+    const {value} = event.currentTarget;
+    const {name} = event.currentTarget;
+    this.handleIsSubmitting(false);
     this.setState({[name]: value}, () => this.validateField(name, value));
   };
 
   validateField(fieldName, value) {
-    let fieldValidationErrors = this.state.formErrors;
-    let emailValid = this.state.emailValid;
-    let passwordValid = this.state.passwordValid;
-    let verificationPasswordValid = this.state.verificationPasswordValid;
+    const fieldValidationErrors = this.state.formErrors;
+    let {emailValid} = this.state;
+    let {passwordValid} = this.state;
+    let {verificationPasswordValid} = this.state;
 
-    switch(fieldName) {
+    switch (fieldName) {
       case 'mail':
         emailValid = value;
-        if(!emailValid)
-          fieldValidationErrors.mail = emailValid ? '' : 'Обязательно';
-        else {
+        if (!emailValid) { fieldValidationErrors.mail = emailValid ? '' : 'Обязательно'; } else {
           emailValid = /[a-zA-Z0-9]+@[a-z]+[.]+[a-z]+/.test(value);
           fieldValidationErrors.mail = emailValid ? ''
             : 'Проверьте введенный e-mail - неправильный формат';
@@ -41,8 +41,10 @@ class FormRegistration extends PureComponent{
         break;
       case 'password':
         passwordValid = value;
-        if(!passwordValid)
-          fieldValidationErrors.password = passwordValid ? '' : 'Обязательно';
+        verificationPasswordValid = value === this.state.verificationPassword;
+        fieldValidationErrors.verificationPassword = verificationPasswordValid ? ''
+          : 'Пароли не совпадают';
+        if (!passwordValid) fieldValidationErrors.password = passwordValid ? '' : 'Обязательно';
         else {
           passwordValid = value.length > 4;
           fieldValidationErrors.password = passwordValid ? ''
@@ -57,100 +59,107 @@ class FormRegistration extends PureComponent{
       default:
         break;
     }
-    this.setState({formErrors: fieldValidationErrors,
-      emailValid: emailValid,
-      passwordValid: passwordValid,
-      verificationPasswordValid: verificationPasswordValid
+    this.setState({
+      formErrors: fieldValidationErrors,
+      emailValid,
+      passwordValid,
+      verificationPasswordValid
     }, this.validateForm);
   }
 
   validateForm() {
-    this.setState({formValid: this.state.emailValid && this.state.passwordValid
-        && this.state.verificationPasswordValid});
+    this.setState({
+      formValid: this.state.emailValid && this.state.passwordValid
+        && this.state.verificationPasswordValid
+    });
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
-    const {registrationUserAsync, handleRegistration} = this.props;
+    const {registrationUserAsync} = this.props;
     const {mail, password, seller} = this.state;
-    registrationUserAsync('registration',{
+    this.handleIsSubmitting(true);
+    registrationUserAsync('registration', {
       mail,
       password,
       seller
     });
-    handleRegistration();
   };
 
+  handleIsSubmitting = value => this.setState({submitting: value});
 
   render() {
-    const {mail, password, verificationPassword, formErrors, formValid} = this.state;
+    const {
+      mail, password, verificationPassword, formErrors, formValid, submitting
+    } = this.state;
     const {registrationError} = this.props;
-    return(
-        <form className="form-logIn" onSubmit={this.handleSubmit}>
-          <div className="seller-status">
-            <label className="icon-label">
-              <input
-                name="seller"
-                className="icon-input"
-                value="Частное лицо"
-                type="radio"
-                onChange={this.handleInput}
-                defaultChecked
-              />
-              <div className="icon-radio-btn" />
-              <p>Частное лицо</p>
-            </label>
-            <label className="icon-label">
-              <input
-                name="seller"
-                value="Компания"
-                onChange={this.handleInput}
-                className="icon-input"
-                type="radio"
-              />
-              <div className="icon-radio-btn" />
-              <p>Компания</p>
-            </label>
-          </div>
-          <div className="input-field">
+    return (
+      <form className="form-logIn" onSubmit={this.handleSubmit}>
+        <div className="seller-status">
+          <label className="icon-label">
             <input
-              type="text"
-              name="mail" value={mail}
+              name="seller"
+              className="icon-input"
+              value="Частное лицо"
+              type="radio"
               onChange={this.handleInput}
-              placeholder="E-mail"
+              defaultChecked
             />
-            {formErrors.mail && <span>{formErrors.mail}</span>}
-          </div>
-          <div className="input-field">
+            <div className="icon-radio-btn" />
+            <p>Частное лицо</p>
+          </label>
+          <label className="icon-label">
             <input
-              type="password"
-              name="password"
-              value={password}
+              name="seller"
+              value="Компания"
               onChange={this.handleInput}
-              placeholder="Пароль"
+              className="icon-input"
+              type="radio"
             />
-            {formErrors.password && <span>{formErrors.password}</span>}
-          </div>
-          <div className="input-field">
-            <input
-              type="password"
-              name="verificationPassword"
-              value={verificationPassword}
-              onChange={this.handleInput}
-              placeholder="Повторите пароль"
-            />
-            {formErrors.verificationPassword && <span>{formErrors.verificationPassword}</span>}
-          </div>
-          {registrationError && <span>Аккаунт с таким e-mail уже существует</span>}
-          <button
-            type="submit"
-            className="btn-submit"
-            disabled={!formValid}
-          >
+            <div className="icon-radio-btn" />
+            <p>Компания</p>
+          </label>
+        </div>
+        <div className="input-field">
+          <input
+            type="text"
+            name="mail"
+            value={mail}
+            onChange={this.handleInput}
+            placeholder="E-mail"
+          />
+          {formErrors.mail && <span>{formErrors.mail}</span>}
+        </div>
+        <div className="input-field">
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.handleInput}
+            placeholder="Пароль"
+          />
+          {formErrors.password && <span>{formErrors.password}</span>}
+        </div>
+        <div className="input-field">
+          <input
+            type="password"
+            name="verificationPassword"
+            value={verificationPassword}
+            onChange={this.handleInput}
+            placeholder="Повторите пароль"
+          />
+          {formErrors.verificationPassword && <span>{formErrors.verificationPassword}</span>}
+        </div>
+        {(registrationError && submitting) && <span>Аккаунт с таким e-mail уже существует</span>}
+        <button
+          type="submit"
+          className="btn-submit"
+          disabled={!formValid}
+        >
             Создать Профиль
-          </button>
-        </form>
-    )
+        </button>
+      </form>
+    );
   }
 }
 

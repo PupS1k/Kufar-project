@@ -1,34 +1,35 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {logInUserAsync} from '../../actions/user';
-import {getLogInError} from '../../selectors/user'
+import {getLogInError} from '../../selectors/user';
 
-class FormLogin extends PureComponent{
+class FormLogin extends PureComponent {
   state = {
     mail: '',
     password: '',
     formErrors: {mail: '', password: ''},
     emailValid: false,
     passwordValid: false,
-    formValid: false
+    formValid: false,
+    submitting: false
   };
 
-  handleInput = event => {
-    const value = event.currentTarget.value;
-    const name = event.currentTarget.name;
+  handleInput = (event) => {
+    const {value} = event.currentTarget;
+    const {name} = event.currentTarget;
+    this.handleIsSubmitting(false);
     this.setState({[name]: value}, () => this.validateField(name, value));
   };
 
   validateField(fieldName, value) {
-    let fieldValidationErrors = this.state.formErrors;
-    let emailValid = this.state.emailValid;
-    let passwordValid = this.state.passwordValid;
+    const fieldValidationErrors = this.state.formErrors;
+    let {emailValid} = this.state;
+    let {passwordValid} = this.state;
 
-    switch(fieldName) {
+    switch (fieldName) {
       case 'mail':
         emailValid = value;
-        if(!emailValid)
-          fieldValidationErrors.mail = emailValid ? '' : 'Обязательно';
+        if (!emailValid) fieldValidationErrors.mail = emailValid ? '' : 'Обязательно';
         else {
           emailValid = /[a-zA-Z0-9]+@[a-z]+[.]+[a-z]+/.test(value);
           fieldValidationErrors.mail = emailValid ? ''
@@ -37,8 +38,7 @@ class FormLogin extends PureComponent{
         break;
       case 'password':
         passwordValid = value;
-        if(!passwordValid)
-          fieldValidationErrors.password = passwordValid ? '' : 'Обязательно';
+        if (!passwordValid) fieldValidationErrors.password = passwordValid ? '' : 'Обязательно';
         else {
           passwordValid = value.length > 4;
           fieldValidationErrors.password = passwordValid ? ''
@@ -48,9 +48,10 @@ class FormLogin extends PureComponent{
       default:
         break;
     }
-    this.setState({formErrors: fieldValidationErrors,
-      emailValid: emailValid,
-      passwordValid: passwordValid
+    this.setState({
+      formErrors: fieldValidationErrors,
+      emailValid,
+      passwordValid
     }, this.validateForm);
   }
 
@@ -58,34 +59,39 @@ class FormLogin extends PureComponent{
     this.setState({formValid: this.state.emailValid && this.state.passwordValid});
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const {logInUserAsync} = this.props;
     const {mail, password} = this.state;
+    this.handleIsSubmitting(true);
     logInUserAsync('login', {
       mail,
       password
-    })
+    });
   };
+
+  handleIsSubmitting = value => this.setState({submitting: value});
 
 
   render() {
-    const {mail, password, formErrors, formValid} = this.state;
+    const {
+      mail, password, formErrors, formValid, submitting
+    } = this.state;
     const {logInError} = this.props;
-    return(
-        <form className="form-logIn" onSubmit={this.handleSubmit}>
-          <div className="input-field">
-            <input type="text" name="mail" value={mail} onChange={this.handleInput} placeholder="E-mail"/>
-            {formErrors.mail && <span>{formErrors.mail}</span>}
-          </div>
-          <div className="input-field">
-            <input type="password" name="password" value={password} onChange={this.handleInput} placeholder="Пароль"/>
-            {formErrors.password && <span>{formErrors.password}</span>}
-          </div>
-          {logInError && <span>Неправильно введен e-mail или пароль</span>}
-          <button type="submit" className="btn-submit" disabled={!formValid} >Войти</button>
-        </form>
-    )
+    return (
+      <form className="form-logIn" onSubmit={this.handleSubmit}>
+        <div className="input-field">
+          <input type="text" name="mail" value={mail} onChange={this.handleInput} placeholder="E-mail" />
+          {formErrors.mail && <span>{formErrors.mail}</span>}
+        </div>
+        <div className="input-field">
+          <input type="password" name="password" value={password} onChange={this.handleInput} placeholder="Пароль" />
+          {formErrors.password && <span>{formErrors.password}</span>}
+        </div>
+        {(!logInError && submitting) && <span>Неправильно введен e-mail или пароль</span>}
+        <button type="submit" className="btn-submit" disabled={!formValid}>Войти</button>
+      </form>
+    );
   }
 }
 

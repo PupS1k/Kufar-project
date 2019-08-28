@@ -1,10 +1,11 @@
 import {
-  TOGGLE_TAB, LOGIN_USER, REGISTRATION_USER, LOGOUT_USER,
+  TOGGLE_TAB, CHANGE_USER, REGISTRATION_USER, TOGGLE_IS_REGISTRATION,
   REGISTRATION_USER_ASYNC, LOGIN_USER_ASYNC, OPEN_AUTHORIZATION
 } from '../constants/actionTypes';
 
-const logOutUser = () => ({
-  type: LOGIN_USER
+const changeUser = value => ({
+  type: CHANGE_USER,
+  payload: value
 });
 
 const toggleIsAuthorization = () => ({
@@ -13,11 +14,6 @@ const toggleIsAuthorization = () => ({
 
 const toggleTab = value => ({
   type: TOGGLE_TAB,
-  payload: value
-});
-
-const logInUser = value => ({
-  type: LOGIN_USER,
   payload: value
 });
 
@@ -37,13 +33,17 @@ const logInUserAsync = (url, data) => ({
   data
 });
 
+const toggleIsRegistration = () => ({
+  type: TOGGLE_IS_REGISTRATION
+});
+
 
 export {
   toggleIsAuthorization,
   toggleTab,
-  logInUser,
+  changeUser,
   registrationUser,
   logInUserAsync,
   registrationUserAsync,
-  logOutUser
+  toggleIsRegistration
 };

@@ -1,13 +1,13 @@
 import {
-  TOGGLE_TAB, REGISTRATION_USER, LOGIN_USER, OPEN_AUTHORIZATION, LOGOUT_USER
+  TOGGLE_TAB, REGISTRATION_USER, CHANGE_USER, OPEN_AUTHORIZATION, TOGGLE_IS_REGISTRATION
 } from '../constants/actionTypes';
 
 const initialState = {
   isAuthorizationOpen: false,
   tab: true,
   registrationError: false,
-  logInError: false,
-  mail: ''
+  mail: '',
+  isRegistration: false
 };
 
 const user = (state = initialState, action) => {
@@ -16,7 +16,6 @@ const user = (state = initialState, action) => {
       return {
         ...state,
         tab: action.payload,
-        logInError: false,
         registrationError: false
       };
     case REGISTRATION_USER:
@@ -24,23 +23,21 @@ const user = (state = initialState, action) => {
         ...state,
         registrationError: !state.registrationError
       };
-    case LOGIN_USER:
+    case CHANGE_USER:
       return {
         ...state,
-        logInError: !state.logInError,
         mail: action.payload
       };
     case OPEN_AUTHORIZATION:
       return {
         ...state,
         isAuthorizationOpen: !state.isAuthorizationOpen,
-        logInError: false,
         registrationError: false
       };
-      case LOGOUT_USER:
+    case TOGGLE_IS_REGISTRATION:
       return {
         ...state,
-        mail: ''
+        isRegistration: !state.isRegistration
       };
     default:
       return state;

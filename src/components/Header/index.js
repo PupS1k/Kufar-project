@@ -7,14 +7,18 @@ import locationHeader from '../../images/locationHeader.png';
 import Button from './Button';
 import plus from '../../images/plus.png';
 import Authorization from '../Authorization';
-import {toggleIsAuthorization, logOutUser} from '../../actions/user';
+import {toggleIsAuthorization, changeUser} from '../../actions/user';
 import {getIsAuthorizationOpen, getUserMail} from '../../selectors/user';
 
 import './style.css';
 
-class Header extends PureComponent{
+class Header extends PureComponent {
+  handleSignIn = () => this.props.changeUser('');
+
   render() {
-    const {isAuthorizationOpen, toggleIsAuthorization, logOutUser, mail} = this.props;
+    const {
+      isAuthorizationOpen, toggleIsAuthorization, mail
+    } = this.props;
     return (
       <header>
         <div className="left-part-of-header">
@@ -39,19 +43,21 @@ class Header extends PureComponent{
             <p className="btn--add-ad__text btn--add-product__text-full">Подать объявление</p>
             <p className="btn--add-ad__text btn--add-product__text-reduction">Объявление</p>
           </button>
-          {mail ? <button className="profile" onClick={logOutUser}></button>
-            :<button
-              type="button"
-              onClick={toggleIsAuthorization}
-              className="btn--log-In"
-            >
+          {mail ? <button className="profile" onClick={this.handleSignIn} />
+            : (
+              <button
+                type="button"
+                onClick={toggleIsAuthorization}
+                className="btn--log-In"
+              >
               Вход
-            </button>
+              </button>
+            )
           }
         </div>
         {isAuthorizationOpen && <Authorization />}
       </header>
-    )
+    );
   }
 }
 
@@ -60,4 +66,4 @@ const mapStateToProps = state => ({
   mail: getUserMail(state)
 });
 
-export default connect(mapStateToProps,{toggleIsAuthorization, logOutUser})(Header);
+export default connect(mapStateToProps, {toggleIsAuthorization, changeUser})(Header);
