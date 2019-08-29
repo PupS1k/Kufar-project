@@ -40,13 +40,10 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "babel-polyfill": "^6.26.0",
-    "base64-to-image": "^1.0.2",
-    "js-base64": "^2.5.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "",
     "redux": "",
-    "redux-form": "^8.2.6",
     "redux-saga": "^1.0.5",
     "redux-thunk": "^2.3.0"
   }
