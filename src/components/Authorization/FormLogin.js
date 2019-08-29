@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {logInUserAsync} from '../../actions/user';
 import {getLogInError} from '../../selectors/user';
+import {isRequired, minLength, mailCorrect} from './validation';
 
 class FormLogin extends Component {
   state = {
@@ -38,18 +39,10 @@ class FormLogin extends Component {
     const {formErrors} = this.state;
     switch (fieldName) {
       case 'mail':
-        if (!value) formErrors.mail = 'Обязательно';
-        else {
-          formErrors.mail = /[a-zA-Z0-9]+@[a-z]+[.]+[a-z]+/.test(value) ? ''
-            : 'Проверьте введенный e-mail - неправильный формат';
-        }
+        formErrors.mail = isRequired(value) || mailCorrect(value);
         break;
       case 'password':
-        if (!value) formErrors.password = 'Обязательно';
-        else {
-          formErrors.password = value.length > 4 ? ''
-            : 'Ваш пароль слишком короткий. Минимальная длина пароля 5 символов';
-        }
+        formErrors.password = isRequired(value) || minLength(value, 4);
         break;
       default:
         break;

@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {registrationUserAsync} from '../../actions/user';
 import {getRegistrationError} from '../../selectors/user';
+import {
+  isVerificationPassword, isRequired, minLength, mailCorrect
+} from './validation';
 
 class FormRegistration extends Component {
   state = {
@@ -42,24 +45,15 @@ class FormRegistration extends Component {
     const {formErrors} = this.state;
     switch (fieldName) {
       case 'mail':
-        if (!value) formErrors.mail = 'Обязательно';
-        else {
-          formErrors.mail = /[a-zA-Z0-9]+@[a-z]+[.]+[a-z]+/.test(value) ? ''
-            : 'Проверьте введенный e-mail - неправильный формат';
-        }
+        formErrors.mail = isRequired(value) || mailCorrect(value);
         break;
       case 'password':
-        if (!value) formErrors.password = 'Обязательно';
-        else {
-          formErrors.password = value.length > 4 ? ''
-            : 'Ваш пароль слишком короткий. Минимальная длина пароля 5 символов';
-        }
-        formErrors.verificationPassword = value === this.state.verificationPassword ? ''
-          : 'Пароли не совпадают';
+        formErrors.password = isRequired(value) || minLength(value, 4);
+        formErrors.verificationPassword = isVerificationPassword(value,
+          this.state.verificationPassword);
         break;
       case 'verificationPassword':
-        formErrors.verificationPassword = value === this.state.password ? ''
-          : 'Пароли не совпадают';
+        formErrors.verificationPassword = isVerificationPassword(value, this.state.password);
         break;
       default:
         break;
