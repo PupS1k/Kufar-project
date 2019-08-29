@@ -4,7 +4,7 @@ import logo from '../../images/logo.png';
 import kufar from '../../images/kufar.png';
 import search from '../../images/search.png';
 import locationHeader from '../../images/locationHeader.png';
-import Button from './Button';
+import Button from '../Button';
 import plus from '../../images/plus.png';
 import Authorization from '../Authorization';
 import {toggleIsAuthorization, changeUser} from '../../actions/user';
@@ -22,36 +22,53 @@ class Header extends PureComponent {
     return (
       <header>
         <div className="left-part-of-header">
-          <div className="logo-container">
-            <img className="logo-img logo-icon" src={logo} alt="Logo" />
-            <img className="logo-img logo-text" src={kufar} alt="Logo" />
+          <div className="logo">
+            <img className="logo__img logo-icon" src={logo} alt="Logo" />
+            <img className="logo__img logo__text" src={kufar} alt="Logo" />
           </div>
-          <div className="search-field-container">
-            <label htmlFor="search-field" tabIndex="0">
-              <img className="img--loupe" src={search} alt="Search" />
-            </label>
-            <input id="search-field" type="text" placeholder="Товар, услуга" />
-          </div>
-          <button type="button" className="btn--location">
-            <img className="img--marker" src={locationHeader} alt="Location" />
-            <p>Вся Беларусь</p>
-          </button>
+        <div className="search-field-container">
+          <label htmlFor="search-field" tabIndex="0">
+            <img className="search-field__img" src={search} alt="Search" />
+          </label>
+          <input id="search-field" type="text" placeholder="Товар, услуга" />
+        </div>
+          <Button
+            className="btn-location "
+            icon={locationHeader}
+            alt="Location"
+            label="Вся Беларусь"
+            status="default_green"
+            labelSize="large"
+            iconSize="medium"
+          />
         </div>
         <div className="right-part-of-header">
-          <button className="btn--add-product">
-            <img className="img--plus" src={plus} alt="Plus" />
-            <p className="btn--add-ad__text btn--add-product__text-full">Подать объявление</p>
-            <p className="btn--add-ad__text btn--add-product__text-reduction">Объявление</p>
-          </button>
+          <Button
+            className="btn_type_primary "
+            icon={plus}
+            status="primary_green"
+            alt="Plus"
+            labelSize="large"
+            iconSize="small"
+            label="Подать объявление"
+          />
+          <Button
+            className="btn_type_secondary "
+            icon={plus}
+            status="primary_green"
+            alt="Plus"
+            labelSize="large"
+            iconSize="small"
+            label="Объявление"
+          />
           {mail ? <button className="profile" onClick={this.handleSignIn} />
             : (
-              <button
-                type="button"
-                onClick={toggleIsAuthorization}
-                className="btn--log-In"
-              >
-              Вход
-              </button>
+              <Button
+                className="btn-login "
+                status="secondary_green"
+                label="Вход"
+                labelSize="large"
+              />
             )
           }
         </div>

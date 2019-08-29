@@ -5,6 +5,7 @@ import LocationFilter from './LocationFilter';
 import PriceFilter from './PriceFilter';
 import SwitchFilter from './SwitchFilter';
 import CheckboxFilter from './CheckboxFilter';
+import Button from '../../Button';
 import {
   locations, stateFilter, sellerFilter, checkboxFilter, applyFilters
 } from '../../../constants/filters';
@@ -12,7 +13,7 @@ import {getCorrectProducts, getFilters, getRegion} from '../../../selectors/filt
 import {
   changeCorrectProducts, changeRegion, changeCity, changeStateProduct, changeSeller,
   changeIsWithPhoto, changeFashionableSummer, changeInstallmentHalva, changeIsExchange
-} from '../../../actions/filters'
+} from '../../../actions/filters';
 import {getCategoriesCorrectProducts} from '../../../selectors/products';
 import {changeProducts, changeCategoriesFilter} from '../../../actions/products';
 import './style.css';
@@ -42,14 +43,14 @@ class FilterPanel extends PureComponent {
         <CategoriesFilter handleCategoriesFilter={this.props.changeCategoriesFilter} />
         <div className="other-filters-container">
           <LocationFilter
-            id="list-region-filter"
+            id="select-region"
             headline="ВСЯ БЕЛАРУСЬ"
             firstOption="Область"
             options={locations.map(location => location.region)}
             handleLocation={this.props.changeRegion}
           />
           <LocationFilter
-            id="list-city-filter"
+            id="select-city"
             headline="ГОРОД / РАЙОН"
             firstOption="Любой"
             options={cities && cities.city}
@@ -84,13 +85,25 @@ class FilterPanel extends PureComponent {
               this.props.changeIsExchange
             ]}
           />
-          <button type="button" className="btn--show-result" onClick={this.handleFilters}>
-              Показать результаты(
-            {correctProducts.length}
-            )
-          </button>
-          <button type="button" className="btn--reset-filters">Сбросить фильтры</button>
-          <button type="button" className="btn--save-search">Сохранить поиск</button>
+          <Button
+            className="btn_show-result"
+            onClick={this.handleFilters}
+            mode="primary_blue"
+            label={`Показать результаты(${correctProducts.length})`}
+            labelSize="large"
+          />
+          <Button
+            mode="default"
+            className="btn_reset-filters"
+            label="Сбросить фильтры"
+            labelSize="large"
+          />
+          <Button
+            mode="default_green"
+            className="btn_save-search"
+            label="Сохранить поиск"
+            labelSize="large"
+          />
         </div>
       </div>
     );

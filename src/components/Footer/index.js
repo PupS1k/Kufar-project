@@ -10,25 +10,47 @@ import instagram from '../../images/instagram.png';
 import youtube from '../../images/youtube.png';
 import odnoklassniki from '../../images/odnoklassniki.png';
 import './style.css';
+import Button from '../Button';
+import IconButton from '../IconButton';
+
+const additonalLink = ['Рассрочка', 'Доставка', 'Правила', 'Помощь', 'Выбрать регион'];
 
 const Footer = () => (
   <footer>
     <div className="top-part-of-foot">
       <div className="list-additional-links">
-        <a className="additional-link link-advertising">
-          <img className="img--gistogram" src={gistogram} alt="Gistogram" />
-          <p>Реклама</p>
-        </a>
-        <a className="additional-link">Рассрочка</a>
-        <a className="additional-link">Доставка</a>
-        <a className="additional-link">Правила</a>
-        <a className="additional-link">Помощь</a>
-        <a className="additional-link">Выбрать регион</a>
+        <Button
+          className="additional-link"
+          mode="default"
+          labelSize="medium"
+          label="Реклама"
+          image={{
+            iconSize: 'large',
+            icon: gistogram,
+            alt: 'Gistogram'
+          }}
+        />
+        {additonalLink.map(text => (
+          <Button
+            key={text}
+            className="additional-link"
+            mode="default"
+            labelSize="medium"
+            label={text}
+          />
+        ))}
       </div>
-      <button className="btn-change-language">
-        <img className="btn-change-language--img" src={earth} alt="Earth" />
-        <p>Беларуская</p>
-      </button>
+      <Button
+        mode="secondary_gray"
+        className="btn-change-language"
+        label="Беларуская"
+        labelSize="large"
+        image={{
+          iconSize: 'medium',
+          icon: earth,
+          alt: 'Earth'
+        }}
+      />
     </div>
     <p className="payment-info">*Оплата производится в белорусских рублях по курсу НБ РБ.</p>
     <p className="info-about-site">© Kufar — крупнейшая площадка объявлений Беларуси по данным
@@ -39,33 +61,57 @@ const Footer = () => (
     <div className="bot-part-of-foot">
       <div className="links-app-container">
         <a className="link-app">
-          <img className="link-app--img" src={apple} alt="Apple" />
-          <p className="link-app--text">Приложение Kufar в App Store</p>
+          <img className="link-app__img" src={apple} alt="Apple" />
+          <p className="link-app__text">Приложение Kufar в App Store</p>
         </a>
         <a className="link-app">
-          <img className="link-app--img" src={googlePlay} alt="Google Play" />
-          <p className="link-app--text">Приложение Kufar в Google Play</p>
+          <img className="link-app__img" src={googlePlay} alt="Google Play" />
+          <p className="link-app__text">Приложение Kufar в Google Play</p>
         </a>
       </div>
       <div className="links-social-network">
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={telegram} alt="Telegram" />
-        </a>
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={vk} alt="Vk" />
-        </a>
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={facebook} alt="Facebook" />
-        </a>
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={instagram} alt="Instagram" />
-        </a>
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={youtube} alt="Youtube" />
-        </a>
-        <a className="link-social-network">
-          <img className="link-social-network--img" src={odnoklassniki} alt="Odnoklassniki" />
-        </a>
+        <IconButton
+          image={{
+            iconSize: 'default',
+            icon: telegram,
+            alt: 'Telegram'
+          }}
+        />
+        <IconButton
+          image={{
+            iconSize: 'default',
+            icon: vk,
+            alt: 'Vk'
+          }}
+        />
+        <IconButton
+          image={{
+            iconSize: 'default',
+            icon: facebook,
+            alt: 'Facebook'
+          }}
+        />
+        <IconButton
+          image={{
+            iconSize: 'default',
+            icon: instagram,
+            alt: 'Instagram'
+          }}
+        />
+        <IconButton
+          image={{
+            iconSize: 'default',
+            icon: youtube,
+            alt: 'Youtube'
+          }}
+        />
+        <IconButton
+          image={{
+            iconSize: 'default',
+            icon: odnoklassniki,
+            alt: 'Odnoklassniki'
+          }}
+        />
       </div>
     </div>
   </footer>

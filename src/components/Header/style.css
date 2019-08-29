@@ -19,7 +19,7 @@ header{
 }
 
 
-.left-part-of-header, .right-part-of-header, .search-field-container, .logo-container{
+.left-part-of-header, .right-part-of-header, .search-field-container, .logo{
     display: flex;
     display: -moz-flex;
     display: -webkit-flex;
@@ -28,26 +28,26 @@ header{
     align-items: center;
 }
 .right-part-of-header{
-    max-width: 30%;
+    width: 250px;
     margin-right: 20px;
-    justify-content: flex-end;
-    -webkit-flex: 1 1 30%;
-    flex: 1 1 30%;
+    justify-content: space-around;
+    flex: 1 0 200px;
+    flex-shrink: 0;
 }
 .left-part-of-header{
     width: 65%;
-    justify-content: space-between;
     -webkit-flex: 1 4 65%;
     flex: 1 4 65%;
+    flex-shrink: 4;
 }
-.logo-container{
+.logo{
     cursor: pointer;
     margin: 0 10px 0 20px;
 }
-.logo-img{
+.logo__img{
     height: 40px;
 }
-.logo-text{
+.logo__text{
     height: 35px;
     width: 100px;
 }
@@ -63,7 +63,7 @@ header{
     flex: 1 6 500px;
     z-index: 40;
 }
-.img--loupe{
+.search-field__img{
     width: 32px;
     height: 32px;
 }
@@ -83,49 +83,13 @@ header{
     color: #7f8386;
     font-size: 16px;
 }
-.btn--location{
-    display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    align-items: center;
-    width: 160px;
-    outline: none;
-    border: none;
-    font-size: 16px;
-    color: #29ad5b;
-    white-space: nowrap;
-    background: none;
-}
-.img--marker{
-    width: 23px;
-    height: 23px;
-}
-.btn--add-product, .btn--log-In{
-    margin: 0 10px;
-    font-size: 16px;
-    height: 40px;
-    width: auto;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    outline: none;
-    padding: 3px 10px 3px 10px;
-}
-.btn--add-product{
-    display: flex;
-    align-items: center;
-    color: white;
-    background: #29ad5b;
-    border: none;
-}
-.btn--add-product__text-reduction{
+.btn_type_secondary{
     display: none;
 }
-.btn--add-product:hover{
+.btn_type_secondary:hover, .btn_type_primary:hover{
     background: #238543;
 }
+
 .img--plus{
     width: 15px;
     height: 15px;
@@ -153,20 +117,17 @@ header{
 .registration-successful p{
     font-size: 20px;
 }
+
 @media screen and (max-width: 1024px){
-    .btn--add-product__text-reduction{
+    .btn_type_secondary{
         display: flex;
-        display: -moz-flex;
-        display: -webkit-flex;
-        display: -ms-flex;
-        display: -o-flex;
     }
-    .logo-text, .btn--add-product__text-full{
+    .logo__text, .btn_type_primary{
         display: none;
     }
 }
 @media screen and (max-width: 768px) {
-    .btn--add-product{
+    .btn_type_secondary{
         display: none;
     }
     .left-part-of-header{
@@ -182,8 +143,11 @@ header{
     header{
         height: 42px;
     }
-    .btn--log-In{
+    .btn-login{
         border: none;
+    }
+    .btn-location{
+        display: none;
     }
     .search-field-container{
         margin-right: 5px;
