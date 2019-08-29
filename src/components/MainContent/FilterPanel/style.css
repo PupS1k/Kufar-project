@@ -88,7 +88,7 @@ input[type="radio"], input[type="checkbox"]{
     align-items: center;
 }
 .icon-radio-btn, .icon-checkbox-btn{
-    margin-right: 20px;
+    margin-right: 10px;
 }
 .icon-checkbox-btn:before, .icon-radio-btn:before{
     content: '';

@@ -136,6 +136,23 @@ header{
     background: none;
     border: solid 1px #29ad5b;
 }
+.profile{
+    background: url(../../images/profile.png) no-repeat center;
+    background-size: 40px 40px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.registration-successful{
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.registration-successful p{
+    font-size: 20px;
+}
 @media screen and (max-width: 1024px){
     .btn--add-product__text-reduction{
         display: flex;
