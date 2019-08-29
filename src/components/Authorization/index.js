@@ -12,10 +12,13 @@ class Authorization extends PureComponent {
 
   handleTabRegistration = () => this.props.toggleTab(false);
 
-  handleCloseModel = () => {
-    this.props.toggleIsAuthorization();
+  handleCloseModel = () => this.props.toggleIsAuthorization();
+
+  handleIsRegistration = () => {
+    this.handleCloseModel();
     this.props.toggleIsRegistration();
   };
+
 
   render() {
     const {tab, registrationSuccessful} = this.props;
@@ -31,6 +34,12 @@ class Authorization extends PureComponent {
             ? (
               <div className="registration-successful">
                 <p>Регистрация прошла успешно</p>
+                <button
+                  className="btn--add-product"
+                  onClick={this.handleIsRegistration}
+                >
+                  Понятно
+                </button>
               </div>
             )
             : (

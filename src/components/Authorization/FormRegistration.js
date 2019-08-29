@@ -1,78 +1,26 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {registrationUserAsync} from '../../actions/user';
-import {getLogInError, getRegistrationError} from '../../selectors/user';
+import {getRegistrationError} from '../../selectors/user';
 
-class FormRegistration extends PureComponent {
+class FormRegistration extends Component {
   state = {
     seller: '',
     mail: '',
     password: '',
     verificationPassword: '',
     formErrors: {mail: '', password: '', verificationPassword: ''},
-    emailValid: false,
-    passwordValid: false,
-    verificationPasswordValid: false,
     formValid: false,
     submitting: false
   };
 
   handleInput = (event) => {
-    const {value} = event.currentTarget;
-    const {name} = event.currentTarget;
+    const {value, name} = event.currentTarget;
     this.handleIsSubmitting(false);
     this.setState({[name]: value}, () => this.validateField(name, value));
   };
 
-  validateField(fieldName, value) {
-    const fieldValidationErrors = this.state.formErrors;
-    let {emailValid} = this.state;
-    let {passwordValid} = this.state;
-    let {verificationPasswordValid} = this.state;
-
-    switch (fieldName) {
-      case 'mail':
-        emailValid = value;
-        if (!emailValid) { fieldValidationErrors.mail = emailValid ? '' : 'Обязательно'; } else {
-          emailValid = /[a-zA-Z0-9]+@[a-z]+[.]+[a-z]+/.test(value);
-          fieldValidationErrors.mail = emailValid ? ''
-            : 'Проверьте введенный e-mail - неправильный формат';
-        }
-        break;
-      case 'password':
-        passwordValid = value;
-        verificationPasswordValid = value === this.state.verificationPassword;
-        fieldValidationErrors.verificationPassword = verificationPasswordValid ? ''
-          : 'Пароли не совпадают';
-        if (!passwordValid) fieldValidationErrors.password = passwordValid ? '' : 'Обязательно';
-        else {
-          passwordValid = value.length > 4;
-          fieldValidationErrors.password = passwordValid ? ''
-            : 'Ваш пароль слишком короткий. Минимальная длина пароля 5 символов';
-        }
-        break;
-      case 'verificationPassword':
-        verificationPasswordValid = value === this.state.password;
-        fieldValidationErrors.verificationPassword = verificationPasswordValid ? ''
-          : 'Пароли не совпадают';
-        break;
-      default:
-        break;
-    }
-    this.setState({
-      formErrors: fieldValidationErrors,
-      emailValid,
-      passwordValid,
-      verificationPasswordValid
-    }, this.validateForm);
-  }
-
-  validateForm() {
-    this.setState({
-      formValid: this.state.emailValid && this.state.passwordValid
-        && this.state.verificationPasswordValid
-    });
-  }
+  handleIsSubmitting = value => this.setState({submitting: value});
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -86,7 +34,38 @@ class FormRegistration extends PureComponent {
     });
   };
 
-  handleIsSubmitting = value => this.setState({submitting: value});
+  validateForm = formErrors => this.setState({
+    formValid: !(!formErrors.mail && !formErrors.password && !formErrors.verificationPassword)
+  });
+
+  validateField(fieldName, value) {
+    const {formErrors} = this.state;
+    switch (fieldName) {
+      case 'mail':
+        if (!value) formErrors.mail = 'Обязательно';
+        else {
+          formErrors.mail = /[a-zA-Z0-9]+@[a-z]+[.]+[a-z]+/.test(value) ? ''
+            : 'Проверьте введенный e-mail - неправильный формат';
+        }
+        break;
+      case 'password':
+        if (!value) formErrors.password = 'Обязательно';
+        else {
+          formErrors.password = value.length > 4 ? ''
+            : 'Ваш пароль слишком короткий. Минимальная длина пароля 5 символов';
+        }
+        formErrors.verificationPassword = value === this.state.verificationPassword ? ''
+          : 'Пароли не совпадают';
+        break;
+      case 'verificationPassword':
+        formErrors.verificationPassword = value === this.state.password ? ''
+          : 'Пароли не совпадают';
+        break;
+      default:
+        break;
+    }
+    this.setState({formErrors}, () => this.validateForm(formErrors));
+  }
 
   render() {
     const {
@@ -154,7 +133,7 @@ class FormRegistration extends PureComponent {
         <button
           type="submit"
           className="btn-submit"
-          disabled={!formValid}
+          disabled={!(!formValid && mail && password && verificationPassword)}
         >
             Создать Профиль
         </button>

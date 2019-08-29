@@ -144,10 +144,11 @@ header{
     height: 40px;
 }
 .registration-successful{
-    height: 70px;
+    height: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    flex-direction: column;
 }
 .registration-successful p{
     font-size: 20px;

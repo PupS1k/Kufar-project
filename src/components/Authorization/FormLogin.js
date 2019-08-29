@@ -1,63 +1,22 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {logInUserAsync} from '../../actions/user';
 import {getLogInError} from '../../selectors/user';
 
-class FormLogin extends PureComponent {
+class FormLogin extends Component {
   state = {
     mail: '',
     password: '',
     formErrors: {mail: '', password: ''},
-    emailValid: false,
-    passwordValid: false,
     formValid: false,
     submitting: false
   };
 
   handleInput = (event) => {
-    const {value} = event.currentTarget;
-    const {name} = event.currentTarget;
+    const {value, name} = event.currentTarget;
     this.handleIsSubmitting(false);
     this.setState({[name]: value}, () => this.validateField(name, value));
   };
-
-  validateField(fieldName, value) {
-    const fieldValidationErrors = this.state.formErrors;
-    let {emailValid} = this.state;
-    let {passwordValid} = this.state;
-
-    switch (fieldName) {
-      case 'mail':
-        emailValid = value;
-        if (!emailValid) fieldValidationErrors.mail = emailValid ? '' : 'Обязательно';
-        else {
-          emailValid = /[a-zA-Z0-9]+@[a-z]+[.]+[a-z]+/.test(value);
-          fieldValidationErrors.mail = emailValid ? ''
-            : 'Проверьте введенный e-mail - неправильный формат';
-        }
-        break;
-      case 'password':
-        passwordValid = value;
-        if (!passwordValid) fieldValidationErrors.password = passwordValid ? '' : 'Обязательно';
-        else {
-          passwordValid = value.length > 4;
-          fieldValidationErrors.password = passwordValid ? ''
-            : 'Ваш пароль слишком короткий. Минимальная длина пароля 5 символов';
-        }
-        break;
-      default:
-        break;
-    }
-    this.setState({
-      formErrors: fieldValidationErrors,
-      emailValid,
-      passwordValid
-    }, this.validateForm);
-  }
-
-  validateForm() {
-    this.setState({formValid: this.state.emailValid && this.state.passwordValid});
-  }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -72,6 +31,31 @@ class FormLogin extends PureComponent {
 
   handleIsSubmitting = value => this.setState({submitting: value});
 
+  validateForm = formErrors => this
+    .setState({formValid: !(!formErrors.mail && !formErrors.password)});
+
+  validateField(fieldName, value) {
+    const {formErrors} = this.state;
+    switch (fieldName) {
+      case 'mail':
+        if (!value) formErrors.mail = 'Обязательно';
+        else {
+          formErrors.mail = /[a-zA-Z0-9]+@[a-z]+[.]+[a-z]+/.test(value) ? ''
+            : 'Проверьте введенный e-mail - неправильный формат';
+        }
+        break;
+      case 'password':
+        if (!value) formErrors.password = 'Обязательно';
+        else {
+          formErrors.password = value.length > 4 ? ''
+            : 'Ваш пароль слишком короткий. Минимальная длина пароля 5 символов';
+        }
+        break;
+      default:
+        break;
+    }
+    this.setState({formErrors}, this.validateForm(formErrors));
+  }
 
   render() {
     const {
@@ -81,15 +65,33 @@ class FormLogin extends PureComponent {
     return (
       <form className="form-logIn" onSubmit={this.handleSubmit}>
         <div className="input-field">
-          <input type="text" name="mail" value={mail} onChange={this.handleInput} placeholder="E-mail" />
+          <input
+            type="text"
+            name="mail"
+            value={mail}
+            onChange={this.handleInput}
+            placeholder="E-mail"
+          />
           {formErrors.mail && <span>{formErrors.mail}</span>}
         </div>
         <div className="input-field">
-          <input type="password" name="password" value={password} onChange={this.handleInput} placeholder="Пароль" />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.handleInput}
+            placeholder="Пароль"
+          />
           {formErrors.password && <span>{formErrors.password}</span>}
         </div>
         {(!logInError && submitting) && <span>Неправильно введен e-mail или пароль</span>}
-        <button type="submit" className="btn-submit" disabled={!formValid}>Войти</button>
+        <button
+          type="submit"
+          className="btn-submit"
+          disabled={!(!formValid && mail && password)}
+        >
+          Войти
+        </button>
       </form>
     );
   }
