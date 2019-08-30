@@ -5,6 +5,7 @@ import {getRegistrationError} from '../../selectors/user';
 import {
   isVerificationPassword, isRequired, minLength, mailCorrect
 } from './validation';
+import Button from '../Button';
 
 class FormRegistration extends Component {
   state = {
@@ -100,6 +101,7 @@ class FormRegistration extends Component {
             value={mail}
             onChange={this.handleInput}
             placeholder="E-mail"
+            error={formErrors.mail && 'err'}
           />
           {formErrors.mail && <span>{formErrors.mail}</span>}
         </div>
@@ -110,6 +112,7 @@ class FormRegistration extends Component {
             value={password}
             onChange={this.handleInput}
             placeholder="Пароль"
+            error={formErrors.password && 'err'}
           />
           {formErrors.password && <span>{formErrors.password}</span>}
         </div>
@@ -120,17 +123,19 @@ class FormRegistration extends Component {
             value={verificationPassword}
             onChange={this.handleInput}
             placeholder="Повторите пароль"
+            error={formErrors.verificationPassword && 'err'}
           />
           {formErrors.verificationPassword && <span>{formErrors.verificationPassword}</span>}
         </div>
         {(registrationError && submitting) && <span>Аккаунт с таким e-mail уже существует</span>}
-        <button
+        <Button
           type="submit"
           className="btn-submit"
-          disabled={!(!formValid && mail && password && verificationPassword)}
-        >
-            Создать Профиль
-        </button>
+          disabled={!(!formValid && mail && password)}
+          mode="primary_green"
+          label="Создать Профиль"
+          labelSize="large"
+        />
       </form>
     );
   }

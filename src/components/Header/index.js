@@ -26,48 +26,55 @@ class Header extends PureComponent {
             <img className="logo__img logo-icon" src={logo} alt="Logo" />
             <img className="logo__img logo__text" src={kufar} alt="Logo" />
           </div>
-        <div className="search-field-container">
-          <label htmlFor="search-field" tabIndex="0">
-            <img className="search-field__img" src={search} alt="Search" />
-          </label>
-          <input id="search-field" type="text" placeholder="Товар, услуга" />
-        </div>
+          <div className="search-field-container">
+            <label htmlFor="search-field" tabIndex="0">
+              <img className="search-field__img" src={search} alt="Search" />
+            </label>
+            <input id="search-field" type="text" placeholder="Товар, услуга" />
+          </div>
           <Button
-            className="btn-location "
-            icon={locationHeader}
-            alt="Location"
+            className="btn-location"
             label="Вся Беларусь"
-            status="default_green"
+            mode="default_green"
             labelSize="large"
-            iconSize="medium"
+            image={{
+              icon: locationHeader,
+              iconSize: 'medium',
+              alt: 'Location'
+            }}
           />
         </div>
         <div className="right-part-of-header">
           <Button
-            className="btn_type_primary "
-            icon={plus}
-            status="primary_green"
-            alt="Plus"
+            className="btn_type_primary"
+            mode="primary_green"
             labelSize="large"
-            iconSize="small"
             label="Подать объявление"
+            image={{
+              icon: plus,
+              iconSize: 'small',
+              alt: 'Plus'
+            }}
           />
           <Button
-            className="btn_type_secondary "
-            icon={plus}
-            status="primary_green"
-            alt="Plus"
+            className="btn_type_secondary"
+            mode="primary_green"
+            image={{
+              icon: plus,
+              iconSize: 'small',
+              alt: 'Plus'
+            }}
             labelSize="large"
-            iconSize="small"
             label="Объявление"
           />
-          {mail ? <button className="profile" onClick={this.handleSignIn} />
+          {mail ? <div className="profile" onClick={this.handleSignIn} />
             : (
               <Button
-                className="btn-login "
-                status="secondary_green"
+                className="btn-login"
+                mode="secondary_green"
                 label="Вход"
                 labelSize="large"
+                onClick={toggleIsAuthorization}
               />
             )
           }

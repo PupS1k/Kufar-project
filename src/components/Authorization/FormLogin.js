@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {logInUserAsync} from '../../actions/user';
 import {getLogInError} from '../../selectors/user';
 import {isRequired, minLength, mailCorrect} from './validation';
+import Button from '../Button';
 
 class FormLogin extends Component {
   state = {
@@ -24,10 +25,7 @@ class FormLogin extends Component {
     const {logInUserAsync} = this.props;
     const {mail, password} = this.state;
     this.handleIsSubmitting(true);
-    logInUserAsync('login', {
-      mail,
-      password
-    });
+    logInUserAsync('login', `${mail}:${password}`);
   };
 
   handleIsSubmitting = value => this.setState({submitting: value});
@@ -64,6 +62,7 @@ class FormLogin extends Component {
             value={mail}
             onChange={this.handleInput}
             placeholder="E-mail"
+            error={formErrors.mail && 'err'}
           />
           {formErrors.mail && <span>{formErrors.mail}</span>}
         </div>
@@ -74,17 +73,19 @@ class FormLogin extends Component {
             value={password}
             onChange={this.handleInput}
             placeholder="Пароль"
+            error={formErrors.password && 'err'}
           />
           {formErrors.password && <span>{formErrors.password}</span>}
         </div>
         {(!logInError && submitting) && <span>Неправильно введен e-mail или пароль</span>}
-        <button
+        <Button
           type="submit"
           className="btn-submit"
           disabled={!(!formValid && mail && password)}
-        >
-          Войти
-        </button>
+          mode="primary_green"
+          label="Войти"
+          labelSize="large"
+        />
       </form>
     );
   }

@@ -10,11 +10,11 @@ function* signUpAsync(action) {
   else yield put(toggleIsRegistration());
 }
 function* logInAsync(action) {
-  const data = yield call(fetchPost, action.url, action.data);
+  const data = yield call(fetchGet, action.url, action.data);
   if (data) {
     yield put(toggleIsAuthorization());
     yield put(changeUser(data.mail));
-  } else yield put(changeUser(''));
+  }
 }
 
 function* watchRegistration() {
@@ -35,6 +35,19 @@ const fetchPost = (url, data) => fetch(`http://localhost:3000/${url}`, {
   if (!res.ok) throw new Error(res.statusText);
   return res;
 })
+  .then(res => res.json())
+  .catch(err => console.log(err));
+
+const fetchGet = (url, data) => fetch(`http://localhost:3000/${url}`, {
+  method: 'GET',
+  headers: {
+    Authorization: window.btoa(data)
+  }
+})
+  .then((res) => {
+    if (!res.ok) throw new Error(res.statusText);
+    return res;
+  })
   .then(res => res.json())
   .catch(err => console.log(err));
 

@@ -11,7 +11,7 @@ const Button = ({
     onClick={onClick}
     disabled={disabled}
   >
-    {image && (
+    {Object.keys(image).length !== 0 && (
       <img
         className={classNames('btn__img', `btn__img_${image.iconSize}`)}
         src={image.icon}
@@ -42,7 +42,7 @@ Button.defaultProps = {
   bold: false,
   disabled: false,
   onClick: () => {},
-  image: ''
+  image: {}
 };
 
 export default Button;

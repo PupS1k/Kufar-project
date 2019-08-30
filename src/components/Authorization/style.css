@@ -48,6 +48,7 @@
     width: 50%;
     height: 40px;
     font-size: 16px;
+    border-radius: 0;
     border-bottom: 1px solid gainsboro;
 }
 .tab-selected{
@@ -64,7 +65,7 @@
     margin: 10px 0;
 
 }
-.input-field > input[error='undefined']:focus{
+.input-field > input:focus{
     border: 1px solid #00ad64;
 }
 .input-field > input[error='err']{
@@ -94,13 +95,7 @@ span{
     margin-right: 30px;
 }
 .btn-submit{
-    background: #00ad64;
     width: 348px;
-    border: none;
-    color: white;
-    font-size: 16px;
-    height: 40px;
-    border-radius: 5px;
     margin: 10px 0 30px 0;
 }
 .btn-submit:disabled{

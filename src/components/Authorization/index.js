@@ -1,11 +1,14 @@
 import React, {PureComponent} from 'react';
+import classNames from 'classnames';
 import {connect} from 'react-redux';
-import close from '../../images/plusReset.png';
-import './style.css';
 import {getIsRegistration, getTab} from '../../selectors/user';
 import {toggleTab, toggleIsAuthorization, toggleIsRegistration} from '../../actions/user';
 import FormLogIn from './FormLogin';
 import FormRegistration from './FormRegistration';
+import IconButton from '../IconButton';
+import Button from '../Button';
+import close from '../../images/plusReset.png';
+import './style.css';
 
 class Authorization extends PureComponent {
   handleTabLogin = () => this.props.toggleTab(true);
@@ -26,35 +29,45 @@ class Authorization extends PureComponent {
       <div className="modal">
         <div className="authorization">
           <div className="modal__close">
-            <button className="modal__close-button" onClick={this.handleCloseModel}>
-              <img src={close} alt="Close" />
-            </button>
+            <IconButton
+              className="modal__close-button"
+              onClick={this.handleCloseModel}
+              image={{
+                alt: 'Close',
+                icon: close,
+                iconSize: 'medium'
+              }}
+            />
           </div>
           {registrationSuccessful
             ? (
               <div className="registration-successful">
                 <p>Регистрация прошла успешно</p>
-                <button
-                  className="btn--add-product"
+                <Button
                   onClick={this.handleIsRegistration}
-                >
-                  Понятно
-                </button>
+                  label="Понятно"
+                  labelSize="large"
+                  mode="primary_green"
+                />
               </div>
             )
             : (
               <div>
                 <div className="authorization-tabs">
-                  <button
-                    className={`tab${!tab ? '' : ' tab-selected'}`}
+                  <Button
+                    className={classNames('tab', {'tab-selected': tab})}
                     onClick={this.handleTabLogin}
-                  >Вход
-                  </button>
-                  <button
+                    label="Вход"
+                    labelSize="large"
+                    mode="default"
+                  />
+                  <Button
                     className={`tab${tab ? '' : ' tab-selected'}`}
                     onClick={this.handleTabRegistration}
-                  >Регистрация
-                  </button>
+                    label="Регистрация"
+                    labelSize="large"
+                    mode="default"
+                  />
                 </div>
                 {tab
                   ? <FormLogIn />
