@@ -1,14 +1,19 @@
 import React from 'react';
+import IconButton from '../../IconButton';
 import guid from '../../../utils';
 
-
-const SocialLinks = ({links, className}) => (
-  <div className={className}>
-    {links.map(link => (
-      <a key={guid()} className="link-social-network">
-        {link.image && <img className="link-social-network--img" src={link.image} alt={link.text}/>}
-      </a>)
-    )}
+const SocialLinks = ({images}) => (
+  <div className="links-social-network">
+    {images.map(image => (
+      <IconButton
+        key={guid()}
+        image={{
+          iconSize: 'default',
+          icon: image.icon,
+          alt: image.alt
+        }}
+      />
+    ))}
   </div>
 );
 

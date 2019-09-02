@@ -10,7 +10,11 @@ import odnoklassniki from '../images/odnoklassniki.png';
 
 const additionalLinks = [
   {
-    image: gistogram,
+    image: {
+      iconSize: 'large',
+      icon: gistogram,
+      alt: 'Gistogram'
+    },
     text: 'Реклама'
   },
   {text: 'Рассрочка'},
@@ -27,12 +31,30 @@ const linksApp = [{
   text: 'Приложение Kufar в Google Play'
 }];
 const socialLinks = [
-  {image: telegram},
-  {image: vk},
-  {image: facebook},
-  {image: instagram},
-  {image: youtube},
-  {image: odnoklassniki}
-  ];
+  {
+    icon: telegram,
+    alt: 'Telegram'
+  },
+  {
+    icon: vk,
+    alt: 'Vk'
+  },
+  {
+    icon: facebook,
+    alt: 'Facebook'
+  },
+  {
+    icon: instagram,
+    alt: 'Instagram'
+  },
+  {
+    icon: youtube,
+    alt: 'Youtube'
+  },
+  {
+    icon: odnoklassniki,
+    alt: 'Odnoklassniki'
+  }
+];
 
 export {additionalLinks, socialLinks, linksApp};

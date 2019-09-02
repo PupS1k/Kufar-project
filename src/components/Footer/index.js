@@ -12,34 +12,17 @@ import odnoklassniki from '../../images/odnoklassniki.png';
 import './style.css';
 import Button from '../Button';
 import IconButton from '../IconButton';
+import NavButtons from './Links/NavButtons';
+import {additionalLinks, linksApp, socialLinks} from '../../constants/footerConstants';
+import SocialLinks from './Links/SocialLinks';
+import LinksApp from './Links/LinksApp';
 
 const additonalLink = ['Рассрочка', 'Доставка', 'Правила', 'Помощь', 'Выбрать регион'];
 
 const Footer = () => (
   <footer>
     <div className="top-part-of-foot">
-      <div className="list-additional-links">
-        <Button
-          className="additional-link"
-          mode="default"
-          labelSize="medium"
-          label="Реклама"
-          image={{
-            iconSize: 'large',
-            icon: gistogram,
-            alt: 'Gistogram'
-          }}
-        />
-        {additonalLink.map(text => (
-          <Button
-            key={text}
-            className="additional-link"
-            mode="default"
-            labelSize="medium"
-            label={text}
-          />
-        ))}
-      </div>
+      <NavButtons labels={additionalLinks} />
       <Button
         mode="secondary_gray"
         className="btn-change-language"
@@ -59,60 +42,8 @@ const Footer = () => (
       ул. Немига, 5, помещение 77. Режим работы: 10.00 - 18.00, Пн-Пт.
     </p>
     <div className="bot-part-of-foot">
-      <div className="links-app-container">
-        <a className="link-app">
-          <img className="link-app__img" src={apple} alt="Apple" />
-          <p className="link-app__text">Приложение Kufar в App Store</p>
-        </a>
-        <a className="link-app">
-          <img className="link-app__img" src={googlePlay} alt="Google Play" />
-          <p className="link-app__text">Приложение Kufar в Google Play</p>
-        </a>
-      </div>
-      <div className="links-social-network">
-        <IconButton
-          image={{
-            iconSize: 'default',
-            icon: telegram,
-            alt: 'Telegram'
-          }}
-        />
-        <IconButton
-          image={{
-            iconSize: 'default',
-            icon: vk,
-            alt: 'Vk'
-          }}
-        />
-        <IconButton
-          image={{
-            iconSize: 'default',
-            icon: facebook,
-            alt: 'Facebook'
-          }}
-        />
-        <IconButton
-          image={{
-            iconSize: 'default',
-            icon: instagram,
-            alt: 'Instagram'
-          }}
-        />
-        <IconButton
-          image={{
-            iconSize: 'default',
-            icon: youtube,
-            alt: 'Youtube'
-          }}
-        />
-        <IconButton
-          image={{
-            iconSize: 'default',
-            icon: odnoklassniki,
-            alt: 'Odnoklassniki'
-          }}
-        />
-      </div>
+      <LinksApp links={linksApp} />
+      <SocialLinks images={socialLinks} />
     </div>
   </footer>
 );

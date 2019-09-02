@@ -11,7 +11,7 @@ class ProductList extends PureComponent {
       <div className="product-list">
         {products.length === 0
           ? (
-            <div className="noProducts">
+            <div className="no-products">
               <p>No Products for this category</p>
             </div>
           )

@@ -1,15 +1,19 @@
 import React from 'react';
 import guid from '../../../utils';
+import Button from '../../Button';
 
-
-const NavButtons = ({links, className}) => (
-  <div className={className}>
-    {links.map(link => (
-      <button key={guid()} className="additional-link">
-        {link.image && <img className="additional-link--img" src={link.image} alt={link.text}/>}
-        {link.text && <p className="additional-link--text">{link.text}</p>}
-      </button>)
-    )}
+const NavButtons = ({labels}) => (
+  <div className="list-additional-links">
+    {labels.map(label => (
+      <Button
+        key={guid()}
+        className="additional-link"
+        mode="default"
+        labelSize="medium"
+        label={label.text}
+        image={labels.image}
+      />
+    ))}
   </div>
 );
 
