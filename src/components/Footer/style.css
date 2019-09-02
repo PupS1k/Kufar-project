@@ -1,9 +1,5 @@
 footer{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     justify-content: space-between;
     border-top: solid 1px #d3d7da;
     font-size: 14px;
@@ -22,10 +18,6 @@ footer{
 
 .list-additional-links{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 20px;
@@ -45,14 +37,9 @@ footer{
     color: #929b9d;
     max-width: 70%;
     text-align: justify;
-    white-space: normal;
 }
 .bot-part-of-foot, .links-app-container{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     flex-wrap: wrap;
     align-items: center;
 }
@@ -66,18 +53,12 @@ footer{
 }
 .link-app{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
     align-items: center;
     justify-content: space-between;
     width: auto;
     padding: 3px 3px;
     font-size: 13px;
     border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     background-color: rgb(92,104, 113);
     color: white;
     height: 40px;
@@ -89,10 +70,6 @@ footer{
 }
 .links-social-network{
     display: flex;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: -o-flex;
 }
 
 @media screen and (max-width: 768px)  {

@@ -17,19 +17,19 @@ export const checkboxFilter = [{name: 'Модное лето'}, {name: 'Расс
   {name: 'Только с фото'}, {name: 'Возможен обмен'}];
 
 export const applyFilters = (filters, product) => {
-  const isCorrectLocationFilter = product.location.includes(filters.location) || filters.location==='Область';
-  const isCorrectPriceFilter = (filters.priceTo==='' && filters.priceFrom==='') ||
-      (filters.priceTo==='' && filters.priceFrom==='0') ||
-      (filters.priceFrom <= product.price && filters.priceTo >= product.price) ||
-      product.price==='Договорная' || product.price==='Бесплатно';
-  const isCorrectStateFilter = filters.stateProduct==='Любое' || product.state === filters.stateProduct;
-  const isCorrectSellerFilter = filters.seller==='Любой' || product.seller === filters.seller;
+  const isCorrectLocationFilter = product.location.includes(filters.location) || filters.location === 'Область';
+  const isCorrectPriceFilter = (filters.priceTo === '' && filters.priceFrom === '')
+      || (filters.priceTo === '' && filters.priceFrom === '0')
+      || (filters.priceFrom <= product.price && filters.priceTo >= product.price)
+      || product.price === 'Договорная' || product.price === 'Бесплатно';
+  const isCorrectStateFilter = filters.stateProduct === 'Любое' || product.state === filters.stateProduct;
+  const isCorrectSellerFilter = filters.seller === 'Любой' || product.seller === filters.seller;
   const isCorrectWithPhoto = filters.isWithPhoto ? product.image : true;
   const isCorrectFashionableSummer = filters.fashionableSummer ? product.fashionableSummer : true;
   const isCorrectInstallmentHalva = filters.installmentHalva ? product.installmentHalva : true;
   const isCorrectIsExchange = filters.isExchange ? product.isExchange : true;
 
-  return isCorrectLocationFilter && isCorrectPriceFilter && isCorrectStateFilter &&
-      isCorrectSellerFilter && isCorrectWithPhoto && isCorrectFashionableSummer &&
-      isCorrectInstallmentHalva && isCorrectIsExchange;
+  return isCorrectLocationFilter && isCorrectPriceFilter && isCorrectStateFilter
+      && isCorrectSellerFilter && isCorrectWithPhoto && isCorrectFashionableSummer
+      && isCorrectInstallmentHalva && isCorrectIsExchange;
 };
