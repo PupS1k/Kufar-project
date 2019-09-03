@@ -1,5 +1,5 @@
 import {
-  ADD_PRODUCTS, GET_PRODUCTS_ASYNC, CHANGE_PRODUCTS, CHANGE_CATEGORIES_FILTER
+  ADD_PRODUCTS, GET_PRODUCTS_ASYNC, CHANGE_PRODUCTS, CHANGE_CATEGORY_FILTER
 } from '../constants/actionTypes';
 
 const changeProducts = value => ({
@@ -7,7 +7,7 @@ const changeProducts = value => ({
   payload: value
 });
 const changeCategoriesFilter = value => ({
-  type: CHANGE_CATEGORIES_FILTER,
+  type: CHANGE_CATEGORY_FILTER,
   payload: value
 });
 const addProductsBack = value => ({

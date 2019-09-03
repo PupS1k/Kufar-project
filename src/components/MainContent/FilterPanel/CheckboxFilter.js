@@ -1,8 +1,6 @@
 import React, {PureComponent} from 'react';
 
 class CheckboxFilter extends PureComponent {
-
-
   render() {
     const {
       headline, classNameFilter, typeSwitch, nameRadioBtn, filters, handlesSwitchFilter

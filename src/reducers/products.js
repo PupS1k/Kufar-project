@@ -1,11 +1,12 @@
 import {
-  ADD_PRODUCTS, CHANGE_PRODUCTS, CHANGE_CATEGORIES_FILTER
+  ADD_PRODUCTS, CHANGE_PRODUCTS, CHANGE_CATEGORY_FILTER
 } from '../constants/actionTypes';
+
 const initialState = {
-  categoriesFilter: '',
-  categoriesCorrectProducts: [],
+  categoryFilter: '',
+  productsByCategory: [],
   products: [],
-  productsBack: []
+  allProducts: []
 };
 
 const products = (state = initialState, action) => {
@@ -18,18 +19,18 @@ const products = (state = initialState, action) => {
     case ADD_PRODUCTS:
       return {
         ...state,
-        productsBack: action.payload,
-        categoriesCorrectProducts: action.payload,
+        allProducts: action.payload,
+        productsByCategory: action.payload,
         products: action.payload
       };
-    case CHANGE_CATEGORIES_FILTER:
-      const correctProducts = state.productsBack.filter(product => product.categories
+    case CHANGE_CATEGORY_FILTER:
+      const correctProducts = state.allProducts.filter(product => product.categories
         .includes(action.payload) || action.payload === 'Все категории'
         || action.payload === '');
       return {
         ...state,
-        categoriesFilter: action.payload,
-        categoriesCorrectProducts: [...correctProducts],
+        categoryFilter: action.payload,
+        productsByCategory: [...correctProducts],
         products: [...correctProducts]
       };
     default:

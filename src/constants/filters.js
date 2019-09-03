@@ -16,11 +16,16 @@ export const sellerFilter = [{name: 'Любой', checked: true},
 export const checkboxFilter = [{name: 'Модное лето'}, {name: 'Рассорчка по халве'},
   {name: 'Только с фото'}, {name: 'Возможен обмен'}];
 
+export const categories = ['Все категории', 'Модное лето', 'Недвижимость', 'Авто и транспорт', 'Техника',
+  'Мода и стиль', 'Все для детей и мам', 'Все для дома', 'Ремонт и стройка', 'Сад и огород',
+  'Хобби, спорт и туризм', 'Свадьба и праздники', 'Животные', 'Работа, бизнес, учеба', 'Услуги', 'Прочее'];
+
 export const applyFilters = (filters, product) => {
   const isCorrectLocationFilter = product.location.includes(filters.location) || filters.location === 'Область';
   const isCorrectPriceFilter = (filters.priceTo === '' && filters.priceFrom === '')
       || (filters.priceTo === '' && filters.priceFrom === '0')
-      || (filters.priceFrom <= product.price && filters.priceTo >= product.price)
+      || (Number(filters.priceFrom) <= Number(product.price)
+        && Number(filters.priceTo) >= Number(product.price))
       || product.price === 'Договорная' || product.price === 'Бесплатно';
   const isCorrectStateFilter = filters.stateProduct === 'Любое' || product.state === filters.stateProduct;
   const isCorrectSellerFilter = filters.seller === 'Любой' || product.seller === filters.seller;

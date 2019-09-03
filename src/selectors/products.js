@@ -1,7 +1,7 @@
 const getProducts = state => state.products.products;
-const getCategoriesCorrectProducts = state => state.products.categoriesCorrectProducts;
+const getProductsByCategory = state => state.products.productsByCategory;
 
 export {
   getProducts,
-  getCategoriesCorrectProducts
+  getProductsByCategory
 };
