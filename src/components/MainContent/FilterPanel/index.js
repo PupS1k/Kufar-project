@@ -51,10 +51,6 @@ class FilterPanel extends PureComponent {
     }
   }
 
-  handleProductsByCategory = (value) => {
-
-  };
-
   handleFilters = () => {
     window.scrollTo(0, 0);
     this.props.changeProducts(this.state.products);

@@ -10,7 +10,10 @@ function* signUpAsync(action) {
   else yield put(toggleIsRegistration());
 }
 function* logInAsync(action) {
-  const data = yield call(fetchGet, action.url, action.data);
+  const token = yield call(fetchPost, action.url, action.data);
+  sessionStorage.setItem('auth-token', JSON.stringify(token));
+  const headers = {'auth-token': token};
+  const data = yield call(fetchGet, action.url, headers);
   if (data) {
     yield put(toggleIsAuthorization());
     yield put(changeUser(data.mail));
@@ -38,11 +41,9 @@ const fetchPost = (url, data) => fetch(`http://localhost:3000/${url}`, {
   .then(res => res.json())
   .catch(err => console.log(err));
 
-const fetchGet = (url, data) => fetch(`http://localhost:3000/${url}`, {
+const fetchGet = (url, headers) => fetch(`http://localhost:3000/${url}`, {
   method: 'GET',
-  headers: {
-    Authorization: window.btoa(data)
-  }
+  headers
 })
   .then((res) => {
     if (!res.ok) throw new Error(res.statusText);

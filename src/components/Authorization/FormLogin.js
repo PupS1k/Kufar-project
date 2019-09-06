@@ -25,7 +25,7 @@ class FormLogin extends Component {
     const {logInUserAsync} = this.props;
     const {mail, password} = this.state;
     this.handleIsSubmitting(true);
-    logInUserAsync('login', `${mail}:${password}`);
+    logInUserAsync('login', {mail, password});
   };
 
   handleIsSubmitting = value => this.setState({submitting: value});

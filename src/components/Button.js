@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Button = ({
-  className, onClick, label, image, mode, labelSize, disabled, bold
+  className, onClick, label, image, mode, labelSize, disabled, bold, type
 }) => (
   <button
-    type="button"
+    type={type}
     className={classNames(className, `btn btn_${mode}`)}
     onClick={onClick}
     disabled={disabled}
@@ -23,6 +23,7 @@ const Button = ({
 );
 
 Button.propTypes = {
+  type: PropTypes.string,
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
   labelSize: PropTypes.string.isRequired,
@@ -38,6 +39,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  type: 'button',
   className: '',
   bold: false,
   disabled: false,
