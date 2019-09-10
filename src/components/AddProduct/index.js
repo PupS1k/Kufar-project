@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {isRequired, minLength} from './validation';
+import {isRequired, minLength} from '../validation';
 import Button from '../Button';
-import {createProductAsync} from '../../actions/products';
-import LocationFilter from '../MainContent/FilterPanel/LocationFilter';
+import {createProductAsync, getProductAsync} from '../../actions/products';
+import SelectField from '../SelectField';
 import {
   checkboxProduct, locations, stateFilter, categories, location
-} from '../../constants/filters';
-import SwitchFilter from '../MainContent/FilterPanel/SwitchFilter';
-import CheckboxFilter from '../MainContent/FilterPanel/CheckboxFilter';
+} from '../../constants';
+import SwitchList from '../SwitchList';
+import CheckboxList from '../CheckboxList';
 import noPhoto from '../../images/noPhoto.png';
 import './style.css';
+import InputField from '../InputField';
 
 class AddProduct extends Component {
   state = {
@@ -28,19 +29,21 @@ class AddProduct extends Component {
     category: 'Все категории',
     formErrors: {
       name: '',
-      category: '',
-      price: '',
-      stateProduct: '',
-      region: ''
+      price: ''
     },
-    formValid: false,
-    submitting: false,
+    formValid: false
   };
 
   handleInput = (event) => {
     const {value, name} = event.currentTarget;
-    this.handleIsSubmitting(false);
     this.setState({[name]: value}, () => this.validateField(name, value));
+  };
+
+  handlePrice = (event) => {
+    let price = event.currentTarget.value;
+    if (price < 0) price *= -1;
+    if (price.length > 1) if (price[0] === '0' || price[0] === '-') delete price[0];
+    this.setState({price});
   };
 
   handleDownloadImage = (event) => {
@@ -63,11 +66,10 @@ class AddProduct extends Component {
       stateProduct, file, isExchange, imagePreviewUrl,
       installmentHalva, fashionableSummer, pricePrimary
     } = this.state;
-    const {createProductAsync} = this.props;
+    const {createProductAsync, getProductAsync} = this.props;
     const priceNegotiated = pricePrimary ? 'Договорная' : price;
     const priceProduct = priceNegotiated === '0' ? 'Бесплатно' : price;
 
-    this.handleIsSubmitting(true);
 
     const form = new FormData();
     form.append('file', file);
@@ -83,9 +85,10 @@ class AddProduct extends Component {
       location: location(region, city),
       price: priceProduct
     });
+    getProductAsync('products');
+    this.props.history.push('/');
   };
 
-  handleIsSubmitting = value => this.setState({submitting: value});
 
   validateForm = formErrors => this
     .setState({formValid: !(!formErrors.name && !formErrors.price)});
@@ -141,29 +144,22 @@ class AddProduct extends Component {
           <img className="file-result" src={imagePreviewUrl || noPhoto} alt="Image" />
         </div>
         <div className="product-data">
-          <div className="input-field">
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={this.handleInput}
-              placeholder="Название"
-              error={formErrors.name && 'err'}
-            />
-            {formErrors.name && <span>{formErrors.name}</span>}
-          </div>
-          <div className="input-field">
-            <input
-              type="number"
-              name="price"
-              value={price}
-              min={0}
-              onChange={this.handleInput}
-              placeholder="Цена"
-              error={formErrors.price && 'err'}
-            />
-            {formErrors.price && <span>{formErrors.price}</span>}
-          </div>
+          <InputField
+            type="text"
+            name="name"
+            value={name}
+            handleInput={this.handleInput}
+            placeholder="Название"
+            fieldError={formErrors.name}
+          />
+          <InputField
+            type="number"
+            name="price"
+            value={price}
+            handleInput={this.handlePrice}
+            placeholder="Цена"
+            fieldError={formErrors.price}
+          />
           <div className="state-filter">
             <label className="icon-label">
               <input
@@ -176,14 +172,14 @@ class AddProduct extends Component {
               <p>Договорная</p>
             </label>
           </div>
-          <LocationFilter
+          <SelectField
             id="select-region"
             headline="МЕСТОНАХОЖДЕНИЕ"
             firstOption="Область"
             options={locations.map(location => location.region)}
             handleLocation={this.handleRegion}
           />
-          <LocationFilter
+          <SelectField
             id="select-city"
             headline="ГОРОД / РАЙОН"
             firstOption="Любой"
@@ -191,14 +187,14 @@ class AddProduct extends Component {
             disabled={this.state.region === 'Область'}
             handleLocation={this.handleCity}
           />
-          <LocationFilter
+          <SelectField
             id="select-category"
             headline="Выберите категорию"
             firstOption="Все категории"
             options={categories}
             handleLocation={this.handleCategory}
           />
-          <SwitchFilter
+          <SwitchList
             headline="Состояние"
             classNameFilter="state-filter"
             typeSwitch="radio"
@@ -206,7 +202,7 @@ class AddProduct extends Component {
             filters={stateFilter}
             handleSwitchFilter={this.handleStateProduct}
           />
-          <CheckboxFilter
+          <CheckboxList
             classNameFilter="additional-modes"
             typeSwitch="checkbox"
             filters={checkboxProduct}
@@ -230,4 +226,4 @@ class AddProduct extends Component {
   }
 }
 
-export default connect(null, {createProductAsync})(AddProduct);
+export default connect(null, {createProductAsync, getProductAsync})(AddProduct);

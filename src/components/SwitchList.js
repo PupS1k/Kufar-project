@@ -1,22 +1,24 @@
 import React, {PureComponent} from 'react';
 
-class CheckboxFilter extends PureComponent {
+class SwitchList extends PureComponent {
+  handleSwitch = event => this.props.handleSwitchFilter(event.currentTarget.value);
+
   render() {
     const {
-      headline, classNameFilter, typeSwitch, nameRadioBtn, filters, handlesSwitchFilter
+      headline, classNameFilter, typeSwitch, nameRadioBtn, filters, handleSwitchFilter
     } = this.props;
 
     return (
       <div>
         {headline && <p className="label-input">{headline}</p>}
         <div className={classNameFilter}>
-          {filters.map((filter, index) => (
+          {filters.map(filter => (
             <label key={filter.name} className="icon-label">
               <input
                 className="icon-input"
                 type={typeSwitch}
                 value={filter.name}
-                onChange={handlesSwitchFilter[index]}
+                onChange={handleSwitchFilter && this.handleSwitch}
                 defaultChecked={filter.checked}
                 name={nameRadioBtn || filter.name}
               />
@@ -30,4 +32,4 @@ class CheckboxFilter extends PureComponent {
   }
 }
 
-export default CheckboxFilter;
+export default SwitchList;

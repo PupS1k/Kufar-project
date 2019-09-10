@@ -1,14 +1,14 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import CategoryFilter from './CategoryFilter';
-import LocationFilter from './LocationFilter';
+import SelectField from '../../SelectField';
 import PriceFilter from './PriceFilter';
-import SwitchFilter from './SwitchFilter';
-import CheckboxFilter from './CheckboxFilter';
+import SwitchList from '../../SwitchList';
+import CheckboxList from '../../CheckboxList';
 import Button from '../../Button';
 import {
   locations, stateFilter, sellerFilter, checkboxFilter, applyFilters, location
-} from '../../../constants/filters';
+} from '../../../constants';
 import {getProductsByCategory} from '../../../selectors/products';
 import {changeProducts, changeCategoriesFilter} from '../../../actions/products';
 import './style.css';
@@ -87,14 +87,14 @@ class FilterPanel extends PureComponent {
       <div className="filter-panel">
         <CategoryFilter handleCategoryFilter={this.props.changeCategoriesFilter} />
         <div className="other-filters-container">
-          <LocationFilter
+          <SelectField
             id="select-region"
             headline="ВСЯ БЕЛАРУСЬ"
             firstOption="Область"
             options={locations.map(location => location.region)}
             handleLocation={this.handleRegion}
           />
-          <LocationFilter
+          <SelectField
             id="select-city"
             headline="ГОРОД / РАЙОН"
             firstOption="Любой"
@@ -108,7 +108,7 @@ class FilterPanel extends PureComponent {
             handlePriceFrom={this.handlePriceFrom}
             handlePriceTo={this.handlePriceTo}
           />
-          <SwitchFilter
+          <SwitchList
             headline="Состояние"
             classNameFilter="state-filter"
             typeSwitch="radio"
@@ -116,7 +116,7 @@ class FilterPanel extends PureComponent {
             filters={stateFilter}
             handleSwitchFilter={this.handleStateProduct}
           />
-          <SwitchFilter
+          <SwitchList
             headline="ПРОДАВЕЦ"
             classNameFilter="seller-filter"
             typeSwitch="radio"
@@ -124,7 +124,7 @@ class FilterPanel extends PureComponent {
             filters={sellerFilter}
             handleSwitchFilter={this.handleSeller}
           />
-          <CheckboxFilter
+          <CheckboxList
             classNameFilter="additional-modes"
             typeSwitch="checkbox"
             filters={checkboxFilter}

@@ -1,9 +1,10 @@
 import {put, call, takeEvery} from 'redux-saga/effects';
 import {addProductsBack} from '../actions/products';
 import {CREATE_PRODUCT_ASYNC, GET_PRODUCTS_ASYNC} from '../constants/actionTypes';
+import {fetchReq} from '../constants';
 
 function* getProducts(action) {
-  const data = yield call(fetchGet, action.payload);
+  const data = yield call(fetchReq, action.payload);
   yield put(addProductsBack(data));
 }
 
@@ -12,7 +13,7 @@ function* createProduct(action) {
   let fileName = '';
   if (action.data.image) {
     const urlImage = `${action.url}/image`;
-    fileName = yield call(fetchPost, urlImage, {
+    fileName = yield call(fetchReq, urlImage, {
       method: 'POST',
       headers: {
         'auth-token': token
@@ -21,7 +22,7 @@ function* createProduct(action) {
     });
   }
   const data = {...action.data, image: fileName};
-  yield call(fetchPost, action.url, {
+  yield call(fetchReq, action.url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -39,22 +40,6 @@ function* watchGetProducts() {
 function* watchCreateProduct() {
   yield takeEvery(CREATE_PRODUCT_ASYNC, createProduct);
 }
-
-const fetchPost = (url, options) => fetch(`http://localhost:3000/${url}`, options)
-  .then((res) => {
-    if (!res.ok) throw new Error(res.statusText);
-    return res;
-  })
-  .then(res => res.json())
-  .catch(err => console.log(err));
-
-const fetchGet = url => fetch(`http://localhost:3000/${url}`)
-  .then((res) => {
-    if (!res.ok) throw new Error(res.statusText);
-    return res;
-  })
-  .then(res => res.json())
-  .catch(err => console.log(err));
 
 export {
   watchGetProducts,

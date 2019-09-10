@@ -1,3 +1,63 @@
+import gistogram from '../images/gistogram.png';
+import apple from '../images/apple.png';
+import googlePlay from '../images/googlePlay.png';
+import telegram from '../images/telegram.png';
+import vk from '../images/vk.png';
+import facebook from '../images/facebook.png';
+import instagram from '../images/instagram.png';
+import youtube from '../images/youtube.png';
+import odnoklassniki from '../images/odnoklassniki.png';
+
+export const additionalLinks = [
+  {
+    image: {
+      iconSize: 'large',
+      icon: gistogram,
+      alt: 'Gistogram'
+    },
+    text: 'Реклама'
+  },
+  {text: 'Рассрочка'},
+  {text: 'Доставка'},
+  {text: 'Правила'},
+  {text: 'Помощь'},
+  {text: 'Выбрать регион'}
+];
+export const linksApp = [{
+  image: apple,
+  text: 'Приложение Kufar в App Store'
+}, {
+  image: googlePlay,
+  text: 'Приложение Kufar в Google Play'
+}];
+export const socialLinks = [
+  {
+    icon: telegram,
+    alt: 'Telegram'
+  },
+  {
+    icon: vk,
+    alt: 'Vk'
+  },
+  {
+    icon: facebook,
+    alt: 'Facebook'
+  },
+  {
+    icon: instagram,
+    alt: 'Instagram'
+  },
+  {
+    icon: youtube,
+    alt: 'Youtube'
+  },
+  {
+    icon: odnoklassniki,
+    alt: 'Odnoklassniki'
+  }
+];
+
+
 export const locations = [
   {region: 'Брестская', city: ['Лунинец', 'Лунин', 'Брест']},
   {region: 'Могилевская', city: ['Могилев', 'Бобруйск', 'Жолки']},
@@ -60,3 +120,11 @@ export const applyFilters = (filters, product) => {
       && isCorrectSellerFilter && isCorrectWithPhoto && isCorrectFashionableSummer
       && isCorrectInstallmentHalva && isCorrectIsExchange;
 };
+
+export const fetchReq = (url, options) => fetch(`http://localhost:3000/${url}`, options)
+  .then((res) => {
+    if (!res.ok) throw new Error(res.statusText);
+    return res;
+  })
+  .then(res => res.json())
+  .catch(err => console.log(err));

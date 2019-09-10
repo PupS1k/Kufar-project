@@ -4,12 +4,18 @@ class PriceFilter extends PureComponent {
   handlePriceTo = (event) => {
     let price = event.currentTarget.value;
     if (price < 0) price *= -1;
+    if (price.length > 1) {
+      if (price[0] === '0') delete price[0];
+    }
     this.props.handlePriceTo(price);
   };
 
   handlePriceFrom = (event) => {
     let price = event.currentTarget.value;
     if (price < 0) price *= -1;
+    if (price.length > 1) {
+      if (price[0] === '0') delete price[0];
+    }
     this.props.handlePriceFrom(price);
   };
 

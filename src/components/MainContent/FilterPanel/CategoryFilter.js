@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
-import {categories} from '../../../constants/filters';
+import {categories} from '../../../constants';
 
 
 class CategoryFilter extends Component {

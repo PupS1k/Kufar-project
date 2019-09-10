@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {logInUserAsync} from '../../actions/user';
-import {getLogInError} from '../../selectors/user';
-import {isRequired, minLength, mailCorrect} from './validation';
+import {getUserMail} from '../../selectors/user';
+import {isRequired, minLength, mailCorrect} from '../validation';
 import Button from '../Button';
+import InputField from '../InputField';
 
 class FormLogin extends Component {
   state = {
@@ -24,8 +25,8 @@ class FormLogin extends Component {
     event.preventDefault();
     const {logInUserAsync} = this.props;
     const {mail, password} = this.state;
-    this.handleIsSubmitting(true);
     logInUserAsync('login', {mail, password});
+    this.handleIsSubmitting(true);
   };
 
   handleIsSubmitting = value => this.setState({submitting: value});
@@ -52,32 +53,26 @@ class FormLogin extends Component {
     const {
       mail, password, formErrors, formValid, submitting
     } = this.state;
-    const {logInError} = this.props;
+    const {userMail} = this.props;
     return (
       <form className="form-logIn" onSubmit={this.handleSubmit}>
-        <div className="input-field">
-          <input
-            type="text"
-            name="mail"
-            value={mail}
-            onChange={this.handleInput}
-            placeholder="E-mail"
-            error={formErrors.mail && 'err'}
-          />
-          {formErrors.mail && <span>{formErrors.mail}</span>}
-        </div>
-        <div className="input-field">
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleInput}
-            placeholder="Пароль"
-            error={formErrors.password && 'err'}
-          />
-          {formErrors.password && <span>{formErrors.password}</span>}
-        </div>
-        {(!logInError && submitting) && <span>Неправильно введен e-mail или пароль</span>}
+        <InputField
+          type="text"
+          name="mail"
+          value={mail}
+          handleInput={this.handleInput}
+          placeholder="E-mail"
+          fieldError={formErrors.mail}
+        />
+        <InputField
+          type="password"
+          name="password"
+          value={password}
+          handleInput={this.handleInput}
+          placeholder="Пароль"
+          fieldError={formErrors.password}
+        />
+        {(!userMail && submitting) && <span>Неправильно введен e-mail или пароль</span>}
         <Button
           type="submit"
           className="btn-submit"
@@ -92,7 +87,7 @@ class FormLogin extends Component {
 }
 
 const mapStateToProps = state => ({
-  logInError: getLogInError(state)
+  userMail: getUserMail(state)
 });
 
 export default connect(mapStateToProps, {logInUserAsync})(FormLogin);

@@ -3,7 +3,7 @@ import earth from '../../images/earth.png';
 import './style.css';
 import Button from '../Button';
 import NavButtons from './Links/NavButtons';
-import {additionalLinks, linksApp, socialLinks} from '../../constants/footerConstants';
+import {additionalLinks, linksApp, socialLinks} from '../../constants';
 import SocialLinks from './Links/SocialLinks';
 import LinksApp from './Links/LinksApp';
 

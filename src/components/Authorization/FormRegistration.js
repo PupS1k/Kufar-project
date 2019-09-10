@@ -4,8 +4,9 @@ import {registrationUserAsync} from '../../actions/user';
 import {getRegistrationError} from '../../selectors/user';
 import {
   isVerificationPassword, isRequired, minLength, mailCorrect
-} from './validation';
+} from '../validation';
 import Button from '../Button';
+import InputField from '../InputField';
 
 class FormRegistration extends Component {
   state = {
@@ -94,40 +95,30 @@ class FormRegistration extends Component {
             <p>Компания</p>
           </label>
         </div>
-        <div className="input-field">
-          <input
-            type="text"
-            name="mail"
-            value={mail}
-            onChange={this.handleInput}
-            placeholder="E-mail"
-            error={formErrors.mail && 'err'}
-          />
-          {formErrors.mail && <span>{formErrors.mail}</span>}
-        </div>
-        <div className="input-field">
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleInput}
-            placeholder="Пароль"
-            error={formErrors.password && 'err'}
-          />
-          {formErrors.password && <span>{formErrors.password}</span>}
-        </div>
-        <div className="input-field">
-          <input
-            type="password"
-            name="verificationPassword"
-            value={verificationPassword}
-            onChange={this.handleInput}
-            placeholder="Повторите пароль"
-            error={formErrors.verificationPassword && 'err'}
-          />
-          {formErrors.verificationPassword && <span>{formErrors.verificationPassword}</span>}
-        </div>
-        {(registrationError && submitting) && <span>Аккаунт с таким e-mail уже существует</span>}
+        <InputField
+          type="text"
+          name="mail"
+          value={mail}
+          handleInput={this.handleInput}
+          placeholder="E-mail"
+          fieldError={formErrors.mail}
+        />
+        <InputField
+          type="password"
+          name="password"
+          value={password}
+          handleInput={this.handleInput}
+          placeholder="Пароль"
+          fieldError={formErrors.password}
+        />
+        <InputField
+          type="password"
+          name="verificationPassword"
+          value={verificationPassword}
+          handleInput={this.handleInput}
+          placeholder="Повторите пароль"
+          fieldError={formErrors.verificationPassword}
+        />
         <Button
           type="submit"
           className="btn-submit"
