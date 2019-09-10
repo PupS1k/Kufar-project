@@ -7,7 +7,7 @@ import SwitchFilter from './SwitchFilter';
 import CheckboxFilter from './CheckboxFilter';
 import Button from '../../Button';
 import {
-  locations, stateFilter, sellerFilter, checkboxFilter, applyFilters
+  locations, stateFilter, sellerFilter, checkboxFilter, applyFilters, location
 } from '../../../constants/filters';
 import {getProductsByCategory} from '../../../selectors/products';
 import {changeProducts, changeCategoriesFilter} from '../../../actions/products';

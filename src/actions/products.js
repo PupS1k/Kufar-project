@@ -1,5 +1,6 @@
 import {
-  ADD_PRODUCTS, GET_PRODUCTS_ASYNC, CHANGE_PRODUCTS, CHANGE_CATEGORY_FILTER
+  ADD_PRODUCTS, GET_PRODUCTS_ASYNC,
+  CHANGE_PRODUCTS, CHANGE_CATEGORY_FILTER, CREATE_PRODUCT_ASYNC
 } from '../constants/actionTypes';
 
 const changeProducts = value => ({
@@ -18,10 +19,16 @@ const getProductAsync = value => ({
   type: GET_PRODUCTS_ASYNC,
   payload: value
 });
+const createProductAsync = (url, data) => ({
+  type: CREATE_PRODUCT_ASYNC,
+  url,
+  data
+});
 
 export {
   changeProducts,
   changeCategoriesFilter,
   addProductsBack,
-  getProductAsync
+  getProductAsync,
+  createProductAsync
 };

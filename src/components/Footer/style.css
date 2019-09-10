@@ -37,6 +37,7 @@ footer{
     color: #929b9d;
     max-width: 70%;
     text-align: justify;
+    white-space: normal;
 }
 .bot-part-of-foot, .links-app-container{
     display: flex;

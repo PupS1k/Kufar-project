@@ -1,28 +1,34 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import logo from '../../images/logo.png';
 import kufar from '../../images/kufar.png';
 import search from '../../images/search.png';
 import locationHeader from '../../images/locationHeader.png';
 import Button from '../Button';
 import plus from '../../images/plus.png';
-import Authorization from '../Authorization';
-import {toggleIsAuthorization, changeUser} from '../../actions/user';
-import {getIsAuthorizationOpen, getUserMail} from '../../selectors/user';
-
+import {toggleIsOpenModel, changeUser} from '../../actions/user';
+import {getIsOpenWindow, getUserMail} from '../../selectors/user';
+import ModelWindow from '../ModelWindow';
+import IconButton from '../IconButton';
+import human from '../../images/profile.png';
 import './style.css';
 
 class Header extends PureComponent {
   handleSignIn = () => this.props.changeUser('');
 
+  handleAddProduct = () => this.props.history.push('/addProduct');
+
+  handleHome = () => this.props.history.push('/');
+
   render() {
     const {
-      isAuthorizationOpen, toggleIsAuthorization, mail
+      isOpenWindow, toggleIsOpenModel, mail
     } = this.props;
     return (
       <header>
         <div className="left-part-of-header">
-          <div className="logo">
+          <div className="logo" onClick={this.handleHome}>
             <img className="logo__img logo-icon" src={logo} alt="Logo" />
             <img className="logo__img logo__text" src={kufar} alt="Logo" />
           </div>
@@ -48,6 +54,7 @@ class Header extends PureComponent {
           <Button
             className="btn_type_primary"
             mode="primary_green"
+            onClick={mail ? this.handleAddProduct : toggleIsOpenModel}
             labelSize="large"
             label="Подать объявление"
             image={{
@@ -59,6 +66,7 @@ class Header extends PureComponent {
           <Button
             className="btn_type_secondary"
             mode="primary_green"
+            onClick={mail ? this.handleAddProduct : toggleIsOpenModel}
             image={{
               icon: plus,
               iconSize: 'small',
@@ -67,27 +75,37 @@ class Header extends PureComponent {
             labelSize="large"
             label="Объявление"
           />
-          {mail ? <div className="profile" onClick={this.handleSignIn} />
+          {mail
+            ? (
+              <IconButton
+                onClick={this.handleSignIn}
+                image={{
+                  icon: human,
+                  iconSize: 'large',
+                  alt: 'Human'
+                }}
+              />
+            )
             : (
               <Button
                 className="btn-login"
                 mode="secondary_green"
                 label="Вход"
                 labelSize="large"
-                onClick={toggleIsAuthorization}
+                onClick={toggleIsOpenModel}
               />
             )
           }
         </div>
-        {isAuthorizationOpen && <Authorization />}
+        {isOpenWindow && <ModelWindow toggleIsOpenModel={toggleIsOpenModel} />}
       </header>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  isAuthorizationOpen: getIsAuthorizationOpen(state),
+  isOpenWindow: getIsOpenWindow(state),
   mail: getUserMail(state)
 });
 
-export default connect(mapStateToProps, {toggleIsAuthorization, changeUser})(Header);
+export default withRouter(connect(mapStateToProps, {toggleIsOpenModel, changeUser})(Header));

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import ProductCard from './ProductCard';
 import {getProducts} from '../../../selectors/products';
 import './style.css';
+import guid from '../../../utils';
 
 class ProductList extends PureComponent {
   render() {
@@ -17,7 +18,7 @@ class ProductList extends PureComponent {
           )
           : products.map(product => (
             <ProductCard
-              key={product.name}
+              key={guid()}
               image={product.image}
               nameProduct={product.name}
               categoriesProduct={product.categories}

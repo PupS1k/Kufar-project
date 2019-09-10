@@ -31,7 +31,7 @@ const MainContentBar = () => (
         <IconButton
           className="switch-display__btn"
           image={{
-            iconSize: 'default',
+            iconSize: 'medium',
             icon: squares,
             alt: 'Square'
           }}

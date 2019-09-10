@@ -1,9 +1,9 @@
 import {
-  TOGGLE_TAB, REGISTRATION_USER, CHANGE_USER, OPEN_AUTHORIZATION, TOGGLE_IS_REGISTRATION
+  TOGGLE_TAB, REGISTRATION_USER, CHANGE_USER, OPEN_MODEL, TOGGLE_IS_REGISTRATION
 } from '../constants/actionTypes';
 
 const initialState = {
-  isAuthorizationOpen: false,
+  isOpenWindow: false,
   tab: true,
   registrationError: false,
   mail: '',
@@ -28,10 +28,10 @@ const user = (state = initialState, action) => {
         ...state,
         mail: action.payload
       };
-    case OPEN_AUTHORIZATION:
+    case OPEN_MODEL:
       return {
         ...state,
-        isAuthorizationOpen: !state.isAuthorizationOpen,
+        isOpenWindow: !state.isOpenWindow,
         registrationError: false
       };
     case TOGGLE_IS_REGISTRATION:

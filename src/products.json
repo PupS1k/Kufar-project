@@ -2,7 +2,7 @@
   {
     "image": "item.jpg",
     "name": "Кастрюля",
-    "categories": "Все для дома, Кухонные приборы, Redmand",
+    "category": "Все для дома, Кухонные приборы, Redmand",
     "state": "Б/у",
     "seller": "Любой",
     "fashionableSummer": false,
@@ -15,7 +15,7 @@
   {
     "image": "item2.jpg",
     "name": "Наклейки Ледниковый период",
-    "categories": "Все для дома",
+    "category": "Все для дома",
     "state": "Б/у",
     "seller": "Любой",
     "fashionableSummer": false,
@@ -28,7 +28,7 @@
   {
     "image": "",
     "name": "Босоножки",
-    "categories": "Мода и стиль, Обувь",
+    "category": "Мода и стиль, Обувь",
     "state": "Б/у",
     "seller": "Любой",
     "fashionableSummer": true,
@@ -41,7 +41,7 @@
   {
     "image": "item5.jpg",
     "name": "Двери стальные любых размеров",
-    "categories": "Ремонт и стройка",
+    "category": "Ремонт и стройка",
     "state": "Новое",
     "seller": "Частное лицо",
     "fashionableSummer": false,
@@ -54,7 +54,7 @@
   {
     "image": "item6.jpg",
     "name": "2-х комн.квартира, улица Советская",
-    "categories": "Недвижимость",
+    "category": "Недвижимость",
     "state": "Любое",
     "seller": "Компания",
     "fashionableSummer": false,
@@ -67,7 +67,7 @@
   {
     "image": "item7.jpg",
     "name": "Детская кроватка",
-    "categories": "Все для дома",
+    "category": "Все для дома",
     "state": "Б/у",
     "seller": "Любой",
     "fashionableSummer": false,
@@ -80,7 +80,7 @@
   {
     "image": "",
     "name": "Цемент, 25кг.",
-    "categories": "Ремонт и стройка",
+    "category": "Ремонт и стройка",
     "state": "Любое",
     "seller": "Любой",
     "fashionableSummer": false,
@@ -93,7 +93,7 @@
   {
     "image": "item8.jpg",
     "name": "Ламинат Кроспан",
-    "categories": "Ремонт и стройка",
+    "category": "Ремонт и стройка",
     "state": "Новое",
     "seller": "Любой",
     "fashionableSummer": false,
@@ -106,7 +106,7 @@
   {
     "image": "",
     "name": "Автоэлектрик",
-    "categories": "Услуги",
+    "category": "Услуги",
     "state": "Любое",
     "seller": "Частное лицо",
     "fashionableSummer": false,
@@ -119,7 +119,7 @@
   {
     "image": "item9.jpg",
     "name": "Обувь, мужская, 40р.",
-    "categories": "Мода и стиль",
+    "category": "Мода и стиль",
     "state": "Б/у",
     "seller": "Любой",
     "fashionableSummer": true,
@@ -132,7 +132,7 @@
   {
     "image": "item10.jpg",
     "name": "Набор свадебных аксессуаров",
-    "categories": "Свадьба и праздники",
+    "category": "Свадьба и праздники",
     "state": "Новое",
     "seller": "Любой",
     "fashionableSummer": false,
@@ -145,7 +145,7 @@
   {
     "image": "item11.jpg)",
     "name": "Прогулочная коляска",
-    "categories": "Все для детей и мам",
+    "category": "Все для детей и мам",
     "state": "Любое",
     "seller": "Любой",
     "fashionableSummer": false,
@@ -158,7 +158,7 @@
   {
     "image": "",
     "name": "Товарный бетон",
-    "categories": "Ремонт и стройка",
+    "category": "Ремонт и стройка",
     "state": "Любое",
     "seller": "Компания",
     "fashionableSummer": false,
@@ -171,7 +171,7 @@
   {
     "image": "item3.jpg",
     "name": "Куртка кожаная",
-    "categories": "Мода и стиль",
+    "category": "Мода и стиль",
     "state": "Б/у",
     "seller": "Любой",
     "fashionableSummer": true,
@@ -184,7 +184,7 @@
   {
     "image": "item4.jpg",
     "name": "Собака породистая",
-    "categories": "Животные",
+    "category": "Животные",
     "state": "Любое",
     "seller": "Любой",
     "fashionableSummer": false,

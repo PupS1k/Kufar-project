@@ -1,23 +1,11 @@
 import React from 'react';
-import gistogram from '../../images/gistogram.png';
 import earth from '../../images/earth.png';
-import apple from '../../images/apple.png';
-import googlePlay from '../../images/googlePlay.png';
-import telegram from '../../images/telegram.png';
-import vk from '../../images/vk.png';
-import facebook from '../../images/facebook.png';
-import instagram from '../../images/instagram.png';
-import youtube from '../../images/youtube.png';
-import odnoklassniki from '../../images/odnoklassniki.png';
 import './style.css';
 import Button from '../Button';
-import IconButton from '../IconButton';
 import NavButtons from './Links/NavButtons';
 import {additionalLinks, linksApp, socialLinks} from '../../constants/footerConstants';
 import SocialLinks from './Links/SocialLinks';
 import LinksApp from './Links/LinksApp';
-
-const additonalLink = ['Рассрочка', 'Доставка', 'Правила', 'Помощь', 'Выбрать регион'];
 
 const Footer = () => (
   <footer>

@@ -50,7 +50,7 @@ const Navigation = () => (
       <IconButton
         className="scroll-panel__btn_left"
         image={{
-          iconSize: 'large',
+          iconSize: 'small',
           icon: arrow,
           alt: 'Arrow'
         }}
@@ -58,7 +58,7 @@ const Navigation = () => (
       <IconButton
         className="scroll-panel__btn_right"
         image={{
-          iconSize: 'large',
+          iconSize: 'small',
           icon: arrow,
           alt: 'Arrow'
         }}

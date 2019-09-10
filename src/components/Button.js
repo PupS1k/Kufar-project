@@ -11,14 +11,16 @@ const Button = ({
     onClick={onClick}
     disabled={disabled}
   >
-    {Object.keys(image).length !== 0 && (
+    <div className="btn__items">
+      {Object.keys(image).length !== 0 && (
       <img
         className={classNames('btn__img', `btn__img_${image.iconSize}`)}
         src={image.icon}
         alt={image.alt}
       />
-    )}
-    <p className={classNames(`btn__text_${labelSize}`, {btn__text_bold: bold})}>{label}</p>
+      )}
+      <p className={classNames(`btn__text_${labelSize}`, {btn__text_bold: bold})}>{label}</p>
+    </div>
   </button>
 );
 

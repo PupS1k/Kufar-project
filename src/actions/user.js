@@ -1,6 +1,6 @@
 import {
   TOGGLE_TAB, CHANGE_USER, REGISTRATION_USER, TOGGLE_IS_REGISTRATION,
-  REGISTRATION_USER_ASYNC, LOGIN_USER_ASYNC, OPEN_AUTHORIZATION
+  REGISTRATION_USER_ASYNC, LOGIN_USER_ASYNC, OPEN_MODEL
 } from '../constants/actionTypes';
 
 const changeUser = value => ({
@@ -8,8 +8,8 @@ const changeUser = value => ({
   payload: value
 });
 
-const toggleIsAuthorization = () => ({
-  type: OPEN_AUTHORIZATION
+const toggleIsOpenModel = () => ({
+  type: OPEN_MODEL
 });
 
 const toggleTab = value => ({
@@ -39,7 +39,7 @@ const toggleIsRegistration = () => ({
 
 
 export {
-  toggleIsAuthorization,
+  toggleIsOpenModel,
   toggleTab,
   changeUser,
   registrationUser,

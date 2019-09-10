@@ -42,7 +42,7 @@
 .active-category{
     font-weight: bold;
 }
-#select-region, #select-city, .input-price{
+#select-region, #select-city, #select-category, .input-price{
     margin-top: 8px;
     height: 40px;
     border-radius: 5px;

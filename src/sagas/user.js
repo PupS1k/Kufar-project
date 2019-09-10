@@ -1,6 +1,6 @@
 import {put, call, takeEvery} from 'redux-saga/effects';
 import {
-  registrationUser, changeUser, toggleIsAuthorization, toggleIsRegistration
+  registrationUser, changeUser, toggleIsOpenModel, toggleIsRegistration
 } from '../actions/user';
 import {REGISTRATION_USER_ASYNC, LOGIN_USER_ASYNC} from '../constants/actionTypes';
 
@@ -11,11 +11,11 @@ function* signUpAsync(action) {
 }
 function* logInAsync(action) {
   const token = yield call(fetchPost, action.url, action.data);
-  sessionStorage.setItem('auth-token', JSON.stringify(token));
+  localStorage.setItem('auth-token', JSON.stringify(token));
   const headers = {'auth-token': token};
   const data = yield call(fetchGet, action.url, headers);
   if (data) {
-    yield put(toggleIsAuthorization());
+    yield put(toggleIsOpenModel());
     yield put(changeUser(data.mail));
   }
 }

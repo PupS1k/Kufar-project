@@ -5,8 +5,11 @@ body {
 p {
     margin: 0;
     white-space: nowrap;
+    font-family: Arial, serif;
 }
-
+span{
+    font-family:  Arial, serif;
+}
 * {
     outline: none;
 }
@@ -22,12 +25,14 @@ button, a, .icon-checkbox-btn, .icon-radio-btn, label {
     cursor: pointer;
 }
 .btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 5px;
     height: 40px;
     padding: 10px 16px;
+}
+.btn__items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: 400;
 }
 .btn_default{
@@ -106,11 +111,73 @@ button, a, .icon-checkbox-btn, .icon-radio-btn, label {
 .icon-btn_border{
     border: 1px solid #3a3f41;
 }
-.icon-btn__img_primary{
+.icon-btn__img_small{
     width: 17px;
     height: 15px;
 }
-.icon-btn__img_default{
+.icon-btn__img_medium{
     width: 32px;
     height: 32px;
+}
+.icon-btn__img_large{
+    width: auto;
+    height: 40px;
+}
+.modal{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0,0,0, .6);
+    z-index: 1000;
+}
+.modal__items{
+    position: absolute;
+    top: 100px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    flex-direction: column;
+    width: 400px;
+    border-radius: 5px;
+}
+.modal__close{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+.modal__close-button{
+    margin-right: 10px;
+}
+.modal__close-button > img{
+    width: 20px;
+    height: 20px;
+}
+.modal__close-button{
+    margin-top: 15px;
+    background: none;
+    border: none;
+}
+
+
+@media screen and (max-width: 425px) {
+    .btn-login {
+        border-color: white;
+    }
+}
+.tab{
+    color: #5f6c6e;
+    width: 50%;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 0;
+    border-bottom: 1px solid gainsboro;
+    margin-top: 15px;
+    background: none;
+}
+.tab-selected{
+    border-bottom: 2px solid #5f6c6e;
+    font-weight: bold;
 }

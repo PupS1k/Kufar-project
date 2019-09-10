@@ -77,13 +77,6 @@ header{
 .btn_type_secondary:hover, .btn_type_primary:hover{
     background: #238543;
 }
-.profile{
-    background: url(../../images/profile.png) no-repeat center;
-    background-size: 40px 40px;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-}
 .registration-successful{
     height: 100px;
     display: flex;
@@ -99,6 +92,7 @@ header{
     .btn_type_secondary{
         display: flex;
     }
+
     .logo__text, .btn_type_primary{
         display: none;
     }
@@ -119,9 +113,6 @@ header{
 @media screen and (max-width: 425px) {
     header{
         height: 42px;
-    }
-    .btn-login{
-        border: none;
     }
     .btn-location{
         display: none;

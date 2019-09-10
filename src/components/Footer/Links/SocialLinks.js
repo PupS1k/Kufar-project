@@ -8,7 +8,7 @@ const SocialLinks = ({images}) => (
       <IconButton
         key={guid()}
         image={{
-          iconSize: 'default',
+          iconSize: 'medium',
           icon: image.icon,
           alt: image.alt
         }}
