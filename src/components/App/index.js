@@ -6,6 +6,7 @@ import Navigation from '../Navigation';
 import MainContent from '../MainContent';
 import AddProduct from '../AddProduct';
 import Footer from '../Footer';
+import PersonalRoom from '../PersonalRoom';
 import {getProductAsync} from '../../actions/products';
 import './style.css';
 
@@ -34,6 +35,10 @@ class App extends PureComponent {
             <Route
               path="/addProduct"
               component={AddProduct}
+            />
+            <Route
+              path="/personalRoom"
+              component={PersonalRoom}
             />
           </Switch>
         </div>

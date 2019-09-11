@@ -15,16 +15,31 @@ import human from '../../images/profile.png';
 import './style.css';
 
 class Header extends PureComponent {
-  handleSignIn = () => this.props.changeUser('');
+  state = {
+    navUser: false
+  };
+
+  handleSignOut = () => {
+    this.handleNavUser();
+    this.props.changeUser('');
+  };
 
   handleAddProduct = () => this.props.history.push('/addProduct');
 
   handleHome = () => this.props.history.push('/');
 
+  handleNavUser = () => this.setState(({navUser}) => ({navUser: !navUser}));
+
+  handlePersonalRoom = () => {
+    this.handleNavUser();
+    this.props.history.push('/personalRoom');
+  };
+
   render() {
     const {
       isOpenWindow, toggleIsOpenModel, mail
     } = this.props;
+    const {navUser} = this.state;
     return (
       <header>
         <div className="left-part-of-header">
@@ -78,7 +93,7 @@ class Header extends PureComponent {
           {mail
             ? (
               <IconButton
-                onClick={this.handleSignIn}
+                onClick={this.handleNavUser}
                 image={{
                   icon: human,
                   iconSize: 'large',
@@ -98,6 +113,20 @@ class Header extends PureComponent {
           }
         </div>
         {isOpenWindow && <ModelWindow toggleIsOpenModel={toggleIsOpenModel} />}
+        <div className={navUser ? 'nav-user' : 'nav-user-invisible'}>
+          <Button
+            mode="default"
+            label="Личный кабинет"
+            labelSize="large"
+            onClick={this.handlePersonalRoom}
+          />
+          <Button
+            mode="default"
+            label="Выход"
+            labelSize="large"
+            onClick={this.handleSignOut}
+          />
+        </div>
       </header>
     );
   }

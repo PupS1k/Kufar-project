@@ -1,5 +1,6 @@
 import {
-  TOGGLE_TAB, REGISTRATION_USER, CHANGE_USER, OPEN_MODEL, TOGGLE_IS_REGISTRATION
+  TOGGLE_TAB, REGISTRATION_USER, CHANGE_USER,
+  OPEN_MODEL, TOGGLE_IS_REGISTRATION, GET_USER_PRODUCTS
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -7,7 +8,8 @@ const initialState = {
   tab: true,
   registrationError: false,
   mail: '',
-  isRegistration: false
+  isRegistration: false,
+  userProducts: []
 };
 
 const user = (state = initialState, action) => {
@@ -38,6 +40,11 @@ const user = (state = initialState, action) => {
       return {
         ...state,
         isRegistration: !state.isRegistration
+      };
+    case GET_USER_PRODUCTS:
+      return {
+        ...state,
+        userProducts: action.payload
       };
     default:
       return state;
