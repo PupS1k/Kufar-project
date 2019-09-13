@@ -1,7 +1,7 @@
 .navigation{
     display: flex;
     align-items: center;
-    padding: 75px 0 5px 0;
+    padding-bottom: 5px;
     border-bottom: solid 1px #d3d7da;
     color: #5a5f61;
     font-size: 16px;
@@ -47,11 +47,5 @@
 @media screen and (max-width: 1024px){
     .scroll-panel{
         display: none;
-    }
-}
-
-@media screen and (max-width: 425px) {
-    .navigation{
-        padding: 60px 0 10px 0;
     }
 }

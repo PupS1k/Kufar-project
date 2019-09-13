@@ -12,6 +12,7 @@ import CheckboxList from '../CheckboxList';
 import noPhoto from '../../images/noPhoto.png';
 import './style.css';
 import InputField from '../InputField';
+import {addUserProduct} from '../../actions/user';
 
 class AddProduct extends Component {
   state = {
@@ -66,7 +67,7 @@ class AddProduct extends Component {
       stateProduct, file, isExchange, imagePreviewUrl,
       installmentHalva, fashionableSummer, pricePrimary
     } = this.state;
-    const {createProductAsync, getProductAsync} = this.props;
+    const {createProductAsync} = this.props;
     const priceNegotiated = pricePrimary ? 'Договорная' : price;
     const priceProduct = priceNegotiated === '0' ? 'Бесплатно' : price;
 
@@ -83,9 +84,9 @@ class AddProduct extends Component {
       installmentHalva,
       isExchange,
       location: location(region, city),
-      price: priceProduct
+      price: priceProduct,
+      announced: new Date()
     });
-    getProductAsync('products');
     this.props.history.push('/');
   };
 
@@ -190,7 +191,6 @@ class AddProduct extends Component {
           <SelectField
             id="select-category"
             headline="Выберите категорию"
-            firstOption="Все категории"
             options={categories}
             handleLocation={this.handleCategory}
           />

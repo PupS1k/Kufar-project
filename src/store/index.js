@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 import products from '../reducers/products';
 import user from '../reducers/user';
 import {watchGetProducts, watchCreateProduct} from '../sagas/products';
-import {watchLogIn, watchRegistration} from '../sagas/user';
+import {watchLogIn, watchRegistration, watchDeleteProduct} from '../sagas/user';
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -27,5 +27,6 @@ sagaMiddleware.run(watchGetProducts);
 sagaMiddleware.run(watchCreateProduct);
 sagaMiddleware.run(watchRegistration);
 sagaMiddleware.run(watchLogIn);
+sagaMiddleware.run(watchDeleteProduct);
 
 export default store;

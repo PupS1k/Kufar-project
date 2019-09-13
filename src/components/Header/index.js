@@ -7,8 +7,10 @@ import search from '../../images/search.png';
 import locationHeader from '../../images/locationHeader.png';
 import Button from '../Button';
 import plus from '../../images/plus.png';
-import {toggleIsOpenModel, changeUser} from '../../actions/user';
-import {getIsOpenWindow, getUserMail} from '../../selectors/user';
+import {
+  toggleIsOpenModel, changeUser, addUserProducts
+} from '../../actions/user';
+import {getIsOpenWindow, getUserId} from '../../selectors/user';
 import ModelWindow from '../ModelWindow';
 import IconButton from '../IconButton';
 import human from '../../images/profile.png';
@@ -19,16 +21,28 @@ class Header extends PureComponent {
     navUser: false
   };
 
-  handleSignOut = () => {
-    this.handleNavUser();
-    this.props.changeUser('');
+  handleAddProduct = () => {
+    if (this.state.navUser) this.handleNavUser();
+    this.props.history.push('/addProduct');
   };
 
-  handleAddProduct = () => this.props.history.push('/addProduct');
+  handleHome = () => {
+    if (this.state.navUser) this.handleNavUser();
+    this.props.history.push('/');
+  };
 
-  handleHome = () => this.props.history.push('/');
+  handleNavUser = () => {
+    const {navUser} = this.state;
+    this.setState({navUser: !navUser});
+  };
 
-  handleNavUser = () => this.setState(({navUser}) => ({navUser: !navUser}));
+  handleSignOut = () => {
+    this.handleNavUser();
+    this.handleHome();
+    const {addUserProducts, changeUser} = this.props;
+    addUserProducts([]);
+    changeUser('', '');
+  };
 
   handlePersonalRoom = () => {
     this.handleNavUser();
@@ -37,7 +51,7 @@ class Header extends PureComponent {
 
   render() {
     const {
-      isOpenWindow, toggleIsOpenModel, mail
+      isOpenWindow, toggleIsOpenModel, userId
     } = this.props;
     const {navUser} = this.state;
     return (
@@ -69,7 +83,7 @@ class Header extends PureComponent {
           <Button
             className="btn_type_primary"
             mode="primary_green"
-            onClick={mail ? this.handleAddProduct : toggleIsOpenModel}
+            onClick={userId ? this.handleAddProduct : toggleIsOpenModel}
             labelSize="large"
             label="Подать объявление"
             image={{
@@ -81,7 +95,7 @@ class Header extends PureComponent {
           <Button
             className="btn_type_secondary"
             mode="primary_green"
-            onClick={mail ? this.handleAddProduct : toggleIsOpenModel}
+            onClick={userId ? this.handleAddProduct : toggleIsOpenModel}
             image={{
               icon: plus,
               iconSize: 'small',
@@ -90,7 +104,7 @@ class Header extends PureComponent {
             labelSize="large"
             label="Объявление"
           />
-          {mail
+          {userId
             ? (
               <IconButton
                 onClick={this.handleNavUser}
@@ -134,7 +148,9 @@ class Header extends PureComponent {
 
 const mapStateToProps = state => ({
   isOpenWindow: getIsOpenWindow(state),
-  mail: getUserMail(state)
+  userId: getUserId(state)
 });
 
-export default withRouter(connect(mapStateToProps, {toggleIsOpenModel, changeUser})(Header));
+export default withRouter(connect(mapStateToProps, {
+  toggleIsOpenModel, changeUser, addUserProducts
+})(Header));

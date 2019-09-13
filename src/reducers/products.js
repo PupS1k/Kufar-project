@@ -1,5 +1,5 @@
 import {
-  ADD_PRODUCTS, CHANGE_PRODUCTS, CHANGE_CATEGORY_FILTER
+  ADD_PRODUCTS, CHANGE_PRODUCTS, CHANGE_CATEGORY_FILTER, ADD_PRODUCT, DELETE_PRODUCT
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -22,6 +22,21 @@ const products = (state = initialState, action) => {
         allProducts: action.payload,
         productsByCategory: action.payload,
         products: action.payload
+      };
+    case ADD_PRODUCT:
+      return {
+        ...state,
+        allProducts: [...state.allProducts, action.payload],
+        productsByCategory: [...state.allProducts, action.payload],
+        products: [...state.allProducts, action.payload]
+      };
+    case DELETE_PRODUCT:
+      const newProducts = state.allProducts.filter(product => product._id !== action.payload);
+      return {
+        ...state,
+        allProducts: newProducts,
+        productsByCategory: newProducts,
+        products: newProducts
       };
     case CHANGE_CATEGORY_FILTER:
       const correctProducts = state.allProducts.filter(product => product.categories

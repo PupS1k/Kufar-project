@@ -19,17 +19,7 @@ class ProductList extends PureComponent {
           : products.map(product => (
             <ProductCard
               key={guid()}
-              image={product.image}
-              nameProduct={product.name}
-              categoriesProduct={product.categories}
-              stateProduct={product.state}
-              sellerProduct={product.seller}
-              fashionableSummer={product.fashionableSummer}
-              installmentHalva={product.installmentHalva}
-              isExchange={product.isExchange}
-              priceProduct={product.price}
-              locationProduct={product.location}
-              announcedProduct={product.announced}
+              product={product}
             />
           ))
           }

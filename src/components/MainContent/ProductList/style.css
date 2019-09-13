@@ -5,6 +5,7 @@
 .product-card{
     display: flex;
     cursor: pointer;
+    align-items: center;
     flex: 1;
     width: auto;
     min-height: 125px;

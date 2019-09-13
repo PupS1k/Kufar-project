@@ -1,6 +1,7 @@
 import {put, call, takeEvery} from 'redux-saga/effects';
-import {addProductsBack} from '../actions/products';
+import {addProductsBack, addProduct} from '../actions/products';
 import {CREATE_PRODUCT_ASYNC, GET_PRODUCTS_ASYNC} from '../constants/actionTypes';
+import {addUserProduct} from '../actions/user';
 import {fetchReq} from '../constants';
 
 function* getProducts(action) {
@@ -30,7 +31,8 @@ function* createProduct(action) {
     },
     body: JSON.stringify(data)
   });
-  getProducts(action);
+  yield put(addProduct(data));
+  yield put(addUserProduct(data));
 }
 
 function* watchGetProducts() {

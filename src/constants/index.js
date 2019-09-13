@@ -103,7 +103,7 @@ export const formatDate = (date) => {
 };
 
 export const applyFilters = (filters, product) => {
-  const isCorrectLocationFilter = product.location.includes(filters.location) || filters.location === 'Область';
+  const isCorrectLocationFilter = filters.location === 'Область' || product.location.includes(filters.location);
   const isCorrectPriceFilter = (filters.priceTo === '' && filters.priceFrom === '')
       || (filters.priceTo === '' && filters.priceFrom === '0')
       || (Number(filters.priceFrom) <= Number(product.price)

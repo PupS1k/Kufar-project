@@ -18,7 +18,11 @@ span{
     font: 400 16px Arial;
     height: 100%;
     max-width: 1366px;
-    margin: 0 auto;
+    margin: 80px auto 0;
+    padding-bottom: 5px;
+}
+.main-content p{
+    white-space: normal;
 }
 
 button, a, .icon-checkbox-btn, .icon-radio-btn, label {
@@ -166,6 +170,9 @@ button, a, .icon-checkbox-btn, .icon-radio-btn, label {
     .btn-login {
         border-color: white;
     }
+    .page-container{
+        margin-top: 60px;
+    }
 }
 .tab{
     color: #5f6c6e;
@@ -180,4 +187,7 @@ button, a, .icon-checkbox-btn, .icon-radio-btn, label {
 .tab-selected{
     border-bottom: 2px solid #5f6c6e;
     font-weight: bold;
+}
+.not-found-img{
+    width: 100%;
 }

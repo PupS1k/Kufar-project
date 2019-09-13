@@ -7,7 +7,9 @@ import MainContent from '../MainContent';
 import AddProduct from '../AddProduct';
 import Footer from '../Footer';
 import PersonalRoom from '../PersonalRoom';
+import NotFoundPage from '../NotFoundPage';
 import {getProductAsync} from '../../actions/products';
+import {getUserId} from '../../selectors/user';
 import './style.css';
 
 class App extends PureComponent {
@@ -16,6 +18,7 @@ class App extends PureComponent {
   }
 
   render() {
+    const {userId} = this.props;
     return (
       <BrowserRouter>
         <Header />
@@ -27,25 +30,34 @@ class App extends PureComponent {
                 <div>
                   <Navigation />
                   <MainContent />
-                  <Footer />
                 </div>
               )}
               exact
             />
+            {userId && (
             <Route
               path="/addProduct"
               component={AddProduct}
             />
+            )}
+            {userId && (
             <Route
               path="/personalRoom"
               component={PersonalRoom}
             />
+            )}
+            <NotFoundPage />
           </Switch>
         </div>
+        <Footer />
       </BrowserRouter>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  userId: getUserId(state)
+});
 
-export default connect(null, {getProductAsync})(App);
+
+export default connect(mapStateToProps, {getProductAsync})(App);

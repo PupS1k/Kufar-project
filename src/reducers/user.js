@@ -1,6 +1,13 @@
 import {
-  TOGGLE_TAB, REGISTRATION_USER, CHANGE_USER,
-  OPEN_MODEL, TOGGLE_IS_REGISTRATION, GET_USER_PRODUCTS
+  TOGGLE_TAB,
+  REGISTRATION_USER,
+  CHANGE_USER,
+  OPEN_MODEL,
+  TOGGLE_IS_REGISTRATION,
+  ADD_USER_PRODUCTS,
+  DELETE_PRODUCT,
+  ADD_PRODUCT,
+  ADD_USER_PRODUCT, DELETE_USER_PRODUCT
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -8,8 +15,9 @@ const initialState = {
   tab: true,
   registrationError: false,
   mail: '',
+  id: '',
   isRegistration: false,
-  userProducts: []
+  products: []
 };
 
 const user = (state = initialState, action) => {
@@ -28,7 +36,8 @@ const user = (state = initialState, action) => {
     case CHANGE_USER:
       return {
         ...state,
-        mail: action.payload
+        mail: action.mail,
+        id: action.id
       };
     case OPEN_MODEL:
       return {
@@ -41,10 +50,20 @@ const user = (state = initialState, action) => {
         ...state,
         isRegistration: !state.isRegistration
       };
-    case GET_USER_PRODUCTS:
+    case ADD_USER_PRODUCTS:
       return {
         ...state,
-        userProducts: action.payload
+        products: action.payload
+      };
+    case DELETE_USER_PRODUCT:
+      return {
+        ...state,
+        products: state.products.filter(product => product._id !== action.payload)
+      };
+    case ADD_USER_PRODUCT:
+      return {
+        ...state,
+        products: [...state.products, action.payload]
       };
     default:
       return state;

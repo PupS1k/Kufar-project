@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import CategoryFilter from './CategoryFilter';
 import SelectField from '../../SelectField';
@@ -13,7 +13,7 @@ import {getProductsByCategory} from '../../../selectors/products';
 import {changeProducts, changeCategoriesFilter} from '../../../actions/products';
 import './style.css';
 
-class FilterPanel extends PureComponent {
+class FilterPanel extends Component {
   state = {
     region: 'Область',
     city: 'Любой',
@@ -28,6 +28,10 @@ class FilterPanel extends PureComponent {
     products: []
   };
 
+  componentDidMount() {
+    this.props.changeCategoriesFilter('Все категории');
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.products === this.state.products) {
       const {products} = this.props;
@@ -35,7 +39,7 @@ class FilterPanel extends PureComponent {
         const correctProducts = products
           .filter(product => applyFilters({
             location: this.state.region
-             + (this.state.city !== 'Любой' && this.state.city !== '' ? `, ${this.state.city}` : ''),
+                + (this.state.city !== 'Любой' && this.state.city !== '' ? `, ${this.state.city}` : ''),
             priceFrom: this.state.priceFrom,
             priceTo: this.state.priceTo,
             stateProduct: this.state.stateProduct,
@@ -51,7 +55,7 @@ class FilterPanel extends PureComponent {
     }
   }
 
-  handleFilters = () => {
+  handleApplyFilters = () => {
     window.scrollTo(0, 0);
     this.props.changeProducts(this.state.products);
   };
@@ -137,7 +141,7 @@ class FilterPanel extends PureComponent {
           />
           <Button
             className="btn_show-result"
-            onClick={this.handleFilters}
+            onClick={this.handleApplyFilters}
             mode="primary_blue"
             label={`Показать результаты(${products.length})`}
             labelSize="large"
@@ -167,5 +171,5 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   changeProducts,
-  changeCategoriesFilter,
+  changeCategoriesFilter
 })(FilterPanel);

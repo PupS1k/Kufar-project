@@ -11,7 +11,7 @@ class SelectField extends PureComponent {
       <div className="select-field">
         <label className="label-input" htmlFor={id}>{headline}</label>
         <select id={id} onClick={this.handleOption} disabled={disabled}>
-          <option>{firstOption}</option>
+          {firstOption && <option>{firstOption}</option>}
           {options && options.map(option => (<option key={option}>{option}</option>))}
         </select>
       </div>
