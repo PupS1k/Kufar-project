@@ -13,15 +13,24 @@ class PersonalArea extends PureComponent {
     const {products, history} = this.props;
     return (
       <div className="personal-room">
-        {products.map(product => (
-          <ProductCard
-            key={guid()}
-            product={product}
-            path={history.location.pathname}
-            handleDelete={this.handleDeleteProduct}
-          />
-        ))}
-        <Pagination />
+        <div className="product-list">
+          {products.length === 0
+            ? (
+              <div className="no-products">
+                <p>Нет объявлений</p>
+              </div>
+            )
+            : products.map(product => (
+              <ProductCard
+                key={guid()}
+                product={product}
+                path={history.location.pathname}
+                handleDelete={this.handleDeleteProduct}
+              />
+            ))
+          }
+          <Pagination />
+        </div>
       </div>
     );
   }

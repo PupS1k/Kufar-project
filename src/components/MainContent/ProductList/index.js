@@ -13,9 +13,10 @@ class ProductList extends PureComponent {
         {products.length === 0
           ? (
             <div className="no-products">
-              <p>No Products for this category</p>
+              <p>Нет объявлений по данной категории</p>
             </div>
           )
+
           : products.map(product => (
             <ProductCard
               key={guid()}

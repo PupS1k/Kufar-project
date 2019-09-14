@@ -5,15 +5,13 @@ import {
   OPEN_MODEL,
   TOGGLE_IS_REGISTRATION,
   ADD_USER_PRODUCTS,
-  DELETE_PRODUCT,
-  ADD_PRODUCT,
   ADD_USER_PRODUCT, DELETE_USER_PRODUCT
 } from '../constants/actionTypes';
 
 const initialState = {
   isOpenWindow: false,
   tab: true,
-  registrationError: false,
+  registrationError: '',
   mail: '',
   id: '',
   isRegistration: false,
@@ -26,12 +24,12 @@ const user = (state = initialState, action) => {
       return {
         ...state,
         tab: action.payload,
-        registrationError: false
+        registrationError: ''
       };
     case REGISTRATION_USER:
       return {
         ...state,
-        registrationError: !state.registrationError
+        registrationError: action.payload
       };
     case CHANGE_USER:
       return {
@@ -43,7 +41,8 @@ const user = (state = initialState, action) => {
       return {
         ...state,
         isOpenWindow: !state.isOpenWindow,
-        registrationError: false
+        tab: true,
+        registrationError: ''
       };
     case TOGGLE_IS_REGISTRATION:
       return {

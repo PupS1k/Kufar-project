@@ -13,7 +13,7 @@ class Authorization extends PureComponent {
 
   handleTabRegistration = () => this.props.toggleTab(false);
 
-  handleCloseModel = () => this.props.toggleIsAuthorization();
+  handleCloseModel = () => this.props.toggleIsOpenModel();
 
   handleIsRegistration = () => {
     this.handleCloseModel();
@@ -70,5 +70,5 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, {
-  toggleTab, toggleIsAuthorization: toggleIsOpenModel, toggleIsRegistration
+  toggleTab, toggleIsOpenModel, toggleIsRegistration
 })(Authorization);

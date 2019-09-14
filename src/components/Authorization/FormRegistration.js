@@ -10,7 +10,7 @@ import InputField from '../InputField';
 
 class FormRegistration extends Component {
   state = {
-    seller: '',
+    seller: 'Частное лицо',
     mail: '',
     password: '',
     verificationPassword: '',
@@ -119,6 +119,7 @@ class FormRegistration extends Component {
           placeholder="Повторите пароль"
           fieldError={formErrors.verificationPassword}
         />
+        {(registrationError && submitting) && <span>{registrationError}</span>}
         <Button
           type="submit"
           className="btn-submit"

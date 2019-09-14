@@ -26,8 +26,9 @@ const toggleTab = value => ({
   payload: value
 });
 
-const registrationUser = () => ({
-  type: REGISTRATION_USER
+const registrationUser = value => ({
+  type: REGISTRATION_USER,
+  payload: value
 });
 
 const registrationUserAsync = (url, data) => ({

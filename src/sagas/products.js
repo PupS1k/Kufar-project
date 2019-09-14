@@ -3,6 +3,7 @@ import {addProductsBack, addProduct} from '../actions/products';
 import {CREATE_PRODUCT_ASYNC, GET_PRODUCTS_ASYNC} from '../constants/actionTypes';
 import {addUserProduct} from '../actions/user';
 import {fetchReq} from '../constants';
+import guid from '../utils';
 
 function* getProducts(action) {
   const data = yield call(fetchReq, action.payload);
@@ -13,7 +14,7 @@ function* createProduct(action) {
   const token = JSON.parse(localStorage.getItem('auth-token'));
   let fileName = '';
   if (action.data.image) {
-    const urlImage = `${action.url}/image`;
+    const urlImage = `${action.url}/image/${guid()}`;
     fileName = yield call(fetchReq, urlImage, {
       method: 'POST',
       headers: {
@@ -22,8 +23,8 @@ function* createProduct(action) {
       body: action.data.image
     });
   }
-  const data = {...action.data, image: fileName};
-  yield call(fetchReq, action.url, {
+  const data = {...action.data, image: fileName || ''};
+  const productData = yield call(fetchReq, action.url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -31,8 +32,9 @@ function* createProduct(action) {
     },
     body: JSON.stringify(data)
   });
-  yield put(addProduct(data));
-  yield put(addUserProduct(data));
+  const product = {...data, _id: productData.id, seller: productData.seller};
+  yield put(addProduct(product));
+  yield put(addUserProduct(product));
 }
 
 function* watchGetProducts() {

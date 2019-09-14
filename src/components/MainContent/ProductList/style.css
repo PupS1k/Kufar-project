@@ -22,6 +22,8 @@
 .no-products{
     display: flex;
     justify-content: center;
+    padding-top: 80px;
+    height: 180px;
 }
 .no-products > p{
     font-size: 40px;

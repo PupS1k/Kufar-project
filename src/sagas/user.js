@@ -17,7 +17,7 @@ function* signUpAsync(action) {
     },
     body: JSON.stringify(action.data)
   });
-  if (data) yield put(registrationUser());
+  if (data.message) yield put(registrationUser(data.message));
   else yield put(toggleIsRegistration());
 }
 function* logInAsync(action) {
