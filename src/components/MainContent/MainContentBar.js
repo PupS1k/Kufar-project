@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from '../Button';
+import IconButton from '../IconButton';
 import switches from '../../images/switch.png';
 import squares from '../../images/square4.png';
-import IconButton from '../IconButton';
 
 const MainContentBar = () => (
   <div className="main-content-bar">

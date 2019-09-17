@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {registrationUserAsync} from '../../actions/user';
+import Button from '../Button';
 import {getRegistrationError} from '../../selectors/user';
+import {registrationUserAsync} from '../../actions/user';
+import InputField from '../InputField';
 import {
   isVerificationPassword, isRequired, minLength, mailCorrect
 } from '../validation';
-import Button from '../Button';
-import InputField from '../InputField';
 
 class FormRegistration extends Component {
   state = {

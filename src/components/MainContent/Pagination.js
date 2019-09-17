@@ -1,6 +1,6 @@
 import React from 'react';
-import arrow from '../../images/arrow.png';
 import IconButton from '../IconButton';
+import arrow from '../../images/arrow.png';
 
 const Pagination = () => (
   <div className="pagination">

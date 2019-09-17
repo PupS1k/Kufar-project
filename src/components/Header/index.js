@@ -1,18 +1,18 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import Button from '../Button';
+import {
+  toggleIsOpenModel, changeUser, addUserProducts
+} from '../../actions/user';
 import logo from '../../images/logo.png';
 import kufar from '../../images/kufar.png';
 import search from '../../images/search.png';
 import locationHeader from '../../images/locationHeader.png';
-import Button from '../Button';
 import plus from '../../images/plus.png';
-import {
-  toggleIsOpenModel, changeUser, addUserProducts
-} from '../../actions/user';
-import {getIsOpenWindow, getUserId} from '../../selectors/user';
 import ModelWindow from '../ModelWindow';
 import IconButton from '../IconButton';
+import {getIsOpenWindow, getUserId} from '../../selectors/user';
 import human from '../../images/profile.png';
 import './style.css';
 

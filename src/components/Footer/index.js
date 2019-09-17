@@ -1,11 +1,11 @@
 import React from 'react';
-import earth from '../../images/earth.png';
-import './style.css';
 import Button from '../Button';
 import NavButtons from './Links/NavButtons';
-import {additionalLinks, linksApp, socialLinks} from '../../constants';
 import SocialLinks from './Links/SocialLinks';
 import LinksApp from './Links/LinksApp';
+import {additionalLinks, linksApp, socialLinks} from '../../constants';
+import earth from '../../images/earth.png';
+import './style.css';
 
 const Footer = () => (
   <footer>

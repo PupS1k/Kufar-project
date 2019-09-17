@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react';
-import classNames from 'classnames';
 import {connect} from 'react-redux';
-import {getIsRegistration, getTab} from '../../selectors/user';
-import {toggleTab, toggleIsOpenModel, toggleIsRegistration} from '../../actions/user';
+import classNames from 'classnames';
 import FormLogIn from './FormLogin';
 import FormRegistration from './FormRegistration';
+import {getIsRegistration, getTab} from '../../selectors/user';
+import {toggleTab, toggleIsOpenModel, toggleIsRegistration} from '../../actions/user';
 import Button from '../Button';
 import './style.css';
 

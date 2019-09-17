@@ -1,7 +1,7 @@
 import React from 'react';
+import IconButton from '../../IconButton';
 import locationItem from '../../../images/locationItem.png';
 import trashcan from '../../../images/trashcan.png';
-import IconButton from '../../IconButton';
 
 const ProductCard = ({product, handleDelete}) => (
   <div className="product-card">

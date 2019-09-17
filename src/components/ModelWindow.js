@@ -1,8 +1,7 @@
 import React from 'react';
 import IconButton from './IconButton';
-import close from '../images/plusReset.png';
 import Authorization from './Authorization';
-
+import close from '../images/plusReset.png';
 
 const ModelWindow = props => (
   <div className="modal">

@@ -1,10 +1,10 @@
 import React from 'react';
 import Button from '../Button';
+import IconButton from '../IconButton';
 import lines from '../../images/lines.png';
 import shirt from '../../images/shirt.png';
-import './style.css';
-import IconButton from '../IconButton';
 import arrow from '../../images/arrow.png';
+import './style.css';
 
 const navBtn = ['Техника с доставкой', 'Телефоны', 'Недвижимость', 'Легковые авто', 'Велосипеды',
   'Работа', 'Платья', 'Строительный инструмент', 'Садовая техника', 'Запчасти,расходники',

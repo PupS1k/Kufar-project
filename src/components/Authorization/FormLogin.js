@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import Button from '../Button';
+import InputField from '../InputField';
 import {logInUserAsync} from '../../actions/user';
 import {getUserMail} from '../../selectors/user';
 import {isRequired, minLength, mailCorrect} from '../validation';
-import Button from '../Button';
-import InputField from '../InputField';
 
 class FormLogin extends Component {
   state = {

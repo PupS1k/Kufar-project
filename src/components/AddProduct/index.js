@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {isRequired, minLength} from '../validation';
 import Button from '../Button';
-import {createProductAsync, getProductAsync} from '../../actions/products';
 import SelectField from '../SelectField';
-import {
-  checkboxProduct, locations, stateFilter, categories, location
-} from '../../constants';
+import InputField from '../InputField';
 import SwitchList from '../SwitchList';
 import CheckboxList from '../CheckboxList';
 import noPhoto from '../../images/noPhoto.png';
+import {createProductAsync, getProductAsync} from '../../actions/products';
+import {
+  checkboxProduct, locations, stateFilter, categories, location
+} from '../../constants';
+import {isRequired, minLength} from '../validation';
 import './style.css';
-import InputField from '../InputField';
-import {addUserProduct} from '../../actions/user';
 
 class AddProduct extends Component {
   state = {
