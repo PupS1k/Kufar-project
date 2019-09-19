@@ -23,7 +23,7 @@ function* createProduct(action) {
       body: action.data.image
     });
   }
-  const data = {...action.data, image: fileName || ''};
+  const data = {...action.data, image: fileName};
   const productData = yield call(fetchReq, action.url, {
     method: 'POST',
     headers: {

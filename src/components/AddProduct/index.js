@@ -25,7 +25,7 @@ class AddProduct extends Component {
     fashionableSummer: false,
     installmentHalva: false,
     isExchange: false,
-    pricePrimary: '',
+    pricePrimary: false,
     category: 'Все категории',
     formErrors: {
       name: '',
@@ -68,8 +68,7 @@ class AddProduct extends Component {
     } = this.state;
     const {createProductAsync} = this.props;
     const priceNegotiated = pricePrimary ? 'Договорная' : price;
-    const priceProduct = priceNegotiated === '0' ? 'Бесплатно' : price;
-
+    const priceProduct = priceNegotiated === '0' ? 'Бесплатно' : priceNegotiated;
 
     const form = new FormData();
     form.append('file', file);
@@ -101,7 +100,7 @@ class AddProduct extends Component {
 
   handleStateProduct = value => this.setState({stateProduct: value});
 
-  handlePricePrimary = event => this.setState({pricePrimary: event.currentTarget.value});
+  handlePricePrimary = () => this.setState(({pricePrimary}) => ({pricePrimary: !pricePrimary}));
 
   handleFashionableSummer = () => this.setState(({fashionableSummer}) => (
     {fashionableSummer: !fashionableSummer}));
