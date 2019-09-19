@@ -1,6 +1,6 @@
 import React from 'react';
 import guid from '../../../utils';
-import Button from '../../Button';
+import Button from '../../Button/Button';
 
 const NavButtons = ({labels}) => (
   <div className="list-additional-links">

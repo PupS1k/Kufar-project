@@ -1,9 +1,10 @@
 import React from 'react';
-import IconButton from './IconButton';
-import Authorization from './Authorization';
-import close from '../images/plusReset.png';
+import IconButton from '../Button/IconButton';
+import Authorization from '../Authorization';
+import close from '../../images/plusReset.png';
+import './style.css';
 
-const ModelWindow = props => (
+const ModalWindow = props => (
   <div className="modal">
     <div className="modal__items">
       <div className="modal__close">
@@ -22,4 +23,4 @@ const ModelWindow = props => (
   </div>
 );
 
-export default ModelWindow;
+export default ModalWindow;

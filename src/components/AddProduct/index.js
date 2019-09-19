@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Button from '../Button';
-import SelectField from '../SelectField';
-import InputField from '../InputField';
-import SwitchList from '../SwitchList';
-import CheckboxList from '../CheckboxList';
+import Button from '../Button/Button';
+import SelectField from '../Field/SelectField';
+import InputField from '../Field/InputField';
+import SwitchList from '../Field/SwitchList';
+import CheckboxList from '../Field/CheckboxList';
 import noPhoto from '../../images/noPhoto.png';
 import {createProductAsync, getProductAsync} from '../../actions/products';
 import {

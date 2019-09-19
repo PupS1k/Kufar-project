@@ -14,7 +14,6 @@ header{
     position: fixed;
 }
 
-
 .left-part-of-header, .right-part-of-header, .search-field-container, .logo{
     display: flex;
     align-items: center;
@@ -131,6 +130,9 @@ header{
 @media screen and (max-width: 425px) {
     header{
         height: 42px;
+    }
+    .btn-login {
+        border-color: white;
     }
     .btn-location{
         display: none;

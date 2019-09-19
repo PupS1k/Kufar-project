@@ -155,6 +155,7 @@ input[type="checkbox"]:checked + .icon-checkbox-btn:after{
     width: 305px;
     top: 0;
 }
+
 .btn_reset-filters{
     width: 305px;
     background: url(../../../images/plusReset.png) no-repeat 80% center ;
@@ -165,6 +166,7 @@ input[type="checkbox"]:checked + .icon-checkbox-btn:after{
     background: url(../../../images/like.png) no-repeat 79% center ;
     background-size: 35px 32px;
 }
+
 @media screen and (max-width: 1024px) {
     .btn_show-filters{
         display: flex;

@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from '../../IconButton';
+import IconButton from '../../Button/IconButton';
 import locationItem from '../../../images/locationItem.png';
 import trashcan from '../../../images/trashcan.png';
 

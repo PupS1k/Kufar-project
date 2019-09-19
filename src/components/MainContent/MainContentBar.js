@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../Button';
-import IconButton from '../IconButton';
+import Button from '../Button/Button';
+import IconButton from '../Button/IconButton';
 import switches from '../../images/switch.png';
 import squares from '../../images/square4.png';
 

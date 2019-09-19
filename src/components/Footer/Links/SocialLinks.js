@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from '../../IconButton';
+import IconButton from '../../Button/IconButton';
 import guid from '../../../utils';
 
 const SocialLinks = ({images}) => (

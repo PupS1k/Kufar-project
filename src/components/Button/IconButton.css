@@ -1,0 +1,41 @@
+.btn__img{
+    margin-right: 10px;
+}
+.btn__img_small{
+    width: 17px;
+    height: 17px;
+}
+.btn__img_medium{
+    width: 23px;
+    height: 23px;
+}
+.btn__img_large{
+    width: 28px;
+    height: 23px;
+}
+.icon-btn{
+    display: flex;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0 0;
+    margin: 0 5px;
+    border: none;
+    background: none;
+    border-radius: 100%;
+}
+.icon-btn_border{
+    border: 1px solid #3a3f41;
+}
+.icon-btn__img_small{
+    width: 17px;
+    height: 15px;
+}
+.icon-btn__img_medium{
+    width: 32px;
+    height: 32px;
+}
+.icon-btn__img_large{
+    width: auto;
+    height: 40px;
+}

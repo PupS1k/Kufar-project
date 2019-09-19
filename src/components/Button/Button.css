@@ -1,0 +1,58 @@
+.btn{
+    border-radius: 5px;
+    height: 40px;
+    padding: 10px 16px;
+}
+.btn__items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+}
+.btn_default{
+    background: none;
+    border: none;
+    color: #4f5557;
+}
+.btn_default_green{
+    background: none;
+    border: none;
+    color: #00ad64;
+}
+.btn_default_blue{
+    background: none;
+    border: none;
+    color: #424de2;
+}
+.btn_primary_green{
+    border: none;
+    background: #00ad64;
+    color: white;
+}
+.btn_primary_blue {
+    border: none;
+    background: #007aff;
+    color: white;
+}
+.btn_secondary_green{
+    background: none;
+    border: 1px solid #00ad64;
+    color: #00ad64;
+}
+.btn_secondary_gray{
+    background: none;
+    border: solid 1px #868f91;
+    color: #2f3537;
+}
+.btn__text_bold{
+    font-weight: bold;
+}
+.btn__text_small{
+    font-size: 13px;
+}
+.btn__text_medium{
+    font-size: 14px;
+}
+.btn__text_large{
+    font-size: 16px;
+}

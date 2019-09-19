@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Button from '../Button';
+import Button from '../Button/Button';
 import {getRegistrationError} from '../../selectors/user';
 import {registrationUserAsync} from '../../actions/user';
-import InputField from '../InputField';
+import InputField from '../Field/InputField';
 import {
   isVerificationPassword, isRequired, minLength, mailCorrect
 } from '../validation';

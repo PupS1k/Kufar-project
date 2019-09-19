@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Button from '../Button';
-import InputField from '../InputField';
+import Button from '../Button/Button';
+import InputField from '../Field/InputField';
 import {logInUserAsync} from '../../actions/user';
 import {getUserMail} from '../../selectors/user';
 import {isRequired, minLength, mailCorrect} from '../validation';

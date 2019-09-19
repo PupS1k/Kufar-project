@@ -8,7 +8,7 @@
     margin-top: 15px;
     background: none;
 }
-.tab .tab-selected{
+.tab-selected{
     border-bottom: 2px solid #5f6c6e;
     font-weight: bold;
 }

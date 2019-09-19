@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import Button from '../Button';
+import Button from '../Button/Button';
 import {
   toggleIsOpenModel, changeUser, addUserProducts
 } from '../../actions/user';
@@ -10,8 +10,8 @@ import kufar from '../../images/kufar.png';
 import search from '../../images/search.png';
 import locationHeader from '../../images/locationHeader.png';
 import plus from '../../images/plus.png';
-import ModelWindow from '../ModelWindow';
-import IconButton from '../IconButton';
+import ModalWindow from '../ModalWindow';
+import IconButton from '../Button/IconButton';
 import {getIsOpenWindow, getUserId} from '../../selectors/user';
 import human from '../../images/profile.png';
 import './style.css';
@@ -126,7 +126,7 @@ class Header extends PureComponent {
             )
           }
         </div>
-        {isOpenWindow && <ModelWindow toggleIsOpenModel={toggleIsOpenModel} />}
+        {isOpenWindow && <ModalWindow toggleIsOpenModel={toggleIsOpenModel} />}
         <div className={navUser ? 'nav-user' : 'nav-user-invisible'}>
           <Button
             mode="default"
