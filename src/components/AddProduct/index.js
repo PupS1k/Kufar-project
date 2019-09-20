@@ -40,10 +40,14 @@ class AddProduct extends Component {
   };
 
   handlePrice = (event) => {
-    let price = event.currentTarget.value;
-    if (price < 0) price *= -1;
-    if (price.length > 1) if (price[0] === '0' || price[0] === '-') delete price[0];
-    this.setState({price});
+    try {
+      let price = event.currentTarget.value;
+      if (price < 0) price *= -1;
+      if (price.length > 1) if (price[0] === '0' || price[0] === '-') delete price[0];
+      this.setState({price});
+    } catch (err) {
+      console.error('Not a number');
+    }
   };
 
   handleDownloadImage = (event) => {
