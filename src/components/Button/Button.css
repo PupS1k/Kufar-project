@@ -39,6 +39,11 @@
     border: 1px solid #00ad64;
     color: #00ad64;
 }
+.btn_secondary_red{
+    background: none;
+    border: 1px solid #ff2039;
+    color: #ff2039;
+}
 .btn_secondary_gray{
     background: none;
     border: solid 1px #868f91;

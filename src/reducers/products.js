@@ -31,7 +31,7 @@ const products = (state = initialState, action) => {
         products: [...state.allProducts, action.payload]
       };
     case DELETE_PRODUCT:
-      const newProducts = state.allProducts.filter(product => product.id !== action.payload);
+      const newProducts = state.allProducts.filter(product => product._id !== action.payload);
       return {
         ...state,
         allProducts: newProducts,

@@ -57,7 +57,7 @@ const user = (state = initialState, action) => {
     case DELETE_USER_PRODUCT:
       return {
         ...state,
-        products: state.products.filter(product => product.id !== action.payload)
+        products: state.products.filter(product => product._id !== action.payload)
       };
     case ADD_USER_PRODUCT:
       return {
