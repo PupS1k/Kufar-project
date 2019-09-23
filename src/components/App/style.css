@@ -23,6 +23,7 @@ span{
 }
 .main-content p{
     white-space: normal;
+    text-align: center;
 }
 
 button, a, .icon-checkbox-btn, .icon-radio-btn, label {

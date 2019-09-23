@@ -31,7 +31,7 @@ const ProductCard = ({product, handleDelete}) => (
     </div>
     {handleDelete && (
     <IconButton
-      onClick={handleDelete(product._id)}
+      onClick={handleDelete(product.id)}
       image={{
         icon: trashcan,
         iconSize: 'large',

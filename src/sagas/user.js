@@ -37,7 +37,7 @@ function* logInAsync(action) {
 
   if (data) {
     yield put(toggleIsOpenModel());
-    yield put(changeUser(data.mail, data._id));
+    yield put(changeUser(data.mail, data.id));
     yield put(addUserProducts(data.products));
   }
 }

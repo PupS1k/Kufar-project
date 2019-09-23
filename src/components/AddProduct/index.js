@@ -26,6 +26,7 @@ class AddProduct extends Component {
     installmentHalva: false,
     isExchange: false,
     pricePrimary: false,
+    priceFree: false,
     category: 'Все категории',
     formErrors: {
       name: '',
@@ -106,6 +107,8 @@ class AddProduct extends Component {
 
   handlePricePrimary = () => this.setState(({pricePrimary}) => ({pricePrimary: !pricePrimary}));
 
+  handlePriceFree = () => this.setState(({priceFree}) => ({priceFree: !priceFree}));
+
   handleFashionableSummer = () => this.setState(({fashionableSummer}) => (
     {fashionableSummer: !fashionableSummer}));
 
@@ -175,6 +178,18 @@ class AddProduct extends Component {
               <p>Договорная</p>
             </label>
           </div>
+          {/*<div className="state-filter">*/}
+          {/*  <label className="icon-label">*/}
+          {/*    <input*/}
+          {/*      className="icon-input"*/}
+          {/*      type="checkbox"*/}
+          {/*      value="Бесплатно"*/}
+          {/*      onChange={this.handlePriceFree}*/}
+          {/*    />*/}
+          {/*    <div className="icon-checkbox-btn" />*/}
+          {/*    <p>Бесплатно</p>*/}
+          {/*  </label>*/}
+          {/*</div>*/}
           <SelectField
             id="select-region"
             headline="МЕСТОНАХОЖДЕНИЕ"
