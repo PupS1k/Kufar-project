@@ -30,7 +30,8 @@ class AddProduct extends Component {
     category: 'Все категории',
     formErrors: {
       name: '',
-      price: ''
+      price: '',
+      location: ''
     },
     formValid: false
   };
@@ -95,13 +96,15 @@ class AddProduct extends Component {
 
 
   validateForm = formErrors => this
-    .setState({formValid: !(!formErrors.name && !formErrors.price)});
+    .setState({formValid: !(!formErrors.name && !formErrors.price && !formErrors.location)});
 
-  handleRegion = value => this.setState({region: value});
+  handleRegion = value => this.setState({region: value},
+    () => this.validateField('region', value));
+
+  handleCity = value => this.setState({city: value},
+    () => this.validateField('city', value));
 
   handleCategory = value => this.setState({category: value});
-
-  handleCity = value => this.setState({city: value});
 
   handleStateProduct = value => this.setState({stateProduct: value});
 
@@ -126,6 +129,12 @@ class AddProduct extends Component {
         break;
       case 'price':
         formErrors.price = isRequired(value);
+        break;
+      case 'city':
+        formErrors.location = value === 'Любой' ? 'Местонахождение обязательно' : '';
+        break;
+      case 'region':
+        formErrors.location = value === 'Область' ? 'Местонахождение обязательно' : '';
         break;
       default:
         break;
@@ -178,18 +187,18 @@ class AddProduct extends Component {
               <p>Договорная</p>
             </label>
           </div>
-          {/*<div className="state-filter">*/}
-          {/*  <label className="icon-label">*/}
-          {/*    <input*/}
-          {/*      className="icon-input"*/}
-          {/*      type="checkbox"*/}
-          {/*      value="Бесплатно"*/}
-          {/*      onChange={this.handlePriceFree}*/}
-          {/*    />*/}
-          {/*    <div className="icon-checkbox-btn" />*/}
-          {/*    <p>Бесплатно</p>*/}
-          {/*  </label>*/}
-          {/*</div>*/}
+          {/* <div className="state-filter"> */}
+          {/*  <label className="icon-label"> */}
+          {/*    <input */}
+          {/*      className="icon-input" */}
+          {/*      type="checkbox" */}
+          {/*      value="Бесплатно" */}
+          {/*      onChange={this.handlePriceFree} */}
+          {/*    /> */}
+          {/*    <div className="icon-checkbox-btn" /> */}
+          {/*    <p>Бесплатно</p> */}
+          {/*  </label> */}
+          {/* </div> */}
           <SelectField
             id="select-region"
             headline="МЕСТОНАХОЖДЕНИЕ"
@@ -205,6 +214,7 @@ class AddProduct extends Component {
             disabled={this.state.region === 'Область'}
             handleLocation={this.handleCity}
           />
+          {formErrors.location && <span>{formErrors.location}</span>}
           <SelectField
             id="select-category"
             headline="Выберите категорию"
