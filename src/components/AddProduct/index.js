@@ -70,11 +70,10 @@ class AddProduct extends Component {
     const {
       name, price, region, city, category,
       stateProduct, file, isExchange, imagePreviewUrl,
-      installmentHalva, fashionableSummer, pricePrimary
+      installmentHalva, fashionableSummer, pricePrimary, priceFree
     } = this.state;
     const {createProductAsync} = this.props;
-    const priceNegotiated = pricePrimary ? 'Договорная' : price;
-    const priceProduct = priceNegotiated === '0' ? 'Бесплатно' : priceNegotiated;
+    const priceProduct = priceFree ? 'Бесплатно' : (pricePrimary ? 'Договорная' : price);
 
     const form = new FormData();
     form.append('file', file);
@@ -108,13 +107,16 @@ class AddProduct extends Component {
 
   handleStateProduct = value => this.setState({stateProduct: value});
 
-  handlePricePrimary = () => this.setState(({pricePrimary}) => ({pricePrimary: !pricePrimary}));
+  handlePricePrimary = () => this.setState(
+    ({pricePrimary}) => ({pricePrimary: !pricePrimary, priceFree: false})
+  );
 
-  handlePriceFree = () => this.setState(({priceFree}) => ({priceFree: !priceFree}));
+  handlePriceFree = () => this.setState(
+    ({priceFree}) => ({priceFree: !priceFree, pricePrimary: false})
+  );
 
   handleFashionableSummer = () => this.setState(({fashionableSummer}) => (
     {fashionableSummer: !fashionableSummer}));
-
 
   handleInstallmentHalva = () => this.setState(({installmentHalva}) => (
     {installmentHalva: !installmentHalva}));
@@ -144,7 +146,7 @@ class AddProduct extends Component {
 
   render() {
     const {
-      name,
+      name, priceFree, pricePrimary,
       formErrors, formValid,
       price, imagePreviewUrl
     } = this.state;
@@ -182,23 +184,25 @@ class AddProduct extends Component {
                 type="checkbox"
                 value="Договорная"
                 onChange={this.handlePricePrimary}
+                checked={pricePrimary}
               />
               <div className="icon-checkbox-btn" />
               <p>Договорная</p>
             </label>
           </div>
-          {/* <div className="state-filter"> */}
-          {/*  <label className="icon-label"> */}
-          {/*    <input */}
-          {/*      className="icon-input" */}
-          {/*      type="checkbox" */}
-          {/*      value="Бесплатно" */}
-          {/*      onChange={this.handlePriceFree} */}
-          {/*    /> */}
-          {/*    <div className="icon-checkbox-btn" /> */}
-          {/*    <p>Бесплатно</p> */}
-          {/*  </label> */}
-          {/* </div> */}
+          <div className="state-filter">
+            <label className="icon-label">
+              <input
+                className="icon-input"
+                type="checkbox"
+                value="Бесплатно"
+                onChange={this.handlePriceFree}
+                checked={priceFree}
+              />
+              <div className="icon-checkbox-btn" />
+              <p>Бесплатно</p>
+            </label>
+          </div>
           <SelectField
             id="select-region"
             headline="МЕСТОНАХОЖДЕНИЕ"
