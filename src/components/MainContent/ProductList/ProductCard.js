@@ -31,7 +31,7 @@ const ProductCard = ({product, handleDelete}) => (
     </div>
     {handleDelete && (
     <Button
-      onClick={handleDelete(product._id)}
+      onClick={handleDelete(product.id)}
       label="Удалить"
       labelSize="large"
       mode="secondary_red"

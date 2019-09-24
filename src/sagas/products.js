@@ -32,7 +32,7 @@ function* createProduct(action) {
     },
     body: JSON.stringify(data)
   });
-  const product = {...data, _id: productData.id, seller: productData.seller};
+  const product = {...data, id: productData.id, seller: productData.seller};
   yield put(addProduct(product));
   yield put(addUserProduct(product));
 }
