@@ -14,7 +14,7 @@ const ProductCard = ({product, handleDelete}) => (
         <div>
           <p className="top-part-of-product-card__txt name-product">{product.name}</p>
           <p className="top-part-of-product-card__txt categories-product">
-            {product.categories + (product.stateProduct !== 'Любое' ? `, ${product.state}` : '')}
+            {product.categories + (product.state !== 'Любое' ? `, ${product.state}` : '')}
           </p>
         </div>
         <p className="top-part-of-product-card__txt price-product">
