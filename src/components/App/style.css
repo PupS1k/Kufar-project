@@ -23,7 +23,6 @@ span{
 }
 .main-content p{
     white-space: normal;
-    text-align: center;
 }
 
 button, a, .icon-checkbox-btn, .icon-radio-btn, label {
@@ -33,6 +32,9 @@ button, a, .icon-checkbox-btn, .icon-radio-btn, label {
 @media screen and (max-width: 425px) {
     .page-container{
         margin-top: 60px;
+    }
+    .main-content p{
+        text-align: center;
     }
 }
 
