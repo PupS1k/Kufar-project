@@ -29,10 +29,10 @@ function* logInAsync(action) {
     body: JSON.stringify(action.data)
   });
 
-  localStorage.setItem('auth-token', JSON.stringify(token));
+  localStorage.setItem('Authorization', JSON.stringify(token));
 
   const data = yield call(fetchReq, action.url, {
-    headers: {'auth-token': token}
+    headers: {Authorization: `Bearer ${token}`}
   });
 
   if (data) {
@@ -43,10 +43,10 @@ function* logInAsync(action) {
 }
 
 function* deleteProductAsync(action) {
-  const token = JSON.parse(localStorage.getItem('auth-token'));
+  const token = JSON.parse(localStorage.getItem('Authorization'));
   const data = yield call(fetchReq, action.url, {
     method: 'DELETE',
-    headers: {'auth-token': token}
+    headers: {Authorization: `Bearer ${token}`}
   });
 
   if (data.id) {

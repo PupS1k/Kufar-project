@@ -11,14 +11,14 @@ function* getProducts(action) {
 }
 
 function* createProduct(action) {
-  const token = JSON.parse(localStorage.getItem('auth-token'));
+  const token = JSON.parse(localStorage.getItem('Authorization'));
   let fileName = '';
   if (action.data.image) {
     const urlImage = `${action.url}/image/${guid()}`;
     fileName = yield call(fetchReq, urlImage, {
       method: 'POST',
       headers: {
-        'auth-token': token
+        Authorization: `Bearer ${token}`
       },
       body: action.data.image
     });
@@ -28,7 +28,7 @@ function* createProduct(action) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'auth-token': token
+      Authorization: `Bearer ${token}`
     },
     body: JSON.stringify(data)
   });
