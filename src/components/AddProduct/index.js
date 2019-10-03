@@ -83,12 +83,14 @@ class AddProduct extends Component {
       name,
       categories: category,
       state: stateProduct,
-      fashionableSummer,
+      stocks: {
+        fashionableSummer
+      },
       installmentHalva,
       isExchange,
       location: location(region, city),
       price: priceProduct,
-      announced: new Date()
+      createDate: new Date()
     });
     this.props.history.push('/');
   };

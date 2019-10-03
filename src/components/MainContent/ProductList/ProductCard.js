@@ -26,7 +26,7 @@ const ProductCard = ({product, handleDelete}) => (
           <img className="location-product__img" src={locationItem} alt="Location" />
           <p>{product.location}</p>
         </div>
-        <ReactTimeAgo date={new Date(product.announced)} locale="ru" />
+        <ReactTimeAgo date={new Date(product.createDate)} locale="ru" />
       </div>
     </div>
     {handleDelete && (

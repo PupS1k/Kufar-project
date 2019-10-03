@@ -21,7 +21,7 @@ function* signUpAsync(action) {
   else yield put(toggleIsRegistration());
 }
 function* logInAsync(action) {
-  const token = yield call(fetchReq, action.url, {
+  const data = yield call(fetchReq, action.url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -29,16 +29,16 @@ function* logInAsync(action) {
     body: JSON.stringify(action.data)
   });
 
-  localStorage.setItem('Authorization', JSON.stringify(token));
+  localStorage.setItem('Authorization', JSON.stringify(data.token));
 
-  const data = yield call(fetchReq, action.url, {
-    headers: {Authorization: `Bearer ${token}`}
+  const products = yield call(fetchReq, `products/user/${data.id}`, {
+    headers: {Authorization: `Bearer ${data.token}`}
   });
 
   if (data) {
     yield put(toggleIsOpenModel());
     yield put(changeUser(data.mail, data.id));
-    yield put(addUserProducts(data.products));
+    yield put(addUserProducts(products));
   }
 }
 

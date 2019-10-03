@@ -35,7 +35,7 @@ class FormRegistration extends Component {
     registrationUserAsync('registration', {
       mail,
       password,
-      seller
+      sellerType: seller
     });
   };
 
