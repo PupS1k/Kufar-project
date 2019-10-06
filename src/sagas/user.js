@@ -9,6 +9,13 @@ import {
 import {deleteProduct} from '../actions/products';
 import {fetchReq} from '../constants';
 
+function* authorizationUser(data) {
+  localStorage.setItem('Authorization', JSON.stringify(data.token));
+
+  yield put(toggleIsOpenModel());
+  yield put(changeUser(data.mail, data.id));
+}
+
 function* signUpAsync(action) {
   const data = yield call(fetchReq, action.url, {
     method: 'POST',
@@ -18,7 +25,10 @@ function* signUpAsync(action) {
     body: JSON.stringify(action.data)
   });
   if (data.message) yield put(registrationUser(data.message));
-  else yield put(toggleIsRegistration());
+  else {
+    yield put(toggleIsRegistration());
+    yield authorizationUser(data.user);
+  }
 }
 function* logInAsync(action) {
   const data = yield call(fetchReq, action.url, {
@@ -28,16 +38,12 @@ function* logInAsync(action) {
     },
     body: JSON.stringify(action.data)
   });
-
-  localStorage.setItem('Authorization', JSON.stringify(data.token));
-
-  const products = yield call(fetchReq, `products/user/${data.id}`, {
-    headers: {Authorization: `Bearer ${data.token}`}
-  });
-
   if (data) {
-    yield put(toggleIsOpenModel());
-    yield put(changeUser(data.mail, data.id));
+    yield authorizationUser(data);
+
+    const products = yield call(fetchReq, `products/user/${data.id}`, {
+      headers: {Authorization: `Bearer ${data.token}`}
+    });
     yield put(addUserProducts(products));
   }
 }
