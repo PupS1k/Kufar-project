@@ -135,10 +135,12 @@ class AddProduct extends Component {
         formErrors.price = isRequired(value);
         break;
       case 'city':
-        formErrors.location = value === 'Любой' ? 'Местонахождение обязательно' : '';
+        formErrors.location = (value === 'Любой' || value === '')
+          ? 'Местонахождение обязательно' : '';
         break;
       case 'region':
-        formErrors.location = value === 'Область' ? 'Местонахождение обязательно' : '';
+        formErrors.location = (value === 'Область' || value === '')
+          ? 'Местонахождение обязательно' : '';
         break;
       default:
         break;
@@ -149,7 +151,7 @@ class AddProduct extends Component {
   render() {
     const {
       name, priceFree, pricePrimary,
-      formErrors, formValid,
+      formErrors, formValid, city, region,
       price, imagePreviewUrl
     } = this.state;
     const cities = locations.find(location => location.region === this.state.region);
@@ -248,7 +250,7 @@ class AddProduct extends Component {
           <Button
             type="submit"
             className="btn-submit"
-            disabled={!(!formValid && name && price)}
+            disabled={!(!formValid && name && price && region !== 'Область' && city !== 'Любой')}
             mode="primary_green"
             label="Создать объявление"
             labelSize="large"
