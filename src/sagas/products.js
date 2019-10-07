@@ -5,8 +5,7 @@ import {
   addProductsBack, addProduct, CREATE_PRODUCT_ASYNC, GET_PRODUCTS_ASYNC
 } from '../actions/products';
 import {addUserProduct} from '../actions/user';
-import {fetchReq} from '../constants';
-import guid from '../utils';
+import guid, {fetchReq} from '../utils';
 
 function* getProducts(action) {
   const data = yield call(fetchReq, action.payload);

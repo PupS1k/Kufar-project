@@ -7,8 +7,9 @@ import SwitchList from '../../Field/SwitchList';
 import CheckboxList from '../../Field/CheckboxList';
 import Button from '../../Button/Button';
 import {
-  locations, stateFilter, sellerFilter, checkboxFilter, applyFilters, location
+  locations, stateFilter, sellerFilter, checkboxFilter
 } from '../../../constants';
+import {applyFilters, location} from '../../../utils';
 import {getProductsByCategory} from '../../../selectors/products';
 import {changeProducts, changeCategoriesFilter} from '../../../actions/products';
 import './style.css';
@@ -38,8 +39,7 @@ class FilterPanel extends Component {
       if (products) {
         const correctProducts = products
           .filter(product => applyFilters({
-            location: this.state.region
-                + (this.state.city !== 'Любой' && this.state.city !== '' ? `, ${this.state.city}` : ''),
+            location: location(this.state.region, this.state.city),
             priceFrom: this.state.priceFrom,
             priceTo: this.state.priceTo,
             stateProduct: this.state.stateProduct,

@@ -8,8 +8,9 @@ import CheckboxList from '../Field/CheckboxList';
 import noPhoto from '../../images/noPhoto.png';
 import {createProductAsync, getProductAsync} from '../../actions/products';
 import {
-  checkboxProduct, locations, stateFilter, categories, location
+  checkboxProduct, locations, stateFilter, categories
 } from '../../constants';
+import {location} from '../../utils';
 import {isRequired, minLength} from '../validation';
 import './style.css';
 

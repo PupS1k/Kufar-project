@@ -5,7 +5,7 @@ import {
   REGISTRATION_USER_ASYNC, LOGIN_USER_ASYNC, DELETE_USER_PRODUCT_ASYNC
 } from '../actions/user';
 import {deleteProduct} from '../actions/products';
-import {fetchReq} from '../constants';
+import {fetchReq} from '../utils';
 
 function* authorizationUser(data) {
   localStorage.setItem('Authorization', JSON.stringify(data.token));
