@@ -1,4 +1,6 @@
-import {put, call, takeEvery, all} from 'redux-saga/effects';
+import {
+  put, call, takeEvery, all
+} from 'redux-saga/effects';
 import {
   registrationUser, changeUser, toggleIsOpenModel,
   toggleIsRegistration, addUserProducts, deleteUserProduct,

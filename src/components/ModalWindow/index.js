@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import IconButton from '../IconButton';
-import Authorization from '../Authorization';
+import Authorization from '../Auth';
 import close from '../../images/plusReset.png';
 import './style.css';
 
