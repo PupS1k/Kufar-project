@@ -1,4 +1,4 @@
-import {put, call, takeEvery} from 'redux-saga/effects';
+import {put, call, takeEvery, all} from 'redux-saga/effects';
 import {
   registrationUser, changeUser, toggleIsOpenModel,
   toggleIsRegistration, addUserProducts, deleteUserProduct
@@ -61,20 +61,8 @@ function* deleteProductAsync(action) {
   }
 }
 
-function* watchRegistration() {
-  yield takeEvery(REGISTRATION_USER_ASYNC, signUpAsync);
-}
-
-function* watchLogIn() {
-  yield takeEvery(LOGIN_USER_ASYNC, logInAsync);
-}
-
-function* watchDeleteProduct() {
-  yield takeEvery(DELETE_USER_PRODUCT_ASYNC, deleteProductAsync);
-}
-
-export {
-  watchLogIn,
-  watchRegistration,
-  watchDeleteProduct
-};
+export default all([
+  takeEvery(REGISTRATION_USER_ASYNC, signUpAsync),
+  takeEvery(LOGIN_USER_ASYNC, logInAsync),
+  takeEvery(DELETE_USER_PRODUCT_ASYNC, deleteProductAsync)
+]);

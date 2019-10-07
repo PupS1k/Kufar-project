@@ -1,4 +1,4 @@
-import {put, call, takeEvery} from 'redux-saga/effects';
+import {put, call, takeEvery, all} from 'redux-saga/effects';
 import {addProductsBack, addProduct} from '../actions/products';
 import {CREATE_PRODUCT_ASYNC, GET_PRODUCTS_ASYNC} from '../constants/actionTypes';
 import {addUserProduct} from '../actions/user';
@@ -37,15 +37,7 @@ function* createProduct(action) {
   yield put(addUserProduct(product));
 }
 
-function* watchGetProducts() {
-  yield takeEvery(GET_PRODUCTS_ASYNC, getProducts);
-}
-
-function* watchCreateProduct() {
-  yield takeEvery(CREATE_PRODUCT_ASYNC, createProduct);
-}
-
-export {
-  watchGetProducts,
-  watchCreateProduct
-};
+export default all([
+  takeEvery(GET_PRODUCTS_ASYNC, getProducts),
+  takeEvery(CREATE_PRODUCT_ASYNC, createProduct)
+]);
