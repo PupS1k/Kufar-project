@@ -1,6 +1,6 @@
 import {
   ADD_PRODUCTS, CHANGE_PRODUCTS, CHANGE_CATEGORY_FILTER, ADD_PRODUCT, DELETE_PRODUCT
-} from '../constants/actionTypes';
+} from '../actions/products';
 
 const initialState = {
   categoryFilter: '',

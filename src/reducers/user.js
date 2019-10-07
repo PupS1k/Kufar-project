@@ -6,7 +6,7 @@ import {
   TOGGLE_IS_REGISTRATION,
   ADD_USER_PRODUCTS,
   ADD_USER_PRODUCT, DELETE_USER_PRODUCT
-} from '../constants/actionTypes';
+} from '../actions/user';
 
 const initialState = {
   isOpenWindow: false,

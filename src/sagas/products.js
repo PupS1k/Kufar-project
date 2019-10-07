@@ -1,6 +1,9 @@
-import {put, call, takeEvery, all} from 'redux-saga/effects';
-import {addProductsBack, addProduct} from '../actions/products';
-import {CREATE_PRODUCT_ASYNC, GET_PRODUCTS_ASYNC} from '../constants/actionTypes';
+import {
+  put, call, takeEvery, all
+} from 'redux-saga/effects';
+import {
+  addProductsBack, addProduct, CREATE_PRODUCT_ASYNC, GET_PRODUCTS_ASYNC
+} from '../actions/products';
 import {addUserProduct} from '../actions/user';
 import {fetchReq} from '../constants';
 import guid from '../utils';

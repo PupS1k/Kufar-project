@@ -1,84 +1,67 @@
-import {
-  TOGGLE_TAB,
-  CHANGE_USER,
-  REGISTRATION_USER,
-  TOGGLE_IS_REGISTRATION,
-  REGISTRATION_USER_ASYNC,
-  LOGIN_USER_ASYNC,
-  OPEN_MODEL,
-  ADD_USER_PRODUCTS,
-  ADD_USER_PRODUCT,
-  DELETE_USER_PRODUCT,
-  DELETE_USER_PRODUCT_ASYNC
-} from '../constants/actionTypes';
+export const ADD_USER_PRODUCT = 'ADD_USER_PRODUCT';
+export const TOGGLE_TAB = 'TOGGLE_TAB';
+export const REGISTRATION_USER = 'REGISTRATION_USER';
+export const REGISTRATION_USER_ASYNC = 'REGISTRATION_USER_ASYNC';
+export const LOGIN_USER_ASYNC = 'LOGIN_USER_ASYNC';
+export const OPEN_MODEL = 'OPEN_MODEL';
+export const CHANGE_USER = 'CHANGE_USER';
+export const TOGGLE_IS_REGISTRATION = 'TOGGLE_IS_REGISTRATION';
+export const ADD_USER_PRODUCTS = 'ADD_USER_PRODUCTS';
+export const DELETE_USER_PRODUCT = 'DELETE_USER_PRODUCT';
+export const DELETE_USER_PRODUCT_ASYNC = 'DELETE_USER_PRODUCT_ASYNC';
 
-const changeUser = (mail, id) => ({
+export const changeUser = (mail, id) => ({
   type: CHANGE_USER,
   mail,
   id
 });
 
-const toggleIsOpenModel = () => ({
+export const toggleIsOpenModel = () => ({
   type: OPEN_MODEL
 });
 
-const toggleTab = value => ({
+export const toggleTab = value => ({
   type: TOGGLE_TAB,
   payload: value
 });
 
-const registrationUser = value => ({
+export const registrationUser = value => ({
   type: REGISTRATION_USER,
   payload: value
 });
 
-const registrationUserAsync = (url, data) => ({
+export const registrationUserAsync = (url, data) => ({
   type: REGISTRATION_USER_ASYNC,
   url,
   data
 });
 
-const logInUserAsync = (url, data) => ({
+export const logInUserAsync = (url, data) => ({
   type: LOGIN_USER_ASYNC,
   url,
   data
 });
 
-const toggleIsRegistration = () => ({
+export const toggleIsRegistration = () => ({
   type: TOGGLE_IS_REGISTRATION
 });
 
-const addUserProducts = value => ({
+export const addUserProducts = value => ({
   type: ADD_USER_PRODUCTS,
   payload: value
 });
 
-const deleteUserProduct = value => ({
+export const deleteUserProduct = value => ({
   type: DELETE_USER_PRODUCT,
   payload: value
 });
 
-const deleteUserProductAsync = url => ({
+export const deleteUserProductAsync = url => ({
   type: DELETE_USER_PRODUCT_ASYNC,
   url
 });
 
-const addUserProduct = value => ({
+export const addUserProduct = value => ({
   type: ADD_USER_PRODUCT,
   payload: value
 });
-
-
-export {
-  toggleIsOpenModel,
-  toggleTab,
-  changeUser,
-  registrationUser,
-  logInUserAsync,
-  registrationUserAsync,
-  toggleIsRegistration,
-  addUserProducts,
-  deleteUserProduct,
-  addUserProduct,
-  deleteUserProductAsync
-};

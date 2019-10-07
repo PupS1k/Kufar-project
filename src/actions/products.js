@@ -1,48 +1,41 @@
-import {
-  ADD_PRODUCTS, GET_PRODUCTS_ASYNC,
-  CHANGE_PRODUCTS, CHANGE_CATEGORY_FILTER, CREATE_PRODUCT_ASYNC, ADD_PRODUCT, DELETE_PRODUCT
-} from '../constants/actionTypes';
+export const CHANGE_PRODUCTS = 'CHANGE_PRODUCTS';
+export const CHANGE_CATEGORY_FILTER = 'CHANGE_CATEGORY_FILTER';
+export const ADD_PRODUCTS = 'ADD_PRODUCTS';
+export const GET_PRODUCTS_ASYNC = 'GET_PRODUCTS_ASYNC';
+export const CREATE_PRODUCT_ASYNC = 'CREATE_PRODUCT_ASYNC';
+export const ADD_PRODUCT = 'ADD_PRODUCT';
+export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 
-const changeProducts = value => ({
+export const changeProducts = value => ({
   type: CHANGE_PRODUCTS,
   payload: value
 });
-const changeCategoriesFilter = value => ({
+export const changeCategoriesFilter = value => ({
   type: CHANGE_CATEGORY_FILTER,
   payload: value
 });
-const addProductsBack = value => ({
+export const addProductsBack = value => ({
   type: ADD_PRODUCTS,
   payload: value
 });
 
-const addProduct = value => ({
+export const addProduct = value => ({
   type: ADD_PRODUCT,
   payload: value
 });
 
-const getProductAsync = value => ({
+export const getProductAsync = value => ({
   type: GET_PRODUCTS_ASYNC,
   payload: value
 });
 
-const createProductAsync = (url, data) => ({
+export const createProductAsync = (url, data) => ({
   type: CREATE_PRODUCT_ASYNC,
   url,
   data
 });
 
-const deleteProduct = value => ({
+export const deleteProduct = value => ({
   type: DELETE_PRODUCT,
   payload: value
 });
-
-export {
-  changeProducts,
-  changeCategoriesFilter,
-  addProductsBack,
-  getProductAsync,
-  createProductAsync,
-  addProduct,
-  deleteProduct
-};

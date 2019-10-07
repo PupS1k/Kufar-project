@@ -1,11 +1,9 @@
 import {put, call, takeEvery, all} from 'redux-saga/effects';
 import {
   registrationUser, changeUser, toggleIsOpenModel,
-  toggleIsRegistration, addUserProducts, deleteUserProduct
-} from '../actions/user';
-import {
+  toggleIsRegistration, addUserProducts, deleteUserProduct,
   REGISTRATION_USER_ASYNC, LOGIN_USER_ASYNC, DELETE_USER_PRODUCT_ASYNC
-} from '../constants/actionTypes';
+} from '../actions/user';
 import {deleteProduct} from '../actions/products';
 import {fetchReq} from '../constants';
 
