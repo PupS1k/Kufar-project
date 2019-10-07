@@ -1,18 +1,12 @@
 import {
-  createStore, combineReducers, applyMiddleware, compose
+  createStore, applyMiddleware, compose
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import products from '../reducers/products';
-import user from '../reducers/user';
+import reducer from '../reducers';
 import sagasRoot from '../sagas';
 
 
 const sagaMiddleware = createSagaMiddleware();
-
-const reducer = combineReducers({
-  products,
-  user
-});
 
 const store = createStore(
   reducer,

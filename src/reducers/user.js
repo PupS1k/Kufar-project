@@ -18,7 +18,7 @@ const initialState = {
   products: []
 };
 
-const user = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_TAB:
       return {
@@ -68,5 +68,3 @@ const user = (state = initialState, action) => {
       return state;
   }
 };
-
-export default user;

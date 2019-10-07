@@ -9,7 +9,7 @@ const initialState = {
   allProducts: []
 };
 
-const products = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_PRODUCTS:
       return {
@@ -52,5 +52,3 @@ const products = (state = initialState, action) => {
       return state;
   }
 };
-
-export default products;
