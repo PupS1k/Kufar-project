@@ -13,7 +13,7 @@ const Button = ({
     disabled={disabled}
   >
     <div className="btn__items">
-      {image !== 0 && (
+      {image && (
       <img
         className={classNames('btn__img', `btn__img_${image.iconSize}`)}
         src={image.icon}
