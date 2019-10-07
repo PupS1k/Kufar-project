@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactTimeAgo from 'react-time-ago';
 import locationItem from '../../../images/locationItem.png';
-import Button from '../../Button/Button';
+import Button from '../../Button';
 
 const ProductCard = ({product, handleDelete}) => (
   <div className="product-card">

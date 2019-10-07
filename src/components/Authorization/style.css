@@ -22,25 +22,6 @@
     flex-direction: column;
     margin-top: 20px;
 }
-.input-field{
-    max-width: 348px;
-    margin: 10px 0;
-}
-.input-field > input:focus{
-    border: 1px solid #00ad64;
-}
-.input-field > input[error='err']{
-    border: 1px solid #c72a3d;
-}
-.input-field > input{
-    border: 1px solid #929b9d;
-    border-radius: 5px;
-    width: 326px;
-    height: 40px;
-    font-size: 16px;
-    padding: 0 10px;
-    margin-bottom: 5px;
-}
 span{
     font-size: 14px;
     color: #c72a3d;

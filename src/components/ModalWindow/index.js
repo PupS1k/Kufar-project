@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from '../Button/IconButton';
+import IconButton from '../IconButton';
 import Authorization from '../Authorization';
 import close from '../../images/plusReset.png';
 import './style.css';

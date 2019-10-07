@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import './style.css';
 
 class SelectField extends PureComponent {
   handleOption = event => this.props.handleLocation(event.currentTarget.value);

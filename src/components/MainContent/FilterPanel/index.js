@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import CategoryFilter from './CategoryFilter';
-import SelectField from '../../Field/SelectField';
+import SelectField from '../../SelectField';
 import PriceFilter from './PriceFilter';
-import SwitchList from '../../Field/SwitchList';
-import CheckboxList from '../../Field/CheckboxList';
-import Button from '../../Button/Button';
+import SwitchList from '../../SwitchList';
+import CheckboxList from '../../CheckboxList';
+import Button from '../../Button';
 import {
   locations, stateFilter, sellerFilter, checkboxFilter
 } from '../../../constants';

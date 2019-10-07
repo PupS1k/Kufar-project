@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button/Button';
+import Button from '../Button';
 import NavButtons from './Links/NavButtons';
 import SocialLinks from './Links/SocialLinks';
 import LinksApp from './Links/LinksApp';

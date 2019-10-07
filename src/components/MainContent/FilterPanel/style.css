@@ -12,21 +12,16 @@
 .filter-panel{
     margin: 0 10px;
 }
-.category-filter, .select-field, .additional-modes{
+.label-input{
+    margin-top: 15px;
+    color: black;
+}
+.category-filter, .additional-modes{
     display: flex;
-
     padding: 15px 0;
     width: 300px;
     flex-direction: column;
     font-size: 16px;
-}
-.select-field{
-    padding: 0  0 15px 0;
-    border-bottom: solid 1px #d3d7da;
-}
-.label-input{
-    margin-top: 15px;
-    color: black;
 }
 .category-filter{
     border-top: solid 1px #d3d7da;
@@ -54,64 +49,10 @@
     appearance: none;
     background: url(../../../images/arrow.png) no-repeat 95% center;
 }
-input[type="radio"], input[type="checkbox"]{
-    display: none;
-}
-.icon-label{
-    display: flex;
-    align-items: baseline;
-    margin: 4px 0;
-}
 .additional-modes  .icon-label{
     align-items: center;
 }
-.icon-radio-btn, .icon-checkbox-btn{
-    margin-right: 10px;
-}
-.icon-checkbox-btn:before, .icon-radio-btn:before{
-    content: '';
-    display: block;
-    width: 18px;
-    height: 18px;
-    border: #aeb2b5 solid 1px;
-    position: absolute;
-    z-index: 0;
-}
-.icon-checkbox-btn:after, .icon-radio-btn:after{
-    content: '';
-    display: block;
-    border: #00ad64 solid 1px;
-    opacity: 0;
-    z-index: 1;
-}
-.icon-checkbox-btn:before{
-    border-radius: 3px;
-}
-.icon-radio-btn:before{
-    border-radius: 50%;
-}
-.icon-checkbox-btn:after{
-    width: 18px;
-    height: 18px;
-    border-radius: 3px;
-    background: #00ad64 url(../../../images/checkbox.png) no-repeat center;
-    background-size: 15px 15px;
-}
-.icon-radio-btn:after{
-    margin: 4px 0 0 4px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #00ad64;
-}
-input[type="radio"]:checked + .icon-radio-btn:before,
-input[type="checkbox"]:checked + .icon-checkbox-btn:before{
-    border: #00ad64 solid 1px;
-}
-input[type="radio"]:checked + .icon-radio-btn:after,
-input[type="checkbox"]:checked + .icon-checkbox-btn:after{
-    opacity: 1;
-}
+
 .price-filter{
     display: flex;
     flex-direction: column;
@@ -137,6 +78,18 @@ input[type="checkbox"]:checked + .icon-checkbox-btn:after{
     display: flex;
     margin-top: 6px;
     flex-direction: column;
+}
+.label-input{
+    margin-top: 15px;
+    color: black;
+}
+input[type="radio"], input[type="checkbox"]{
+    display: none;
+}
+.icon-label{
+    display: flex;
+    align-items: baseline;
+    margin: 4px 0;
 }
 .icon-input{
     margin: 0 0 8px 6px;

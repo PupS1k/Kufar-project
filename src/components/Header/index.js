@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import Button from '../Button/Button';
+import Button from '../Button';
 import {
   toggleIsOpenModel, changeUser, addUserProducts
 } from '../../actions/user';
@@ -11,7 +11,7 @@ import search from '../../images/search.png';
 import locationHeader from '../../images/locationHeader.png';
 import plus from '../../images/plus.png';
 import ModalWindow from '../ModalWindow';
-import IconButton from '../Button/IconButton';
+import IconButton from '../IconButton';
 import {getIsOpenWindow, getUserId} from '../../selectors/user';
 import human from '../../images/profile.png';
 import './style.css';

@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from '../Button/IconButton';
+import IconButton from '../IconButton';
 import arrow from '../../images/arrow.png';
 
 const Pagination = () => (

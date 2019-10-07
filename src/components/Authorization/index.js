@@ -5,7 +5,7 @@ import FormLogIn from './FormLogin';
 import FormRegistration from './FormRegistration';
 import {getIsRegistration, getTab} from '../../selectors/user';
 import {toggleTab, toggleIsOpenModel, toggleIsRegistration} from '../../actions/user';
-import Button from '../Button/Button';
+import Button from '../Button';
 import './style.css';
 
 class Authorization extends PureComponent {

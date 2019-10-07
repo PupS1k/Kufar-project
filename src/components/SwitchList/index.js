@@ -1,4 +1,6 @@
 import React, {PureComponent} from 'react';
+import guid from '../../utils';
+import './style.css';
 
 class SwitchList extends PureComponent {
   handleSwitch = event => this.props.handleSwitchFilter(event.currentTarget.value);
@@ -13,7 +15,7 @@ class SwitchList extends PureComponent {
         {headline && <p className="label-input">{headline}</p>}
         <div className={classNameFilter}>
           {filters.map(filter => (
-            <label key={filter.name} className="icon-label">
+            <label key={guid()} className="icon-label">
               <input
                 className="icon-input"
                 type={typeSwitch}
