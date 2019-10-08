@@ -1,6 +1,6 @@
 import React from 'react';
 import IconButton from '../../IconButton';
-import guid from '../../../utils';
+import {guid} from '../../../utils';
 
 const SocialLinks = ({images}) => (
   <div className="links-social-network">

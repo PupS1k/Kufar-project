@@ -14,11 +14,11 @@ const Button = ({
   >
     <div className="btn__items">
       {image && (
-      <img
-        className={classNames('btn__img', `btn__img_${image.iconSize}`)}
-        src={image.icon}
-        alt={image.alt}
-      />
+        <img
+          className={classNames('btn__img', `btn__img_${image.iconSize}`)}
+          src={image.icon}
+          alt={image.alt}
+        />
       )}
       <p className={classNames(`btn__text_${labelSize}`, {btn__text_bold: bold})}>{label}</p>
     </div>

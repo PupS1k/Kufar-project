@@ -1,5 +1,5 @@
 import React from 'react';
-import guid from '../../../utils';
+import {guid} from '../../../utils';
 
 const LinksApp = ({links}) => (
   <div className="links-app-container">

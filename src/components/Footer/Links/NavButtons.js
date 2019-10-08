@@ -1,5 +1,5 @@
 import React from 'react';
-import guid from '../../../utils';
+import {guid} from '../../../utils';
 import Button from '../../Button';
 
 const NavButtons = ({labels}) => (

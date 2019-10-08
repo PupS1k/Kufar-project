@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import ProductCard from './ProductCard';
 import {getProducts} from '../../../selectors/products';
-import guid from '../../../utils';
+import {guid} from '../../../utils';
 import './style.css';
 
 class ProductList extends PureComponent {

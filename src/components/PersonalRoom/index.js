@@ -4,7 +4,7 @@ import Pagination from '../MainContent/Pagination';
 import ProductCard from '../MainContent/ProductList/ProductCard';
 import {getUserProducts} from '../../selectors/user';
 import {deleteUserProductAsync} from '../../actions/user';
-import guid from '../../utils';
+import {guid} from '../../utils';
 
 class PersonalArea extends PureComponent {
   handleDeleteProduct = id => () => this.props.deleteUserProductAsync(`products/${id}`);
