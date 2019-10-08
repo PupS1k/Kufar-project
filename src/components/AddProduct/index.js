@@ -233,14 +233,12 @@ class AddProduct extends Component {
           <SwitchList
             headline="Состояние"
             classNameFilter="state-filter"
-            typeSwitch="radio"
             nameRadioBtn="state"
             filters={stateFilter}
             handleSwitchFilter={this.handleStateProduct}
           />
           <CheckboxList
             classNameFilter="additional-modes"
-            typeSwitch="checkbox"
             filters={checkboxProduct}
             handlesSwitchFilter={[
               this.handleFashionableSummer,

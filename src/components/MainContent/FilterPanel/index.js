@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import CategoryFilter from './CategoryFilter';
 import SelectField from '../../SelectField';
@@ -14,7 +14,7 @@ import {getProductsByCategory} from '../../../selectors/products';
 import {changeProducts, changeCategoriesFilter} from '../../../actions/products';
 import './style.css';
 
-class FilterPanel extends Component {
+class FilterPanel extends PureComponent {
   state = {
     region: 'Область',
     city: 'Любой',
@@ -115,7 +115,6 @@ class FilterPanel extends Component {
           <SwitchList
             headline="Состояние"
             classNameFilter="state-filter"
-            typeSwitch="radio"
             nameRadioBtn="state"
             filters={stateFilter}
             handleSwitchFilter={this.handleStateProduct}
@@ -123,14 +122,12 @@ class FilterPanel extends Component {
           <SwitchList
             headline="ПРОДАВЕЦ"
             classNameFilter="seller-filter"
-            typeSwitch="radio"
             nameRadioBtn="seller"
             filters={sellerFilter}
             handleSwitchFilter={this.handleSeller}
           />
           <CheckboxList
             classNameFilter="additional-modes"
-            typeSwitch="checkbox"
             filters={checkboxFilter}
             handlesSwitchFilter={[
               this.handleFashionableSummer,

@@ -7,6 +7,8 @@ import {getUserMail} from '../../selectors/user';
 import {isRequired, minLength, mailCorrect} from '../validation';
 
 class FormLogin extends Component {
+  isErrored = null;
+
   state = {
     mail: '',
     password: '',
@@ -26,8 +28,12 @@ class FormLogin extends Component {
     const {logInUserAsync} = this.props;
     const {mail, password} = this.state;
     logInUserAsync('login', {mail, password});
-    setTimeout(() => this.handleIsSubmitting(true), 100);
+    this.isErrored = setTimeout(() => this.handleIsSubmitting(true), 100);
   };
+
+  componentWillUnmount() {
+    clearInterval(this.isErrored);
+  }
 
   handleIsSubmitting = value => this.setState({submitting: value});
 

@@ -79,13 +79,6 @@
     margin-top: 6px;
     flex-direction: column;
 }
-.label-input{
-    margin-top: 15px;
-    color: black;
-}
-input[type="radio"], input[type="checkbox"]{
-    display: none;
-}
 .icon-label{
     display: flex;
     align-items: baseline;
@@ -99,7 +92,6 @@ input[type="radio"], input[type="checkbox"]{
     border-top: solid 1px #d3d7da;
     border-bottom: solid 1px #d3d7da;
 }
-
 .btn_show-result{
     margin-top: 10px;
     position: sticky;

@@ -7,7 +7,7 @@ class SwitchList extends PureComponent {
 
   render() {
     const {
-      headline, classNameFilter, typeSwitch, nameRadioBtn, filters, handleSwitchFilter
+      headline, classNameFilter, nameRadioBtn, filters, handleSwitchFilter
     } = this.props;
 
     return (
@@ -18,13 +18,13 @@ class SwitchList extends PureComponent {
             <label key={guid()} className="icon-label">
               <input
                 className="icon-input"
-                type={typeSwitch}
+                type="radio"
                 value={filter.name}
                 onChange={handleSwitchFilter && this.handleSwitch}
                 defaultChecked={filter.checked}
-                name={nameRadioBtn || filter.name}
+                name={nameRadioBtn}
               />
-              <div className={`icon-${typeSwitch}-btn`} />
+              <div className="icon-radio-btn" />
               <p>{filter.name}</p>
             </label>
           ))}
