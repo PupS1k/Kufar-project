@@ -6,7 +6,7 @@ class CheckboxList extends PureComponent {
 
   render() {
     const {
-      headline, classNameFilter,
+      headline, classNameFilter, isChecked,
       filters, handlesSwitchFilter
     } = this.props;
     return (
@@ -21,6 +21,7 @@ class CheckboxList extends PureComponent {
                 value={filter.name}
                 onChange={handlesSwitchFilter[index]}
                 name={filter.name}
+                checked={isChecked[index]}
               />
               <div className="icon-checkbox-btn" />
               <p>{filter.name}</p>

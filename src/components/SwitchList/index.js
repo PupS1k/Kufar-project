@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import guid from '../../utils';
+import {guid} from '../../utils';
 import './style.css';
 
 class SwitchList extends PureComponent {

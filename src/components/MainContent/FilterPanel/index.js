@@ -85,7 +85,10 @@ class FilterPanel extends PureComponent {
   handleIsExchange = () => this.setState(({isExchange}) => ({isExchange: !isExchange}));
 
   render() {
-    const {products, priceTo, priceFrom} = this.state;
+    const {
+      products, priceTo, priceFrom, fashionableSummer,
+      isExchange, installmentHalva, isWithPhoto
+    } = this.state;
     const cities = locations.find(location => location.region === this.state.region);
     return (
       <div className="filter-panel">
@@ -134,6 +137,12 @@ class FilterPanel extends PureComponent {
               this.handleInstallmentHalva,
               this.handleIsWithPhoto,
               this.handleIsExchange
+            ]}
+            isChecked={[
+              fashionableSummer,
+              installmentHalva,
+              isWithPhoto,
+              isExchange
             ]}
           />
           <Button
