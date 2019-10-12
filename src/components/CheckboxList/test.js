@@ -34,7 +34,7 @@ describe('CheckboxList container', () => {
     const component = shallow(<CheckboxList {...props} />);
 
     test('render text in headline', () => {
-      expect(component.find('.label-input').text()).toHaveLength(props.headline)
+      expect(component.find('.label-input').text()).toEqual(props.headline)
     });
 
   });
