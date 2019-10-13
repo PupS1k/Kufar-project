@@ -6,7 +6,7 @@ import InputField from '../InputField';
 import SwitchList from '../SwitchList';
 import CheckboxList from '../CheckboxList';
 import noPhoto from '../../images/noPhoto.png';
-import {createProductAsync, getProductAsync} from '../../actions/products';
+import {createProductAsync} from '../../actions/products';
 import {
   checkboxProduct, locations, stateFilter, categories
 } from '../../constants';
@@ -79,7 +79,7 @@ class AddProduct extends Component {
     const form = new FormData();
     form.append('file', file);
 
-    createProductAsync('products', {
+    createProductAsync({
       image: imagePreviewUrl ? form : '',
       name,
       categories: category,
@@ -152,8 +152,8 @@ class AddProduct extends Component {
   render() {
     const {
       name, priceFree, pricePrimary,
-      formErrors, formValid, city, region,
-      price, imagePreviewUrl
+      formErrors, formValid, city, region, isExchange,
+      price, imagePreviewUrl, fashionableSummer, installmentHalva
     } = this.state;
     const cities = locations.find(location => location.region === this.state.region);
     return (
@@ -245,6 +245,11 @@ class AddProduct extends Component {
               this.handleInstallmentHalva,
               this.handleIsExchange
             ]}
+            isChecked={[
+              fashionableSummer,
+              installmentHalva,
+              isExchange
+            ]}
           />
           <Button
             type="submit"
@@ -260,4 +265,4 @@ class AddProduct extends Component {
   }
 }
 
-export default connect(null, {createProductAsync, getProductAsync})(AddProduct);
+export default connect(null, {createProductAsync})(AddProduct);

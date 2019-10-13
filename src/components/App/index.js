@@ -14,7 +14,7 @@ import './style.css';
 
 class App extends PureComponent {
   componentDidMount() {
-    this.props.getProductAsync('products');
+    this.props.getProductAsync();
   }
 
   render() {

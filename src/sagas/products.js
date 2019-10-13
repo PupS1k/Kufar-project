@@ -8,7 +8,7 @@ import {addUserProduct} from '../actions/user';
 import {guid, fetchReq} from '../utils';
 
 function* getProducts(action) {
-  const data = yield call(fetchReq, action.payload);
+  const data = yield call(fetchReq, 'products');
   yield put(addProductsBack(data));
 }
 
@@ -22,11 +22,11 @@ function* createProduct(action) {
       headers: {
         Authorization: `Bearer ${token}`
       },
-      body: action.data.image
+      body: action.payload.image
     });
   }
   const data = {...action.data, image: fileName};
-  const productData = yield call(fetchReq, action.url, {
+  const productData = yield call(fetchReq, 'products', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

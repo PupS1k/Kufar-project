@@ -24,15 +24,13 @@ export const addProduct = value => ({
   payload: value
 });
 
-export const getProductAsync = value => ({
-  type: GET_PRODUCTS_ASYNC,
-  payload: value
+export const getProductAsync = () => ({
+  type: GET_PRODUCTS_ASYNC
 });
 
-export const createProductAsync = (url, data) => ({
+export const createProductAsync = value => ({
   type: CREATE_PRODUCT_ASYNC,
-  url,
-  data
+  payload: value
 });
 
 export const deleteProduct = value => ({
