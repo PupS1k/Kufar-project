@@ -2,9 +2,7 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Button from '../Button';
-import {
-  toggleIsOpenModel, changeUser, addUserProducts
-} from '../../actions/user';
+import {toggleIsOpenModel, logOut} from '../../actions/user';
 import logo from '../../images/logo.png';
 import kufar from '../../images/kufar.png';
 import search from '../../images/search.png';
@@ -41,9 +39,8 @@ class Header extends PureComponent {
   handleSignOut = () => {
     this.handleNavUser();
     this.handleHome();
-    const {addUserProducts, changeUser} = this.props;
-    addUserProducts([]);
-    changeUser('', '');
+    const {logOut} = this.props;
+    logOut();
   };
 
   handlePersonalRoom = () => {
@@ -154,6 +151,4 @@ const mapStateToProps = state => ({
   userId: getUserId(state)
 });
 
-export default withRouter(connect(mapStateToProps, {
-  toggleIsOpenModel, changeUser, addUserProducts
-})(Header));
+export default withRouter(connect(mapStateToProps, {toggleIsOpenModel, logOut})(Header));

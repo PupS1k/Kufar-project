@@ -7,12 +7,13 @@ export const guid = () => {
 };
 
 export const fetchReq = (url, options) => fetch(`http://localhost:3000/${url}`, options)
-  .then((res) => {
-    if (!res.ok) throw new Error(res.statusText);
-    return res;
-  })
-  .then(res => res.json())
-  .catch(err => console.log(err));
+  .then(res => res.json().then((data) => {
+    if (res.status >= 200 && res.status < 400) {
+      return data;
+    }
+
+    return Promise.reject(data);
+  }));
 
 export const applyFilters = (filters, product) => {
   const isCorrectLocationFilter = filters.location === 'Область'

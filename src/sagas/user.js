@@ -2,50 +2,71 @@ import {
   put, call, takeEvery, all
 } from 'redux-saga/effects';
 import {
-  registrationUser, changeUser, toggleIsOpenModel,
-  toggleIsRegistration, addUserProducts, deleteUserProduct,
-  REGISTRATION_USER_ASYNC, LOGIN_USER_ASYNC, DELETE_USER_PRODUCT_ASYNC
+  toggleIsOpenModel,
+  signInSuccess,
+  signUpSuccess,
+  signUpError,
+  signInError,
+  signInLoading,
+  signUpLoading,
+  addUserProducts,
+  deleteUserProduct,
+  SIGN_UP,
+  SIGN_IN,
+  DELETE_USER_PRODUCT_ASYNC
 } from '../actions/user';
 import {deleteProduct} from '../actions/products';
 import {fetchReq} from '../utils';
 
-function* authorizationUser(data) {
-  localStorage.setItem('Authorization', JSON.stringify(data.token));
-
-  yield put(toggleIsOpenModel());
-  yield put(changeUser(data.mail, data.id));
-}
+const saveToken = (token) => localStorage.setItem('Authorization', JSON.stringify(token));
 
 function* signUpAsync(action) {
-  const data = yield call(fetchReq, action.url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(action.data)
-  });
-  if (data.message) yield put(registrationUser(data.message));
-  else {
-    yield put(toggleIsRegistration());
-    yield authorizationUser(data.user);
+  yield put(signUpLoading());
+
+  try {
+    const data = yield call(fetchReq, 'registration', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(action.payload)
+    });
+
+    saveToken(data.token);
+
+    yield put(toggleIsOpenModel());
+    yield put(signUpSuccess(data.mail, data.id));
+  }catch (err) {
+    yield put(signUpError(err.message));
   }
+
 }
-function* logInAsync(action) {
-  const data = yield call(fetchReq, action.url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(action.data)
-  });
-  if (data) {
-    yield authorizationUser(data);
+
+function* signInAsync(action) {
+  yield put(signInLoading());
+
+  try {
+    const data = yield call(fetchReq, 'login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(action.payload)
+    });
+
+    saveToken(data.token);
+
+    yield put(toggleIsOpenModel());
+    yield put(signInSuccess(data.mail, data.id));
 
     const products = yield call(fetchReq, `products/user/${data.id}`, {
       headers: {Authorization: `Bearer ${data.token}`}
     });
     yield put(addUserProducts(products));
+  }catch (err) {
+    yield put(signInError(err.message));
   }
+
 }
 
 function* deleteProductAsync(action) {
@@ -62,7 +83,7 @@ function* deleteProductAsync(action) {
 }
 
 export default all([
-  takeEvery(REGISTRATION_USER_ASYNC, signUpAsync),
-  takeEvery(LOGIN_USER_ASYNC, logInAsync),
+  takeEvery(SIGN_UP, signUpAsync),
+  takeEvery(SIGN_IN, signInAsync),
   takeEvery(DELETE_USER_PRODUCT_ASYNC, deleteProductAsync)
 ]);

@@ -1,49 +1,71 @@
 export const ADD_USER_PRODUCT = 'ADD_USER_PRODUCT';
 export const TOGGLE_TAB = 'TOGGLE_TAB';
-export const REGISTRATION_USER = 'REGISTRATION_USER';
-export const REGISTRATION_USER_ASYNC = 'REGISTRATION_USER_ASYNC';
-export const LOGIN_USER_ASYNC = 'LOGIN_USER_ASYNC';
-export const OPEN_MODEL = 'OPEN_MODEL';
-export const CHANGE_USER = 'CHANGE_USER';
+export const SIGN_UP = 'SIGN_UP';
+export const SIGN_UP_ERROR = 'SIGN_UP_ERROR';
+export const SIGN_UP_LOADING = 'SIGN_UP_LOADING';
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
+export const TOGGLE_MODEL = 'TOGGLE_MODEL';
+export const SIGN_IN = 'SIGN_IN';
+export const LOG_OUT = 'LOG_OUT';
+export const SIGN_IN_ERROR = 'SIGN_IN_ERROR';
+export const SIGN_IN_LOADING = 'SIGN_IN_LOADING';
+export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
 export const TOGGLE_IS_REGISTRATION = 'TOGGLE_IS_REGISTRATION';
 export const ADD_USER_PRODUCTS = 'ADD_USER_PRODUCTS';
 export const DELETE_USER_PRODUCT = 'DELETE_USER_PRODUCT';
 export const DELETE_USER_PRODUCT_ASYNC = 'DELETE_USER_PRODUCT_ASYNC';
 
-export const changeUser = (mail, id) => ({
-  type: CHANGE_USER,
-  mail,
-  id
+export const logOut = () => ({
+  type: LOG_OUT
+});
+
+export const signIn = value => ({
+  type: SIGN_IN,
+  payload: value
+});
+
+export const signInError = value => ({
+  type: SIGN_IN_ERROR,
+  payload: value
+});
+
+export const signInLoading = () => ({
+  type: SIGN_IN_LOADING
+});
+
+export const signInSuccess = (mail, id) => ({
+  type: SIGN_IN_SUCCESS,
+  id,
+  mail
+});
+
+export const signUp = value => ({
+  type: SIGN_UP,
+  payload: value
+});
+
+export const signUpError = value => ({
+  type: SIGN_UP_ERROR,
+  payload: value
+});
+
+export const signUpLoading = () => ({
+  type: SIGN_UP_LOADING
+});
+
+export const signUpSuccess = (mail, id) => ({
+  type: SIGN_UP_SUCCESS,
+  id,
+  mail
 });
 
 export const toggleIsOpenModel = () => ({
-  type: OPEN_MODEL
+  type: TOGGLE_MODEL
 });
 
 export const toggleTab = value => ({
   type: TOGGLE_TAB,
   payload: value
-});
-
-export const registrationUser = value => ({
-  type: REGISTRATION_USER,
-  payload: value
-});
-
-export const registrationUserAsync = (url, data) => ({
-  type: REGISTRATION_USER_ASYNC,
-  url,
-  data
-});
-
-export const logInUserAsync = (url, data) => ({
-  type: LOGIN_USER_ASYNC,
-  url,
-  data
-});
-
-export const toggleIsRegistration = () => ({
-  type: TOGGLE_IS_REGISTRATION
 });
 
 export const addUserProducts = value => ({

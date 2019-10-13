@@ -1,17 +1,17 @@
 const getTab = state => state.user.tab;
-const getRegistrationError = state => state.user.registrationError;
 const getIsOpenWindow = state => state.user.isOpenWindow;
 const getUserMail = state => state.user.mail;
-const getIsRegistration = state => state.user.isRegistration;
+const getSignInError = state => state.user.signInError;
+const getSignUpError = state => state.user.signUpError;
 const getUserId = state => state.user.id;
 const getUserProducts = state => state.user.products;
 
 export {
   getTab,
-  getRegistrationError,
+  getSignInError,
   getIsOpenWindow,
   getUserMail,
-  getIsRegistration,
+  getSignUpError,
   getUserId,
   getUserProducts
 };

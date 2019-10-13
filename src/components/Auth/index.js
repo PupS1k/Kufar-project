@@ -1,74 +1,47 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
-import FormLogIn from './FormLogin';
-import FormRegistration from './FormRegistration';
-import {getIsRegistration, getTab} from '../../selectors/user';
-import {toggleTab, toggleIsOpenModel, toggleIsRegistration} from '../../actions/user';
+import AuthorizationForm from './Authorization';
+import RegistrationForm from './Registration';
+import {getTab} from '../../selectors/user';
+import {toggleTab} from '../../actions/user';
 import Button from '../Button';
 import './style.css';
 
-class Authorization extends PureComponent {
+class Auth extends PureComponent {
   handleTabLogin = () => this.props.toggleTab(true);
 
   handleTabRegistration = () => this.props.toggleTab(false);
 
-  handleCloseModel = () => this.props.toggleIsOpenModel();
-
-  handleIsRegistration = () => {
-    this.handleCloseModel();
-    this.props.toggleIsRegistration();
-  };
-
-
   render() {
-    const {tab, registrationSuccessful} = this.props;
+    const {tab} = this.props;
     return (
       <div>
-        {registrationSuccessful ? (
-          <div className="registration-successful">
-            <p>Регистрация прошла успешно</p>
-            <Button
-              onClick={this.handleIsRegistration}
-              label="Понятно"
-              labelSize="large"
-              mode="primary_green"
-            />
-          </div>
-        )
-          : (
-            <div>
-              <div className="authorization-tabs">
-                <Button
-                  className={classNames('tab', {'tab-selected': tab})}
-                  onClick={this.handleTabLogin}
-                  label="Вход"
-                  labelSize="large"
-                  mode="default"
-                />
-                <Button
-                  className={`tab${tab ? '' : ' tab-selected'}`}
-                  onClick={this.handleTabRegistration}
-                  label="Регистрация"
-                  labelSize="large"
-                  mode="default"
-                />
-              </div>
-              {tab
-                ? <FormLogIn />
-                : <FormRegistration />}
-            </div>
-          )
-      }
+        <div className="auth-tabs">
+          <Button
+            className={classNames('tab', {'tab-selected': tab})}
+            onClick={this.handleTabLogin}
+            label="Вход"
+            labelSize="large"
+            mode="default"
+          />
+          <Button
+            className={`tab${tab ? '' : ' tab-selected'}`}
+            onClick={this.handleTabRegistration}
+            label="Регистрация"
+            labelSize="large"
+            mode="default"
+          />
+        </div>
+        {tab
+          ? <AuthorizationForm />
+          : <RegistrationForm />}
       </div>
     );
   }
 }
 const mapStateToProps = state => ({
-  tab: getTab(state),
-  registrationSuccessful: getIsRegistration(state)
+  tab: getTab(state)
 });
 
-export default connect(mapStateToProps, {
-  toggleTab, toggleIsOpenModel, toggleIsRegistration
-})(Authorization);
+export default connect(mapStateToProps, {toggleTab})(Auth);
