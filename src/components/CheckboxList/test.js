@@ -29,7 +29,10 @@ describe('CheckboxList container', () => {
     test('paragraph render', () => {
       expect(component.find('label p')).toHaveLength(props.filters.length)
     });
+
   });
+
+
   describe('render text in field', () => {
     const component = shallow(<CheckboxList {...props} />);
 
