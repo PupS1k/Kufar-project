@@ -34,8 +34,8 @@ function* signUpAsync(action) {
 
     saveToken(data.token);
 
-    yield put(toggleIsOpenModel());
     yield put(signUpSuccess(data.mail, data.id));
+    yield put(toggleIsOpenModel());
   }catch (err) {
     yield put(signUpError(err.message));
   }
@@ -56,8 +56,8 @@ function* signInAsync(action) {
 
     saveToken(data.token);
 
-    yield put(toggleIsOpenModel());
     yield put(signInSuccess(data.mail, data.id));
+    yield put(toggleIsOpenModel());
 
     const products = yield call(fetchReq, `products/user/${data.id}`, {
       headers: {Authorization: `Bearer ${data.token}`}

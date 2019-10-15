@@ -12,7 +12,7 @@ import {getProductAsync} from '../../actions/products';
 import {getUserId} from '../../selectors/user';
 import './style.css';
 
-class App extends PureComponent {
+class Index extends PureComponent {
   componentDidMount() {
     this.props.getProductAsync();
   }
@@ -60,4 +60,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, {getProductAsync})(App);
+export default connect(mapStateToProps, {getProductAsync})(Index);

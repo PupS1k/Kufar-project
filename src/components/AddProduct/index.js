@@ -14,7 +14,7 @@ import {location} from '../../utils';
 import {isRequired, minLength} from '../validation';
 import './style.css';
 
-class AddProduct extends Component {
+class Index extends Component {
   state = {
     file: {},
     imagePreviewUrl: '',
@@ -265,4 +265,4 @@ class AddProduct extends Component {
   }
 }
 
-export default connect(null, {createProductAsync})(AddProduct);
+export default connect(null, {createProductAsync})(Index);

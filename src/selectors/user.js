@@ -1,6 +1,5 @@
 const getTab = state => state.user.tab;
 const getIsOpenWindow = state => state.user.isOpenWindow;
-const getUserMail = state => state.user.mail;
 const getSignInError = state => state.user.signInError;
 const getSignUpError = state => state.user.signUpError;
 const getUserId = state => state.user.id;
@@ -10,7 +9,6 @@ export {
   getTab,
   getSignInError,
   getIsOpenWindow,
-  getUserMail,
   getSignUpError,
   getUserId,
   getUserProducts
