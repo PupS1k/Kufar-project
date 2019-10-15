@@ -6,7 +6,7 @@ export const guid = () => {
   return `${s4()}${s4()}${s4()}${s4()}${s4()}${s4()}${s4()}${s4()}`;
 };
 
-export const fetchReq = (url, options) => fetch(`http://localhost:3000/${url}`, options)
+export const fetchReq = (url, options) => fetch(`/api/${url}`, options)
   .then(res => res.json().then((data) => {
     if (res.status >= 200 && res.status < 400) {
       return data;
