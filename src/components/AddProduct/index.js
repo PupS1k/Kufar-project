@@ -28,7 +28,7 @@ class Index extends Component {
     isExchange: false,
     pricePrimary: false,
     priceFree: false,
-    category: 'Все категории',
+    category: 'Модное лето',
     formErrors: {
       name: '',
       price: '',
@@ -150,6 +150,8 @@ class Index extends Component {
   }
 
   render() {
+    const newCategories = [...categories];
+    newCategories.shift();
     const {
       name, priceFree, pricePrimary,
       formErrors, formValid, city, region, isExchange,
@@ -227,7 +229,7 @@ class Index extends Component {
           <SelectField
             id="select-category"
             headline="Выберите категорию"
-            options={categories}
+            options={newCategories}
             handleLocation={this.handleCategory}
           />
           <SwitchList
