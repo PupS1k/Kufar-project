@@ -21,13 +21,13 @@ class Header extends PureComponent {
 
   handleAddProduct = () => {
     if (this.state.navUser) this.handleNavUser();
-    window.scrollTo(0, 0);
+    this.handleAscent();
     this.props.history.push('/addProduct');
   };
 
   handleHome = () => {
     if (this.state.navUser) this.handleNavUser();
-    window.scrollTo(0, 0);
+    this.handleAscent();
     this.props.history.push('/');
   };
 
@@ -39,13 +39,14 @@ class Header extends PureComponent {
   handleSignOut = () => {
     this.handleNavUser();
     this.handleHome();
-    const {logOut} = this.props;
-    logOut();
+    this.props.logOut();
   };
+
+  handleAscent = () => window.scrollTo(0, 0);
 
   handlePersonalRoom = () => {
     this.handleNavUser();
-    window.scrollTo(0, 0);
+    this.handleAscent();
     this.props.history.push('/personalRoom');
   };
 
