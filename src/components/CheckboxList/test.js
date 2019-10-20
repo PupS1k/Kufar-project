@@ -22,7 +22,7 @@ describe('CheckboxList container', () => {
       expect(component.find('label')).toHaveLength(props.filters.length)
     });
 
-    test('headline render', () => {
+    test('headline render', () => { // TODO:
       expect(component.find('.label-input')).toHaveLength(1)
     });
 

@@ -1,14 +1,20 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
 
 module.exports = {
+  mode: 'production',
+
   entry: './src/index.js',
+
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js'
   },
+
   module: {
+
     rules: [
       {
         test: /\.js$/,
@@ -17,10 +23,12 @@ module.exports = {
           loader: 'babel-loader'
         },
       },
+
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       },
+
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
@@ -28,8 +36,8 @@ module.exports = {
           {
             loader: 'image-webpack-loader',
             options: {
-              bypassOnDebug: true, // webpack@1.x
-              disable: true, // webpack@2.x and newer
+              bypassOnDebug: true,
+              disable: true,
             },
           },
         ],
@@ -37,16 +45,13 @@ module.exports = {
     ]
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
+      template: './src/index.html',
+      title: 'Kufar'
+    }),
   ],
-  devServer: {
-    contentBase: '/',
-    hot: true,
-    historyApiFallback: true,
-    proxy: {
-      '/api': 'http://localhost:3000',
-    },
-  }
 };
