@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --open --hot --config webpack.config.dev.js",
+    "start": "webpack --open --hot --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js"
   },
   "author": "",
