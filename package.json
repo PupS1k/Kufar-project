@@ -8,8 +8,9 @@
   },
   "main": "index.js",
   "scripts": {
+    "heroku-prebuild": "npm install --dev",
     "test": "jest",
-    "start": "webpack --open --hot --config webpack.config.dev.js",
+    "start": "webpack-dev-server --open --hot --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js"
   },
   "author": "",
