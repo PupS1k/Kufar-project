@@ -9,9 +9,10 @@
   "main": "index.js",
   "scripts": {
     "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --dev",
+    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;",
     "test": "jest",
-    "start": "webpack-dev-server NODE_ENV=development --open --hot --config webpack.config.dev.js",
-    "build": "webpack NODE_ENV=production --config webpack.config.prod.js"
+    "start": "webpack-dev-server --open --hot --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",
