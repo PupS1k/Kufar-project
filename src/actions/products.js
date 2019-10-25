@@ -1,11 +1,15 @@
 export const CHANGE_PRODUCTS = 'CHANGE_PRODUCTS';
 export const CHANGE_CATEGORY_FILTER = 'CHANGE_CATEGORY_FILTER';
 export const ADD_PRODUCTS = 'ADD_PRODUCTS';
+export const ADD_PRODUCTS_LOADING = 'ADD_PRODUCTS_LOADING';
 export const GET_PRODUCTS_ASYNC = 'GET_PRODUCTS_ASYNC';
 export const CREATE_PRODUCT_ASYNC = 'CREATE_PRODUCT_ASYNC';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 
+export const addProductsLoading = () => ({
+  type: ADD_PRODUCTS_LOADING
+});
 export const changeProducts = value => ({
   type: CHANGE_PRODUCTS,
   payload: value

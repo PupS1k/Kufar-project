@@ -7,7 +7,7 @@ const ProductCard = ({product, handleDelete}) => (
   <div className="product-card">
     <div
       className="product-card__img"
-      style={{backgroundImage: product.image && `url(http://localhost:3000/images/${product.image}`}}
+      style={{backgroundImage: product.hasOwnProperty('image') && product.image}}
     />
     <div className="info-about-product">
       <div className="top-part-of-product-card">

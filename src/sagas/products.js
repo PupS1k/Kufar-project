@@ -2,12 +2,13 @@ import {
   put, call, takeEvery, all
 } from 'redux-saga/effects';
 import {
-  addProductsBack, addProduct, CREATE_PRODUCT_ASYNC, GET_PRODUCTS_ASYNC
+  addProductsBack, addProduct, addProductsLoading, CREATE_PRODUCT_ASYNC, GET_PRODUCTS_ASYNC
 } from '../actions/products';
 import {addUserProduct} from '../actions/user';
 import {guid, fetchReq} from '../utils';
 
 function* getProducts(action) {
+  yield put(addProductsLoading());
   const data = yield call(fetchReq, 'products');
   yield put(addProductsBack(data));
 }
@@ -26,7 +27,7 @@ function* createProduct(action) {
     });
   }
   const data = {...action.payload, image: fileName};
-  const productData = yield call(fetchReq, 'products', {
+  const product = yield call(fetchReq, 'products', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -34,7 +35,6 @@ function* createProduct(action) {
     },
     body: JSON.stringify(data)
   });
-  const product = {...data, id: productData.id, sellerType: productData.sellerType};
   yield put(addProduct(product));
   yield put(addUserProduct(product));
 }

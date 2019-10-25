@@ -1,15 +1,6 @@
-const getTab = state => state.user.tab;
-const getIsOpenWindow = state => state.user.isOpenWindow;
-const getSignInError = state => state.user.signInError;
-const getSignUpError = state => state.user.signUpError;
-const getUserId = state => state.user.id;
-const getUserProducts = state => state.user.products;
-
-export {
-  getTab,
-  getSignInError,
-  getIsOpenWindow,
-  getSignUpError,
-  getUserId,
-  getUserProducts
-};
+export const getTab = state => state.user.tab;
+export const getIsOpenWindow = state => state.user.isOpenWindow;
+export const getSignInError = state => state.user.signInError;
+export const getSignUpError = state => state.user.signUpError;
+export const getUserId = state => state.user.id;
+export const getUserProducts = state => state.user.products;

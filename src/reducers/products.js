@@ -1,12 +1,18 @@
 import {
-  ADD_PRODUCTS, CHANGE_PRODUCTS, CHANGE_CATEGORY_FILTER, ADD_PRODUCT, DELETE_PRODUCT
+  ADD_PRODUCTS,
+  CHANGE_PRODUCTS,
+  CHANGE_CATEGORY_FILTER,
+  ADD_PRODUCT,
+  DELETE_PRODUCT,
+  ADD_PRODUCTS_LOADING
 } from '../actions/products';
 
 const initialState = {
   categoryFilter: '',
   productsByCategory: [],
   products: [],
-  allProducts: []
+  allProducts: [],
+  isLoading: false
 };
 
 export default (state = initialState, action) => {
@@ -21,7 +27,13 @@ export default (state = initialState, action) => {
         ...state,
         allProducts: action.payload,
         productsByCategory: action.payload,
-        products: action.payload
+        products: action.payload,
+        isLoading: false
+      };
+    case ADD_PRODUCTS_LOADING:
+      return {
+        ...state,
+        isLoading: true
       };
     case ADD_PRODUCT:
       return {
