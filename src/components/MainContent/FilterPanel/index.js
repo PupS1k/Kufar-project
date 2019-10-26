@@ -6,9 +6,7 @@ import PriceFilter from './PriceFilter';
 import SwitchList from '../../SwitchList';
 import CheckboxList from '../../CheckboxList';
 import Button from '../../Button';
-import {
-  locations, stateFilter, sellerFilter, checkboxFilter
-} from '../../../constants';
+import {locations, checkboxFilter} from '../../../constants';
 import {applyFilters, location} from '../../../utils';
 import {getProductsByCategory} from '../../../selectors/products';
 import {changeProducts, changeCategoriesFilter} from '../../../actions/products';
@@ -26,7 +24,12 @@ class FilterPanel extends PureComponent {
     fashionableSummer: false,
     installmentHalva: false,
     isExchange: false,
-    products: []
+    stateFilters: [{name: 'Любое', checked: true},
+      {name: 'Новое', checked: false}, {name: 'Б/у', checked: false}],
+    sellerFilters: [{name: 'Любой', checked: true},
+      {name: 'Частное лицо', checked: false}, {name: 'Компания', checked: false}],
+    products: [],
+    isReset: false
   };
 
   componentDidMount() {
@@ -37,30 +40,54 @@ class FilterPanel extends PureComponent {
     if (prevState.products === this.state.products) {
       const {products} = this.props;
       if (products) {
-        const correctProducts = products
-          .filter(product => applyFilters({
-            location: location(this.state.region, this.state.city),
-            priceFrom: this.state.priceFrom,
-            priceTo: this.state.priceTo,
-            stateProduct: this.state.stateProduct,
-            seller: this.state.seller,
-            isWithPhoto: this.state.isWithPhoto,
-            fashionableSummer: this.state.fashionableSummer,
-            installmentHalva: this.state.installmentHalva,
-            isExchange: this.state.isExchange
-          },
-          product));
-        this.handleProducts(correctProducts);
+        const correctProducts = this.handleChangeProducts();
+        if (this.state.isReset) {
+          window.scrollTo(0, 0);
+          this.props.changeProducts(correctProducts);
+          this.setState({isReset: false})
+        }
+        this.setState({products: correctProducts});
       }
     }
   }
+
+  handleChangeProducts = () => this.props.products
+    .filter(product => applyFilters({
+      location: location(this.state.region, this.state.city),
+      priceFrom: this.state.priceFrom,
+      priceTo: this.state.priceTo,
+      stateProduct: this.state.stateProduct,
+      seller: this.state.seller,
+      isWithPhoto: this.state.isWithPhoto,
+      fashionableSummer: this.state.fashionableSummer,
+      installmentHalva: this.state.installmentHalva,
+      isExchange: this.state.isExchange
+    },
+    product));
+
 
   handleApplyFilters = () => {
     window.scrollTo(0, 0);
     this.props.changeProducts(this.state.products);
   };
 
-  handleProducts = value => this.setState({products: value});
+  handleResetFilters = () =>
+    this.setState({
+      isWithPhoto: false,
+      fashionableSummer: false,
+      installmentHalva: false,
+      isExchange: false,
+      stateFilters: [{name: 'Любое', checked: true},
+        {name: 'Новое', checked: false}, {name: 'Б/у', checked: false}],
+      sellerFilters: [{name: 'Любой', checked: true},
+        {name: 'Частное лицо', checked: false}, {name: 'Компания', checked: false}],
+      priceFrom: '',
+      priceTo: '',
+      stateProduct: 'Любое',
+      seller: 'Любой',
+      isReset: true
+    });
+
 
   handleRegion = value => this.setState({region: value});
 
@@ -86,8 +113,8 @@ class FilterPanel extends PureComponent {
 
   render() {
     const {
-      products, priceTo, priceFrom, fashionableSummer,
-      isExchange, installmentHalva, isWithPhoto
+      products, priceTo, priceFrom, fashionableSummer, sellerFilters,
+      isExchange, installmentHalva, isWithPhoto, stateFilters
     } = this.state;
     const cities = locations.find(location => location.region === this.state.region);
     return (
@@ -119,14 +146,14 @@ class FilterPanel extends PureComponent {
             headline="Состояние"
             classNameFilter="state-filter"
             nameRadioBtn="state"
-            filters={stateFilter}
+            filters={stateFilters}
             handleSwitchFilter={this.handleStateProduct}
           />
           <SwitchList
             headline="ПРОДАВЕЦ"
             classNameFilter="seller-filter"
             nameRadioBtn="seller"
-            filters={sellerFilter}
+            filters={sellerFilters}
             handleSwitchFilter={this.handleSeller}
           />
           <CheckboxList
@@ -155,6 +182,7 @@ class FilterPanel extends PureComponent {
           <Button
             mode="default"
             className="btn_reset-filters"
+            onClick={this.handleResetFilters}
             label="Сбросить фильтры"
             labelSize="large"
           />

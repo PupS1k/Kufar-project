@@ -70,9 +70,6 @@ export const locations = [
 export const stateFilter = [{name: 'Любое', checked: true},
   {name: 'Новое', checked: false}, {name: 'Б/у', checked: false}];
 
-export const sellerFilter = [{name: 'Любой', checked: true},
-  {name: 'Частное лицо', checked: false}, {name: 'Компания', checked: false}];
-
 export const checkboxFilter = [{name: 'Модное лето'}, {name: 'Рассорчка по халве'},
   {name: 'Только с фото'}, {name: 'Возможен обмен'}];
 
