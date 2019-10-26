@@ -3,11 +3,36 @@ import {connect} from 'react-redux';
 import Button from '../Button';
 import IconButton from '../IconButton';
 import {getAllProducts} from '../../selectors/products';
+import {addProductsBack} from '../../actions/products';
 import switches from '../../images/switch.png';
 import squares from '../../images/square4.png';
 
 class MainContentBar extends PureComponent {
 
+  state = {
+    sortValue: 'По дате'
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    const {sortValue} = this.state;
+    if(prevState.sortValue !== sortValue){
+      const {products, addProductsBack} = this.props;
+      switch(sortValue){
+        case 'По дате':
+          addProductsBack(products
+            .sort((first, second) => first.createDate > second.createDate ? 1 : -1));
+          break;
+        case 'По цене ↑':
+          addProductsBack(products.sort((first, second) => first.price > second.price ? 1 : -1));
+          break;
+        case 'По цене ↓':
+          addProductsBack(products.sort((first, second) => first.price > second.price ? -1 : 1));
+          break;
+      }
+    }
+  }
+
+  handleSortProducts = event => this.setState({sortValue: event.currentTarget.value});
 
   render(){
     const {products} = this.props;
@@ -18,7 +43,7 @@ class MainContentBar extends PureComponent {
           <p className="main-content-bar__txt count-product">Объявлений: {products.length}</p>
         </div>
         <div className="sortings-container">
-          <select className="select-sortings">
+          <select className="select-sortings" onChange={this.handleSortProducts}>
             <option>По дате</option>
             <option>По цене ↑</option>
             <option>По цене ↓</option>
@@ -54,4 +79,4 @@ const mapStateToProps = state => ({
   products: getAllProducts(state)
 });
 
-export default connect(mapStateToProps)(MainContentBar);
+export default connect(mapStateToProps, {addProductsBack})(MainContentBar);

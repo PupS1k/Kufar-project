@@ -25,7 +25,7 @@ span{
     white-space: normal;
 }
 
-button, a, .icon-checkbox-btn, .icon-radio-btn, label {
+button, a, .icon-checkbox-btn, .icon-radio-btn, label, select, option {
     cursor: pointer;
 }
 
