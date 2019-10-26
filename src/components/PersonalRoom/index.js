@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import Pagination from '../MainContent/Pagination';
-import ProductCard from '../MainContent/ProductList/ProductCard';
+import ProductCardLine from '../ProductCardLine';
 import {getUserProducts} from '../../selectors/user';
 import {deleteUserProductAsync} from '../../actions/user';
 import {guid} from '../../utils';
@@ -21,7 +21,7 @@ class PersonalArea extends PureComponent {
               </div>
             )
             : products.map(product => (
-              <ProductCard
+              <ProductCardLine
                 key={guid()}
                 product={product}
                 path={history.location.pathname}
