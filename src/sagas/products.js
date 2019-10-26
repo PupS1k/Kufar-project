@@ -17,7 +17,7 @@ function* createProduct(action) {
   const token = JSON.parse(localStorage.getItem('Authorization'));
   let fileName = '';
   if (action.payload.image) {
-    const urlImage = `products/image/${guid()}`;
+    const urlImage = `images/${guid()}`;
     fileName = yield call(fetchReq, urlImage, {
       method: 'POST',
       headers: {
