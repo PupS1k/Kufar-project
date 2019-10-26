@@ -1,16 +1,17 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import ProductCard from './ProductCard';
-import {getIsLoading, getProducts} from '../../../selectors/products';
+import {getIsLineDisplay, getIsLoading, getProducts} from '../../../selectors/products';
 import {guid} from '../../../utils';
 import spinner from '../../../images/spinner.gif';
 import './style.css';
+import ProductCardSquare from '../../ProductCardSquare';
+import ProductCardLine from '../../ProductCardLine';
 
 class ProductList extends PureComponent {
   render() {
-    const {products, isLoading} = this.props;
+    const {products, isLoading, isLineDisplay} = this.props;
     return (
-      <div className="product-list">
+      <div className={isLineDisplay ? "product-list-lines" : "product-list-squares"}>
         {isLoading ? <img className="spinner" src={spinner} alt="Spinner"/>
           : products.length === 0
             ? (
@@ -20,10 +21,14 @@ class ProductList extends PureComponent {
             )
 
             : products.map(product => (
-              <ProductCard
+              isLineDisplay ? <ProductCardLine
                 key={guid()}
                 product={product}
               />
+              : <ProductCardSquare
+                  key={guid()}
+                  product={product}
+                />
             ))
         }
       </div>
@@ -32,7 +37,8 @@ class ProductList extends PureComponent {
 }
 const mapStateToProps = state => ({
   products: getProducts(state),
-  isLoading: getIsLoading(state)
+  isLoading: getIsLoading(state),
+  isLineDisplay: getIsLineDisplay(state)
 });
 
 export default connect(mapStateToProps)(ProductList);

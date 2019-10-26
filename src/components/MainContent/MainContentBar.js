@@ -2,9 +2,10 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import Button from '../Button';
 import IconButton from '../IconButton';
-import {getAllProducts} from '../../selectors/products';
-import {addProductsBack} from '../../actions/products';
+import {getAllProducts, getIsLineDisplay} from '../../selectors/products';
+import {addProductsBack, changeDisplayProducts} from '../../actions/products';
 import switches from '../../images/switch.png';
+import linesInterface from '../../images/linesInterface.png';
 import squares from '../../images/square4.png';
 
 class MainContentBar extends PureComponent {
@@ -35,7 +36,7 @@ class MainContentBar extends PureComponent {
   handleSortProducts = event => this.setState({sortValue: event.currentTarget.value});
 
   render(){
-    const {products} = this.props;
+    const {products, isLineDisplay, changeDisplayProducts} = this.props;
     return(
       <div className="main-content-bar">
         <div className="cup-of-mainpage__text">
@@ -60,14 +61,28 @@ class MainContentBar extends PureComponent {
                 alt: 'Switch'
               }}
             />
-            <IconButton
-              className="switch-display__btn"
-              image={{
-                iconSize: 'medium',
-                icon: squares,
-                alt: 'Square'
-              }}
-            />
+            {isLineDisplay ?
+              <IconButton
+                onClick={changeDisplayProducts}
+                className="switch-display__btn"
+                image={{
+                  iconSize: 'medium',
+                  icon: linesInterface,
+                  alt: 'Lines interface'
+                }}
+              />
+              :
+              <IconButton
+                onClick={changeDisplayProducts}
+                className="switch-display__btn"
+                image={{
+                  iconSize: 'medium',
+                  icon: squares,
+                  alt: 'Square'
+                }}
+              />
+            }
+
           </div>
         </div>
       </div>
@@ -76,7 +91,8 @@ class MainContentBar extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  products: getAllProducts(state)
+  products: getAllProducts(state),
+  isLineDisplay: getIsLineDisplay(state)
 });
 
-export default connect(mapStateToProps, {addProductsBack})(MainContentBar);
+export default connect(mapStateToProps, {addProductsBack, changeDisplayProducts})(MainContentBar);

@@ -6,7 +6,11 @@ export const GET_PRODUCTS_ASYNC = 'GET_PRODUCTS_ASYNC';
 export const CREATE_PRODUCT_ASYNC = 'CREATE_PRODUCT_ASYNC';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+export const CHANGE_DISPLAY_PRODUCTS = 'CHANGE_DISPLAY_PRODUCTS';
 
+export const changeDisplayProducts = () => ({
+  type: CHANGE_DISPLAY_PRODUCTS
+});
 export const addProductsLoading = () => ({
   type: ADD_PRODUCTS_LOADING
 });

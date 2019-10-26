@@ -4,7 +4,7 @@ import {
   CHANGE_CATEGORY_FILTER,
   ADD_PRODUCT,
   DELETE_PRODUCT,
-  ADD_PRODUCTS_LOADING
+  ADD_PRODUCTS_LOADING, CHANGE_DISPLAY_PRODUCTS
 } from '../actions/products';
 
 const initialState = {
@@ -12,11 +12,17 @@ const initialState = {
   productsByCategory: [],
   products: [],
   allProducts: [],
-  isLoading: false
+  isLoading: false,
+  isLineDisplay: true
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case CHANGE_DISPLAY_PRODUCTS:
+      return {
+        ...state,
+        isLineDisplay: !state.isLineDisplay
+      };
     case CHANGE_PRODUCTS:
       return {
         ...state,
