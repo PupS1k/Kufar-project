@@ -19,14 +19,14 @@ class MainContentBar extends PureComponent {
       const {products, addProductsBack} = this.props;
       switch(sortValue){
         case 'По дате':
-          addProductsBack(products
+          addProductsBack([...products]
             .sort((first, second) => first.createDate > second.createDate ? 1 : -1));
           break;
         case 'По цене ↑':
-          addProductsBack(products.sort((first, second) => first.price > second.price ? 1 : -1));
+          addProductsBack([...products].sort((first, second) => first.price > second.price ? 1 : -1));
           break;
         case 'По цене ↓':
-          addProductsBack(products.sort((first, second) => first.price > second.price ? -1 : 1));
+          addProductsBack([...products].sort((first, second) => first.price > second.price ? -1 : 1));
           break;
       }
     }
