@@ -1,44 +1,57 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
 import Button from '../Button';
 import IconButton from '../IconButton';
+import {getAllProducts} from '../../selectors/products';
 import switches from '../../images/switch.png';
 import squares from '../../images/square4.png';
 
-const MainContentBar = () => (
-  <div className="main-content-bar">
-    <div className="cup-of-mainpage__text">
-      <p className="main-content-bar__txt headline">Kufar - площадка объявлений в Беларуси</p>
-      <p className="main-content-bar__txt count-product">Объявлений: 2071428</p>
-    </div>
-    <div className="sortings-container">
-      <select className="select-sortings">
-        <option>По дате</option>
-        <option>По цене ↑</option>
-        <option>По цене ↓</option>
-      </select>
-      <div className="switches-display">
-        <Button
-          mode="secondary_green"
-          className="btn_show-filters"
-          label="Фильтры"
-          labelSize="large"
-          image={{
-            iconSize: 'medium',
-            icon: switches,
-            alt: 'Switch'
-          }}
-        />
-        <IconButton
-          className="switch-display__btn"
-          image={{
-            iconSize: 'medium',
-            icon: squares,
-            alt: 'Square'
-          }}
-        />
-      </div>
-    </div>
-  </div>
-);
+class MainContentBar extends PureComponent {
 
-export default MainContentBar;
+
+  render(){
+    const {products} = this.props;
+    return(
+      <div className="main-content-bar">
+        <div className="cup-of-mainpage__text">
+          <p className="main-content-bar__txt headline">Kufar - площадка объявлений в Беларуси</p>
+          <p className="main-content-bar__txt count-product">Объявлений: {products.length}</p>
+        </div>
+        <div className="sortings-container">
+          <select className="select-sortings">
+            <option>По дате</option>
+            <option>По цене ↑</option>
+            <option>По цене ↓</option>
+          </select>
+          <div className="switches-display">
+            <Button
+              mode="secondary_green"
+              className="btn_show-filters"
+              label="Фильтры"
+              labelSize="large"
+              image={{
+                iconSize: 'medium',
+                icon: switches,
+                alt: 'Switch'
+              }}
+            />
+            <IconButton
+              className="switch-display__btn"
+              image={{
+                iconSize: 'medium',
+                icon: squares,
+                alt: 'Square'
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = state => ({
+  products: getAllProducts(state)
+});
+
+export default connect(mapStateToProps)(MainContentBar);
