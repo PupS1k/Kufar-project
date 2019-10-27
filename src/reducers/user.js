@@ -10,12 +10,10 @@ import {
   TOGGLE_IS_REGISTRATION,
   ADD_USER_PRODUCTS,
   ADD_USER_PRODUCT,
-  DELETE_USER_PRODUCT
+  DELETE_USER_PRODUCT, SIGN_IN_ERROR_CLEAR, SIGN_UP_ERROR_CLEAR
 } from '../actions/user';
 
 const initialState = {
-  tab: true,
-  isRegistration: false,
   id: '',
   mail: '',
   products: [],
@@ -49,6 +47,11 @@ export default (state = initialState, action) => {
         ...state,
         signInError: action.payload,
       };
+    case SIGN_IN_ERROR_CLEAR:
+      return {
+        ...state,
+        signInError: '',
+      };
     case SIGN_UP_LOADING:
       return {
         ...state,
@@ -66,17 +69,10 @@ export default (state = initialState, action) => {
         ...state,
         signUpError: action.payload,
       };
-    case TOGGLE_TAB:
+    case SIGN_UP_ERROR_CLEAR:
       return {
         ...state,
-        tab: action.payload,
         signUpError: '',
-        signInError: ''
-      };
-    case TOGGLE_IS_REGISTRATION:
-      return {
-        ...state,
-        isRegistration: !state.isRegistration
       };
     case ADD_USER_PRODUCTS:
       return {

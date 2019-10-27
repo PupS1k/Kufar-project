@@ -1,5 +1,7 @@
 import React, {PureComponent} from 'react';
 import classNames from 'classnames';
+import {connect} from 'react-redux';
+import {signInErrorClear, signUpErrorClear} from '../../actions/user';
 import AuthorizationForm from './Authorization';
 import RegistrationForm from './Registration';
 import Button from '../Button';
@@ -10,9 +12,15 @@ class Auth extends PureComponent {
     tab: true
   };
 
-  handleTabLogin = () => this.setState({tab: true});
+  handleTabLogin = () => {
+    this.props.signUpErrorClear();
+    this.setState({tab: true});
+  };
 
-  handleTabRegistration = () =>  this.setState({tab: false});
+  handleTabRegistration = () => {
+    this.props.signInErrorClear();
+    this.setState({tab: false});
+  };
 
   render() {
     const {tab} = this.state;
@@ -42,4 +50,4 @@ class Auth extends PureComponent {
   }
 }
 
-export default Auth;
+export default connect(null, {signInErrorClear, signUpErrorClear})(Auth);
