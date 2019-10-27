@@ -8,11 +8,14 @@ import CheckboxList from '../CheckboxList';
 import Button from '../Button';
 import {locations, checkboxFilter} from '../../constants';
 import {applyFilters, location} from '../../utils';
-import {getProductsByCategory} from '../../selectors/products';
+import {getCategory, getProductsByCategory} from '../../selectors/products';
 import {changeProducts, changeCategoriesFilter} from '../../actions/products';
+import {Context} from '../Context';
 import './style.css';
 
 class FilterPanel extends PureComponent {
+  static contextType = Context;
+
   state = {
     region: 'Область',
     city: 'Любой',
@@ -28,7 +31,7 @@ class FilterPanel extends PureComponent {
       {name: 'Новое', checked: false}, {name: 'Б/у', checked: false}],
     sellerFilters: [{name: 'Любой', checked: true},
       {name: 'Частное лицо', checked: false}, {name: 'Компания', checked: false}],
-    products: [],
+    products: this.props.products,
     isReset: false
   };
 
@@ -69,6 +72,7 @@ class FilterPanel extends PureComponent {
   handleApplyFilters = () => {
     window.scrollTo(0, 0);
     this.props.changeProducts(this.state.products);
+    if(this.props.className !== 'filter-panel') this.context();
   };
 
   handleResetFilters = () =>
@@ -118,8 +122,11 @@ class FilterPanel extends PureComponent {
     } = this.state;
     const cities = locations.find(location => location.region === this.state.region);
     return (
-      <div className="filter-panel">
-        <CategoryFilter handleCategoryFilter={this.props.changeCategoriesFilter} />
+      <div className={this.props.className}>
+        {
+          this.props.className === 'filter-panel' &&
+          <CategoryFilter handleCategoryFilter={this.props.changeCategoriesFilter}/>
+        }
         <div className="other-filters-container">
           <SelectField
             id="select-region"
@@ -199,7 +206,8 @@ class FilterPanel extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  products: getProductsByCategory(state)
+  products: getProductsByCategory(state),
+  category: getCategory(state)
 });
 
 

@@ -9,7 +9,7 @@
     flex-wrap: wrap;
     align-content: flex-start;
     justify-items: center;
-    width: auto;
+    width: 100%;
     margin-left: 10px;
 }
 .spinner{

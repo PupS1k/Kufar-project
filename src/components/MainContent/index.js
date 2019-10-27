@@ -9,7 +9,7 @@ const MainContent = () => (
   <div className="main-content">
     <MainContentBar />
     <div className="main-content-body">
-      <FilterPanel />
+      <FilterPanel className="filter-panel"/>
       <ProductList />
     </div>
     <Pagination />

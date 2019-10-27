@@ -2,46 +2,52 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import Button from '../Button';
 import IconButton from '../IconButton';
-import {getAllProducts, getIsLineDisplay} from '../../selectors/products';
-import {addProductsBack, changeDisplayProducts} from '../../actions/products';
+import {getAllProducts, getIsLineDisplay, getProducts} from '../../selectors/products';
+import {changeProducts, changeDisplayProducts} from '../../actions/products';
 import switches from '../../images/switch.png';
 import linesInterface from '../../images/linesInterface.png';
 import squares from '../../images/square4.png';
+import ModalWindow from '../ModalWindow';
+import FilterPanel from '../FilterPanel';
 
 class MainContentBar extends PureComponent {
 
   state = {
-    sortValue: 'По дате'
+    sortValue: 'По дате',
+    isOpenFilters: false
   };
 
   componentDidUpdate(prevProps, prevState) {
     const {sortValue} = this.state;
     if(prevState.sortValue !== sortValue){
-      const {products, addProductsBack} = this.props;
+      const {products, changeProducts} = this.props;
       switch(sortValue){
         case 'По дате':
-          addProductsBack([...products]
+          changeProducts([...products]
             .sort((first, second) => first.createDate > second.createDate ? 1 : -1));
           break;
         case 'По цене ↑':
-          addProductsBack([...products].sort((first, second) => first.price > second.price ? 1 : -1));
+          changeProducts([...products].sort((first, second) => first.price > second.price ? 1 : -1));
           break;
         case 'По цене ↓':
-          addProductsBack([...products].sort((first, second) => first.price > second.price ? -1 : 1));
+          changeProducts([...products].sort((first, second) => first.price > second.price ? -1 : 1));
           break;
       }
     }
   }
 
+  toggleIsOpenFilters = () => this.setState(({isOpenFilters}) => ({isOpenFilters: !isOpenFilters}));
+
   handleSortProducts = event => this.setState({sortValue: event.currentTarget.value});
 
   render(){
-    const {products, isLineDisplay, changeDisplayProducts} = this.props;
+    const {allProducts, isLineDisplay, changeDisplayProducts} = this.props;
+    const {isOpenFilters} = this.state;
     return(
       <div className="main-content-bar">
         <div className="cup-of-mainpage__text">
           <p className="main-content-bar__txt headline">Kufar - площадка объявлений в Беларуси</p>
-          <p className="main-content-bar__txt count-product">Объявлений: {products.length}</p>
+          <p className="main-content-bar__txt count-product">Объявлений: {allProducts.length}</p>
         </div>
         <div className="sortings-container">
           <select className="select-sortings" onChange={this.handleSortProducts}>
@@ -52,6 +58,7 @@ class MainContentBar extends PureComponent {
           <div className="switches-display">
             <Button
               mode="secondary_green"
+              onClick={this.toggleIsOpenFilters}
               className="btn_show-filters"
               label="Фильтры"
               labelSize="large"
@@ -85,14 +92,20 @@ class MainContentBar extends PureComponent {
 
           </div>
         </div>
+        {isOpenFilters &&
+          <ModalWindow toggleIsOpenModal={this.toggleIsOpenFilters}>
+            <FilterPanel className="filter-panel-modal" />
+          </ModalWindow>
+        }
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  products: getAllProducts(state),
-  isLineDisplay: getIsLineDisplay(state)
+  allProducts: getAllProducts(state),
+  isLineDisplay: getIsLineDisplay(state),
+  products: getProducts(state)
 });
 
-export default connect(mapStateToProps, {addProductsBack, changeDisplayProducts})(MainContentBar);
+export default connect(mapStateToProps, {changeProducts, changeDisplayProducts})(MainContentBar);
