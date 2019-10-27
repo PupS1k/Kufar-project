@@ -65,7 +65,6 @@ function* signInAsync(action) {
   }catch (err) {
     yield put(signInError(err.message));
   }
-
 }
 
 function* deleteProductAsync(action) {
