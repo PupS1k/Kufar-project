@@ -1,20 +1,21 @@
 import React, {PureComponent} from 'react';
-import {connect} from 'react-redux';
 import classNames from 'classnames';
 import AuthorizationForm from './Authorization';
 import RegistrationForm from './Registration';
-import {getTab} from '../../selectors/user';
-import {toggleTab} from '../../actions/user';
 import Button from '../Button';
 import './style.css';
 
 class Auth extends PureComponent {
-  handleTabLogin = () => this.props.toggleTab(true);
+  state = {
+    tab: true
+  };
 
-  handleTabRegistration = () => this.props.toggleTab(false);
+  handleTabLogin = () => this.setState({tab: true});
+
+  handleTabRegistration = () =>  this.setState({tab: false});
 
   render() {
-    const {tab} = this.props;
+    const {tab} = this.state;
     return (
       <div>
         <div className="auth-tabs">
@@ -26,7 +27,7 @@ class Auth extends PureComponent {
             mode="default"
           />
           <Button
-            className={`tab${tab ? '' : ' tab-selected'}`}
+            className={classNames('tab', {'tab-selected': !tab})}
             onClick={this.handleTabRegistration}
             label="Регистрация"
             labelSize="large"
@@ -40,8 +41,5 @@ class Auth extends PureComponent {
     );
   }
 }
-const mapStateToProps = state => ({
-  tab: getTab(state)
-});
 
-export default connect(mapStateToProps, {toggleTab})(Auth);
+export default Auth;
