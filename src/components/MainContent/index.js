@@ -2,7 +2,6 @@ import React from 'react';
 import FilterPanel from '../FilterPanel';
 import ProductList from '../ProductList';
 import MainContentBar from './MainContentBar';
-import Pagination from './Pagination';
 import './style.css';
 
 const MainContent = () => (
@@ -12,7 +11,6 @@ const MainContent = () => (
       <FilterPanel className="filter-panel"/>
       <ProductList />
     </div>
-    <Pagination />
   </div>
 );
 

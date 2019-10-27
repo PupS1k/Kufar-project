@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import Pagination from '../MainContent/Pagination';
 import ProductCardLine from '../ProductCardLine';
 import {getUserProducts} from '../../selectors/user';
 import {deleteUserProductAsync} from '../../actions/user';
@@ -29,7 +28,6 @@ class PersonalArea extends PureComponent {
               />
             ))
           }
-          <Pagination />
         </div>
       </div>
     );
