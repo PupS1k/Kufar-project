@@ -31,7 +31,7 @@ const Footer = () => (
     </p>
     <div className="bot-part-of-foot">
       <LinksApp links={linksApp} />
-      <SocialLinks images={socialLinks} />
+      <SocialLinks links={socialLinks} />
     </div>
   </footer>
 );

@@ -5,12 +5,12 @@ import {
   getIsLoading,
   getProducts,
   getSearchValue
-} from '../../../selectors/products';
-import {guid} from '../../../utils';
-import spinner from '../../../images/spinner.gif';
+} from '../../selectors/products';
+import {guid} from '../../utils';
+import spinner from '../../images/spinner.gif';
 import './style.css';
-import ProductCardSquare from '../../ProductCardSquare';
-import ProductCardLine from '../../ProductCardLine';
+import ProductCardSquare from '../ProductCardSquare';
+import ProductCardLine from '../ProductCardLine';
 
 class ProductList extends PureComponent {
   render() {

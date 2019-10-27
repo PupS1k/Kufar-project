@@ -24,34 +24,42 @@ export const additionalLinks = [
   {text: 'Выбрать регион'}
 ];
 export const linksApp = [{
+  href: 'https://apps.apple.com/by/app/kufar-besplatnye-ob-avlenia/id1149312972',
   image: apple,
   text: 'Приложение Kufar в App Store'
 }, {
+  href: 'https://play.google.com/store/apps/details?id=se.scmv.belarus',
   image: googlePlay,
   text: 'Приложение Kufar в Google Play'
 }];
 export const socialLinks = [
   {
+    href: 'https://t.me/spasiboKufar',
     icon: telegram,
     alt: 'Telegram'
   },
   {
+    href: 'https://vk.com/kufar.official',
     icon: vk,
     alt: 'Vk'
   },
   {
+    href: 'https://www.facebook.com/kufar.official/?fref=ts',
     icon: facebook,
     alt: 'Facebook'
   },
   {
+    href: 'https://www.instagram.com/kufar.official/',
     icon: instagram,
     alt: 'Instagram'
   },
   {
+    href: 'https://www.youtube.com/channel/UCSc8YunZJe-wkf5rQ3P4cXA',
     icon: youtube,
     alt: 'Youtube'
   },
   {
+    href: 'https://ok.ru/kufar.by',
     icon: odnoklassniki,
     alt: 'Odnoklassniki'
   }

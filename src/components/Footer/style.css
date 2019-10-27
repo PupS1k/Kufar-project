@@ -64,6 +64,7 @@ footer{
     color: white;
     height: 40px;
     margin: 10px 10px;
+    text-decoration: none;
 }
 .link-app__text{
     width: 120px;
@@ -71,6 +72,9 @@ footer{
 }
 .links-social-network{
     display: flex;
+}
+.links-social-network > * {
+    margin: 0 2px;
 }
 
 @media screen and (max-width: 768px)  {
