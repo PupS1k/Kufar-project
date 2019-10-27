@@ -2,7 +2,6 @@ import {
   put, call, takeEvery, all
 } from 'redux-saga/effects';
 import {
-  toggleIsOpenModel,
   signInSuccess,
   signUpSuccess,
   signUpError,
@@ -35,7 +34,7 @@ function* signUpAsync(action) {
     saveToken(data.token);
 
     yield put(signUpSuccess(data.mail, data.id));
-    yield put(toggleIsOpenModel());
+    action.handleModalClose();
   }catch (err) {
     yield put(signUpError(err.message));
   }
@@ -57,12 +56,12 @@ function* signInAsync(action) {
     saveToken(data.token);
 
     yield put(signInSuccess(data.mail, data.id));
-    yield put(toggleIsOpenModel());
 
     const products = yield call(fetchReq, `products/user/${data.id}`, {
       headers: {Authorization: `Bearer ${data.token}`}
     });
     yield put(addUserProducts(products));
+    action.handleModalClose();
   }catch (err) {
     yield put(signInError(err.message));
   }

@@ -6,8 +6,11 @@ import RegistrView from './RegistrView';
 import {
   isVerificationPassword, isRequired, minLength, mailCorrect
 } from '../../validation';
+import {Context} from '../../Context';
 
 class RegistrContainer extends Component {
+  static contextType = Context;
+
   state = {
     seller: 'Частное лицо',
     mail: '',
@@ -30,7 +33,7 @@ class RegistrContainer extends Component {
       mail,
       password,
       sellerType: seller
-    });
+    }, this.context);
   };
 
   validateForm = formErrors => this.setState({

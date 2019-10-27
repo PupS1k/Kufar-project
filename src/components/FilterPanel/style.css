@@ -47,7 +47,7 @@
     font-size: 16px;
     outline: none;
     appearance: none;
-    background: url(../../../images/arrow.png) no-repeat 95% center;
+    background: url(../../images/arrow.png) no-repeat 95% center;
 }
 .additional-modes  .icon-label{
     align-items: center;
@@ -103,12 +103,12 @@
 
 .btn_reset-filters{
     width: 305px;
-    background: url(../../../images/plusReset.png) no-repeat 80% center ;
+    background: url(../../images/plusReset.png) no-repeat 80% center ;
     background-size: 15px 15px;
 }
 .btn_save-search{
     width: 305px;
-    background: url(../../../images/like.png) no-repeat 79% center ;
+    background: url(../../images/like.png) no-repeat 79% center ;
     background-size: 35px 32px;
 }
 

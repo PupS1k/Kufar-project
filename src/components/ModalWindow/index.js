@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import IconButton from '../IconButton';
-import Authorization from '../Auth';
 import close from '../../images/plusReset.png';
 import './style.css';
+import ContextProvider from '../Context';
 
 const ModalWindow = props => (
   <div>
@@ -13,7 +13,7 @@ const ModalWindow = props => (
           <div className="modal__close">
             <IconButton
               className="modal__close-button"
-              onClick={props.toggleIsOpenModel}
+              onClick={props.toggleIsOpenModal}
               image={{
                 alt: 'Close',
                 icon: close,
@@ -21,7 +21,9 @@ const ModalWindow = props => (
               }}
             />
           </div>
-          <Authorization />
+          <ContextProvider value={props.toggleIsOpenModal}>
+            {props.children}
+          </ContextProvider>
         </div>
       </div>,
       document.getElementById('portal')

@@ -4,8 +4,11 @@ import AuthView from './AuthView';
 import {signIn} from '../../../actions/user';
 import {getSignInError} from '../../../selectors/user';
 import {isRequired, minLength, mailCorrect} from '../../validation';
+import {Context} from '../../Context';
 
 class AuthContainer extends PureComponent {
+  static contextType = Context;
+
   state = {
     mail: '',
     password: '',
@@ -21,7 +24,7 @@ class AuthContainer extends PureComponent {
   handleSubmit = (event) => {
     event.preventDefault();
     const {mail, password, formValid} = this.state;
-    if(formValid) this.props.signIn({mail, password});
+    if(formValid) this.props.signIn({mail, password}, this.context);
   };
 
   validateForm = formErrors => this.setState({

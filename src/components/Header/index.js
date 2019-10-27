@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import Button from '../Button';
-import {toggleIsOpenModel, logOut} from '../../actions/user';
+import {logOut} from '../../actions/user';
 import logo from '../../images/logo.png';
 import kufar from '../../images/kufar.png';
 import search from '../../images/search.png';
@@ -10,16 +10,21 @@ import locationHeader from '../../images/locationHeader.png';
 import plus from '../../images/plus.png';
 import ModalWindow from '../ModalWindow';
 import IconButton from '../IconButton';
-import {getIsOpenWindow, getUserId} from '../../selectors/user';
+import {getUserId} from '../../selectors/user';
 import human from '../../images/profile.png';
-import './style.css';
 import {changeSearchValue} from '../../actions/products';
+import Auth from '../Auth';
+import './style.css';
+
 
 class Header extends PureComponent {
   state = {
     navUser: false,
-    searchValue: ''
+    searchValue: '',
+    isOpenAuth: false
   };
+
+  toggleIsOpenAuth = () => this.setState(({isOpenAuth}) => ({isOpenAuth: !isOpenAuth}));
 
   handleSearch = event => {
     const {value} = event.currentTarget;
@@ -59,10 +64,8 @@ class Header extends PureComponent {
   };
 
   render() {
-    const {
-      isOpenWindow, toggleIsOpenModel, userId
-    } = this.props;
-    const {navUser, searchValue} = this.state;
+    const {toggleIsOpenModel, userId} = this.props;
+    const {navUser, searchValue, isOpenAuth} = this.state;
     return (
       <header>
         <div className="left-part-of-header">
@@ -136,12 +139,16 @@ class Header extends PureComponent {
                 mode="secondary_green"
                 label="Вход"
                 labelSize="large"
-                onClick={toggleIsOpenModel}
+                onClick={this.toggleIsOpenAuth}
               />
             )
           }
         </div>
-        {isOpenWindow && <ModalWindow toggleIsOpenModel={toggleIsOpenModel} />}
+        {isOpenAuth &&
+          <ModalWindow toggleIsOpenModal={this.toggleIsOpenAuth}>
+              <Auth />
+          </ModalWindow>
+        }
         <div className={navUser ? 'nav-user' : 'nav-user-invisible'}>
           <Button
             mode="default"
@@ -162,10 +169,7 @@ class Header extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  isOpenWindow: getIsOpenWindow(state),
   userId: getUserId(state)
 });
 
-export default withRouter(connect(mapStateToProps, {
-  toggleIsOpenModel, logOut, changeSearchValue
-})(Header));
+export default withRouter(connect(mapStateToProps, {logOut, changeSearchValue})(Header));

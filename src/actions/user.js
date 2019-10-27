@@ -4,7 +4,6 @@ export const SIGN_UP = 'SIGN_UP';
 export const SIGN_UP_ERROR = 'SIGN_UP_ERROR';
 export const SIGN_UP_LOADING = 'SIGN_UP_LOADING';
 export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
-export const TOGGLE_MODEL = 'TOGGLE_MODEL';
 export const SIGN_IN = 'SIGN_IN';
 export const LOG_OUT = 'LOG_OUT';
 export const SIGN_IN_ERROR = 'SIGN_IN_ERROR';
@@ -19,9 +18,10 @@ export const logOut = () => ({
   type: LOG_OUT
 });
 
-export const signIn = value => ({
+export const signIn = (value, handleModalClose) => ({
   type: SIGN_IN,
-  payload: value
+  payload: value,
+  handleModalClose
 });
 
 export const signInError = value => ({
@@ -39,9 +39,10 @@ export const signInSuccess = (mail, id) => ({
   mail
 });
 
-export const signUp = value => ({
+export const signUp = (value, handleModalClose) => ({
   type: SIGN_UP,
-  payload: value
+  payload: value,
+  handleModalClose
 });
 
 export const signUpError = value => ({
@@ -57,10 +58,6 @@ export const signUpSuccess = (mail, id) => ({
   type: SIGN_UP_SUCCESS,
   id,
   mail
-});
-
-export const toggleIsOpenModel = () => ({
-  type: TOGGLE_MODEL
 });
 
 export const toggleTab = value => ({

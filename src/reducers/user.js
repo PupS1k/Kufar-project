@@ -7,7 +7,6 @@ import {
   SIGN_IN_SUCCESS,
   SIGN_UP_LOADING,
   SIGN_UP_SUCCESS,
-  TOGGLE_MODEL,
   TOGGLE_IS_REGISTRATION,
   ADD_USER_PRODUCTS,
   ADD_USER_PRODUCT,
@@ -15,7 +14,6 @@ import {
 } from '../actions/user';
 
 const initialState = {
-  isOpenWindow: false,
   tab: true,
   isRegistration: false,
   id: '',
@@ -74,12 +72,6 @@ export default (state = initialState, action) => {
         tab: action.payload,
         signUpError: '',
         signInError: ''
-      };
-    case TOGGLE_MODEL:
-      return {
-        ...state,
-        isOpenWindow: !state.isOpenWindow,
-        tab: true
       };
     case TOGGLE_IS_REGISTRATION:
       return {

@@ -1,15 +1,15 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import CategoryFilter from './CategoryFilter';
-import SelectField from '../../SelectField';
+import SelectField from '../SelectField';
 import PriceFilter from './PriceFilter';
-import SwitchList from '../../SwitchList';
-import CheckboxList from '../../CheckboxList';
-import Button from '../../Button';
-import {locations, checkboxFilter} from '../../../constants';
-import {applyFilters, location} from '../../../utils';
-import {getProductsByCategory} from '../../../selectors/products';
-import {changeProducts, changeCategoriesFilter} from '../../../actions/products';
+import SwitchList from '../SwitchList';
+import CheckboxList from '../CheckboxList';
+import Button from '../Button';
+import {locations, checkboxFilter} from '../../constants';
+import {applyFilters, location} from '../../utils';
+import {getProductsByCategory} from '../../selectors/products';
+import {changeProducts, changeCategoriesFilter} from '../../actions/products';
 import './style.css';
 
 class FilterPanel extends PureComponent {
