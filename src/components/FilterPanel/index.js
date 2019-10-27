@@ -125,7 +125,7 @@ class FilterPanel extends PureComponent {
       <div className={this.props.className}>
         {
           this.props.className === 'filter-panel' &&
-          <CategoryFilter handleCategoryFilter={this.props.changeCategoriesFilter}/>
+          <CategoryFilter />
         }
         <div className="other-filters-container">
           <SelectField

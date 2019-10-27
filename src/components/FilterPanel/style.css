@@ -21,6 +21,7 @@
 }
 .filter-panel{
     margin: 0 10px;
+    border-top: solid 1px #d3d7da;
 }
 .label-input{
     margin-top: 15px;
@@ -28,14 +29,10 @@
 }
 .category-filter, .additional-modes{
     display: flex;
-    padding: 15px 0;
-    width: 300px;
+    padding-bottom: 5px;
+    width: auto;
     flex-direction: column;
     font-size: 16px;
-}
-.category-filter{
-    border-top: solid 1px #d3d7da;
-    border-bottom: solid 1px #d3d7da;
 }
 .nav-filter{
     padding: 3px 0;

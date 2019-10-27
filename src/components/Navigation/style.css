@@ -43,6 +43,26 @@
 .scroll-panel__btn_right{
     transform: rotate(270deg);
 }
+.dropdown-nav-invisible{
+    display: none;
+}
+.dropdown-nav{
+    top: 125px;
+    left: 5px;
+    z-index: 120;
+    position: absolute;
+    background-color: white;
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 0 auto 0 0;
+}
+.dropdown-nav > div{
+    display: flex;
+    align-items: center;
+    color: #3a3f41;
+    font-size: 20px;
+}
 
 @media screen and (max-width: 1024px){
     .scroll-panel{

@@ -19,7 +19,7 @@ import './style.css';
 
 class Header extends PureComponent {
   state = {
-    navUser: false,
+    isDropdownOpen: false,
     searchValue: '',
     isOpenAuth: false
   };
@@ -33,24 +33,24 @@ class Header extends PureComponent {
   };
 
   handleAddProduct = () => {
-    if (this.state.navUser) this.handleNavUser();
+    if (this.state.isDropdownOpen) this.handleDropdown();
     this.handleAscent();
     this.props.history.push('/addProduct');
   };
 
   handleHome = () => {
-    if (this.state.navUser) this.handleNavUser();
+    if (this.state.isDropdownOpen) this.handleDropdown();
     this.handleAscent();
     this.props.history.push('/');
   };
 
-  handleNavUser = () => {
-    const {navUser} = this.state;
-    this.setState({navUser: !navUser});
+  handleDropdown = () => {
+    const {isDropdownOpen} = this.state;
+    this.setState({isDropdownOpen: !isDropdownOpen});
   };
 
   handleSignOut = () => {
-    this.handleNavUser();
+    this.handleDropdown();
     this.handleHome();
     this.props.logOut();
   };
@@ -58,14 +58,14 @@ class Header extends PureComponent {
   handleAscent = () => window.scrollTo(0, 0);
 
   handlePersonalRoom = () => {
-    this.handleNavUser();
+    this.handleDropdown();
     this.handleAscent();
     this.props.history.push('/personalRoom');
   };
 
   render() {
     const {toggleIsOpenModel, userId} = this.props;
-    const {navUser, searchValue, isOpenAuth} = this.state;
+    const {isDropdownOpen, searchValue, isOpenAuth} = this.state;
     return (
       <header>
         <div className="left-part-of-header">
@@ -125,7 +125,7 @@ class Header extends PureComponent {
           {userId
             ? (
               <IconButton
-                onClick={this.handleNavUser}
+                onClick={this.handleDropdown}
                 image={{
                   icon: human,
                   iconSize: 'large',
@@ -149,7 +149,7 @@ class Header extends PureComponent {
               <Auth />
           </ModalWindow>
         }
-        <div className={navUser ? 'nav-user' : 'nav-user-invisible'}>
+        <div className={isDropdownOpen ? 'dropdown-header' : 'dropdown-header-invisible'}>
           <Button
             mode="default"
             label="Личный кабинет"

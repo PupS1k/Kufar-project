@@ -95,10 +95,10 @@ header{
 .registration-successful p{
     font-size: 20px;
 }
-.nav-user-invisible{
+.dropdown-header-invisible{
     display: none;
 }
-.nav-user{
+.dropdown-header{
     display: flex;
     top: 73px;
     right: 0;
@@ -109,7 +109,7 @@ header{
     max-width: 300px;
     width: 30%;
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 10px;
     margin: 0 auto 0 0;
 }
 

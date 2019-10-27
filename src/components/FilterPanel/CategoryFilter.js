@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
+import {connect} from 'react-redux';
+import {changeCategoriesFilter} from '../../actions/products';
 import {categories} from '../../constants';
-
 
 class CategoryFilter extends Component {
   state = {
@@ -10,7 +11,7 @@ class CategoryFilter extends Component {
 
   handleCategory = (event) => {
     const activeCategory = event.currentTarget.innerHTML;
-    this.props.handleCategoryFilter(activeCategory);
+    this.props.changeCategoriesFilter(activeCategory);
     this.setState({activeCategory});
   };
 
@@ -33,4 +34,4 @@ class CategoryFilter extends Component {
   }
 }
 
-export default CategoryFilter;
+export default connect(null, {changeCategoriesFilter})(CategoryFilter);
