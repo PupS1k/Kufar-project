@@ -67,8 +67,8 @@ class MainContentBar extends PureComponent {
                 className="switch-display__btn"
                 image={{
                   iconSize: 'medium',
-                  icon: linesInterface,
-                  alt: 'Lines interface'
+                  icon: squares,
+                  alt: 'Square'
                 }}
               />
               :
@@ -77,8 +77,8 @@ class MainContentBar extends PureComponent {
                 className="switch-display__btn"
                 image={{
                   iconSize: 'medium',
-                  icon: squares,
-                  alt: 'Square'
+                  icon: linesInterface,
+                  alt: 'Lines interface'
                 }}
               />
             }

@@ -13,10 +13,18 @@ import IconButton from '../IconButton';
 import {getIsOpenWindow, getUserId} from '../../selectors/user';
 import human from '../../images/profile.png';
 import './style.css';
+import {changeSearchValue} from '../../actions/products';
 
 class Header extends PureComponent {
   state = {
-    navUser: false
+    navUser: false,
+    searchValue: ''
+  };
+
+  handleSearch = event => {
+    const {value} = event.currentTarget;
+    this.setState({searchValue: value});
+    this.props.changeSearchValue(value);
   };
 
   handleAddProduct = () => {
@@ -54,7 +62,7 @@ class Header extends PureComponent {
     const {
       isOpenWindow, toggleIsOpenModel, userId
     } = this.props;
-    const {navUser} = this.state;
+    const {navUser, searchValue} = this.state;
     return (
       <header>
         <div className="left-part-of-header">
@@ -66,7 +74,13 @@ class Header extends PureComponent {
             <label htmlFor="search-field" tabIndex="0">
               <img className="search-field__img" src={search} alt="Search" />
             </label>
-            <input id="search-field" type="text" placeholder="Товар, услуга" />
+            <input
+              id="search-field"
+              type="search"
+              onChange={this.handleSearch}
+              placeholder="Товар, услуга"
+              value={searchValue}
+            />
           </div>
           <Button
             className="btn-location"
@@ -152,4 +166,6 @@ const mapStateToProps = state => ({
   userId: getUserId(state)
 });
 
-export default withRouter(connect(mapStateToProps, {toggleIsOpenModel, logOut})(Header));
+export default withRouter(connect(mapStateToProps, {
+  toggleIsOpenModel, logOut, changeSearchValue
+})(Header));
