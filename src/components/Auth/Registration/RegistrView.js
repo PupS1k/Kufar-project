@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../../Button';
 import InputField from '../../InputField';
 
-export default (props) => {
+const RegistView = (props) => {
   const {
     onSubmit,
     handleInput,
@@ -75,4 +75,6 @@ export default (props) => {
       />
     </form>
   );
-}
+};
+
+export default RegistView;

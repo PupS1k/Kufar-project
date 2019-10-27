@@ -26,7 +26,7 @@ class Header extends PureComponent {
 
   toggleIsOpenAuth = () => this.setState(({isOpenAuth}) => ({isOpenAuth: !isOpenAuth}));
 
-  handleSearch = event => {
+  handleSearch = (event) => {
     const {value} = event.currentTarget;
     this.setState({searchValue: value});
     this.props.changeSearchValue(value);
@@ -144,10 +144,12 @@ class Header extends PureComponent {
             )
           }
         </div>
-        {isOpenAuth &&
+        {isOpenAuth
+          && (
           <ModalWindow toggleIsOpenModal={this.toggleIsOpenAuth}>
-              <Auth />
+            <Auth />
           </ModalWindow>
+          )
         }
         <div className={isDropdownOpen ? 'dropdown-header' : 'dropdown-header-invisible'}>
           <Button

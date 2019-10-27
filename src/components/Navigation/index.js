@@ -4,19 +4,16 @@ import IconButton from '../IconButton';
 import lines from '../../images/lines.png';
 import shirt from '../../images/shirt.png';
 import arrow from '../../images/arrow.png';
-import './style.css';
 import CategoryFilter from '../FilterPanel/CategoryFilter';
-
-const navBtn = ['Техника с доставкой', 'Телефоны', 'Недвижимость', 'Легковые авто', 'Велосипеды',
-  'Работа', 'Платья', 'Строительный инструмент', 'Садовая техника', 'Запчасти,расходники',
-  'Коляски', 'Диваны', 'Холодильники'];
+import {navBtn} from '../../constants';
+import './style.css';
 
 class Navigation extends PureComponent {
   state = {
     isDropdownOpen: false
   };
 
-  handleDropdown = () => this.setState( ({isDropdownOpen}) => ({isDropdownOpen: !isDropdownOpen}));
+  handleDropdown = () => this.setState(({isDropdownOpen}) => ({isDropdownOpen: !isDropdownOpen}));
 
   render() {
     const {isDropdownOpen} = this.state;
@@ -36,7 +33,7 @@ class Navigation extends PureComponent {
           }}
         />
         <div className={isDropdownOpen ? 'dropdown-nav' : 'dropdown-nav-invisible'}>
-          <CategoryFilter handleCategoryFilter={this.props.changeCategoriesFilter}/>
+          <CategoryFilter handleCategoryFilter={this.props.changeCategoriesFilter} />
         </div>
         <div className="scroll-panel-nav">
           <Button
@@ -79,7 +76,7 @@ class Navigation extends PureComponent {
           />
         </div>
       </nav>
-    )
+    );
   }
 }
 

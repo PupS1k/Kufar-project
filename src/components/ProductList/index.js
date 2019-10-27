@@ -14,10 +14,12 @@ import ProductCardLine from '../ProductCardLine';
 
 class ProductList extends PureComponent {
   render() {
-    const {products, isLoading, isLineDisplay, searchValue} = this.props;
+    const {
+      products, isLoading, isLineDisplay, searchValue
+    } = this.props;
     return (
-      <div className={isLineDisplay ? "product-list-lines" : "product-list-squares"}>
-        {isLoading ? <img className="spinner" src={spinner} alt="Spinner"/>
+      <div className={isLineDisplay ? 'product-list-lines' : 'product-list-squares'}>
+        {isLoading ? <img className="spinner" src={spinner} alt="Spinner" />
           : products.length === 0
             ? (
               <div className="no-products">
@@ -25,18 +27,23 @@ class ProductList extends PureComponent {
               </div>
             )
 
-            : products.filter(product => new RegExp(searchValue.toLowerCase())
+            : (products.filter(product => new RegExp(searchValue.toLowerCase())
               .test(product.name.toLowerCase()))
               .map(product => (
-              isLineDisplay ? <ProductCardLine
-                key={guid()}
-                product={product}
-              />
-              : <ProductCardSquare
-                  key={guid()}
-                  product={product}
-                />
-            ))
+                isLineDisplay ? (
+                  <ProductCardLine
+                    key={guid()}
+                    product={product}
+                  />
+                )
+                  : (
+                    <ProductCardSquare
+                      key={guid()}
+                      product={product}
+                    />
+                  )
+              ))
+            )
         }
       </div>
     );

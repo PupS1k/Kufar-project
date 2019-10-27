@@ -8,7 +8,7 @@ const MainContent = () => (
   <div className="main-content">
     <MainContentBar />
     <div className="main-content-body">
-      <FilterPanel className="filter-panel"/>
+      <FilterPanel className="filter-panel" />
       <ProductList />
     </div>
   </div>

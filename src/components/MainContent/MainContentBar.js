@@ -11,7 +11,6 @@ import ModalWindow from '../ModalWindow';
 import FilterPanel from '../FilterPanel';
 
 class MainContentBar extends PureComponent {
-
   state = {
     sortValue: 'По дате',
     isOpenFilters: false
@@ -19,20 +18,20 @@ class MainContentBar extends PureComponent {
 
   componentDidUpdate(prevProps, prevState) {
     const {sortValue} = this.state;
-    if(prevState.sortValue !== sortValue){
+    if (prevState.sortValue !== sortValue) {
       const {products, changeProducts} = this.props;
-      switch(sortValue){
+      switch (sortValue) {
         case 'По дате':
           changeProducts([...products]
-            .sort((first, second) => first.createDate > second.createDate ? 1 : -1));
+            .sort((first, second) => (first.createDate > second.createDate ? 1 : -1)));
           break;
         case 'По цене ↑':
           changeProducts([...products].sort((first, second) => {
             const numFirst = Number(first.price);
             const numSecond = Number(second.price);
-            if(isNaN(numFirst) && !isNaN(numSecond)) return 1;
-            if(!isNaN(numFirst) && isNaN(numSecond)) return -1;
-            if(!isNaN(numFirst) && !isNaN(numSecond)) return numFirst > numSecond ? -1 : 1;
+            if (isNaN(numFirst) && !isNaN(numSecond)) return 1;
+            if (!isNaN(numFirst) && isNaN(numSecond)) return -1;
+            if (!isNaN(numFirst) && !isNaN(numSecond)) return numFirst > numSecond ? -1 : 1;
             return 0;
           }));
           break;
@@ -40,11 +39,13 @@ class MainContentBar extends PureComponent {
           changeProducts([...products].sort((first, second) => {
             const numFirst = Number(first.price);
             const numSecond = Number(second.price);
-            if(isNaN(numFirst) && !isNaN(numSecond)) return -1;
-            if(!isNaN(numFirst) && isNaN(numSecond)) return 1;
-            if(!isNaN(numFirst) && !isNaN(numSecond)) return numFirst > numSecond ? 1 : -1;
+            if (isNaN(numFirst) && !isNaN(numSecond)) return -1;
+            if (!isNaN(numFirst) && isNaN(numSecond)) return 1;
+            if (!isNaN(numFirst) && !isNaN(numSecond)) return numFirst > numSecond ? 1 : -1;
             return 0;
           }));
+          break;
+        default:
           break;
       }
     }
@@ -54,10 +55,10 @@ class MainContentBar extends PureComponent {
 
   handleSortProducts = event => this.setState({sortValue: event.currentTarget.value});
 
-  render(){
+  render() {
     const {allProducts, isLineDisplay, changeDisplayProducts} = this.props;
     const {isOpenFilters} = this.state;
-    return(
+    return (
       <div className="main-content-bar">
         <div className="cup-of-mainpage__text">
           <p className="main-content-bar__txt headline">Kufar - площадка объявлений в Беларуси</p>
@@ -82,37 +83,41 @@ class MainContentBar extends PureComponent {
                 alt: 'Switch'
               }}
             />
-            {isLineDisplay ?
-              <IconButton
-                onClick={changeDisplayProducts}
-                className="switch-display__btn"
-                image={{
-                  iconSize: 'medium',
-                  icon: squares,
-                  alt: 'Square'
-                }}
-              />
-              :
-              <IconButton
-                onClick={changeDisplayProducts}
-                className="switch-display__btn"
-                image={{
-                  iconSize: 'medium',
-                  icon: linesInterface,
-                  alt: 'Lines interface'
-                }}
-              />
-            }
+            {isLineDisplay
+              ? (
+                <IconButton
+                  onClick={changeDisplayProducts}
+                  className="switch-display__btn"
+                  image={{
+                    iconSize: 'medium',
+                    icon: squares,
+                    alt: 'Square'
+                  }}
+                />
+              )
+              : (
+                <IconButton
+                  onClick={changeDisplayProducts}
+                  className="switch-display__btn"
+                  image={{
+                    iconSize: 'medium',
+                    icon: linesInterface,
+                    alt: 'Lines interface'
+                  }}
+                />
+              )}
 
           </div>
         </div>
-        {isOpenFilters &&
+        {isOpenFilters
+          && (
           <ModalWindow toggleIsOpenModal={this.toggleIsOpenFilters}>
             <FilterPanel className="filter-panel-modal" />
           </ModalWindow>
+          )
         }
       </div>
-    )
+    );
   }
 }
 

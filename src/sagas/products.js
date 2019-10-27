@@ -7,7 +7,7 @@ import {
 import {addUserProduct} from '../actions/user';
 import {guid, fetchReq} from '../utils';
 
-function* getProducts(action) {
+function* getProducts() {
   yield put(addProductsLoading());
   const data = yield call(fetchReq, 'products');
   yield put(addProductsBack(data));

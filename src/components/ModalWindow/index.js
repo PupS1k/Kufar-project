@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import IconButton from '../IconButton';
 import close from '../../images/plusReset.png';
-import './style.css';
 import ContextProvider from '../Context';
+import './style.css';
 
-const ModalWindow = props => (
+const ModalWindow = ({toggleIsOpenModal, children}) => (
   <div>
     {ReactDOM.createPortal(
       <div className="modal">
@@ -13,7 +13,7 @@ const ModalWindow = props => (
           <div className="modal__close">
             <IconButton
               className="modal__close-button"
-              onClick={props.toggleIsOpenModal}
+              onClick={toggleIsOpenModal}
               image={{
                 alt: 'Close',
                 icon: close,
@@ -21,8 +21,8 @@ const ModalWindow = props => (
               }}
             />
           </div>
-          <ContextProvider value={props.toggleIsOpenModal}>
-            {props.children}
+          <ContextProvider value={toggleIsOpenModal}>
+            {children}
           </ContextProvider>
         </div>
       </div>,

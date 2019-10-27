@@ -24,10 +24,10 @@ const ProductCardLine = ({product, handleDelete}) => (
       </div>
       <div className="bot-part-of-product-card">
         <div className="product-card__location">
-          <img className="product-card__location_img" src={locationItem} alt="Location"/>
+          <img className="product-card__location_img" src={locationItem} alt="Location" />
           <p>{product.location}</p>
         </div>
-        <ReactTimeAgo date={new Date(product.createDate)} locale="ru"/>
+        <ReactTimeAgo date={new Date(product.createDate)} locale="ru" />
       </div>
     </div>
     {handleDelete && (

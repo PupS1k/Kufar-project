@@ -31,21 +31,17 @@ export const addProductsBack = value => ({
   type: ADD_PRODUCTS,
   payload: value
 });
-
 export const addProduct = value => ({
   type: ADD_PRODUCT,
   payload: value
 });
-
 export const getProductAsync = () => ({
   type: GET_PRODUCTS_ASYNC
 });
-
 export const createProductAsync = value => ({
   type: CREATE_PRODUCT_ASYNC,
   payload: value
 });
-
 export const deleteProduct = value => ({
   type: DELETE_PRODUCT,
   payload: value

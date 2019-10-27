@@ -6,7 +6,7 @@ describe('CheckboxList container', () => {
   const props = {
     headline: 'headline',
     classNameFilter: 'className',
-    filters: [213,123,21,3],
+    filters: [213, 123, 21, 3],
     handlesSwitchFilter: [],
     isChecked: []
   };
@@ -15,21 +15,20 @@ describe('CheckboxList container', () => {
     const component = shallow(<CheckboxList {...props} />);
 
     test('checkbox render', () => {
-      expect(component.find('input')).toHaveLength(props.filters.length)
+      expect(component.find('input')).toHaveLength(props.filters.length);
     });
 
     test('label render', () => {
-      expect(component.find('label')).toHaveLength(props.filters.length)
+      expect(component.find('label')).toHaveLength(props.filters.length);
     });
 
     test('headline render', () => { // TODO:
-      expect(component.find('.label-input')).toHaveLength(1)
+      expect(component.find('.label-input')).toHaveLength(1);
     });
 
     test('paragraph render', () => {
-      expect(component.find('label p')).toHaveLength(props.filters.length)
+      expect(component.find('label p')).toHaveLength(props.filters.length);
     });
-
   });
 
 
@@ -37,8 +36,7 @@ describe('CheckboxList container', () => {
     const component = shallow(<CheckboxList {...props} />);
 
     test('render text in headline', () => {
-      expect(component.find('.label-input').text()).toEqual(props.headline)
+      expect(component.find('.label-input').text()).toEqual(props.headline);
     });
-
   });
 });

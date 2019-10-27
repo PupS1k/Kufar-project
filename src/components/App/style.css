@@ -1,19 +1,14 @@
-body {
-    overflow-x: visible;
-}
-
 p {
     margin: 0;
     white-space: nowrap;
     font-family: Arial, serif;
 }
-span{
+span, label{
     font-family:  Arial, serif;
 }
 * {
     outline: none;
 }
-
 .page-container {
     font: 400 16px Arial;
     height: 100%;
@@ -24,7 +19,6 @@ span{
 .main-content p{
     white-space: normal;
 }
-
 button, a, .icon-checkbox-btn, .icon-radio-btn, label, select, option {
     cursor: pointer;
 }

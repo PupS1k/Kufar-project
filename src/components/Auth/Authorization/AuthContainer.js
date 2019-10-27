@@ -24,11 +24,11 @@ class AuthContainer extends PureComponent {
   handleSubmit = (event) => {
     event.preventDefault();
     const {mail, password, formValid} = this.state;
-    if(formValid) this.props.signIn({mail, password}, this.context);
+    if (formValid) this.props.signIn({mail, password}, this.context);
   };
 
   validateForm = formErrors => this.setState({
-      formValid: !formErrors.mail && !formErrors.password
+    formValid: !formErrors.mail && !formErrors.password
   });
 
   validateField(fieldName, value) {
@@ -52,15 +52,15 @@ class AuthContainer extends PureComponent {
     } = this.state;
     const {signInError} = this.props;
     return (
-     <AuthView
-       onSubmit={this.handleSubmit}
-       handleInput={this.handleInput}
-       mail={mail}
-       password={password}
-       formErrors={formErrors}
-       signInError={signInError}
-       isValid={!formValid}
-     />
+      <AuthView
+        onSubmit={this.handleSubmit}
+        handleInput={this.handleInput}
+        mail={mail}
+        password={password}
+        formErrors={formErrors}
+        signInError={signInError}
+        isValid={!formValid}
+      />
     );
   }
 }

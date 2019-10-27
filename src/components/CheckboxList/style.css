@@ -4,7 +4,6 @@ input[type="checkbox"] {
 .icon-checkbox-btn {
     margin-right: 10px;
 }
-
 .icon-checkbox-btn:before {
     content: '';
     display: block;
@@ -14,7 +13,6 @@ input[type="checkbox"] {
     z-index: 0;
     border-radius: 3px;
 }
-
 input[type="checkbox"]:checked + .icon-checkbox-btn:before {
     border: #00ad64 solid 1px;
     background: url(../../images/checkedChecbox.png) no-repeat center;

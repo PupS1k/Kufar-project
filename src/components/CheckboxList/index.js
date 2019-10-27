@@ -27,5 +27,4 @@ const CheckboxList = ({
   </div>
 );
 
-
 export default CheckboxList;

@@ -9,7 +9,7 @@ const ProductCardSquare = ({product}) => (
       className="product-card-square__img"
       style={{backgroundImage: product.image && `url('http://localhost:3000/api/images/${product.image}')`}}
     >
-      <ReactTimeAgo date={new Date(product.createDate)} locale="ru"/>
+      <ReactTimeAgo date={new Date(product.createDate)} locale="ru" />
     </div>
     <p className="product-card__container">
       {product.categories + (product.state !== 'Любое' ? `, ${product.state}` : '')}

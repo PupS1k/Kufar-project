@@ -17,7 +17,7 @@ import {
 import {deleteProduct} from '../actions/products';
 import {fetchReq} from '../utils';
 
-const saveToken = (token) => localStorage.setItem('Authorization', JSON.stringify(token));
+const saveToken = token => localStorage.setItem('Authorization', JSON.stringify(token));
 
 function* signUpAsync(action) {
   yield put(signUpLoading());
@@ -35,10 +35,9 @@ function* signUpAsync(action) {
 
     yield put(signUpSuccess(data.mail, data.id));
     action.handleModalClose();
-  }catch (err) {
+  } catch (err) {
     yield put(signUpError(err.message));
   }
-
 }
 
 function* signInAsync(action) {
@@ -62,7 +61,7 @@ function* signInAsync(action) {
     });
     yield put(addUserProducts(products));
     action.handleModalClose();
-  }catch (err) {
+  } catch (err) {
     yield put(signInError(err.message));
   }
 }

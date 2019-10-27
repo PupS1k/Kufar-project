@@ -28,28 +28,23 @@ export const signIn = (value, handleModalClose) => ({
   payload: value,
   handleModalClose
 });
-
 export const signInError = value => ({
   type: SIGN_IN_ERROR,
   payload: value
 });
-
 export const signInLoading = () => ({
   type: SIGN_IN_LOADING
 });
-
 export const signInSuccess = (mail, id) => ({
   type: SIGN_IN_SUCCESS,
   id,
   mail
 });
-
 export const signUp = (value, handleModalClose) => ({
   type: SIGN_UP,
   payload: value,
   handleModalClose
 });
-
 export const signUpError = value => ({
   type: SIGN_UP_ERROR,
   payload: value
@@ -64,22 +59,18 @@ export const signUpSuccess = (mail, id) => ({
   id,
   mail
 });
-
 export const addUserProducts = value => ({
   type: ADD_USER_PRODUCTS,
   payload: value
 });
-
 export const deleteUserProduct = value => ({
   type: DELETE_USER_PRODUCT,
   payload: value
 });
-
 export const deleteUserProductAsync = url => ({
   type: DELETE_USER_PRODUCT_ASYNC,
   url
 });
-
 export const addUserProduct = value => ({
   type: ADD_USER_PRODUCT,
   payload: value

@@ -28,12 +28,16 @@ class RegistrContainer extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const {signUp} = this.props;
-    const {mail, password, seller, formValid} = this.state;
-    if(formValid) signUp({
-      mail,
-      password,
-      sellerType: seller
-    }, this.context);
+    const {
+      mail, password, seller, formValid
+    } = this.state;
+    if (formValid) {
+      signUp({
+        mail,
+        password,
+        sellerType: seller
+      }, this.context);
+    }
   };
 
   validateForm = formErrors => this.setState({

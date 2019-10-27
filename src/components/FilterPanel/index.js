@@ -47,7 +47,7 @@ class FilterPanel extends PureComponent {
         if (this.state.isReset) {
           window.scrollTo(0, 0);
           this.props.changeProducts(correctProducts);
-          this.setState({isReset: false})
+          this.setState({isReset: false});
         }
         this.setState({products: correctProducts});
       }
@@ -72,25 +72,24 @@ class FilterPanel extends PureComponent {
   handleApplyFilters = () => {
     window.scrollTo(0, 0);
     this.props.changeProducts(this.state.products);
-    if(this.props.className !== 'filter-panel') this.context();
+    if (this.props.className !== 'filter-panel') this.context();
   };
 
-  handleResetFilters = () =>
-    this.setState({
-      isWithPhoto: false,
-      fashionableSummer: false,
-      installmentHalva: false,
-      isExchange: false,
-      stateFilters: [{name: 'Любое', checked: true},
-        {name: 'Новое', checked: false}, {name: 'Б/у', checked: false}],
-      sellerFilters: [{name: 'Любой', checked: true},
-        {name: 'Частное лицо', checked: false}, {name: 'Компания', checked: false}],
-      priceFrom: '',
-      priceTo: '',
-      stateProduct: 'Любое',
-      seller: 'Любой',
-      isReset: true
-    });
+  handleResetFilters = () => this.setState({
+    isWithPhoto: false,
+    fashionableSummer: false,
+    installmentHalva: false,
+    isExchange: false,
+    stateFilters: [{name: 'Любое', checked: true},
+      {name: 'Новое', checked: false}, {name: 'Б/у', checked: false}],
+    sellerFilters: [{name: 'Любой', checked: true},
+      {name: 'Частное лицо', checked: false}, {name: 'Компания', checked: false}],
+    priceFrom: '',
+    priceTo: '',
+    stateProduct: 'Любое',
+    seller: 'Любой',
+    isReset: true
+  });
 
 
   handleRegion = value => this.setState({region: value});
@@ -124,8 +123,8 @@ class FilterPanel extends PureComponent {
     return (
       <div className={this.props.className}>
         {
-          this.props.className === 'filter-panel' &&
-          <CategoryFilter />
+          this.props.className === 'filter-panel'
+          && <CategoryFilter />
         }
         <div className="other-filters-container">
           <SelectField

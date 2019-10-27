@@ -43,52 +43,9 @@
 .main-content-body{
     display: flex;
 }
-
 .main-content{
     display: flex;
     flex-direction: column;
-}
-
-
-.pagination{
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    margin: 40px 0;
-}
-.pagination__page{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4d5456;
-    min-width: 32px;
-    height: 32px;
-    border-radius: 30px;
-    margin: 0 8px;
-    outline:none;
-}
-.pagination__page:hover:not(.pagination_page_active){
-    background-color: #d6dfe1;
-}
-.pagination_page_active{
-    background-color: #4d5456;
-    color: white;
-}
-.pagination .points:hover{
-    background-color: transparent;
-}
-.pagination__btn:hover:not([disabled]){
-    background-color: #bfbcb7;
-}
-
-.pagination__btn_previous{
-    opacity: 0.5;
-    transform: rotate(90deg);
-}
-.pagination__btn_next{
-    transform: rotate(270deg);
 }
 
 @media screen and (max-width: 1024px){
