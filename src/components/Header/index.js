@@ -15,6 +15,7 @@ import human from '../../images/profile.png';
 import {changeSearchValue} from '../../actions/products';
 import Auth from '../Auth';
 import './style.css';
+import {getLocation} from '../../selectors/filters';
 
 
 class Header extends PureComponent {
@@ -64,7 +65,7 @@ class Header extends PureComponent {
   };
 
   render() {
-    const {userId} = this.props;
+    const {userId, location} = this.props;
     const {isDropdownOpen, searchValue, isOpenAuth} = this.state;
     return (
       <header>
@@ -87,7 +88,7 @@ class Header extends PureComponent {
           </div>
           <Button
             className="btn-location"
-            label="Вся Беларусь"
+            label={location !== 'Область' ? location : 'Вся беларусь'}
             mode="default_green"
             labelSize="large"
             image={{
@@ -171,7 +172,8 @@ class Header extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  userId: getUserId(state)
+  userId: getUserId(state),
+  location: getLocation(state)
 });
 
 export default withRouter(connect(mapStateToProps, {logOut, changeSearchValue})(Header));
