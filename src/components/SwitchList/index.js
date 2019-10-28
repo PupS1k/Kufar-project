@@ -1,12 +1,12 @@
-import React, {memo} from 'react';
+import React from 'react';
+import classNames from 'classnames';
 import {guid} from '../../utils';
 import './style.css';
 
 const SwitchList = ({
-  headline, classNameFilter, nameRadioBtn, filters, handleSwitchFilter
+  headline, classNameFilter, nameRadioBtn, filters, checked, handleSwitchFilter
 }) => {
   const handleSwitch = event => handleSwitchFilter(event.currentTarget.value);
-
   return (
     <div>
       {headline && <p className="label-input">{headline}</p>}
@@ -14,11 +14,11 @@ const SwitchList = ({
         {filters.map(filter => (
           <label key={guid()} className="icon-label">
             <input
-              className="icon-input"
+              className={classNames('icon-input', {'radio-checked': filter.name === checked})}
               type="radio"
               value={filter.name}
               onChange={handleSwitch}
-              defaultChecked={filter.checked}
+              defaultChecked={filter.name === checked}
               name={nameRadioBtn}
             />
             <div className="icon-radio-btn" />
@@ -30,5 +30,4 @@ const SwitchList = ({
   );
 };
 
-
-export default memo(SwitchList);
+export default SwitchList;

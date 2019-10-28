@@ -19,7 +19,7 @@ const CheckboxList = ({
             name={filter.name}
             checked={isChecked[index]}
           />
-          <div className="icon-checkbox-btn"/>
+          <div className="icon-checkbox-btn" />
           <p>{filter.name}</p>
         </label>
       ))}

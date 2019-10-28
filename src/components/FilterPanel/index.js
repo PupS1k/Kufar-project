@@ -6,10 +6,12 @@ import PriceFilter from './PriceFilter';
 import SwitchList from '../SwitchList';
 import CheckboxList from '../CheckboxList';
 import Button from '../Button';
-import {locations, checkboxFilter} from '../../constants';
+import {locations, checkboxFilter, stateFilters, sellerFilters} from '../../constants';
 import {applyFilters, location} from '../../utils';
 import {getCategory, getProductsByCategory} from '../../selectors/products';
 import {changeProducts, changeCategoriesFilter} from '../../actions/products';
+import {changeFilters, resetFilters} from '../../actions/filters';
+import {getFilters} from '../../selectors/filters';
 import {Context} from '../Context';
 import './style.css';
 
@@ -17,22 +19,7 @@ class FilterPanel extends PureComponent {
   static contextType = Context;
 
   state = {
-    region: 'Область',
-    city: 'Любой',
-    priceFrom: '',
-    priceTo: '',
-    stateProduct: 'Любое',
-    seller: 'Любой',
-    isWithPhoto: false,
-    fashionableSummer: false,
-    installmentHalva: false,
-    isExchange: false,
-    stateFilters: [{name: 'Любое', checked: true},
-      {name: 'Новое', checked: false}, {name: 'Б/у', checked: false}],
-    sellerFilters: [{name: 'Любой', checked: true},
-      {name: 'Частное лицо', checked: false}, {name: 'Компания', checked: false}],
-    products: this.props.products,
-    isReset: false
+    products: this.props.products
   };
 
   componentDidMount() {
@@ -41,33 +28,17 @@ class FilterPanel extends PureComponent {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.products === this.state.products) {
-      const {products} = this.props;
+      const {products, filters} = this.props;
       if (products) {
-        const correctProducts = this.handleChangeProducts();
-        if (this.state.isReset) {
-          window.scrollTo(0, 0);
-          this.props.changeProducts(correctProducts);
-          this.setState({isReset: false});
-        }
-        this.setState({products: correctProducts});
+        this.setState({
+          products: products.filter(product => applyFilters({
+            ...filters,
+            location: location(filters.region, filters.city)
+          }, product))
+        });
       }
     }
   }
-
-  handleChangeProducts = () => this.props.products
-    .filter(product => applyFilters({
-      location: location(this.state.region, this.state.city),
-      priceFrom: this.state.priceFrom,
-      priceTo: this.state.priceTo,
-      stateProduct: this.state.stateProduct,
-      seller: this.state.seller,
-      isWithPhoto: this.state.isWithPhoto,
-      fashionableSummer: this.state.fashionableSummer,
-      installmentHalva: this.state.installmentHalva,
-      isExchange: this.state.isExchange
-    },
-    product));
-
 
   handleApplyFilters = () => {
     window.scrollTo(0, 0);
@@ -75,53 +46,36 @@ class FilterPanel extends PureComponent {
     if (this.props.className !== 'filter-panel') this.context();
   };
 
-  handleResetFilters = () => this.setState({
-    isWithPhoto: false,
-    fashionableSummer: false,
-    installmentHalva: false,
-    isExchange: false,
-    stateFilters: [{name: 'Любое', checked: true},
-      {name: 'Новое', checked: false}, {name: 'Б/у', checked: false}],
-    sellerFilters: [{name: 'Любой', checked: true},
-      {name: 'Частное лицо', checked: false}, {name: 'Компания', checked: false}],
-    priceFrom: '',
-    priceTo: '',
-    stateProduct: 'Любое',
-    seller: 'Любой',
-    isReset: true
-  });
+  handleRegion = value => this.props.changeFilters({region: value});
 
+  handleCity = value => this.props.changeFilters({city: value});
 
-  handleRegion = value => this.setState({region: value});
+  handlePriceFrom = value => this.props.changeFilters({priceFrom: value});
 
-  handleCity = value => this.setState({city: value});
+  handlePriceTo = value => this.props.changeFilters({priceTo: value});
 
-  handlePriceFrom = value => this.setState({priceFrom: value});
+  handleStateProduct = value => this.props.changeFilters({stateProduct: value});
 
-  handlePriceTo = value => this.setState({priceTo: value});
+  handleSeller = value => this.props.changeFilters({seller: value});
 
-  handleStateProduct = value => this.setState({stateProduct: value});
+  handleIsWithPhoto = () => this.props
+    .changeFilters({isWithPhoto: !this.props.filters.isWithPhoto});
 
-  handleSeller = value => this.setState({seller: value});
+  handleFashionableSummer = () => this.props
+    .changeFilters({fashionableSummer: !this.props.filters.fashionableSummer});
 
-  handleIsWithPhoto = () => this.setState(({isWithPhoto}) => ({isWithPhoto: !isWithPhoto}));
+  handleInstallmentHalva = () => this.props
+    .changeFilters({installmentHalva: !this.props.filters.installmentHalva});
 
-  handleFashionableSummer = () => this.setState(({fashionableSummer}) => (
-    {fashionableSummer: !fashionableSummer}));
+  handleIsExchange = () => this.props.changeFilters({isExchange: !this.props.filters.isExchange});
 
-  handleInstallmentHalva = () => this.setState(({installmentHalva}) => (
-    {installmentHalva: !installmentHalva}));
-
-  handleIsExchange = () => this.setState(({isExchange}) => ({isExchange: !isExchange}));
 
   render() {
-    const {
-      products, priceTo, priceFrom, fashionableSummer, sellerFilters,
-      isExchange, installmentHalva, isWithPhoto, stateFilters
-    } = this.state;
-    const cities = locations.find(location => location.region === this.state.region);
+    const {resetFilters, className, filters} = this.props;
+    const {products} = this.state;
+    const cities = locations.find(location => location.region === filters.region);
     return (
-      <div className={this.props.className}>
+      <div className={className}>
         {
           this.props.className === 'filter-panel'
           && <CategoryFilter />
@@ -143,8 +97,8 @@ class FilterPanel extends PureComponent {
             handleLocation={this.handleCity}
           />
           <PriceFilter
-            priceTo={priceTo}
-            priceFrom={priceFrom}
+            priceTo={filters.priceTo}
+            priceFrom={filters.priceFrom}
             handlePriceFrom={this.handlePriceFrom}
             handlePriceTo={this.handlePriceTo}
           />
@@ -153,6 +107,7 @@ class FilterPanel extends PureComponent {
             classNameFilter="state-filter"
             nameRadioBtn="state"
             filters={stateFilters}
+            checked={filters.stateProduct}
             handleSwitchFilter={this.handleStateProduct}
           />
           <SwitchList
@@ -160,6 +115,7 @@ class FilterPanel extends PureComponent {
             classNameFilter="seller-filter"
             nameRadioBtn="seller"
             filters={sellerFilters}
+            checked={filters.seller}
             handleSwitchFilter={this.handleSeller}
           />
           <CheckboxList
@@ -172,10 +128,10 @@ class FilterPanel extends PureComponent {
               this.handleIsExchange
             ]}
             isChecked={[
-              fashionableSummer,
-              installmentHalva,
-              isWithPhoto,
-              isExchange
+              filters.fashionableSummer,
+              filters.installmentHalva,
+              filters.isWithPhoto,
+              filters.isExchange
             ]}
           />
           <Button
@@ -188,14 +144,8 @@ class FilterPanel extends PureComponent {
           <Button
             mode="default"
             className="btn_reset-filters"
-            onClick={this.handleResetFilters}
+            onClick={resetFilters}
             label="Сбросить фильтры"
-            labelSize="large"
-          />
-          <Button
-            mode="default_green"
-            className="btn_save-search"
-            label="Сохранить поиск"
             labelSize="large"
           />
         </div>
@@ -206,11 +156,14 @@ class FilterPanel extends PureComponent {
 
 const mapStateToProps = state => ({
   products: getProductsByCategory(state),
-  category: getCategory(state)
+  category: getCategory(state),
+  filters: getFilters(state)
 });
 
 
 export default connect(mapStateToProps, {
   changeProducts,
-  changeCategoriesFilter
+  changeCategoriesFilter,
+  changeFilters,
+  resetFilters
 })(FilterPanel);

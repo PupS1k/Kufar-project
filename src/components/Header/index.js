@@ -64,7 +64,7 @@ class Header extends PureComponent {
   };
 
   render() {
-    const {toggleIsOpenModel, userId} = this.props;
+    const {userId} = this.props;
     const {isDropdownOpen, searchValue, isOpenAuth} = this.state;
     return (
       <header>
@@ -101,7 +101,7 @@ class Header extends PureComponent {
           <Button
             className="btn_type_primary"
             mode="primary_green"
-            onClick={userId ? this.handleAddProduct : toggleIsOpenModel}
+            onClick={userId ? this.handleAddProduct : this.toggleIsOpenAuth}
             labelSize="large"
             label="Подать объявление"
             image={{
@@ -113,7 +113,7 @@ class Header extends PureComponent {
           <Button
             className="btn_type_secondary"
             mode="primary_green"
-            onClick={userId ? this.handleAddProduct : toggleIsOpenModel}
+            onClick={userId ? this.handleAddProduct : this.toggleIsOpenAuth}
             image={{
               icon: plus,
               iconSize: 'small',
