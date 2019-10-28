@@ -7,6 +7,7 @@ footer{
     padding: 32px 0 64px 0;
     flex-direction: column;
     flex: 1;
+    margin-top: 50px;
 }
 .top-part-of-foot{
     display: flex;
