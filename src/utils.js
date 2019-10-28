@@ -39,3 +39,36 @@ export const applyFilters = (filters, product) => {
 
 export const location = (region, city) => region
   + (city !== 'Любой' && city !== '' ? `, ${city}` : '');
+
+export const sortProducts = (sort, products) => {
+  switch (sort) {
+    case 'По дате':
+      products
+        .sort((first, second) => (first.createDate > second.createDate ? 1 : -1));
+      break;
+    case 'По цене ↑':
+      products.sort((first, second) => {
+        const numFirst = Number(first.price);
+        const numSecond = Number(second.price);
+        if (isNaN(numFirst) && !isNaN(numSecond)) return 1;
+        if (!isNaN(numFirst) && isNaN(numSecond)) return -1;
+        if (!isNaN(numFirst) && !isNaN(numSecond)) return numFirst > numSecond ? -1 : 1;
+        return 0;
+      });
+      break;
+    case 'По цене ↓':
+      products.sort((first, second) => {
+        const numFirst = Number(first.price);
+        const numSecond = Number(second.price);
+        if (isNaN(numFirst) && !isNaN(numSecond)) return -1;
+        if (!isNaN(numFirst) && isNaN(numSecond)) return 1;
+        if (!isNaN(numFirst) && !isNaN(numSecond)) return numFirst > numSecond ? 1 : -1;
+        return 0;
+      });
+      break;
+    default:
+      break;
+  }
+  console.log(products);
+  return products;
+};

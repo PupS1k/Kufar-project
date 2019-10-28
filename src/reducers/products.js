@@ -6,8 +6,9 @@ import {
   DELETE_PRODUCT,
   ADD_PRODUCTS_LOADING,
   CHANGE_DISPLAY_PRODUCTS,
-  CHANGE_SEARCH_VALUE
+  CHANGE_SEARCH_VALUE, CHANGE_SORT_VALUE
 } from '../actions/products';
+import {sortProducts} from '../utils';
 
 const initialState = {
   categoryFilter: '',
@@ -16,11 +17,18 @@ const initialState = {
   allProducts: [],
   isLoading: false,
   isLineDisplay: true,
-  searchValue: ''
+  searchValue: '',
+  sortValue: 'По дате'
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case CHANGE_SORT_VALUE:
+      return {
+        ...state,
+        sortValue: action.payload,
+        products: sortProducts(action.payload, [...state.products])
+      };
     case CHANGE_SEARCH_VALUE:
       return {
         ...state,
@@ -34,7 +42,7 @@ export default (state = initialState, action) => {
     case CHANGE_PRODUCTS:
       return {
         ...state,
-        products: action.payload
+        products: sortProducts(state.sortValue, action.payload)
       };
     case ADD_PRODUCTS:
       return {

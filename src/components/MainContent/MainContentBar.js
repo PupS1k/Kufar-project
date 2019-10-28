@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Button from '../Button';
 import IconButton from '../IconButton';
 import {getAllProducts, getIsLineDisplay, getProducts} from '../../selectors/products';
-import {changeProducts, changeDisplayProducts} from '../../actions/products';
+import {changeProducts, changeDisplayProducts, changeSortValue} from '../../actions/products';
 import switches from '../../images/switch.png';
 import linesInterface from '../../images/linesInterface.png';
 import squares from '../../images/square4.png';
@@ -12,7 +12,6 @@ import FilterPanel from '../FilterPanel';
 
 class MainContentBar extends PureComponent {
   state = {
-    sortValue: 'По дате',
     isOpenFilters: false
   };
 
@@ -53,7 +52,7 @@ class MainContentBar extends PureComponent {
 
   toggleIsOpenFilters = () => this.setState(({isOpenFilters}) => ({isOpenFilters: !isOpenFilters}));
 
-  handleSortProducts = event => this.setState({sortValue: event.currentTarget.value});
+  handleSortProducts = (event) => this.props.changeSortValue(event.currentTarget.value);
 
   render() {
     const {allProducts, isLineDisplay, changeDisplayProducts} = this.props;
@@ -127,4 +126,8 @@ const mapStateToProps = state => ({
   products: getProducts(state)
 });
 
-export default connect(mapStateToProps, {changeProducts, changeDisplayProducts})(MainContentBar);
+export default connect(mapStateToProps, {
+  changeProducts,
+  changeDisplayProducts,
+  changeSortValue
+})(MainContentBar);

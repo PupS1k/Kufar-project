@@ -8,7 +8,12 @@ export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const CHANGE_DISPLAY_PRODUCTS = 'CHANGE_DISPLAY_PRODUCTS';
 export const CHANGE_SEARCH_VALUE = 'CHANGE_SEARCH_VALUE';
+export const CHANGE_SORT_VALUE = 'CHANGE_SORT_VALUE';
 
+export const changeSortValue = value => ({
+  type: CHANGE_SORT_VALUE,
+  payload: value
+});
 export const changeSearchValue = value => ({
   type: CHANGE_SEARCH_VALUE,
   payload: value
